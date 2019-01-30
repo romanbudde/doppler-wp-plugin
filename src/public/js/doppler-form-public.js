@@ -1,6 +1,5 @@
 (function( $ ) {
 	'use strict';
-console.log('hola manola');
 	$(document).ready(function() {
 
 		$("form.dplr_form input[type='text'].date").each(function() {
@@ -24,12 +23,13 @@ console.log('hola manola');
 			subscriber.email = $("input[name='EMAIL']").val();
 			subscriber.fields = [];
 
-			var fields = $("input[name|='fields'], select[name|='fields']");
+			var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
 
 			fields.each(function(index) {
 				var input = $(fields[index]);
 
 				if (input.attr('type') == 'radio' && !input.is(':checked')) return;
+				if (input.attr('type') == 'checkbox' && !input.is(':checked')) return;
 
 				var name = input.attr('name');
 				name = name.split('-');
