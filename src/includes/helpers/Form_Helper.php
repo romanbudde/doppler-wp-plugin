@@ -27,7 +27,7 @@ class DPLR_Form_helper
       $submit_text = "submit";
     }
     if(empty($message_success)){
-      $message_success = "subscriber success..";
+      $message_success = "Thanks for Subscribing";
     }
 
     $buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
