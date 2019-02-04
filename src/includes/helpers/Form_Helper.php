@@ -45,39 +45,39 @@ class DPLR_Form_helper
     switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
-          <br/><input <?php echo $required; ?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+          <br/><input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php } else {?>
-          <br/><textarea name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
+          <br/><textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
         <?php }
         break;
         case 'number':?>
-        <br/><input <?php echo $required; ?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+        <br/><input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php
           break;
         case 'consent':?>
           <br/>
-          <input <?php echo $required; ?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
+          <input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
           <?php
       break;
       case 'boolean':
         ?>
 
-        <br/><input  type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
-        <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
+        <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
+        <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
         break;
       case 'email':
         ?>
-        <br/><input <?php echo $required; ?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+        <br/><input <?=$required?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
         break;
       case 'date':
         ?>
-        <br/><input <?php echo $required; ?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
+        <br/><input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
         <input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
         break;
       case 'gender':
       ?>
-      <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
-      <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
+      <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
+      <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
         break;
       case 'country':
         ?><br/><select <?php echo $required; ?> name="fields-<?php echo $input->name; ?>">
