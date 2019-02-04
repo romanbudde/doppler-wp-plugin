@@ -1,25 +1,22 @@
 (function( $ ) {
 	'use strict';
 	$(document).ready(function() {
-
 		$("form.dplr_form input[type='text'].date").each(function() {
 			var dateElement = $(this);
-
 			var elementName = dateElement.attr('name');
-
 			dateElement.datepicker({
 				'dateFormat': 'dd/mm/yy',
 				'altFormat': 'yy-mm-dd',
 				'altField': 'input[name="fields-'+elementName+'"]'
 			});
 		});
-
 		$('.dplr_form').submit(function(ev) {
 			ev.preventDefault();
+			$("button[name='submit']").attr("disabled", "disabled");
+			$("#msg-data-sending").show();
 
 			var subscriber = {},
 				list_id = $("input[name='list_id']").val();
-
 			subscriber.email = $("input[name='EMAIL']").val();
 			subscriber.fields = [];
 
@@ -39,16 +36,20 @@
 				var field = {};
 				field['name'] = name;
 				field['value'] = input.val();
-
 				subscriber.fields.push(field);
 			});
 
-
-
-			$.post(ajax_object.ajax_url, {"action": 'submit_form', "subscriber": subscriber, "list_id": list_id}, function(res) {
-
-			});
+			$.post(ajax_object.ajax_url,
+				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
+				function(res) {
+					$("#msg-data-sending").show();
+					$("button[name='submit']").removeAttr("disabled");
+			}).done(function( data ) {
+				setTimeout(function(){
+				$("#msg-data-sending").hide();
+		}, 2000);
+				$(".dplr_form")[0].reset();
+  		});
 		});
 	});
-
 })( jQuery );

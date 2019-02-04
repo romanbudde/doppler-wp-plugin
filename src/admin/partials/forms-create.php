@@ -56,6 +56,10 @@
             <input type="text" name="settings[button_text]" value="" />
           </div>
           <div class="dplr_input_section">
+            <label for="submit_text">Message success submit</label>
+            <input type="text" name="settings[message_success]" value="" />
+          </div>
+          <div class="dplr_input_section">
             <label for="settings[button_position]">Select a position</label>
             <select class="" name="settings[button_position]">
               <option value="left">Left</option>
@@ -74,8 +78,6 @@
     <input type="submit" value="ok">
   </form>
 </div>
-
-
 <script type="text/javascript">
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
 var form_fields = [];

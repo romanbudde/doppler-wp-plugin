@@ -60,6 +60,10 @@
               <input type="text" name="settings[button_text]" value="<?php echo $form->settings["button_text"] ?>" />
             </div>
             <div class="dplr_input_section">
+              <label for="submit_text">Message success submit</label>
+              <input type="text" name="settings[message_success]" value="<?=$form->settings["message_success"] ?>"  />
+            </div>
+            <div class="dplr_input_section">
               <label for="settings[button_position]">Select a position</label>
               <?php $button_position = $form->settings["button_position"]; ?>
               <select class="" name="settings[button_position]">

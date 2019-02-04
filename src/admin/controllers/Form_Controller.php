@@ -1,5 +1,7 @@
 <?php
 
+
+
 class DPLR_Form_Controller
 {
   private $doppler_service;
@@ -7,6 +9,9 @@ class DPLR_Form_Controller
   function __construct($doppler_service)
   {
     $this->doppler_service = $doppler_service;
+  }
+  function comparator($object1, $object2) {
+      return $object1->name > $object2->name;
   }
 
   function create( $form = null ) {
@@ -94,9 +99,7 @@ class DPLR_Form_Controller
     $dplr_fields = isset($dplr_fields->items) ? $dplr_fields->items : [];
 
     usort($dplr_fields, function($a, $b) {
-      if($a->predefined && $b->predefined) return 0;
-      if($a->predefined) return -1;
-      return 1;
+      return $a->name > $b->name;
     });
 
     if ($form_id != NULL) {

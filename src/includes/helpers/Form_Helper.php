@@ -22,10 +22,19 @@ class DPLR_Form_helper
     <?php }
     $button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "";
     $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "submit";
+    $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "subscriber success";
+    if(empty($submit_text)){
+      $submit_text = "submit";
+    }
+    if(empty($message_success)){
+      $message_success = "subscriber success..";
+    }
+
     $buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
     ?>
       <div class="input-buttom ">
-        <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>"><?php echo $form->settings["button_text"]; ?></button>
+        <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>"><?=$submit_text?></button>
+        <label id="msg-data-sending"><?=$message_success?></label>
       <div>
     </form>
     <?php
@@ -36,13 +45,13 @@ class DPLR_Form_helper
     switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
-          <input <?php echo $required; ?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+          <br/><input <?php echo $required; ?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php } else {?>
-          <textarea name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
+          <br/><textarea name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
         <?php }
         break;
         case 'number':?>
-        <input <?php echo $required; ?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+        <br/><input <?php echo $required; ?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php
           break;
         case 'consent':?>
@@ -52,27 +61,26 @@ class DPLR_Form_helper
       break;
       case 'boolean':
         ?>
-        <br/>
-        <input  type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si<br/>
-        <input type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
+
+        <br/><input  type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
+        <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
         break;
       case 'email':
         ?>
-        <br/>
-        <input <?php echo $required; ?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+        <br/><input <?php echo $required; ?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
         break;
       case 'date':
-        ?><input <?php echo $required; ?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
+        ?>
+        <br/><input <?php echo $required; ?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
         <input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
         break;
       case 'gender':
       ?>
-      <br/>
-      <input type="radio" name="fields-<?php echo $input->name; ?>" value="M">M<br/>
-      <input type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<br/><?php
+      <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
+      <br/><input type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
         break;
       case 'country':
-        ?><select <?php echo $required; ?> name="fields-<?php echo $input->name; ?>">
+        ?><br/><select <?php echo $required; ?> name="fields-<?php echo $input->name; ?>">
           	<option value="AF">Afghanistan</option>
           	<option value="AX">Åland Islands</option>
           	<option value="AL">Albania</option>
