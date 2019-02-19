@@ -39,7 +39,7 @@
               <div class="col-1-2 dplr_input_section">
                 <label for="list_id">Select the fields to include</label>
                 <select id="fieldList" class="" name="">
-                  <option value="" >select the fields</option>
+                  <option value="" >select the fields you want to add to your form</option>
                 </select>
               </div>
               <div class="col-1-2">
@@ -57,11 +57,11 @@
           <div class="panel-body grid">
             <div class="dplr_input_section">
               <label for="submit_text">Tex to show on button</label>
-              <input type="text" name="settings[button_text]" value="<?php echo $form->settings["button_text"] ?>" />
+              <input type="text" name="settings[button_text]" value="<?php echo $form->settings["button_text"] ?>" placeholder="submit"/>
             </div>
             <div class="dplr_input_section">
               <label for="submit_text">Message success submit</label>
-              <input type="text" name="settings[message_success]" value="<?=$form->settings["message_success"] ?>"  />
+              <input type="text" name="settings[message_success]" value="<?=$form->settings["message_success"] ?>"  placeholder="Thanks for Subscribing" />
             </div>
             <div class="dplr_input_section">
               <label for="settings[button_position]">Select a position</label>
@@ -80,7 +80,7 @@
           </div>
         </div>
       </div>
-    <input type="submit" value="ok">
+    <input type="submit" value="ok" class="button button-primary">
   </form>
 </div>
 <script type="text/javascript">

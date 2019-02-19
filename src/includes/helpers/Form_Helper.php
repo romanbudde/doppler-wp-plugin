@@ -1,4 +1,5 @@
 <?php
+
 class DPLR_Form_helper
 {
   public static function generate($context, $options = NULL) {

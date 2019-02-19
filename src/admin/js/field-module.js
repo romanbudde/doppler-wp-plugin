@@ -79,7 +79,7 @@ var FieldModel;
 
 			var html = "<li data-field-name='"+ field.name +"'>";
 			html += !field.readonly ? "<div class='icon-close'></div>" : "";
-			html += "<a href='#'>"+ field.name + "</a><span class='type'> ("+field.type+")</span><i></i>";
+			html += "<a href='#'>"+ field.name + "</a><span class='type'> ("+field.type+")</span> <span class='alt-toggle'>Edit field</span> <i></i>";
 			html += ' <input type="hidden" name="fields['+field.name+'][type]" value="'+field.type+'">'
 			html += ' <div class="accordion-content field-settings">';
 
