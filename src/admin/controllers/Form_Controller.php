@@ -17,7 +17,7 @@ class DPLR_Form_Controller
   function create( $form = null ) {
     if (isset($form) && count($form) > 0) {
 
-      DPLR_Form_Model::insert(['title' => $form['title'], 'description' => $form['description'], 'list_id' => $form['list_id'], 'list_name' => $form['list_name']]);
+      DPLR_Form_Model::insert(['title' => $form['title'], 'list_id' => $form['list_id']]);
       $form_id =  DPLR_Form_Model::insert_id();
 
       DPLR_Form_Model::setSettings($form_id, $form["settings"]);
@@ -46,7 +46,7 @@ class DPLR_Form_Controller
   function update($form_id, $form_to_update = NULL) {
     if (isset($form_to_update) && count($form_to_update) > 0) {
 
-      DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'description' => $form_to_update['description'], 'list_id' => $form_to_update['list_id'], 'list_name' => $form_to_update['list_name']]);
+      DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id']]);
 
       DPLR_Form_Model::setSettings($form_id, $form_to_update["settings"]);
 
@@ -80,6 +80,13 @@ class DPLR_Form_Controller
 		$create_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=create');
 		$edit_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=edit&form_id=[FORM_ID]' );
     $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
+    $list_resource = $this->doppler_service->getResource('lists');
+    $dplr_lists = $list_resource->getAllLists();
+    $dplr_lists = isset($dplr_lists->items) ? $dplr_lists->items : [];
+    $dplr_lists_arr = [];
+    for ($i=0; $i < count($dplr_lists); $i++) {
+       $dplr_lists_arr[$dplr_lists[$i]->listId] = $dplr_lists[$i]->name;
+    }
 		include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
   }
 

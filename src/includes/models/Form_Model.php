@@ -17,7 +17,6 @@ final class DPLR_Form_Model extends DPLR_Base_Model {
        . "title tinytext NOT NULL,"
        . "description text NULL,"
        . "list_id INT(15) NOT NULL,"
-       . "list_name tinytext NOT NULL,"
   		 . "PRIMARY KEY  (id)"
   		. ") $charset_collate;";
 

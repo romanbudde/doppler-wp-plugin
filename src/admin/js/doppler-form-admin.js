@@ -124,14 +124,6 @@ $(document).ready(function(){
 		$(this).closest('li').toggleClass('active');
 	});
 
-	var dpr_list = $("#list-id");
-
-	$("#list-name").val( dpr_list.children("option:selected").text().trim() );
-
-	dpr_list.change(function(){
-		$("#list-name").val( $(this).children("option:selected").text().trim() );
-	});
-
 });
 
 $(document).on('widget-updated',  function(e, elem){
