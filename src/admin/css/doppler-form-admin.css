@@ -485,17 +485,20 @@
   .dplr ul.accordion {
     list-style-type: none;
     padding: 0;
-    font-weight: bold; }
+    /*font-weight:400;*/ }
     .dplr ul.accordion > li {
       background: #FFF;
       position: relative;
       border: 1px solid #d2d2d2;
       padding: 15px;
       margin-bottom: 10px; }
+      .dplr ul.accordion > li > a {
+        font-weight: bold; }
       .dplr ul.accordion > li .type {
         font-size: 10px;
         font-style: italic;
-        color: #000; }
+        color: #000;
+        font-weight: 700; }
       .dplr ul.accordion > li:last-child {
         margin-bottom: 0; }
       .dplr ul.accordion > li > a {
@@ -503,10 +506,15 @@
         color: #666; }
         .dplr ul.accordion > li > a:hover {
           color: #999; }
+      .dplr ul.accordion > li span.alt-toggle {
+        position: absolute;
+        right: 50px;
+        font-weight: 400;
+        line-height: 30px; }
       .dplr ul.accordion > li > i {
-        padding: 0 1.5em;
+        padding: 0 1.5em 0 .3rem;
         cursor: pointer;
-        float: right;
+        /*float:right;*/
         font-style: normal;
         font-weight: 600;
         position: absolute;
@@ -550,7 +558,6 @@
       border: 1px solid #d3d3d3;
       border-radius: 3px;
       box-sizing: border-box;
-      color: #94917f;
       font-family: inherit;
       font-size: 15px;
       padding: 10px;
@@ -568,8 +575,14 @@
       width: 90%; }
   .dplr .sortable > li {
     cursor: move; }
-  .dplr select#fieldList .selected {
-    display: none; }
+  .dplr form .button {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 20px; }
+  .dplr select#fieldList {
+    color: #94917f; }
+    .dplr select#fieldList .selected {
+      display: none; }
   .dplr table {
     table-layout: fixed;
     background: #FFF;
