@@ -17,7 +17,7 @@ class DPLR_Form_Controller
   function create( $form = null ) {
     if (isset($form) && count($form) > 0) {
 
-      DPLR_Form_Model::insert(['title' => $form['title'], 'description' => $form['description'], 'list_id' => $form['list_id']]);
+      DPLR_Form_Model::insert(['title' => $form['title'], 'description' => $form['description'], 'list_id' => $form['list_id'], 'list_name' => $form['list_name']]);
       $form_id =  DPLR_Form_Model::insert_id();
 
       DPLR_Form_Model::setSettings($form_id, $form["settings"]);
@@ -46,7 +46,7 @@ class DPLR_Form_Controller
   function update($form_id, $form_to_update = NULL) {
     if (isset($form_to_update) && count($form_to_update) > 0) {
 
-      DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'description' => $form_to_update['description'], 'list_id' => $form_to_update['list_id']]);
+      DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'description' => $form_to_update['description'], 'list_id' => $form_to_update['list_id'], 'list_name' => $form_to_update['list_name']]);
 
       DPLR_Form_Model::setSettings($form_id, $form_to_update["settings"]);
 

@@ -126,10 +126,10 @@ $(document).ready(function(){
 
 	var dpr_list = $("#list-id");
 
-	$("#list-name").val( dpr_list.children("option:selected").text() );
+	$("#list-name").val( dpr_list.children("option:selected").text().trim() );
 
 	dpr_list.change(function(){
-		$("#list-name").val( $(this).children("option:selected").text() );
+		$("#list-name").val( $(this).children("option:selected").text().trim() );
 	});
 
 });

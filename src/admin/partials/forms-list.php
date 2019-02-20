@@ -24,7 +24,7 @@
                 <a href="<?php echo str_replace('[FORM_ID]', $form->id , $delete_form_url); ?>">Delete</a>
               </div>
             </td>
-            <td><?php echo $form->list_name; ?><?php var_dump($form)?></td>
+            <td><?php echo $form->list_name; ?></td>
             <td><?php echo $form->list_id; ?></td>
           </tr>
           <?php } ?>
