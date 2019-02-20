@@ -8,7 +8,7 @@
             <th class="cb"><input type="checkbox" name="" value=""></th>
             <th class="col-id">Id</th>
             <th class="col-title">Title</th>
-            <th class="col-description">Description</th>
+            <th class="col-listname">List name</th>
             <th class="col-listid">List Id</th>
           </tr>
         </thead>
@@ -24,7 +24,7 @@
                 <a href="<?php echo str_replace('[FORM_ID]', $form->id , $delete_form_url); ?>">Delete</a>
               </div>
             </td>
-            <td><?php echo $form->description; ?></td>
+            <td><?php echo $form->list_name; ?><?php var_dump($form)?></td>
             <td><?php echo $form->list_id; ?></td>
           </tr>
           <?php } ?>
@@ -34,4 +34,4 @@
   </div>
 </div>
 
-<a href="<?php echo $create_form_url; ?>">Crear Formulario</a>
+<a href="<?php echo $create_form_url; ?>" class="button button-primary">Crear Formulario</a>

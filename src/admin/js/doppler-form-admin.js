@@ -123,6 +123,15 @@ $(document).ready(function(){
 	$("body").on('click', "li i", function(e) {
 		$(this).closest('li').toggleClass('active');
 	});
+
+	var dpr_list = $("#list-id");
+
+	$("#list-name").val( dpr_list.children("option:selected").text() );
+
+	dpr_list.change(function(){
+		$("#list-name").val( $(this).children("option:selected").text() );
+	});
+
 });
 
 $(document).on('widget-updated',  function(e, elem){
