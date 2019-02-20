@@ -123,6 +123,7 @@ $(document).ready(function(){
 	$("body").on('click', "li i", function(e) {
 		$(this).closest('li').toggleClass('active');
 	});
+
 });
 
 $(document).on('widget-updated',  function(e, elem){

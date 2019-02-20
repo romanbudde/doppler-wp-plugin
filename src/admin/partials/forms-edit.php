@@ -14,12 +14,8 @@
               <input type="text" name="title" placeholder="" value="<?php echo $form->title; ?>" />
             </div>
             <div class="dplr_input_section">
-              <label for="description">Form description</label>
-              <textarea name="description" rows="8" cols="80"><?php echo $form->description; ?></textarea>
-            </div>
-            <div class="dplr_input_section">
               <label for="list_id">Doppler List</label>
-              <select class="" name="list_id">
+              <select class="" name="list_id" id="list-id">
                 <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
                   <option <?php echo $form->list_id == $dplr_lists[$i]->listId ? 'selected="selected"' : ''; ?> value="<?php echo $dplr_lists[$i]->listId; ?>">
                     <?php echo $dplr_lists[$i]->name; ?>
