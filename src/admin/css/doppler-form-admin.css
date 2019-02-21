@@ -13,12 +13,17 @@
   min-height: 750px;
   /* Animation */
   /****spinners****/ }
+  .dplr_settings h2 {
+    color: #525845;
+    font-family: "Proxima Nova Rg";
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 24px; }
   .dplr_settings a {
     color: #33AC72;
     text-decoration: none; }
   .dplr_settings > .wrap {
-    max-width: 1000px;
-    width: 100%;
+    width: 98%;
     margin: 0 auto;
     height: 100%; }
   .dplr_settings p, .dplr_settings span, .dplr_settings label {
@@ -161,9 +166,9 @@
 .dplr_settings div[id^='setting-error-'] {
   display: none; }
 .dplr_settings div.updated_message {
-  margin-top: 45px; }
+  margin-top: 20px; }
   .dplr_settings div.updated_message > p {
-    font-family: 'Proxima Nova' , Arial;
+    font-family: 'Proxima Nova Rg' , Arial;
     font-size: 16px;
     line-height: 21px; }
 .dplr_settings div.dplr_form_wrapper {
@@ -177,8 +182,12 @@
     right: 50%; }
 .dplr_settings .disconnect_box {
   position: absolute;
-  top: 10px;
-  right: 10px; }
+  top: 30px;
+  right: 40px; }
+.dplr_settings hr {
+  margin-top: 56px;
+  margin-bottom: 46px;
+  border-top: 1px solid #979797; }
 .dplr_settings .button {
   background-color: gray !important;
   border: none !important;
@@ -236,6 +245,43 @@
     border-radius: 50%;
     width: 30px;
     height: 30px; }
+.dplr_settings .dplr-pasos {
+  max-width: 88%;
+  margin: auto;
+  text-align: left; }
+  .dplr_settings .dplr-pasos > div {
+    display: flex;
+    flex-direction: row; }
+    .dplr_settings .dplr-pasos > div > div {
+      flex-grow: 1;
+      padding-left: 50px;
+      padding-right: 50px; }
+      .dplr_settings .dplr-pasos > div > div figure {
+        margin: 0px;
+        min-height: 158px;
+        position: relative;
+        margin-bottom: 25px; }
+        .dplr_settings .dplr-pasos > div > div figure img {
+          position: absolute;
+          bottom: 0px;
+          left: 0px; }
+      .dplr_settings .dplr-pasos > div > div span {
+        display: block;
+        color: #302100;
+        font-family: "Proxima Nova Rg";
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 32px; }
+      .dplr_settings .dplr-pasos > div > div p {
+        color: #525845;
+        font-family: "Proxima Nova Rg";
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 10px; }
+      .dplr_settings .dplr-pasos > div > div:first-child {
+        padding-left: 0px; }
+      .dplr_settings .dplr-pasos > div > div:last-child {
+        padding-right: 0px; }
 
 /**
  *--------------------------------------------------------------------

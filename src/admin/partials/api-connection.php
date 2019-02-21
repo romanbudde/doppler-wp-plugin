@@ -1,28 +1,62 @@
 <section class="dplr_settings theme_dplr">
 	<div class="wrap">
 		<a href="http://www.fromdoppler.com" target="_blank"><img id="dplr_logo" src="<?php echo plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
-		<h1><?php _e("Conecta con Doppler y crea tus formularios desde wordpress", "doppler-form" ); ?></h1>
-		<p class="subtitle"><?php _e("Crea formularios que se adapten automáticamente a los estilos de tu sitio y envía tus nuevos contactos desde wordpress automáticamente a tus Listas de Doppler. Lo único que necesitas hacer es ingresar tu usuario y API key para conectarte.","doppler-form") ;?>			<?php
+		<?php
 		if ($connected) { ?>
+		<h1><?php _e("¡Conexión exitosa!", "doppler-form" ); ?></h1>
+		<p class="subtitle"><?php _e("Tu cuenta está oficialmente conectada :)","doppler-form") ;?></p>
 		<div class="disconnect_box">
 			<form method="POST" action="options.php" >
 				<?php settings_fields('dplr_plugin_options'); ?>
 				<input type="hidden" name="dplr_settings[action]" value="disconnect" />
-				<span><i><?php _e("Your account is connected", "doppler-form"); ?></i><button class="button button--small button--fourth"><?php _e("Disconnect", "doppler-form"); ?></button></span>
+				<span><button class="button button--small button--fourth"><?php _e("Disconnect", "doppler-form"); ?></button></span>
 			</form>
 		</div>
 		<div class="updated_message">
-			<img width="54" src="<?php  echo plugins_url( '/../img/check.png', __FILE__ ); ?>" alt="">
-			<p style="color:#65BF92; font-family: 'Proxima Nova', Arial; font-size: 16px; line-height:21px;"><i>
-				<?php _e("The process was a success! Your API Key is officially connected.", "doppler-form"); ?>
-			</i></p>
-			<img width="860" src="<?php  echo plugins_url( '/../img/bar.png', __FILE__ ); ?>" style="margin: 30px 0 5px 0;" alt="">
-			<p style="color: #525843; font-size:16px; line-height: 21px; font-family: 'Proxima Nova', Arial; max-width:860px; width: 100%; display: inline-block;">
-				<?php _e("You're almost there! Go to the tab", "doppler-form"); ?> <img width="18px" src="<?php  echo plugins_url( '/../img/icon.png', __FILE__ ); ?>" alt=""><?php _e("<b>Appearance>Widgets>Doppler Form</b> and choose the Lists where your new Subscribers will be saved", "doppler-form"); ?>
-			</p>
+			<img width="54" src="<?php  echo plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
+			<hr/>
+			<div class="dplr-pasos">
+				<h2>¡Ya casi lo tienes! Sigues estos pasos</h2>
+				<div>
+					<div>
+						<figure>
+							<img src="<?php  echo plugins_url( '/../img/screenshot-1.png', __FILE__ ); ?>" alt="step 1"/>
+						</figure>
+						<span>
+							1.
+						</span>
+						<p>
+						Dirigite a la pestaña Forms y crea un nuevo Formulario. Selecciona la lista que quieres alimentar y los campos que desesas incorporar
+						</p>
+					</div>
+					<div>
+						<figure>
+							<img src="<?php  echo plugins_url( '/../img/screenshot-1.png', __FILE__ ); ?>" alt="step 2"/>
+						</figure>
+						<span>
+							2.
+						</span>
+						<p>
+						Dirigite a apariencia > Widgets. Haz click en Formularios de Doppler y selecciona donde quieras que aparezca tu nuevo formulario
+						</p>
+					</div>
+					<div>
+						<figure>
+							<img src="<?php  echo plugins_url( '/../img/screenshot-3.png', __FILE__ ); ?>" alt="step 3"/>
+						</figure>
+						<span>
+							3.
+						</span>
+						<p>
+						¡Listo! ya deberías ver publicado tu formulario en tu página con la apariencia de tu theme.
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<?php } else {?>
-
+		<h1><?php _e("Conecta con Doppler y crea tus formularios desde wordpress", "doppler-form" ); ?></h1>
+		<p class="subtitle"><?php _e("Crea formularios que se adapten automáticamente a los estilos de tu sitio y envía tus nuevos contactos desde wordpress automáticamente a tus Listas de Doppler. Lo único que necesitas hacer es ingresar tu usuario y API key para conectarte.","doppler-form") ;?>
 		<div class="dplr_form_wrapper" >
 			<form method="POST" action="options.php" id="dplr_apikey_options" class="<?php echo $error?'error':''; ?>">
 				<?php settings_fields('dplr_plugin_options'); ?>
