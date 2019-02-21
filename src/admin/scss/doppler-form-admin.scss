@@ -889,3 +889,69 @@
 
   }
 }
+
+/**
+ *--------------------------------------------------------------------
+ *
+ *                    MEDIA QUERIES
+ *
+ *--------------------------------------------------------------------
+ */
+
+
+@media only screen and (max-width: 768px) {
+
+  .dplr_settings div.dplr_form_wrapper, .dplr_settings > div > p.subtitle{
+    width: 90%;
+    padding-left:0px;
+    padding-right:0px;
+  }
+
+  .input-container.input-text label {
+    display: block;
+  }
+  
+  .input-container.input-text, .input-container.input-text input[type="text"]{
+    max-width: none;
+  }
+
+  .dplr_settings .dplr-pasos{
+    > div{
+      > div{
+        figure{
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }  
+  }
+
+  
+}
+
+@media only screen and (max-width: 560px) {
+
+  .dplr_settings{
+    .disconnect_box {
+      top: 70px;
+    }
+    .dplr-pasos{ 
+      >div{
+        flex-direction:column;
+        margin-top: 80px;
+        >div{
+          padding-left:0px;
+          padding-right:0px;
+          figure{
+            img{
+              width: 75%;
+            }
+          }
+        }
+      }
+    }
+  } 
+
+}
+
