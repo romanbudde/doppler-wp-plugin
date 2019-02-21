@@ -16,7 +16,7 @@
 			<img width="54" src="<?php  echo plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
 			<hr/>
 			<div class="dplr-pasos">
-				<h2>¡Ya casi lo tienes! Sigues estos pasos</h2>
+				<h2>¡Ya casi lo tienes! Sigue estos pasos</h2>
 				<div>
 					<div>
 						<figure>
@@ -31,7 +31,7 @@
 					</div>
 					<div>
 						<figure>
-							<img src="<?php  echo plugins_url( '/../img/screenshot-1.png', __FILE__ ); ?>" alt="step 2"/>
+							<img src="<?php  echo plugins_url( '/../img/screenshot-2.png', __FILE__ ); ?>" alt="step 2"/>
 						</figure>
 						<span>
 							2.
