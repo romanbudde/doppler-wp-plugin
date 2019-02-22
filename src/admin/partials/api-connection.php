@@ -3,20 +3,20 @@
 		<a href="http://www.fromdoppler.com" target="_blank"><img id="dplr_logo" src="<?php echo plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
 		<?php
 		if ($connected) { ?>
-		<h1><?php _e("¡Conexión exitosa!", "doppler-form" ); ?></h1>
-		<p class="subtitle"><?php _e("Tu cuenta está oficialmente conectada :)","doppler-form") ;?></p>
+		<h1><?php echo esc_html("¡Successful connection!", "doppler-form" ); ?></h1>
+		<p class="subtitle"><?php echo esc_html("Your account is now officially connected","doppler-form") ;?> :)</p>
 		<div class="disconnect_box">
 			<form method="POST" action="options.php" >
 				<?php settings_fields('dplr_plugin_options'); ?>
 				<input type="hidden" name="dplr_settings[action]" value="disconnect" />
-				<span><button class="button button--small button--fourth"><?php _e("Disconnect", "doppler-form"); ?></button></span>
+				<span><button class="button button--small button--fourth"><?php echo esc_html("Disconnect", "doppler-form"); ?></button></span>
 			</form>
 		</div>
 		<div class="updated_message">
 			<img width="54" src="<?php  echo plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
 			<hr/>
 			<div class="dplr-pasos">
-				<h2>¡Ya casi lo tienes! Sigue estos pasos</h2>
+				<h2><?php echo esc_html('¡You are almost done! Follow this steps', 'doppler-form')?></h2>
 				<div>
 					<div>
 						<figure>
@@ -26,7 +26,9 @@
 							1.
 						</span>
 						<p>
-						Dirigite a la pestaña Forms y crea un nuevo Formulario. Selecciona la lista que quieres alimentar y los campos que desesas incorporar
+						<?php 
+							echo esc_html('Go to the Forms tab and create a new form.  Select the list you want to populate and the fields you want to add.', 'doppler-form');
+						?>
 						</p>
 					</div>
 					<div>
@@ -37,7 +39,9 @@
 							2.
 						</span>
 						<p>
-						Dirigite a apariencia > Widgets. Haz click en Formularios de Doppler y selecciona donde quieras que aparezca tu nuevo formulario
+						<?php 
+							echo esc_html('Go to Appearance > Widgets.  Click in Doppler Forms and select where you want your new form to show.', 'doppler-form');
+						?>
 						</p>
 					</div>
 					<div>
@@ -48,21 +52,23 @@
 							3.
 						</span>
 						<p>
-						¡Listo! ya deberías ver publicado tu formulario en tu página con la apariencia de tu theme.
+						<?php 
+							echo esc_html('¡Done! You should now see your new form published with your theme\'s appearance.', 'doppler-form');
+						?>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php } else {?>
-		<h1><?php _e("Conecta con Doppler y crea tus formularios desde wordpress", "doppler-form" ); ?></h1>
-		<p class="subtitle"><?php _e("Crea formularios que se adapten automáticamente a los estilos de tu sitio y envía tus nuevos contactos desde wordpress automáticamente a tus Listas de Doppler. Lo único que necesitas hacer es ingresar tu usuario y API key para conectarte.","doppler-form") ;?>
+		<h1><?php _e("Connect with Doppler and create your forms from wordpress", "doppler-form" ); ?></h1>
+		<p class="subtitle"><?php _e("Create forms that automatically adapt to your site's styles and send your new contacts automatically from wordpress to your Doppler Lists. The only thing you need to do is enter your user and API key to connect.","doppler-form") ;?>
 		<div class="dplr_form_wrapper" >
 			<form method="POST" action="options.php" id="dplr_apikey_options" class="<?php echo $error?'error':''; ?>">
 				<?php settings_fields('dplr_plugin_options'); ?>
         <div class="input-container input-horizontally input-text tooltip tooltip-warning <?php echo isset($errorMessages['user_account']) ? 'tooltip-initial input-error' : 'tooltip-hide'; echo $options['dplr_option_useraccount'] ? ' notempty' : ''; ?>">
-          <label>Email</label>
-					<input class="validation"  onfocus="this.placeholder = ''" data-validation-email="<?php _e("Ouch! Enter a valid Email address.", "doppler-form"); ?>" <?php echo isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?>" onblur="this.placeholder = '<?php _e("Tu usuario de Doppler ;)", "doppler-form");?>'" type="text" placeholder="<?php _e("Tu usuario de Doppler ;)", "doppler-form");?>" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?php echo $options['dplr_option_useraccount'];?>" />
+          <label><?php echo esc_html('Email', 'doppler-form');?></label>
+					<input class="validation"  onfocus="this.placeholder = ''" data-validation-email="<?php _e("Ouch! Enter a valid Email address.", "doppler-form"); ?>" <?php echo isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?>" onblur="this.placeholder = '<?php _e("Your Doppler user ;)", "doppler-form");?>'" type="text" placeholder="<?php _e("Your Doppler user ;)", "doppler-form");?>" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?php echo $options['dplr_option_useraccount'];?>" />
           <div class="tooltip-container">
             <span></span>
           </div>
