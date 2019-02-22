@@ -74,6 +74,7 @@ class Doppler_Admin {
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
+		wp_localize_script( 'field-module', 'ObjStr', array( 'editField' => __( 'Edit field', 'doppler-form' ) ) ); 
 
 	}
 
