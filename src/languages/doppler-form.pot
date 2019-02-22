@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-02-22 13:20-0300\n"
+"2019-02-22 15:25-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -225,6 +225,7 @@ msgid "Button text"
 msgstr ""
 
 #: admin/partials/forms-create.php:52
+#: includes/helpers/Form_Helper.php:28
 msgid "Submit"
 msgstr ""
 
@@ -235,6 +236,7 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:56
+#: includes/helpers/Form_Helper.php:31
 msgid ""
 "Thanks for subscribing"
 msgstr ""
@@ -310,4 +312,18 @@ msgstr ""
 
 #: admin/partials/forms-list.php:38
 msgid "New Form"
+msgstr ""
+
+#: includes/class-doppler-form-widget.php:47
+msgid "Forms"
+msgstr ""
+
+#: includes/class-doppler-form-widget.php:50
+msgid "Select a form"
+msgstr ""
+
+#: includes/class-doppler-form-widget.php:59
+msgid ""
+"You haven't created any "
+"form"
 msgstr ""

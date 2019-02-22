@@ -44,10 +44,10 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		$forms = DPLR_Form_Model::getAll();
 	 ?>
 		<!-- Widget title -->
-		<p>Forms</p>
+		<p><?php _e('Forms', 'doppler-form')?></p>
 		<?php if (count($forms) > 0) { ?>
 		<p>
-			<label for="form_id">Select a form</label>
+			<label for="form_id"><?php _e('Select a form', 'doppler-form')?></label>
 			<select id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>">
 				<?php for ($i=0; $i < count($forms); $i++) { ?>
 				<option <?php echo isset($instance['form_id']) &&  $instance['form_id'] == $forms[$i]->id ? "selected='selected'" : ""; ?> value="<?php echo $forms[$i]->id; ?>"><?php echo $forms[$i]->title; ?></option>
@@ -56,7 +56,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		</p>
 	 	<?php
 	} else {?>
-		<p>You have not any form created</p>
+		<p><?php _e('You haven\'t created any form', 'doppler-form')?></p>
 	<?php }
 	}
 }

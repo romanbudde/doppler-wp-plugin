@@ -25,10 +25,10 @@ class DPLR_Form_helper
     $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "submit";
     $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "subscriber success";
     if(empty($submit_text)){
-      $submit_text = "submit";
+      $submit_text =  __('Submit', 'doppler-form');
     }
     if(empty($message_success)){
-      $message_success = "Thanks for Subscribing";
+      $message_success = __('Thanks for subscribing', 'doppler-form');
     }
 
     $buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
