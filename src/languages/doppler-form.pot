@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-02-22 15:25-0300\n"
+"2019-02-22 16:01-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -312,6 +312,15 @@ msgstr ""
 
 #: admin/partials/forms-list.php:38
 msgid "New Form"
+msgstr ""
+
+#: includes/class-doppler-form-widget.php:9
+msgid ""
+"Create a Doppler form"
+msgstr ""
+
+#: includes/class-doppler-form-widget.php:10
+msgid "Doppler form"
 msgstr ""
 
 #: includes/class-doppler-form-widget.php:47

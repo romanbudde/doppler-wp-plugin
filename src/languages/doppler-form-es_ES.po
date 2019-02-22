@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-02-22 15:32-0300\n"
+"POT-Creation-Date: 2019-02-22 15:51-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -235,6 +235,14 @@ msgstr "Eliminar"
 #: admin/partials/forms-list.php:38
 msgid "New Form"
 msgstr "Crear formulario"
+
+#: includes/class-doppler-form-widget.php:9
+msgid "Create a Doppler form"
+msgstr "Crear un formulario de Doppler"
+
+#: includes/class-doppler-form-widget.php:10
+msgid "Doppler form"
+msgstr "Formulario de Doppler"
 
 #: includes/class-doppler-form-widget.php:47
 msgid "Forms"
