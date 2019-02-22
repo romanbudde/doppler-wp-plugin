@@ -680,6 +680,11 @@
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04); }
       .dplr table tbody tr td {
         border-top: 1px solid #e5e5e5; }
+        .dplr table tbody tr td .column-actions {
+          color: #ddd;
+          font-size: 13px;
+          padding: 2px 0 0;
+          position: relative; }
       .dplr table tbody tr:nth-child(odd) {
         background: #f9f9f9; }
       .dplr table tbody tr:nth-child(even) {
