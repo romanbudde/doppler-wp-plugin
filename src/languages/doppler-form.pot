@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-02-22 16:01-0300\n"
+"2019-02-22 17:56-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -49,17 +49,41 @@ msgstr ""
 "X-Poedit-"
 "SearchPath-0: .\n"
 
-#: admin/doppler-admin.php:77
+#: admin/doppler-admin.php:78
 msgid "Edit field"
 msgstr ""
 
-#: admin/doppler-admin.php:130
+#: admin/doppler-admin.php:79
+msgid "Required"
+msgstr ""
+
+#: admin/doppler-admin.php:80
+msgid "Label to show"
+msgstr ""
+
+#: admin/doppler-admin.php:81
+msgid "Description"
+msgstr ""
+
+#: admin/doppler-admin.php:82
+msgid "Text type"
+msgstr ""
+
+#: admin/doppler-admin.php:83
+msgid "One single line"
+msgstr ""
+
+#: admin/doppler-admin.php:84
+msgid "Multiple Lines"
+msgstr ""
+
+#: admin/doppler-admin.php:138
 msgid ""
 "Ouch! Enter a valid API "
 "Key."
 msgstr ""
 
-#: admin/doppler-admin.php:133
+#: admin/doppler-admin.php:141
 msgid ""
 "Ouch! Enter a valid "
 "account."
@@ -225,6 +249,7 @@ msgid "Button text"
 msgstr ""
 
 #: admin/partials/forms-create.php:52
+#: admin/partials/forms-edit.php:56
 #: includes/helpers/Form_Helper.php:28
 msgid "Submit"
 msgstr ""
@@ -236,6 +261,7 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:56
+#: admin/partials/forms-edit.php:60
 #: includes/helpers/Form_Helper.php:31
 msgid ""
 "Thanks for subscribing"

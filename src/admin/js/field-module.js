@@ -88,15 +88,15 @@ var FieldModel;
 			var label = field.settings.label != undefined ? field.settings.label : field.name;
 			html += field.readonly ? '		<input type="hidden" name="fields['+field.name+'][settings][required]" value="required">' : '';
 			html += '		<div class="dplr_input_section horizontal">';
-			html += '			<label for="fields['+field.name+'][settings][required]">Required</label>';
+			html += '			<label for="fields['+field.name+'][settings][required]">'+ObjStr.Required+'</label>';
 			html += '   	<input '+readonly+' class="setting-required" type="checkbox" '+checkedRequired+' name="fields['+field.name+'][settings][required]" value="required"><br>';
 			html += '		</div>';
 			html += '		<div class="dplr_input_section horizontal">';
-			html += '			<label for="fields['+field.name+'][settings][label]">Label to show</label>';
+			html += '			<label for="fields['+field.name+'][settings][label]">'+ObjStr.LabelToShow+'</label>';
 			html += '   	<input class="setting-required" type="text" name="fields['+field.name+'][settings][label]" value="'+label+'"><br>';
 			html += '		</div>';
 			html += '		<div class="dplr_input_section horizontal">';
-			html += '			<label for="fields['+field.name+'][settings][description]">Description</label>';
+			html += '			<label for="fields['+field.name+'][settings][description]">'+ObjStr.Description+'</label>';
 			html += '   	<textarea name="fields['+field.name+'][settings][description]">'+field.settings.description+'</textarea><br>';
 			html += '		</div>';
 			if ($.inArray(field.type, ['boolean', 'gender', 'date']) == -1) {
@@ -107,10 +107,10 @@ var FieldModel;
 			}
 			if (field.type === "string") {
 				html += '		<div class="dplr_input_section horizontal">';
-				html += '			<label for="fields['+field.name+'][settings][text_lines]">Text type</label>';
+				html += '			<label for="fields['+field.name+'][settings][text_lines]">'+ObjStr.TextType+'</label>';
 			html += '				<select name="fields['+field.name+'][settings][text_lines]">'
-				html += field.settings.text_lines == "single" ? '				<option selected="selected" value="single">One single line</option>' : '				<option value="single">One single line</option>';
-				html += field.settings.text_lines == "multi" ? '   		<option selected="selected" value="multi">Multiple lines</option>' : '   		<option value="multi">Multiple lines</option>';
+				html += field.settings.text_lines == "single" ? '				<option selected="selected" value="single">'+ObjStr.OneSingleLine+'</option>' : '				<option value="single">'+ObjStr.OneSingleLine+'</option>';
+				html += field.settings.text_lines == "multi" ? '   		<option selected="selected" value="multi">'+ObjStr.MultipleLines+'</option>' : '   		<option value="multi">'+ObjStr.MultipleLines+'</option>';
 				html += '			</select>';
 				html += '		</div>';
 			}

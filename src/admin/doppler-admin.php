@@ -74,7 +74,15 @@ class Doppler_Admin {
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
-		wp_localize_script( 'field-module', 'ObjStr', array( 'editField' => __( 'Edit field', 'doppler-form' ) ) ); 
+		wp_localize_script( 'field-module', 'ObjStr', array( 
+																'editField'   	=> __( 'Edit field', 'doppler-form' ),
+																'Required'    	=> __( 'Required', 'doppler-form'),
+																'LabelToShow' 	=> __( 'Label to show', 'doppler-form'),
+																'Description' 	=> __( 'Description', 'doppler-form'),
+																'TextType'    	=> __( 'Text type', 'doppler-form'),
+																'OneSingleLine' => __( 'One single line', 'doppler-form'),
+																'MultipleLines' => __( 'Multiple Lines', 'doppler-form')									 				
+		) ); 
 
 	}
 

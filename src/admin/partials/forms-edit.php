@@ -53,7 +53,7 @@
           <div class="panel-body grid">
             <div class="dplr_input_section">
               <label for="submit_text"><?php _e('Button text', 'doppler-form')?></label>
-              <input type="text" name="settings[button_text]" value="<?php echo $form->settings["button_text"] ?>" placeholder="<?php _e('Submit', 'doppler-form')?>"/>
+              <input type="text" name="settings[button_text]" value="<?php echo $form->settings["button_text"] ?>" placeholder="<?php _e('Submit', 'doppler-form')?>g"/>
             </div>
             <div class="dplr_input_section">
               <label for="submit_text"><?php _e('Confirmation message', 'doppler-form')?></label>
