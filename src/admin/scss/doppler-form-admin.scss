@@ -777,7 +777,7 @@
       padding-left: 10px;
     }
 
-    input[type="text"], select, textarea {
+    input[type="text"], input[type="url"], select, textarea {
       width: 100%;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -792,8 +792,12 @@
       box-shadow: none;
     }
 
-    input:not([type="checkbox"]), select {
+    input:not([type="checkbox"]):not([type="radio"]),  select {
       height: 42px;
+    }
+
+    input[type="radio"]{
+      margin-left: 3px;
     }
 
     textarea {

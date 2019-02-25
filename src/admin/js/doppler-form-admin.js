@@ -124,6 +124,15 @@ $(document).ready(function(){
 		$(this).closest('li').toggleClass('active');
 	});
 
+	$(".dplr-toggle-consent").change(function(){
+		var o = $('.dplr-toggle-consent:checked').val();
+		if(o === 'yes'){
+			$('#dplr_consent_section').fadeIn();
+		}else{
+			$('#dplr_consent_section').fadeOut();
+		}
+	});
+
 });
 
 $(document).on('widget-updated',  function(e, elem){

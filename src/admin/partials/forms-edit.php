@@ -73,6 +73,30 @@
               <label for="settings[button_color]"><?php _e('Button background color', 'doppler-form')?></label>
               <input class="color-selector" type="text" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">
             </div>
+            <div class="dplr_input_section">
+              <label for="settings[use_consent_field]"><?php _e('¿Use consent field?', 'doppler-form')?></label>
+              <?php _e('Yes', 'doppler-form')?>
+                <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="yes" <?php if($form->settings['use_consent_field']==='yes') echo 'checked'?>>&nbsp; 
+              <?php _e('No', 'doppler-form')?>
+                <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no" <?php if($form->settings['use_consent_field']!=='yes') echo 'checked'?>> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid" id="dplr_consent_section" <?= ($form->settings['use_consent_field']==='yes')? 'style="display:block"' : 'style="display:none"'; ?>>
+        <div class="col-4-5 panel nopd">
+          <div class="panel-header">
+            <h2><?php _e('Consent field settings', 'doppler-form')?></h2>
+          </div>
+          <div class="panel-body grid">
+              <div class="dplr_input_section">
+                <label for="settings[consent_field_text]"><?php _e('Checkbox label', 'doppler-form')?></label>
+                <input type="text" name="settings[consent_field_text]" value="<?=$form->settings["consent_field_text"] ?>" placeholder="<?php _e("I've read and accept the privace policy", "doppler-form")?>"/>
+              </div>
+              <div class="dplr_input_section">
+              <label for="settings[consent_field_url]"><?php _e('Enter the URL of your privacy policy. Do you want to know more? Press <a href="" target="blank">HELP</a>', 'doppler-form')?></label>
+              <input type="url" name="settings[consent_field_url]" pattern="https?://.+" value="<?=$form->settings["consent_field_url"] ?>" placeholder="<?php esc_html_e("https://www.mysite.com", "doppler-form")?>"/>
+            </div>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
 			subscriber.email = $("input[name='EMAIL']").val();
 			subscriber.fields = [];
 
-			var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
+			var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']"); 
 
 			fields.each(function(index) {
 				var input = $(fields[index]);

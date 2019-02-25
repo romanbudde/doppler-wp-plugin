@@ -18,9 +18,23 @@ class DPLR_Form_helper
       <div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>">
         <label for="<?php echo $field->name; ?>" ><?php echo $label; ?></label>
         <?php echo self::printInput($field);?>
-        <p class="description"><?php echo isset($field->settings['description']) ? $field->settings['description'] : ''; ?></p>
       </div>
-    <?php }
+		<?php }
+		if($form->settings['use_consent_field']==='yes'){
+			?>
+			<div class="input field" required>
+				<input type="checkbox" name="fields-CONSENT" required value="true"/> 
+				<?= isset($form->settings['consent_field_text']) && !empty($form->settings['consent_field_text']) ? $form->settings['consent_field_text'] : _e("I've read and accept the privace policy", "doppler-form") ?>
+				<?php 
+					if( isset($form->settings['consent_field_url']) && !empty($form->settings['consent_field_url']) ){
+							?>
+							<a href="<?= $form->settings['consent_field_url'] ?>"><?php _e('Read more', 'doppler-form')?></a>
+							<?php
+					} 
+				?>
+			</div>
+			<?php
+		}
     $button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "";
     $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "submit";
     $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "subscriber success";

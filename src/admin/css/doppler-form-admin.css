@@ -620,7 +620,7 @@
       font-weight: bold;
       padding-bottom: 5px;
       padding-left: 10px; }
-    .dplr .dplr_input_section input[type="text"], .dplr .dplr_input_section select, .dplr .dplr_input_section textarea {
+    .dplr .dplr_input_section input[type="text"], .dplr .dplr_input_section input[type="url"], .dplr .dplr_input_section select, .dplr .dplr_input_section textarea {
       width: 100%;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -633,8 +633,10 @@
       padding: 10px;
       position: relative;
       box-shadow: none; }
-    .dplr .dplr_input_section input:not([type="checkbox"]), .dplr .dplr_input_section select {
+    .dplr .dplr_input_section input:not([type="checkbox"]):not([type="radio"]), .dplr .dplr_input_section select {
       height: 42px; }
+    .dplr .dplr_input_section input[type="radio"] {
+      margin-left: 3px; }
     .dplr .dplr_input_section textarea {
       min-height: 200px; }
     .dplr .dplr_input_section.horizontal label {
