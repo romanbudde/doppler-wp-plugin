@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-02-26 10:35-0300\n"
+"POT-Creation-Date: 2019-02-26 12:52-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -218,53 +218,62 @@ msgstr "Derecha"
 msgid "Fill"
 msgstr "Expandir"
 
-#: admin/partials/forms-create.php:68 admin/partials/forms-edit.php:73
+#: admin/partials/forms-create.php:68 admin/partials/forms-edit.php:74
+#: admin/partials/forms-edit.php:79
 msgid "Button background color"
 msgstr "Color de fondo del botón"
 
-#: admin/partials/forms-create.php:72 admin/partials/forms-edit.php:77
+#: admin/partials/forms-create.php:69 admin/partials/forms-edit.php:80
+msgid "Use my theme's default color"
+msgstr "Usar el color de mi tema"
+
+#: admin/partials/forms-create.php:70 admin/partials/forms-edit.php:82
+msgid "Choose another color"
+msgstr "Elegir otro color"
+
+#: admin/partials/forms-create.php:74 admin/partials/forms-edit.php:87
 msgid "¿Use consent field?"
 msgstr "¿Usar campo de consentimiento?"
 
-#: admin/partials/forms-create.php:73 admin/partials/forms-edit.php:78
+#: admin/partials/forms-create.php:75 admin/partials/forms-edit.php:88
 msgid "Yes"
 msgstr "Si"
 
-#: admin/partials/forms-create.php:74 admin/partials/forms-edit.php:80
+#: admin/partials/forms-create.php:76 admin/partials/forms-edit.php:90
 msgid "No"
 msgstr "No"
 
-#: admin/partials/forms-create.php:82 admin/partials/forms-edit.php:89
+#: admin/partials/forms-create.php:84 admin/partials/forms-edit.php:99
 msgid "Consent field settings"
 msgstr "Ajustes del campo de consentimiento"
 
-#: admin/partials/forms-create.php:86 admin/partials/forms-edit.php:93
+#: admin/partials/forms-create.php:88 admin/partials/forms-edit.php:103
 msgid "Checkbox label"
 msgstr "Texto a mostrar"
 
-#: admin/partials/forms-create.php:87 admin/partials/forms-edit.php:94
+#: admin/partials/forms-create.php:89 admin/partials/forms-edit.php:104
 #: includes/helpers/Form_Helper.php:27
 msgid "I've read and accept the privace policy"
 msgstr "He leído y acepto la política de privacidad"
 
-#: admin/partials/forms-create.php:91 admin/partials/forms-edit.php:98
+#: admin/partials/forms-create.php:93 admin/partials/forms-edit.php:108
 msgid "Enter the URL of your privacy policy. Do you want to know more? Press "
 msgstr ""
 "Ingresa la URL de tu política de privacidad. ¿Quieres saber más? Presiona"
 
-#: admin/partials/forms-create.php:92 admin/partials/forms-edit.php:99
+#: admin/partials/forms-create.php:94 admin/partials/forms-edit.php:109
 msgid "HELP"
 msgstr "AYUDA"
 
-#: admin/partials/forms-create.php:94 admin/partials/forms-edit.php:101
+#: admin/partials/forms-create.php:96 admin/partials/forms-edit.php:111
 msgid "https://www.mysite.com"
 msgstr "https://www.misitio.com"
 
-#: admin/partials/forms-create.php:99 admin/partials/forms-edit.php:106
+#: admin/partials/forms-create.php:101 admin/partials/forms-edit.php:116
 msgid "Save"
 msgstr "Guardar"
 
-#: admin/partials/forms-create.php:99 admin/partials/forms-edit.php:106
+#: admin/partials/forms-create.php:101 admin/partials/forms-edit.php:116
 msgid "Cancel"
 msgstr "Cancelar"
 
