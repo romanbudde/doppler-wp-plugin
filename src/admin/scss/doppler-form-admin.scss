@@ -764,6 +764,7 @@
   .dplr_input_section {
     width: 100%;
     margin-top: 10px;
+    position: relative;
 
     &:first-child {
       margin-top: 0px;
@@ -815,6 +816,18 @@
         width: 90%;
       }
     }
+
+    .dplr_colorpicker_replace{
+      visibility: hidden;
+    }
+
+    #color-picker.active {
+      display: block;
+      position: absolute;
+      left: 405px;
+      bottom: -7px;
+    }
+
   }
 
   .sortable {

@@ -69,9 +69,19 @@
                 <option <?php if($button_position == 'fill') echo 'selected="selected"';?> value="fill"><?php _e('Fill', 'doppler-form')?></option>
               </select>
             </div>
+            <!--
             <div class="dplr_input_section">
               <label for="settings[button_color]"><?php _e('Button background color', 'doppler-form')?></label>
               <input class="color-selector" type="text" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">
+            </div>
+            -->
+            <div class="dplr_input_section">
+              <label for="settings[change_button_bg]"><?php _e('Button background color', 'doppler-form')?></label>
+              <?php _e('Use my theme\'s default color', 'doppler-form')?>
+                <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="no" <?php if(!isset($form->settings['change_button_bg']) || $form->settings['change_button_bg']==='no') echo 'checked'?>>&nbsp; 
+              <?php _e('Choose another color', 'doppler-form')?>
+                <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="yes" <?php if($form->settings['change_button_bg']==='yes') echo 'checked'?>> 
+              <input class="color-selector" type="hidden" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">   
             </div>
             <div class="dplr_input_section">
               <label for="settings[use_consent_field]"><?php _e('¿Use consent field?', 'doppler-form')?></label>

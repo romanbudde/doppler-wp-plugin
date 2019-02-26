@@ -45,7 +45,12 @@ class DPLR_Form_helper
       $message_success = __('Thanks for subscribing', 'doppler-form');
     }
 
-    $buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
+		$buttom_color = '';
+
+		if($form->settings['change_button_bg']==='yes'){
+			$buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
+		}
+		
     ?>
       <div class="input-buttom ">
         <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>"><?=$submit_text?></button>

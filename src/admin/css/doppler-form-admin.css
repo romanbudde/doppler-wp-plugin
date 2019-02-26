@@ -611,7 +611,8 @@
         font-weight: bold; }
   .dplr .dplr_input_section {
     width: 100%;
-    margin-top: 10px; }
+    margin-top: 10px;
+    position: relative; }
     .dplr .dplr_input_section:first-child {
       margin-top: 0px; }
     .dplr .dplr_input_section label {
@@ -645,6 +646,13 @@
       width: 8%; }
     .dplr .dplr_input_section.horizontal input[type="text"], .dplr .dplr_input_section.horizontal select, .dplr .dplr_input_section.horizontal textarea {
       width: 90%; }
+    .dplr .dplr_input_section .dplr_colorpicker_replace {
+      visibility: hidden; }
+    .dplr .dplr_input_section #color-picker.active {
+      display: block;
+      position: absolute;
+      left: 405px;
+      bottom: -7px; }
   .dplr .sortable > li {
     cursor: move; }
   .dplr form .button {

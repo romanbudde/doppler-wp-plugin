@@ -133,6 +133,22 @@ $(document).ready(function(){
 		}
 	});
 
+	if($('.dplr-toggle-selector').length>0){
+		if($('.dplr-toggle-selector:checked').val() === 'yes'){
+			$('.dplr_colorpicker_replace').css('visibility', 'visible');
+		}
+	}
+
+	$(".dplr-toggle-selector").change(function(){
+		var o = $('.dplr-toggle-selector:checked').val();
+		if(o === 'yes'){
+			$('.dplr_colorpicker_replace').css('visibility', 'visible');
+		}else{
+			$('.dplr_colorpicker_replace').css('visibility', 'hidden');
+			$('#color-picker').removeClass('active');
+		}
+	});
+
 });
 
 $(document).on('widget-updated',  function(e, elem){
