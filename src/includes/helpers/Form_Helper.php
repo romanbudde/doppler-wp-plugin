@@ -22,7 +22,7 @@ class DPLR_Form_helper
 		<?php }
 		if($form->settings['use_consent_field']==='yes'){
 			?>
-			<div class="input field" required>
+			<div class="input-field" required>
 				<input type="checkbox" name="fields-CONSENT" required value="true"/> 
 				<?= isset($form->settings['consent_field_text']) && !empty($form->settings['consent_field_text']) ? $form->settings['consent_field_text'] : _e("I've read and accept the privace policy", "doppler-form") ?>
 				<?php 
@@ -65,42 +65,41 @@ class DPLR_Form_helper
     switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
-          <br/><input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+          <input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php } else {?>
-          <br/><textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
+          <textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
         <?php }
         break;
         case 'number':?>
-        <br/><input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+        	<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
       <?php
           break;
         case 'consent':?>
-          <br/>
           <input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
           <?php
       break;
       case 'boolean':
         ?>
 
-        <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
-        <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
+        <input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
+        <input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
         break;
       case 'email':
         ?>
-        <br/><input <?=$required?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+        <input <?=$required?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
         break;
       case 'date':
         ?>
-        <br/><input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
+        <input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
         <input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
         break;
       case 'gender':
       ?>
-      <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
-      <br/><input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
+      	<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
+      	<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
         break;
       case 'country':
-        ?><br/><select <?php echo $required; ?> name="fields-<?php echo $input->name; ?>">
+        ?><select <?php echo $required; ?> name="fields-<?php echo $input->name; ?>">
           	<option value="AF">Afghanistan</option>
           	<option value="AX">Åland Islands</option>
           	<option value="AL">Albania</option>
