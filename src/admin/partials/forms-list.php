@@ -5,7 +5,6 @@
       <table class="fixed">
         <thead>
           <tr>
-            <th class="cb"><input type="checkbox" name="" value=""></th>
             <th class="col-id"><?php _e('Id', 'doppler-form')?></th>
             <th class="col-title"><?php _e('Title', 'doppler-form')?></th>
             <th class="col-listname"><?php _e('List Name', 'doppler-form')?></th>
@@ -16,7 +15,6 @@
           <?php for ($i=0; $i <count($forms) ; $i++) {
             $form = $forms[$i];?>
           <tr>
-            <td><input type="checkbox" name="" value=""></td>
             <td><?= $form->id; ?></td>
             <td>
               <a href="<?php echo str_replace('[FORM_ID]', $form->id , $edit_form_url); ?>" class="bold"> <?php echo $form->title; ?></a>
