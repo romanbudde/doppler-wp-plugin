@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-02-22 17:57-0300\n"
+"POT-Creation-Date: 2019-02-26 10:35-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -185,7 +185,7 @@ msgid "Button text"
 msgstr "Texto del botón"
 
 #: admin/partials/forms-create.php:52 admin/partials/forms-edit.php:56
-#: includes/helpers/Form_Helper.php:28
+#: includes/helpers/Form_Helper.php:42
 msgid "Submit"
 msgstr "Enviar"
 
@@ -194,7 +194,7 @@ msgid "Confirmation message"
 msgstr "Mensaje de confirmación"
 
 #: admin/partials/forms-create.php:56 admin/partials/forms-edit.php:60
-#: includes/helpers/Form_Helper.php:31
+#: includes/helpers/Form_Helper.php:45
 msgid "Thanks for subscribing"
 msgstr "Gracias por suscribirte"
 
@@ -222,11 +222,49 @@ msgstr "Expandir"
 msgid "Button background color"
 msgstr "Color de fondo del botón"
 
-#: admin/partials/forms-create.php:74 admin/partials/forms-edit.php:79
+#: admin/partials/forms-create.php:72 admin/partials/forms-edit.php:77
+msgid "¿Use consent field?"
+msgstr "¿Usar campo de consentimiento?"
+
+#: admin/partials/forms-create.php:73 admin/partials/forms-edit.php:78
+msgid "Yes"
+msgstr "Si"
+
+#: admin/partials/forms-create.php:74 admin/partials/forms-edit.php:80
+msgid "No"
+msgstr "No"
+
+#: admin/partials/forms-create.php:82 admin/partials/forms-edit.php:89
+msgid "Consent field settings"
+msgstr "Ajustes del campo de consentimiento"
+
+#: admin/partials/forms-create.php:86 admin/partials/forms-edit.php:93
+msgid "Checkbox label"
+msgstr "Texto a mostrar"
+
+#: admin/partials/forms-create.php:87 admin/partials/forms-edit.php:94
+#: includes/helpers/Form_Helper.php:27
+msgid "I've read and accept the privace policy"
+msgstr "He leído y acepto la política de privacidad"
+
+#: admin/partials/forms-create.php:91 admin/partials/forms-edit.php:98
+msgid "Enter the URL of your privacy policy. Do you want to know more? Press "
+msgstr ""
+"Ingresa la URL de tu política de privacidad. ¿Quieres saber más? Presiona"
+
+#: admin/partials/forms-create.php:92 admin/partials/forms-edit.php:99
+msgid "HELP"
+msgstr "AYUDA"
+
+#: admin/partials/forms-create.php:94 admin/partials/forms-edit.php:101
+msgid "https://www.mysite.com"
+msgstr "https://www.misitio.com"
+
+#: admin/partials/forms-create.php:99 admin/partials/forms-edit.php:106
 msgid "Save"
 msgstr "Guardar"
 
-#: admin/partials/forms-create.php:74 admin/partials/forms-edit.php:79
+#: admin/partials/forms-create.php:99 admin/partials/forms-edit.php:106
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -281,3 +319,17 @@ msgstr "Seleccione un formulario"
 #: includes/class-doppler-form-widget.php:59
 msgid "You haven't created any form"
 msgstr "No ha creado ningún formulario"
+
+#: includes/helpers/Form_Helper.php:31
+msgid "Read more"
+msgstr "Leer más"
+
+#~ msgid "Do you want to know more? Press <a href=\""
+#~ msgstr "¿Quieres saber más? Persona <a href=\""
+
+#~ msgid ""
+#~ "Do you want to know more? Press <a href=\"https://help.fromdoppler.com/es/"
+#~ "reglamento-general-de-proteccion-de-datos\" target=\"blank\">HELP</a>"
+#~ msgstr ""
+#~ "¿Quieres saber más? Presiona <a href=\"https://help.fromdoppler.com/es/"
+#~ "reglamento-general-de-proteccion-de-datos\" target=\"_blank\">AYUDA</a>"

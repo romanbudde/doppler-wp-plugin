@@ -94,7 +94,10 @@
                 <input type="text" name="settings[consent_field_text]" value="<?=$form->settings["consent_field_text"] ?>" placeholder="<?php _e("I've read and accept the privace policy", "doppler-form")?>"/>
               </div>
               <div class="dplr_input_section">
-              <label for="settings[consent_field_url]"><?php _e('Enter the URL of your privacy policy. Do you want to know more? Press <a href="" target="blank">HELP</a>', 'doppler-form')?></label>
+              <label for="settings[consent_field_url]">
+                <?php _e('Enter the URL of your privacy policy. Do you want to know more? Press ', 'doppler-form'); ?> 
+                <?= '<a href="'.esc_url('https://help.fromdoppler.com/es/reglamento-general-de-proteccion-de-datos').'" target="blank">'.__('HELP','doppler-form').'</a>'?>
+              </label>
               <input type="url" name="settings[consent_field_url]" pattern="https?://.+" value="<?=$form->settings["consent_field_url"] ?>" placeholder="<?php esc_html_e("https://www.mysite.com", "doppler-form")?>"/>
             </div>
           </div>
