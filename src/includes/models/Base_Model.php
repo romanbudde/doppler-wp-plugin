@@ -76,10 +76,11 @@ abstract class DPLR_Base_Model {
     $wpdb->delete( self::_table(), $condition );
   }
 
-  static function getAll($with_settings = false) {
+  static function getAll($with_settings = false, $order_by = null) {
+    
     global $wpdb;
-
-    $sql = sprintf( 'SELECT * FROM %s', self::_table());
+    $order_by = $order_by == null ? '' : ' ORDER BY ' . implode(", ", $order_by) . ' ASC';
+    $sql = sprintf( 'SELECT * FROM %s %s', self::_table(), $order_by);
     return $wpdb->get_results( $sql );
   }
   static function insert_id() {
