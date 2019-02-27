@@ -34,3 +34,7 @@
 </div>
 
 <a href="<?php echo $create_form_url; ?>" class="button button-primary"><?php _e('New Form', 'doppler-form')?></a>
+
+<div id="dialog-confirm" title="<?php _e('Confirmation Required', 'doppler-form'); ?>">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('This item will be permanently deleted and cannot be recovered. Are you sure?', 'doppler-form')?></p>
+</div>
