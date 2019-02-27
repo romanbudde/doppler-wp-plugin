@@ -41,7 +41,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 
 	// display form fields on widget administration screen
 	function form( $instance ) {
-		var_dump($instance);
+		//var_dump($instance);
 		$forms = DPLR_Form_Model::getAll();
 	 ?>
 		<!-- Widget title -->
