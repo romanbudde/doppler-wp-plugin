@@ -62,6 +62,7 @@ class Doppler_Admin {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/doppler-form-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, includes_url() . 'css/jquery-ui-dialog.min.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -74,6 +75,7 @@ class Doppler_Admin {
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
+		wp_enqueue_script('jquery-ui-dialog');
 		wp_localize_script( 'field-module', 'ObjStr', array( 
 																'editField'   	=> __( 'Edit field', 'doppler-form' ),
 																'Required'    	=> __( 'Required', 'doppler-form'),
