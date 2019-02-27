@@ -62,7 +62,7 @@ class Doppler_Admin {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/doppler-form-admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name, includes_url() . 'css/jquery-ui-dialog.min.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'jquery-ui-dialog', includes_url() . 'css/jquery-ui-dialog.min.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -71,21 +71,26 @@ class Doppler_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
+		
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/doppler-form-admin.js', array( 'jquery', 'jquery-ui-sortable' ), $this->version, false );
+		wp_localize_script( $this->plugin_name, 'object_string', array( 
+			'Delete'   	=> __( 'Delete', 'doppler-form' ),
+			'Cancel'    => __( 'Cancel', 'doppler-form'),								 				
+		) ); 
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
+		wp_localize_script( 'field-module', 'ObjStr', array( 
+			'editField'   	=> __( 'Edit field', 'doppler-form' ),
+			'Required'    	=> __( 'Required', 'doppler-form'),
+			'LabelToShow' 	=> __( 'Label to show', 'doppler-form'),
+			'Description' 	=> __( 'Description', 'doppler-form'),
+			'TextType'    	=> __( 'Text type', 'doppler-form'),
+			'OneSingleLine' => __( 'One single line', 'doppler-form'),
+			'MultipleLines' => __( 'Multiple Lines', 'doppler-form')									 				
+		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('jquery-ui-dialog');
-		wp_localize_script( 'field-module', 'ObjStr', array( 
-																'editField'   	=> __( 'Edit field', 'doppler-form' ),
-																'Required'    	=> __( 'Required', 'doppler-form'),
-																'LabelToShow' 	=> __( 'Label to show', 'doppler-form'),
-																'Description' 	=> __( 'Description', 'doppler-form'),
-																'TextType'    	=> __( 'Text type', 'doppler-form'),
-																'OneSingleLine' => __( 'One single line', 'doppler-form'),
-																'MultipleLines' => __( 'Multiple Lines', 'doppler-form')									 				
-		) ); 
-
+		
 	}
 
 	public function init_widget() {

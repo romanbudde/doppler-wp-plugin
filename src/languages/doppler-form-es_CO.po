@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-02-26 12:52-0300\n"
+"POT-Creation-Date: 2019-02-27 12:30-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -24,39 +24,48 @@ msgstr ""
 "X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/doppler-admin.php:78
+#: admin/doppler-admin.php:77 admin/partials/forms-list.php:23
+msgid "Delete"
+msgstr "Eliminar"
+
+#: admin/doppler-admin.php:78 admin/partials/forms-create.php:101
+#: admin/partials/forms-edit.php:116
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: admin/doppler-admin.php:82
 msgid "Edit field"
 msgstr "Editar campo"
 
-#: admin/doppler-admin.php:79
+#: admin/doppler-admin.php:83
 msgid "Required"
 msgstr "Requerido"
 
-#: admin/doppler-admin.php:80
+#: admin/doppler-admin.php:84
 msgid "Label to show"
 msgstr "Nombre a mostrar"
 
-#: admin/doppler-admin.php:81
+#: admin/doppler-admin.php:85
 msgid "Description"
 msgstr "Descripción"
 
-#: admin/doppler-admin.php:82
+#: admin/doppler-admin.php:86
 msgid "Text type"
 msgstr "Tipo de texto"
 
-#: admin/doppler-admin.php:83
+#: admin/doppler-admin.php:87
 msgid "One single line"
 msgstr "Una única línea"
 
-#: admin/doppler-admin.php:84
+#: admin/doppler-admin.php:88
 msgid "Multiple Lines"
 msgstr "Múltiples lineas"
 
-#: admin/doppler-admin.php:138
+#: admin/doppler-admin.php:145
 msgid "Ouch! Enter a valid API Key."
 msgstr "Ouch! Ingresa una API Key válida."
 
-#: admin/doppler-admin.php:141
+#: admin/doppler-admin.php:148
 msgid "Ouch! Enter a valid account."
 msgstr "Ouch! Ingresa una cuenta válida."
 
@@ -273,41 +282,44 @@ msgstr "https://www.misitio.com"
 msgid "Save"
 msgstr "Guardar"
 
-#: admin/partials/forms-create.php:101 admin/partials/forms-edit.php:116
-msgid "Cancel"
-msgstr "Cancelar"
-
 #: admin/partials/forms-list.php:1
 msgid "Forms List"
 msgstr "Listado de formularios"
 
-#: admin/partials/forms-list.php:9
+#: admin/partials/forms-list.php:8
 msgid "Id"
 msgstr "Id"
 
-#: admin/partials/forms-list.php:10
+#: admin/partials/forms-list.php:9
 msgid "Title"
 msgstr "Título"
 
-#: admin/partials/forms-list.php:11
+#: admin/partials/forms-list.php:10
 msgid "List Name"
 msgstr "Nombre de la lista"
 
-#: admin/partials/forms-list.php:12
+#: admin/partials/forms-list.php:11
 msgid "List Id"
 msgstr "Id de la lista"
 
-#: admin/partials/forms-list.php:24
+#: admin/partials/forms-list.php:22
 msgid "Edit"
 msgstr "Editar"
 
-#: admin/partials/forms-list.php:25
-msgid "Delete"
-msgstr "Eliminar"
-
-#: admin/partials/forms-list.php:38
+#: admin/partials/forms-list.php:36
 msgid "New Form"
 msgstr "Crear formulario"
+
+#: admin/partials/forms-list.php:38
+msgid "Confirmation Required"
+msgstr "Se requiere confirmación"
+
+#: admin/partials/forms-list.php:39
+msgid ""
+"This item will be permanently deleted and cannot be recovered. Are you sure?"
+msgstr ""
+"Este ítem será eliminado permanentemente y no puede ser recuperado. ¿Está "
+"seguro?"
 
 #: includes/class-doppler-form-widget.php:9
 msgid "Create a Doppler form"
@@ -317,15 +329,15 @@ msgstr "Crear un formulario de Doppler"
 msgid "Doppler form"
 msgstr "Formulario de Doppler"
 
-#: includes/class-doppler-form-widget.php:47
+#: includes/class-doppler-form-widget.php:48
 msgid "Forms"
 msgstr "Formularios"
 
-#: includes/class-doppler-form-widget.php:50
+#: includes/class-doppler-form-widget.php:51
 msgid "Select a form"
 msgstr "Seleccione un formulario"
 
-#: includes/class-doppler-form-widget.php:59
+#: includes/class-doppler-form-widget.php:60
 msgid "You haven't created any form"
 msgstr "No ha creado ningún formulario"
 

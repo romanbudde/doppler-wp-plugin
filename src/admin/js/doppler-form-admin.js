@@ -149,6 +149,36 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#dplr-dialog-confirm").dialog({
+		autoOpen: false,
+		resizable: false,
+		height: "auto",
+		width: 400,
+		modal: true
+	});
+
+	$(".dplr-remove").click(function(e) {
+		
+		e.preventDefault();
+
+		var l = $(this).attr("href");
+
+		$("#dplr-dialog-confirm").dialog("option", "buttons", [{
+		  text: object_string.Delete,
+		  click: function() {
+			window.location.href = l;
+		  }
+		}, {
+		  text: object_string.Cancel,
+		  click: function() {
+			$(this).dialog("close");
+		  }
+		}]);
+
+		$("#dplr-dialog-confirm").dialog("open");
+	  
+	});
+
 });
 
 $(document).on('widget-updated',  function(e, elem){
