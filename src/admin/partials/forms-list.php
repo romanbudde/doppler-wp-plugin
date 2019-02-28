@@ -24,7 +24,7 @@
               </div>
             </td>
             <td><?php echo $dplr_lists_arr[$form->list_id] ?></td>
-            <td><?php echo isset($dplr_lists_arr[$form->list_id])? echo $form->list_id; : '' ?></td>
+            <td><?php echo isset($dplr_lists_arr[$form->list_id])? $form->list_id : '' ?></td>
           </tr>
           <?php } ?>
         </tbody>

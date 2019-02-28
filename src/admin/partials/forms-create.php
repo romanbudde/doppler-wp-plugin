@@ -9,7 +9,7 @@
         <div class="panel-body">
           <div class="dplr_input_section">
             <label for="title"><?php _e('Form name', 'doppler-form')?></label>
-            <input type="text" name="title" placeholder="" value="" data-validation-required/>
+            <input type="text" name="title" placeholder="" value="" required/>
           </div>
           <div class="dplr_input_section">
             <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
