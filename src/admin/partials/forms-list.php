@@ -6,7 +6,7 @@
         <thead>
           <tr>
             <th class="col-id"><?php _e('Id', 'doppler-form')?></th>
-            <th class="col-title"><?php _e('Title', 'doppler-form')?></th>
+            <th class="col-title"><?php _e('Form name', 'doppler-form')?></th>
             <th class="col-listname"><?php _e('List Name', 'doppler-form')?></th>
             <th class="col-listid"><?php _e('List Id', 'doppler-form')?></th>
           </tr>
