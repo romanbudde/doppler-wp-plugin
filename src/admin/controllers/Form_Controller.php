@@ -1,7 +1,5 @@
 <?php
 
-
-
 class DPLR_Form_Controller
 {
   private $doppler_service;
@@ -15,6 +13,7 @@ class DPLR_Form_Controller
   }
 
   function create( $form = null ) {
+
     if (isset($form) && count($form) > 0) {
 
       DPLR_Form_Model::insert(['title' => $form['title'], 'list_id' => $form['list_id']]);
@@ -27,6 +26,7 @@ class DPLR_Form_Controller
       $form['fields'] = isset($form['fields']) ? $form['fields'] : [];
 
       foreach ($form['fields'] as $key => $value) {
+
         $mod = ['name' => $key, 'type' => $value['type'], 'form_id' => $form_id, 'sort_order' => $field_position_counter++];
         DPLR_Field_Model::insert($mod);
 
@@ -36,14 +36,20 @@ class DPLR_Form_Controller
         DPLR_Field_Model::setSettings($field_id, $field_settings);
 
       }
+      
       //TODO: create method redirect on controller
       echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
+    
+      //Evito hacer otra redirección
+      //$this->getAll();
+    
     } else {
       $this->showCreateEditForm();
     }
   }
 
   function update($form_id, $form_to_update = NULL) {
+
     if (isset($form_to_update) && count($form_to_update) > 0) {
 
       DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id']]);
@@ -57,6 +63,7 @@ class DPLR_Form_Controller
       DPLR_Field_Model::deleteWhere(['form_id' => $form_id]);
 
       foreach ($form_to_update['fields'] as $key => $value) {
+        
         $mod = ['name' => $key, 'type' => $value['type'], 'form_id' => $form_id, 'sort_order' => $field_position_counter++];
 
         DPLR_Field_Model::insert($mod);
@@ -70,13 +77,14 @@ class DPLR_Form_Controller
       }
 
       echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
+    
     } else {
       $this->showCreateEditForm($form_id);
     }
   }
 
   function getAll() {
-    $forms = DPLR_Form_Model::getAll();
+    $forms = DPLR_Form_Model::getAll(false, array('id'));
 		$create_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=create');
 		$edit_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=edit&form_id=[FORM_ID]' );
     $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
@@ -117,6 +125,7 @@ class DPLR_Form_Controller
       include plugin_dir_path( __FILE__ ) . "../partials/forms-create.php";
     }
   }
+
 }
 
- ?>
+?>

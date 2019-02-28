@@ -166,6 +166,7 @@ class DPLR_Doppler {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
+		
 		$plugin_admin = new Doppler_Admin( $this->get_plugin_name(), $this->get_version(), $this->doppler_service);
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -173,6 +174,7 @@ class DPLR_Doppler {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'init_menu' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_submenu' );
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'init_widget');
+		$this->loader->add_action( 'admin_notices', $plugin_admin, 'show_admin_notices');
 
 	}
 

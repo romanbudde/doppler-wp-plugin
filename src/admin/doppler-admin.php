@@ -55,6 +55,7 @@ class Doppler_Admin {
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 	}
 
+
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
@@ -94,9 +95,10 @@ class Doppler_Admin {
 	}
 
 	public function init_widget() {
-		require_once(plugin_dir_path( __FILE__ ) . "../includes/class-doppler-form-widget.php");
 
+		require_once(plugin_dir_path( __FILE__ ) . "../includes/class-doppler-form-widget.php");
 		register_widget('Dplr_Subscription_Widget');
+
 	}
 
 	public function init_menu() {
@@ -112,6 +114,7 @@ class Doppler_Admin {
 	}
 
 	public function add_submenu() {
+
 		$options = get_option('dplr_settings', [
 			'dplr_option_apikey' => '',
 			'dplr_option_useraccount' => ''
@@ -129,6 +132,7 @@ class Doppler_Admin {
 	}
 
 	public function show_template() {
+
 		$options = get_option('dplr_settings', [
 			'dplr_option_apikey' => '',
 			'dplr_option_useraccount' => ''
@@ -153,6 +157,7 @@ class Doppler_Admin {
 	}
 
 	public function show_forms() {
+			
 			$action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
 			switch ($action) {
@@ -174,4 +179,9 @@ class Doppler_Admin {
 	private function show_form_edit() {
 		include "partials/forms-create.php";
 	}
+
+	public function show_admin_notices(){
+		
+	}
+
 }

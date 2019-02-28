@@ -23,6 +23,7 @@ function validateEmail(emailElement){
 }
 
 function validateRequired(requiredElement) {
+	
 	var value = requiredElement.val();
 
 	var container = requiredElement.closest(".input-container");
@@ -99,8 +100,8 @@ $(document).ready(function(){
 	$( ".sortable" ).sortable({
 		placeholder: "ui-state-mark"
 	});
-	$( ".sortable" ).disableSelection();
 
+	$( ".sortable" ).disableSelection();
 
 	var fields = {
 		container: $("ul#formFields"),
