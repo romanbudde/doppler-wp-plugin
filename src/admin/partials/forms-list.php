@@ -17,7 +17,7 @@
           <tr>
             <td><?= $form->id; ?></td>
             <td>
-              <a href="<?php echo str_replace('[FORM_ID]', $form->id , $edit_form_url); ?>" class="bold"> <?php echo $form->title; ?></a>
+              <a href="<?php echo str_replace('[FORM_ID]', $form->id , $edit_form_url); ?>" class="bold"> <?php echo $form->name; ?></a>
               <div class="column-actions">
                 <a href="<?php echo str_replace('[FORM_ID]', $form->id , $edit_form_url); ?>"><?php _e('Edit', 'doppler-form')?></a> |
                 <a href="<?php echo str_replace('[FORM_ID]', $form->id , $delete_form_url); ?>" class="dplr-remove"><?php _e('Delete', 'doppler-form')?></a>

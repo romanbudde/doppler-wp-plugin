@@ -8,12 +8,16 @@
         </div>
         <div class="panel-body">
           <div class="dplr_input_section">
-            <label for="title"><?php _e('Form name', 'doppler-form')?></label>
-            <input type="text" name="title" placeholder="" value="" required/>
+            <label for="name"><?php _e('Form name', 'doppler-form')?></label>
+            <input type="text" name="name" placeholder="" value="" required/>
+          </div>
+          <div class="dplr_input_section">
+            <label for="title"><?php _e('Form title', 'doppler-form')?></label>
+            <input type="text" name="title" placeholder="" value=""/>
           </div>
           <div class="dplr_input_section">
             <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
-            <select class="" name="list_id" id="list-id">
+            <select class="" name="list_id" id="list-id" required>
               <option value=""></option>
               <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
               <option value="<?php echo $dplr_lists[$i]->listId; ?>"><?php echo $dplr_lists[$i]->name; ?></option>
@@ -104,6 +108,7 @@
 </div>
 <script type="text/javascript">
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
+all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = [];
 var view = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
 jQuery(".color-selector").colorpicker();

@@ -16,7 +16,7 @@ class DPLR_Form_Controller
 
     if (isset($form) && count($form) > 0) {
 
-      DPLR_Form_Model::insert(['title' => $form['title'], 'list_id' => $form['list_id']]);
+      DPLR_Form_Model::insert(['name'=>$form['name'], 'title' => $form['title'], 'list_id' => $form['list_id']]);
       $form_id =  DPLR_Form_Model::insert_id();
 
       DPLR_Form_Model::setSettings($form_id, $form["settings"]);
@@ -52,7 +52,7 @@ class DPLR_Form_Controller
 
     if (isset($form_to_update) && count($form_to_update) > 0) {
 
-      DPLR_Form_Model::update($form_id, ['title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id']]);
+      DPLR_Form_Model::update($form_id, ['name'=>$form_to_update['name'], 'title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id']]);
 
       DPLR_Form_Model::setSettings($form_id, $form_to_update["settings"]);
 
@@ -104,6 +104,7 @@ class DPLR_Form_Controller
   }
 
   private function showCreateEditForm($form_id = NULL) {
+    
     $list_resource = $this->doppler_service->getResource('lists');
     $fields_resource = $this->doppler_service->getResource('fields');
 
@@ -112,6 +113,13 @@ class DPLR_Form_Controller
 
     $dplr_fields = $fields_resource->getAllFields();
     $dplr_fields = isset($dplr_fields->items) ? $dplr_fields->items : [];
+
+    if(($key = array_search('consent', array_column($dplr_fields, 'type'))) !== FALSE) {
+      echo $dplr_fields[$key];
+      //unset($dplr_fields[$key]);
+    }
+
+    //var_dump($key); var_dump(array_column($dplr_fields, 'type'));die();
 
     usort($dplr_fields, function($a, $b) {
       return strtolower($a->name) > strtolower($b->name);
@@ -124,6 +132,7 @@ class DPLR_Form_Controller
     } else {
       include plugin_dir_path( __FILE__ ) . "../partials/forms-create.php";
     }
+
   }
 
 }

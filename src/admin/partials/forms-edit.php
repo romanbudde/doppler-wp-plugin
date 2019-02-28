@@ -10,12 +10,16 @@
           </div>
           <div class="panel-body">
             <div class="dplr_input_section">
-              <label for="title"><?php _e('Form name', 'doppler-form')?></label>
-              <input type="text" name="title" placeholder="" value="<?php echo $form->title; ?>" required/>
+              <label for="name"><?php _e('Form name', 'doppler-form')?></label>
+              <input type="text" name="name" placeholder="" value="<?php echo $form->name; ?>" required/>
             </div>
             <div class="dplr_input_section">
+            <label for="title"><?php _e('Form title', 'doppler-form')?></label>
+            <input type="text" name="title" placeholder="" value="<?php echo $form->title; ?>"/>
+          </div>
+            <div class="dplr_input_section">
               <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
-              <select class="" name="list_id" id="list-id">
+              <select class="" name="list_id" id="list-id" required>
                 <option value=""></option>
                 <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
                   <option <?php echo $form->list_id == $dplr_lists[$i]->listId ? 'selected="selected"' : ''; ?> value="<?php echo $dplr_lists[$i]->listId; ?>">
@@ -42,7 +46,8 @@
               <div class="col-1-2">
                 <ul class="sortable accordion" id="formFields">
 
-                </ul></div>
+                </ul>
+              </div>
             </div>
           </div>
       </div>
@@ -70,12 +75,6 @@
                 <option <?php if($button_position == 'fill') echo 'selected="selected"';?> value="fill"><?php _e('Fill', 'doppler-form')?></option>
               </select>
             </div>
-            <!--
-            <div class="dplr_input_section">
-              <label for="settings[button_color]"><?php _e('Button background color', 'doppler-form')?></label>
-              <input class="color-selector" type="text" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">
-            </div>
-            -->
             <div class="dplr_input_section">
               <label for="settings[change_button_bg]"><?php _e('Button background color', 'doppler-form')?></label>
               <?php _e('Use my theme\'s default color', 'doppler-form')?>
@@ -119,6 +118,7 @@
 </div>
 <script type="text/javascript">
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
+all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = <?php echo json_encode($fields); ?>;
 var fieldsView = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
 jQuery(".color-selector").colorpicker({color: "<?php echo $form->settings["button_color"]; ?>"});
