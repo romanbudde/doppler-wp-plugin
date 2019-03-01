@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-02-27 12:29-0300\n"
+"2019-03-01 11:39-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -49,52 +49,52 @@ msgstr ""
 "X-Poedit-"
 "SearchPath-0: .\n"
 
-#: admin/doppler-admin.php:77
+#: admin/doppler-admin.php:78
 #: admin/partials/forms-list.php:23
 msgid "Delete"
 msgstr ""
 
-#: admin/doppler-admin.php:78
-#: admin/partials/forms-create.php:101
+#: admin/doppler-admin.php:79
+#: admin/partials/forms-create.php:106
 #: admin/partials/forms-edit.php:116
 msgid "Cancel"
 msgstr ""
 
-#: admin/doppler-admin.php:82
+#: admin/doppler-admin.php:83
 msgid "Edit field"
 msgstr ""
 
-#: admin/doppler-admin.php:83
+#: admin/doppler-admin.php:84
 msgid "Required"
 msgstr ""
 
-#: admin/doppler-admin.php:84
+#: admin/doppler-admin.php:85
 msgid "Label to show"
 msgstr ""
 
-#: admin/doppler-admin.php:85
+#: admin/doppler-admin.php:86
 msgid "Description"
 msgstr ""
 
-#: admin/doppler-admin.php:86
+#: admin/doppler-admin.php:87
 msgid "Text type"
 msgstr ""
 
-#: admin/doppler-admin.php:87
+#: admin/doppler-admin.php:88
 msgid "One single line"
 msgstr ""
 
-#: admin/doppler-admin.php:88
-msgid "Multiple Lines"
+#: admin/doppler-admin.php:89
+msgid "Multiple lines"
 msgstr ""
 
-#: admin/doppler-admin.php:145
+#: admin/doppler-admin.php:149
 msgid ""
 "Ouch! Enter a valid API "
 "Key."
 msgstr ""
 
-#: admin/doppler-admin.php:148
+#: admin/doppler-admin.php:152
 msgid ""
 "Ouch! Enter a valid "
 "account."
@@ -217,147 +217,152 @@ msgstr ""
 #: admin/partials/forms-create.php:7
 #: admin/partials/forms-edit.php:9
 msgid ""
-"Form Basic Information"
+"Form basic information"
 msgstr ""
 
 #: admin/partials/forms-create.php:11
 #: admin/partials/forms-edit.php:13
+#: admin/partials/forms-list.php:9
 msgid "Form name"
 msgstr ""
 
 #: admin/partials/forms-create.php:15
 #: admin/partials/forms-edit.php:17
-msgid "Doppler List"
+msgid "Form title"
 msgstr ""
 
-#: admin/partials/forms-create.php:28
-#: admin/partials/forms-edit.php:32
-msgid "Form Fields"
+#: admin/partials/forms-create.php:19
+#: admin/partials/forms-edit.php:21
+msgid "Doppler list"
 msgstr ""
 
-#: admin/partials/forms-create.php:32
-#: admin/partials/forms-edit.php:36
+#: admin/partials/forms-create.php:33
+#: admin/partials/forms-edit.php:37
+msgid "Form fields"
+msgstr ""
+
+#: admin/partials/forms-create.php:37
+#: admin/partials/forms-edit.php:41
 msgid ""
 "Select the fields to "
 "include"
 msgstr ""
 
-#: admin/partials/forms-create.php:34
-#: admin/partials/forms-edit.php:38
+#: admin/partials/forms-create.php:39
+#: admin/partials/forms-edit.php:43
 msgid ""
 "Select the fields you "
 "want to add to your form"
 msgstr ""
 
-#: admin/partials/forms-create.php:47
-#: admin/partials/forms-edit.php:51
+#: admin/partials/forms-create.php:52
+#: admin/partials/forms-edit.php:57
 msgid "Form settings"
 msgstr ""
 
-#: admin/partials/forms-create.php:51
-#: admin/partials/forms-edit.php:55
+#: admin/partials/forms-create.php:56
+#: admin/partials/forms-edit.php:61
 msgid "Button text"
 msgstr ""
 
-#: admin/partials/forms-create.php:52
-#: admin/partials/forms-edit.php:56
-#: includes/helpers/Form_Helper.php:42
+#: admin/partials/forms-create.php:57
+#: admin/partials/forms-edit.php:62
+#: includes/helpers/Form_Helper.php:43
 msgid "Submit"
 msgstr ""
 
-#: admin/partials/forms-create.php:55
-#: admin/partials/forms-edit.php:59
+#: admin/partials/forms-create.php:60
+#: admin/partials/forms-edit.php:65
 msgid ""
 "Confirmation message"
 msgstr ""
 
-#: admin/partials/forms-create.php:56
-#: admin/partials/forms-edit.php:60
-#: includes/helpers/Form_Helper.php:45
+#: admin/partials/forms-create.php:61
+#: admin/partials/forms-edit.php:66
+#: includes/helpers/Form_Helper.php:46
 msgid ""
 "Thanks for subscribing"
 msgstr ""
 
-#: admin/partials/forms-create.php:59
-#: admin/partials/forms-edit.php:63
+#: admin/partials/forms-create.php:64
+#: admin/partials/forms-edit.php:69
 msgid "Button position"
 msgstr ""
 
-#: admin/partials/forms-create.php:61
-#: admin/partials/forms-edit.php:66
+#: admin/partials/forms-create.php:66
+#: admin/partials/forms-edit.php:72
 msgid "Left"
 msgstr ""
 
-#: admin/partials/forms-create.php:62
-#: admin/partials/forms-edit.php:67
+#: admin/partials/forms-create.php:67
+#: admin/partials/forms-edit.php:73
 msgid "Center"
-msgstr ""
-
-#: admin/partials/forms-create.php:63
-#: admin/partials/forms-edit.php:68
-msgid "Right"
-msgstr ""
-
-#: admin/partials/forms-create.php:64
-#: admin/partials/forms-edit.php:69
-msgid "Fill"
 msgstr ""
 
 #: admin/partials/forms-create.php:68
 #: admin/partials/forms-edit.php:74
+msgid "Right"
+msgstr ""
+
+#: admin/partials/forms-create.php:69
+#: admin/partials/forms-edit.php:75
+msgid "Fill"
+msgstr ""
+
+#: admin/partials/forms-create.php:73
 #: admin/partials/forms-edit.php:79
 msgid ""
 "Button background color"
 msgstr ""
 
-#: admin/partials/forms-create.php:69
+#: admin/partials/forms-create.php:74
 #: admin/partials/forms-edit.php:80
 msgid ""
 "Use my theme's default "
 "color"
 msgstr ""
 
-#: admin/partials/forms-create.php:70
+#: admin/partials/forms-create.php:75
 #: admin/partials/forms-edit.php:82
 msgid ""
 "Choose another color"
 msgstr ""
 
-#: admin/partials/forms-create.php:74
+#: admin/partials/forms-create.php:79
 #: admin/partials/forms-edit.php:87
 msgid "¿Use consent field?"
 msgstr ""
 
-#: admin/partials/forms-create.php:75
+#: admin/partials/forms-create.php:80
 #: admin/partials/forms-edit.php:88
 msgid "Yes"
 msgstr ""
 
-#: admin/partials/forms-create.php:76
+#: admin/partials/forms-create.php:81
 #: admin/partials/forms-edit.php:90
 msgid "No"
 msgstr ""
 
-#: admin/partials/forms-create.php:84
+#: admin/partials/forms-create.php:89
 #: admin/partials/forms-edit.php:99
 msgid ""
 "Consent field settings"
 msgstr ""
 
-#: admin/partials/forms-create.php:88
+#: admin/partials/forms-create.php:93
 #: admin/partials/forms-edit.php:103
 msgid "Checkbox label"
 msgstr ""
 
-#: admin/partials/forms-create.php:89
+#: admin/partials/forms-create.php:94
 #: admin/partials/forms-edit.php:104
-#: includes/helpers/Form_Helper.php:27
+#: includes/helpers/Form_Helper.php:28
 msgid ""
 "I've read and accept the "
 "privace policy"
 msgstr ""
 
-#: admin/partials/forms-create.php:93
+#: admin/partials/forms-create.php:98
 #: admin/partials/forms-edit.php:108
 msgid ""
 "Enter the URL of your "
@@ -365,18 +370,18 @@ msgid ""
 "want to know more? Press "
 msgstr ""
 
-#: admin/partials/forms-create.php:94
+#: admin/partials/forms-create.php:99
 #: admin/partials/forms-edit.php:109
 msgid "HELP"
 msgstr ""
 
-#: admin/partials/forms-create.php:96
+#: admin/partials/forms-create.php:101
 #: admin/partials/forms-edit.php:111
 msgid ""
 "https://www.mysite.com"
 msgstr ""
 
-#: admin/partials/forms-create.php:101
+#: admin/partials/forms-create.php:106
 #: admin/partials/forms-edit.php:116
 msgid "Save"
 msgstr ""
@@ -389,16 +394,12 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-#: admin/partials/forms-list.php:9
-msgid "Title"
-msgstr ""
-
 #: admin/partials/forms-list.php:10
-msgid "List Name"
+msgid "List name"
 msgstr ""
 
 #: admin/partials/forms-list.php:11
-msgid "List Id"
+msgid "List id"
 msgstr ""
 
 #: admin/partials/forms-list.php:22
@@ -406,12 +407,12 @@ msgid "Edit"
 msgstr ""
 
 #: admin/partials/forms-list.php:36
-msgid "New Form"
+msgid "New form"
 msgstr ""
 
 #: admin/partials/forms-list.php:38
 msgid ""
-"Confirmation Required"
+"Confirmation required"
 msgstr ""
 
 #: admin/partials/forms-list.php:39
@@ -431,20 +432,20 @@ msgstr ""
 msgid "Doppler form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:48
+#: includes/class-doppler-form-widget.php:49
 msgid "Forms"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:51
+#: includes/class-doppler-form-widget.php:52
 msgid "Select a form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:60
+#: includes/class-doppler-form-widget.php:62
 msgid ""
 "You haven't created any "
 "form"
 msgstr ""
 
-#: includes/helpers/Form_Helper.php:31
+#: includes/helpers/Form_Helper.php:32
 msgid "Read more"
 msgstr ""

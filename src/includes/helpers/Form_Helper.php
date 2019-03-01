@@ -3,6 +3,7 @@
 class DPLR_Form_helper
 {
   public static function generate($context, $options = NULL) {
+		
     $form = $context['form'];
 
     $fields = isset($context['fields']) ? $context['fields'] : [];

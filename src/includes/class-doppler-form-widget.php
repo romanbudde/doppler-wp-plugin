@@ -13,9 +13,10 @@ class Dplr_Subscription_Widget extends WP_Widget {
 	// widget output
 	function widget($args, $instance) {
 
-    extract($args);
+		extract($args);
 
 		$form = array('form' => DPLR_Form_Model::get($instance['form_id'], true));
+
 		if($form['form'] != NULL) {
 			echo $before_widget;
 			$title = apply_filters('widget_title', $form["form"]->title);
@@ -26,7 +27,6 @@ class Dplr_Subscription_Widget extends WP_Widget {
 
 			echo $after_widget;
 		}
-
 
 	}
 
@@ -41,8 +41,9 @@ class Dplr_Subscription_Widget extends WP_Widget {
 
 	// display form fields on widget administration screen
 	function form( $instance ) {
-		//var_dump($instance);
+
 		$forms = DPLR_Form_Model::getAll();
+	
 	 ?>
 		<!-- Widget title -->
 		<p><?php _e('Forms', 'doppler-form')?></p>
@@ -52,7 +53,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 			<select id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>">
 				<option> </option>
 				<?php for ($i=0; $i < count($forms); $i++) { ?>
-				<option <?php echo isset($instance['form_id']) &&  $instance['form_id'] == $forms[$i]->id ? "selected='selected'" : ""; ?> value="<?php echo $forms[$i]->id; ?>"><?php echo $forms[$i]->title; ?></option>
+				<option <?php echo isset($instance['form_id']) &&  $instance['form_id'] == $forms[$i]->id ? "selected='selected'" : ""; ?> value="<?php echo $forms[$i]->id; ?>"><?php echo $forms[$i]->name; ?></option>
 				<?php } ?>
 			</select>
 		</p>

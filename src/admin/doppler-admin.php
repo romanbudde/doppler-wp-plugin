@@ -86,7 +86,7 @@ class Doppler_Admin {
 			'Description' 	=> __( 'Description', 'doppler-form'),
 			'TextType'    	=> __( 'Text type', 'doppler-form'),
 			'OneSingleLine' => __( 'One single line', 'doppler-form'),
-			'MultipleLines' => __( 'Multiple Lines', 'doppler-form')									 				
+			'MultipleLines' => __( 'Multiple lines', 'doppler-form')									 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');

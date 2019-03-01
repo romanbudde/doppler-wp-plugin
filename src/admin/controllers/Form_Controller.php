@@ -2,12 +2,14 @@
 
 class DPLR_Form_Controller
 {
+  
   private $doppler_service;
 
   function __construct($doppler_service)
   {
     $this->doppler_service = $doppler_service;
   }
+
   function comparator($object1, $object2) {
       return $object1->name > $object2->name;
   }
@@ -39,9 +41,6 @@ class DPLR_Form_Controller
       
       //TODO: create method redirect on controller
       echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
-    
-      //Evito hacer otra redirección
-      //$this->getAll();
     
     } else {
       $this->showCreateEditForm();

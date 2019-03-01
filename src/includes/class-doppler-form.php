@@ -188,7 +188,9 @@ class DPLR_Doppler {
 	private function define_public_hooks() {
 
 		$plugin_public = new DPLR_Doppler_Form_Public( $this->get_plugin_name(), $this->get_version(), $this->doppler_service );
-
+		/**
+		 * Seguir buscando por acá la posibilidad de chequear el service en el widget público.
+		 */
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 

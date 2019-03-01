@@ -6,7 +6,7 @@
       <div class="grid">
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
-            <h2><?php _e('Form Basic Information', 'doppler-form')?></h2>
+            <h2><?php _e('Form basic information', 'doppler-form')?></h2>
           </div>
           <div class="panel-body">
             <div class="dplr_input_section">
@@ -18,7 +18,7 @@
             <input type="text" name="title" placeholder="" value="<?php echo $form->title; ?>"/>
           </div>
             <div class="dplr_input_section">
-              <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
+              <label for="list_id"><?php _e('Doppler list', 'doppler-form')?></label>
               <select class="" name="list_id" id="list-id" required>
                 <option value=""></option>
                 <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
@@ -34,7 +34,7 @@
       <div class="grid">
           <div class="col-4-5 panel nopd">
             <div class="panel-header">
-              <h2><?php _e('Form Fields', 'doppler-form')?></h2>
+              <h2><?php _e('Form fields', 'doppler-form')?></h2>
             </div>
             <div class="panel-body grid">
               <div class="col-1-2 dplr_input_section">
