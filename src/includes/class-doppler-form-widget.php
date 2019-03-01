@@ -1,5 +1,6 @@
 <?php
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/helpers/Form_Helper.php';
+require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 
 class Dplr_Subscription_Widget extends WP_Widget {
 
@@ -15,8 +16,25 @@ class Dplr_Subscription_Widget extends WP_Widget {
 
 		extract($args);
 
-		$form = array('form' => DPLR_Form_Model::get($instance['form_id'], true));
+		$doppler_service = new Doppler_Service();
 
+		$options = get_option('dplr_settings', [
+			'dplr_option_apikey' => '',
+			'dplr_option_useraccount' => ''
+			]);
+		
+		$doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]); 
+
+		$l = $doppler_service->getResource('lists');
+
+		$form = array('form' => DPLR_Form_Model::get($instance['form_id'], true));
+		
+		$obj = $l->getList($form['form']->list_id);
+
+		if( $obj->status === 404 ){
+			return false;
+		}
+		
 		if($form['form'] != NULL) {
 			echo $before_widget;
 			$title = apply_filters('widget_title', $form["form"]->title);

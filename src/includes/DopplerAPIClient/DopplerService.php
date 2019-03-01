@@ -40,7 +40,7 @@ class Doppler_Service
               'httpMethod'  => 'get',
               'parameters'  => array(
                 'listId' => array(
-                  'on_query_string' => true,
+                  'on_query_string' => false,
                 )
               )
             ),
@@ -196,7 +196,8 @@ class Doppler_Service
     }
 
     public function getList( $listId ){
-      $method = $methods['get'];
+      //$method = $methods['get'];
+      $method = $this->methods['get'];
       return $this->service->call($method, array("listId" => $listId) )->body;
     }
 
