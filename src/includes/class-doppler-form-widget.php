@@ -31,7 +31,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		
 		$obj = $l->getList($form['form']->list_id);
 
-		if( $obj->status === 404 ){
+		if( $obj->status === 404 || $obj->currentStatus === 'deleted' ){
 			return false;
 		}
 		

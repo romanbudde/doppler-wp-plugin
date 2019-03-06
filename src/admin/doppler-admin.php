@@ -145,14 +145,14 @@ class Doppler_Admin {
 
 		try{
 				
-			$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
-			
-			if ($connected !== true) {
+				$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+				
+				if ($connected !== true) {
 
-				$error = true;
-				$errorMessage = __("The email or API key you provided are invalid.", "doppler-form");
+					$error = true;
+					$errorMessage = __("The email or API key you provided is invalid.", "doppler-form");
 
-			}
+				}
 
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
 				
