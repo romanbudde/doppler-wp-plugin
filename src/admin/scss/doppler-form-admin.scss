@@ -956,9 +956,13 @@
 @media only screen and (max-width: 560px) {
 
   .dplr_settings{
+
+    position: relative;
+
     .disconnect_box {
-      top: 70px;
+      top: 10px;
     }
+
     .dplr-pasos{ 
       >div{
         flex-direction:column;

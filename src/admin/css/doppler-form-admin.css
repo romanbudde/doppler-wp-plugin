@@ -722,15 +722,17 @@
   .dplr_settings .dplr-pasos > div > div figure img {
     width: 100%; } }
 @media only screen and (max-width: 560px) {
-  .dplr_settings .disconnect_box {
-    top: 70px; }
-  .dplr_settings .dplr-pasos > div {
-    flex-direction: column;
-    margin-top: 80px; }
-    .dplr_settings .dplr-pasos > div > div {
-      padding-left: 0px;
-      padding-right: 0px; }
-      .dplr_settings .dplr-pasos > div > div figure img {
-        width: 75%; } }
+  .dplr_settings {
+    position: relative; }
+    .dplr_settings .disconnect_box {
+      top: 10px; }
+    .dplr_settings .dplr-pasos > div {
+      flex-direction: column;
+      margin-top: 80px; }
+      .dplr_settings .dplr-pasos > div > div {
+        padding-left: 0px;
+        padding-right: 0px; }
+        .dplr_settings .dplr-pasos > div > div figure img {
+          width: 75%; } }
 
 /*# sourceMappingURL=doppler-form-admin.css.map */
