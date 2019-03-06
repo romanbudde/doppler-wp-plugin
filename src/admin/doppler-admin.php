@@ -142,15 +142,30 @@ class Doppler_Admin {
 		$errors = false;
 
 	  if ($options['dplr_option_apikey'] != '') {
-			try{
-					$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+
+		try{
+				
+			$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+			
+			if ($connected !== true) {
+
+				$error = true;
+				$errorMessage = __("The email or API key you provided are invalid.", "doppler-form");
+
+			}
+
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
+				
 				$errors = true;
 				$errorMessages['api_key'] = __("Ouch! Enter a valid API Key.", "doppler-form");
+			
 			} catch(Doppler_Exception_Invalid_Account $e) {
+				
 				$errors = true;
 				$errorMessages['user_account'] = __("Ouch! Enter a valid account.", "doppler-form");
+			
 			}
+		
 		}
 
 		include "partials/api-connection.php";

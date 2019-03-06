@@ -1,4 +1,5 @@
 <?php
+
 require_once plugin_dir_path( dirname(__FILE__) ) . 'models/Base_Model.php';
 
 final class DPLR_Form_Model extends DPLR_Base_Model {
@@ -26,7 +27,9 @@ final class DPLR_Form_Model extends DPLR_Base_Model {
     }
 
     self::initSettings();
+
   }
+
 }
 
  ?>

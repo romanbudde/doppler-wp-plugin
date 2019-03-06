@@ -1,4 +1,5 @@
 <?php
+
 include('lib/httpful.phar');
 
 class Doppler_Service
@@ -11,12 +12,19 @@ class Doppler_Service
   private $httpClient;
 
   function __construct($credentials = null) {
+    
     $this->config = ['credentials' => []];
+
+    $usr_account = '';
 
     if ($credentials)
       $this->setCredentials($credentials);
 
-    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $config['credentials'][ 'user_account' ] . '/';
+    if(isset($config['credentials'][ 'user_account'])){
+      $usr_account = $config['credentials'][ 'user_account'] . '/';
+    }
+
+    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
 
     $this->resources = [
 	  'home'	=> new Doppler_Service_Home_Resource(
@@ -118,7 +126,8 @@ class Doppler_Service
     if( $args && count($args)>0 ){
       $resourceArg = $method[ 'parameters' ];
       foreach ($args as $name => $val) {
-        $parameter = $resourceArg[ $name ];
+        //$parameter = $resourceArg[ $name ];
+        isset( $resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
         if( $parameter && $parameter[ 'on_query_string' ] ){
           $query .= $arg . "=" . $val . "&";
         }else{
@@ -201,7 +210,7 @@ class Doppler_Service
       return $this->service->call($method, array("listId" => $listId) )->body;
     }
 
-    public function getAllLists(){
+    public function getAllLists( $listId = null){
       $method = $this->methods['list'];
       return $this->service->call($method, array("listId" => $listId))->body;
     }
@@ -221,7 +230,7 @@ class Doppler_Service
       $this->methods = isset($args['methods']) ? $args['methods'] : null;
     }
 
-    public function getAllFields(){
+    public function getAllFields( $listId = null ){
       $method = $this->methods['list'];
       return $this->service->call($method, array("listId" => $listId) )->body;
     }
@@ -246,9 +255,11 @@ class Doppler_Service
       $method = $this->methods['post'];
       return $this->service->call( $method, array( 'listId' => $listId ),  $subscriber );
     }
+
   }
 
   class Doppler_Exception_Invalid_Account extends Exception {};
 
   class Doppler_Exception_Invalid_APIKey extends Exception {};
+
 ?>

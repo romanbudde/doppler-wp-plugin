@@ -66,12 +66,18 @@
 		<div class="dplr_form_wrapper" >
 			<form method="POST" action="options.php" id="dplr_apikey_options" class="<?= $error?'error':''; ?>">
 				<?php settings_fields('dplr_plugin_options'); ?>
-        <div class="input-container input-horizontally input-text tooltip tooltip-warning <?= isset($errorMessages['user_account']) ? 'tooltip-initial input-error' : 'tooltip-hide'; echo $options['dplr_option_useraccount'] ? ' notempty' : ''; ?>">
+        <div class="input-container input-horizontally input-text tooltip tooltip-warning <?= (isset($errorMessages['user_account']) || $error)  ? 'tooltip-initial input-error' : 'tooltip-hide'; echo $options['dplr_option_useraccount'] ? ' notempty' : ''; ?>">
           <label><?php _e('Email', 'doppler-form');?></label>
-					<input class="validation"  onfocus="this.placeholder = ''" data-validation-email="<?php _e("Ouch! Enter a valid Email address.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?>" onblur="this.placeholder = '<?php _e("Your Doppler user ;)", "doppler-form");?>'" type="text" placeholder="<?php _e("Your Doppler user ;)", "doppler-form");?>" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />
-          <div class="tooltip-container">
+					<input class="validation"  onfocus="this.placeholder = ''" data-validation-email="<?php _e("Ouch! Enter a valid Email address.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?>" onblur="this.placeholder = '<?php _e("Your Doppler user ;)", "doppler-form");?>'" type="text" placeholder="<?php _e("Your Doppler user ;)", "doppler-form");?>" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />		
+					<?php if($error) :?>
+					<div class="tooltip-container">
+            <span><?= $errorMessage  ?></span>
+					</div>
+					<?php else:?>
+					<div class="tooltip-container">
             <span></span>
           </div>
+					<?php endif;?>
         </div>
         <div class="input-container input-horizontally input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo $options['dplr_option_apikey'] ? ' notempty' : ''; ?>">
 					<label>API key 
@@ -88,16 +94,19 @@
           <div class="tooltip-container">
             <span></span>
 					</div>
-					<!--
-          <div class="tooltip-container">
-            <span><?= isset($errorMessages['user_account']) ? $errorMessages['user_account'] : ''; ?></span>
-					</div>
-						-->
         </div>
-        <button><div class="loading"></div><span><?php _e("CONNECT", "doppler-form"); ?></span></button>
+        <button>
+					<div class="loading"></div>
+					<span><?php _e("CONNECT", "doppler-form"); ?></span>
+				</button>
+				<!--
+				<div class="">
+					<?= $errorMessage; ?>
+				</div>
+				-->
 			</form>
 			
-			<div class="errorMessageBox <?= $error?'error':''; ?>"><?= $errorMessage; ?></div>
+			<!--<div class="errorMessageBox <?= $error?'error':''; ?>"><?= $errorMessage; ?></div>--
 			<div class="loader">Loading...</div>
 		</div>
 		<?php } ?>
