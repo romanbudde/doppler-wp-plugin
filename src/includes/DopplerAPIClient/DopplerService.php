@@ -55,8 +55,9 @@ class Doppler_Service
             'list' => array(
               'route'       => 'lists',
               'httpMethod'  => 'get',
+              
               'parameters'  => array(
-                'per_page' => 100
+                'per_page' => 200
               )
             )
           )

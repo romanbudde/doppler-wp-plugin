@@ -70,6 +70,7 @@ class DPLR_Doppler {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
+
 		require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 		$this->plugin_name = 'Doppler';
 		$this->version = '2.0.0';
@@ -83,10 +84,13 @@ class DPLR_Doppler {
 		 	$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
 
+		
+
 		$this->load_dependencies();
-		$this->set_locale();
+		$this->set_locale(); 
 		$this->define_admin_hooks();
-		$this->define_public_hooks();
+		$this->define_public_hooks(); 
+		//$this->check_version_update();
 
 	}
 
@@ -197,6 +201,53 @@ class DPLR_Doppler {
 		// AJAX
 		$this->loader->add_action( 'wp_ajax_submit_form', $plugin_public, 'submit_form' );
 		$this->loader->add_action( 'wp_ajax_nopriv_submit_form', $plugin_public, 'submit_form' );
+
+	}
+
+	public function check_version_update(){
+
+		$db_version = get_option('dplr_version');
+
+		if( !$db_version || version_compare($db_version,'2.0.0','<') ){
+
+			$sidebar_widgets = get_option('sidebars_widgets');
+			$actual_widgets = get_option('widget_dplr_subscription_widget');
+			$sidebar_widgets_aux = array();
+
+			foreach($sidebar_widgets as $sb=>$wdgts){
+
+				if(is_array($wdgts)){
+
+					foreach($wdgts as $k=>$v){
+						
+						if(strpos($v,'dplr_subscription_widget')!==false)
+							$sidebar_widgets_aux[$sb][$k] = $v;
+
+					}
+				}
+			}
+
+			DPLR_Form_Model::init();
+			DPLR_Field_Model::init();
+
+			if(!empty($actual_widgets)){
+				foreach($actual_widgets as $k=>$v){
+					if(is_array($v)){
+						$data = array('title'=>$v['title'],'description'=>'','list_id'=>$v['selected_lists'][0],'name'=>$v['title']);
+						DPLR_Form_Model::insert($data); 
+					}
+				}
+			}
+
+			if(!empty($sidebar_widgets_aux)){
+				var_dump($sidebar_widgets_aux);
+			}
+
+			#TODO: guardar versión.
+
+		}
+
+		
 
 	}
 

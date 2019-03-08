@@ -30,8 +30,10 @@ class Doppler_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
+		
 		DPLR_Form_Model::init();
 		DPLR_Field_Model::init();
+
 	}
 
 }

@@ -17,7 +17,7 @@
 			<hr/>
 			<div class="dplr-pasos">
 				<h2><?php _e('¡You are almost done! Follow this steps', 'doppler-form')?></h2>
-				<div>
+				<div><!-- 3 boxes -->
 					<div>
 						<figure>
 							<img src="<?= plugins_url( '/../img/screenshot-1.png', __FILE__ ); ?>" alt="step 1"/>
@@ -57,9 +57,9 @@
 						?>
 						</p>
 					</div>
-				</div>
-			</div>
-		</div>
+				</div> <!-- fin 3 boxes -->
+			</div> <!-- fin dplr_pasos -->
+		</div> <!-- fin updated message -->
 		<?php } else {?>
 		<h1><?php _e("Connect with Doppler and create your forms from wordpress", "doppler-form" ); ?></h1>
 		<p class="subtitle"><?php _e("Create forms that automatically adapt to your site's styles and send your new contacts automatically from wordpress to your Doppler Lists. The only thing you need to do is enter your user and API key to connect.","doppler-form") ;?>
@@ -99,14 +99,8 @@
 					<div class="loading"></div>
 					<span><?php _e("CONNECT", "doppler-form"); ?></span>
 				</button>
-				<!--
-				<div class="">
-					<?= $errorMessage; ?>
-				</div>
-				-->
 			</form>
-			
-			<!--<div class="errorMessageBox <?= $error?'error':''; ?>"><?= $errorMessage; ?></div>--
+		
 			<div class="loader">Loading...</div>
 		</div>
 		<?php } ?>
