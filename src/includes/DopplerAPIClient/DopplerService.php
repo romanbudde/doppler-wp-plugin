@@ -55,8 +55,11 @@ class Doppler_Service
             'list' => array(
               'route'       => 'lists',
               'httpMethod'  => 'get',
-              
+              'state' => 'active',
               'parameters'  => array(
+                'page' => array(
+                  'on_query_string' => true
+                ),
                 'per_page' => 200
               )
             )
@@ -121,24 +124,37 @@ class Doppler_Service
   }
 
   function call( $method, $args=null, $body=null ) {
+    
     $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
     $query = "";
+    
     if( $args && count($args)>0 ){
+      
       $resourceArg = $method[ 'parameters' ];
+      
       foreach ($args as $name => $val) {
-        //$parameter = $resourceArg[ $name ];
+        
         isset( $resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
+        
         if( $parameter && $parameter[ 'on_query_string' ] ){
-          $query .= $arg . "=" . $val . "&";
+          $query .= $name . "=" . $val ;
         }else{
           $url = str_replace(":".$name, $val, $url);
         }
+      
       }
+
       if(isset($resourceArg["per_page"])){
         $url.="?per_page=".$resourceArg["per_page"];
       }
+
+      if(isset($resourceArg["page"])){
+        $url.='&'.$query;
+      }
+
     }
+
 
     $headers=array(
             "Accept" => "application/json",
@@ -160,6 +176,7 @@ class Doppler_Service
           ->send();
         break;
     }
+    
     return $response;
 
   }
@@ -211,10 +228,28 @@ class Doppler_Service
       return $this->service->call($method, array("listId" => $listId) )->body;
     }
 
-    public function getAllLists( $listId = null){
+    
+    public function getAllLists( $listId = null, $lists = [], $page = 1  ){
+      
       $method = $this->methods['list'];
-      return $this->service->call($method, array("listId" => $listId))->body;
+      
+      $z = $this->service->call($method, array("listId" => $listId, 'page' => $page))->body;
+      
+      $lists[] = $z->items;
+
+      if($z->currentPage < $z->pagesCount && $page<2){
+        
+        $page = $page+1;
+        return $this->getAllLists(null, $lists, $page);
+
+      }else{
+
+        return $lists;
+        
+      }
+      
     }
+    
   }
 
   class Doppler_Service_Fields {

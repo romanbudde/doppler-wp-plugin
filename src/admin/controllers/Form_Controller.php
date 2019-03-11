@@ -89,12 +89,17 @@ class DPLR_Form_Controller
     $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
     $list_resource = $this->doppler_service->getResource('lists');
     $dplr_lists = $list_resource->getAllLists();
-    $dplr_lists = isset($dplr_lists->items) ? $dplr_lists->items : [];
-    $dplr_lists_arr = [];
-    for ($i=0; $i < count($dplr_lists); $i++) {
-       $dplr_lists_arr[$dplr_lists[$i]->listId] = $dplr_lists[$i]->name;
+  
+    foreach($dplr_lists as $k=>$v){
+      foreach($v as $i=>$j){
+        $dplr_lists_aux[$j->listId] = $j->name;
+      }
     }
-		include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
+
+    $dplr_lists_arr = $dplr_lists_aux;
+
+    include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
+    
   }
 
   function delete($id) {
@@ -108,8 +113,15 @@ class DPLR_Form_Controller
     $fields_resource = $this->doppler_service->getResource('fields');
 
     $dplr_lists = $list_resource->getAllLists();
-    $dplr_lists = isset($dplr_lists->items) ? $dplr_lists->items : [];
-
+  
+    foreach($dplr_lists as $k=>$v){
+      foreach($v as $i=>$j){
+        $dplr_lists_aux[] = $j;
+      }
+    }
+    
+    $dplr_lists = $dplr_lists_aux;
+    
     $dplr_fields = $fields_resource->getAllFields();
     $dplr_fields = isset($dplr_fields->items) ? $dplr_fields->items : [];
 
@@ -117,8 +129,6 @@ class DPLR_Form_Controller
       echo $dplr_fields[$key];
       //unset($dplr_fields[$key]);
     }
-
-    //var_dump($key); var_dump(array_column($dplr_fields, 'type'));die();
 
     usort($dplr_fields, function($a, $b) {
       return strtolower($a->name) > strtolower($b->name);

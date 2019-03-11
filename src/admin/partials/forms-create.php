@@ -36,7 +36,7 @@
           <div class="col-1-2 dplr_input_section">
             <label for="list_id"><?php _e('Select the fields to include', 'doppler-form')?></label>
             <select id="fieldList" class="" name="">
-              <option value="" disabled selected hidden><?php _e('Select the fields you want to add to your form', 'doppler-form')?></option>
+              <option value=""><?php _e('Select the fields you want to add to your form', 'doppler-form')?></option>
             </select>
           </div>
           <div class="col-1-2">
