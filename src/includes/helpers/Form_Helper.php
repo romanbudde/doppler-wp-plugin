@@ -36,9 +36,9 @@ class DPLR_Form_helper
 			</div>
 			<?php
 		}
-    $button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "";
-    $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "submit";
-    $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "subscriber success";
+    $button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "left";
+    $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "";
+    $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "";
     if(empty($submit_text)){
       $submit_text =  __('Submit', 'doppler-form');
     }

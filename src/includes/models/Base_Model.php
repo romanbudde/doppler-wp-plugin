@@ -60,6 +60,7 @@ abstract class DPLR_Base_Model {
   static function insert( $data ) {
     global $wpdb;
     $wpdb->insert( self::_table(), $data );
+    return $wpdb->insert_id;
   }
   static function update( $id, $data ) {
     global $wpdb;

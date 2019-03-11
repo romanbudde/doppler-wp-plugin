@@ -90,7 +90,7 @@ class DPLR_Doppler {
 		$this->set_locale(); 
 		$this->define_admin_hooks();
 		$this->define_public_hooks(); 
-		//$this->check_version_update();
+		$this->check_version_update();
 
 	}
 
@@ -212,6 +212,7 @@ class DPLR_Doppler {
 
 			$sidebar_widgets = get_option('sidebars_widgets');
 			$actual_widgets = get_option('widget_dplr_subscription_widget');
+
 			$sidebar_widgets_aux = array();
 
 			foreach($sidebar_widgets as $sb=>$wdgts){
@@ -220,34 +221,40 @@ class DPLR_Doppler {
 
 					foreach($wdgts as $k=>$v){
 						
-						if(strpos($v,'dplr_subscription_widget')!==false)
-							$sidebar_widgets_aux[$sb][$k] = $v;
-
+						if(strpos($v,'dplr_subscription_widget')!==false){
+							$aux = explode('-',$v);
+							$sidebar_widgets[$sb][$k] = 'dplr_form_widget-'.$aux[1];
+						}
 					}
 				}
 			}
+
+			update_option('sidebars_widgets',$sidebar_widgets);
 
 			DPLR_Form_Model::init();
 			DPLR_Field_Model::init();
 
 			if(!empty($actual_widgets)){
-				foreach($actual_widgets as $k=>$v){
+				foreach($actual_widgets as $id=>$v){
 					if(is_array($v)){
+						
+						//Create a form from old widget.
 						$data = array('title'=>$v['title'],'description'=>'','list_id'=>$v['selected_lists'][0],'name'=>$v['title']);
-						DPLR_Form_Model::insert($data); 
+						$form_id = DPLR_Form_Model::insert($data); 
+						//Save email field
+						DPLR_Field_Model::insert(array('name'=>'EMAIL','form_id'=>$form_id,'type'=>'email','sort_order'=>1));
+						//Create new widgets from old widgets
+						$new_widget[$id] = array('form_id'=>$form_id);
+						update_option('widget_dplr_form_widget', $new_widget);
 					}
 				}
 			}
-
-			if(!empty($sidebar_widgets_aux)){
-				var_dump($sidebar_widgets_aux);
-			}
-
-			#TODO: guardar versión.
+	
+			delete_option('widget_dplr_subscription_widget');
+			update_option('dplr_version','2.0.0');
 
 		}
 
-		
 
 	}
 
