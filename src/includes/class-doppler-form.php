@@ -192,9 +192,6 @@ class DPLR_Doppler {
 	private function define_public_hooks() {
 
 		$plugin_public = new DPLR_Doppler_Form_Public( $this->get_plugin_name(), $this->get_version(), $this->doppler_service );
-		/**
-		 * Seguir buscando por acá la posibilidad de chequear el service en el widget público.
-		 */
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
@@ -234,6 +231,7 @@ class DPLR_Doppler {
 			DPLR_Form_Model::init();
 			DPLR_Field_Model::init();
 
+
 			if(!empty($actual_widgets)){
 				foreach($actual_widgets as $id=>$v){
 					if(is_array($v)){
@@ -249,9 +247,13 @@ class DPLR_Doppler {
 					}
 				}
 			}
+
 	
 			delete_option('widget_dplr_subscription_widget');
 			update_option('dplr_version','2.0.0');
+
+			/*PROBAR CON VARIOS FORMS*/
+			/* REDIRECCIONAR A CONFIG PARA QUE INGRESE EL USUARIO*/
 
 		}
 

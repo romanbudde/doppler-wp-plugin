@@ -238,7 +238,7 @@
       }
     }
     &.dplr_form_wrapper {
-      margin: 50px 0 115px 0 !important;
+      margin: 50px 0 !important;
       width: 760px;
       display: inline-block;
       .tooltip.tooltip-top{
@@ -248,6 +248,12 @@
         }
         .tooltip-container::after{
           right: 50%;
+        }
+      }
+      .tooltip.tooltip--user_api_error{
+        .tooltip-container{
+          transform: none;
+          top:0px;
         }
       }
     }

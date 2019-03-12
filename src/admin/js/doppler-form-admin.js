@@ -38,17 +38,24 @@ function validateRequired(requiredElement) {
 	}
 }
 
+function hideUserApiError(){
+	$('.tooltip--user_api_error').css('display','none');
+}
+
 $(document).ready(function(){
 
 	$("input[data-validation-fixed]").each(function() {
+		hideUserApiError();
 		triggerError($(this));
 	});
 
 	$("input[data-validation-email]").focusout(function() {
-			validateEmail($(this));
+		hideUserApiError();
+		validateEmail($(this));
 	});
 
 	$("input[data-validation-required]").focusout(function() {
+		hideUserApiError();
 		validateRequired($(this));
 	});
 

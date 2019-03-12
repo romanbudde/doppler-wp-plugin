@@ -150,19 +150,19 @@ class Doppler_Admin {
 				if ($connected !== true) {
 
 					$error = true;
-					$errorMessage = __("The email or API key you provided is invalid.", "doppler-form");
+					$errorMessage = __("Ouch! There is an error in your Username or API Key. Please, try again..", "doppler-form");
 
 				}
 
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
 				
 				$errors = true;
-				$errorMessages['api_key'] = __("Ouch! Enter a valid API Key.", "doppler-form");
+				$errorMessages['api_key'] = __("Ouch! Enter a valid Email.", "doppler-form");
 			
 			} catch(Doppler_Exception_Invalid_Account $e) {
 				
 				$errors = true;
-				$errorMessages['user_account'] = __("Ouch! Enter a valid account.", "doppler-form");
+				$errorMessages['user_account'] = __("Ouch! The field is empty.", "doppler-form");
 			
 			}
 		

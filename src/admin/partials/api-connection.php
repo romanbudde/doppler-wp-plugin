@@ -3,7 +3,7 @@
 		<a href="http://www.fromdoppler.com" target="_blank"><img id="dplr_logo" src="<?= plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
 		<?php
 		if ($connected) { ?>
-		<h1><?php _e("¡Successful connection!", "doppler-form" ); ?></h1>
+		<h1><?php _e("Successful connection!", "doppler-form" ); ?></h1>
 		<p class="subtitle"><?php _e("Your account is now officially connected","doppler-form") ;?> :)</p>
 		<div class="disconnect_box">
 			<form method="POST" action="options.php" >
@@ -27,7 +27,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to the Forms tab and create a new form.  Select the list you want to populate and the fields you want to add.', 'doppler-form');
+							_e('Go to Doppler Forms > Forms > Create Form.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -40,7 +40,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to Appearance > Widgets.  Click in Doppler Forms and select where you want your new form to show.', 'doppler-form');
+							_e('Go to Appearance > Widgets > Doppler Forms and select the place where you want it to appear.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -53,7 +53,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('¡Done! You should now see your new form published with your theme\'s appearance.', 'doppler-form');
+							_e('Done! You should now see your Form published on your website.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -61,23 +61,17 @@
 			</div> <!-- fin dplr_pasos -->
 		</div> <!-- fin updated message -->
 		<?php } else {?>
-		<h1><?php _e("Connect with Doppler and create your forms from wordpress", "doppler-form" ); ?></h1>
-		<p class="subtitle"><?php _e("Create forms that automatically adapt to your site's styles and send your new contacts automatically from wordpress to your Doppler Lists. The only thing you need to do is enter your user and API key to connect.","doppler-form") ;?>
+		<h1><?php _e("Connect your WordPress Forms with Doppler", "doppler-form" ); ?></h1>
+		<p class="subtitle"><?php _e("Create Subscription Forms that respect your Website styles and automatically send your new Subscribers from WordPress to Doppler Lists.","doppler-form") ;?>
 		<div class="dplr_form_wrapper" >
 			<form method="POST" action="options.php" id="dplr_apikey_options" class="<?= $error?'error':''; ?>">
 				<?php settings_fields('dplr_plugin_options'); ?>
         <div class="input-container input-horizontally input-text tooltip tooltip-warning <?= (isset($errorMessages['user_account']) || $error)  ? 'tooltip-initial input-error' : 'tooltip-hide'; echo $options['dplr_option_useraccount'] ? ' notempty' : ''; ?>">
-          <label><?php _e('Email', 'doppler-form');?></label>
-					<input class="validation"  onfocus="this.placeholder = ''" data-validation-email="<?php _e("Ouch! Enter a valid Email address.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?>" onblur="this.placeholder = '<?php _e("Your Doppler user ;)", "doppler-form");?>'" type="text" placeholder="<?php _e("Your Doppler user ;)", "doppler-form");?>" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />		
-					<?php if($error) :?>
-					<div class="tooltip-container">
-            <span><?= $errorMessage  ?></span>
-					</div>
-					<?php else:?>
+          <label><?php _e('Username', 'doppler-form');?></label>
+					<input class="validation"  data-validation-email="<?php _e("Ouch! Enter a valid Email.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?> type="text" placeholder="" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />
 					<div class="tooltip-container">
             <span></span>
           </div>
-					<?php endif;?>
         </div>
         <div class="input-container input-horizontally input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo $options['dplr_option_apikey'] ? ' notempty' : ''; ?>">
 					<label>API key 
@@ -90,7 +84,7 @@
             </span>
           </div>
 					</label>
-					<input data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>"   onfocus="this.placeholder = ''" onblur="this.placeholder = '<?php _e("Enter your API Key.", "doppler-form");?>'" data-validation="noempty" type="text" placeholder="<?php _e("Enter your API Key.", "doppler-form");?>" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
+					<input data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
           <div class="tooltip-container">
             <span></span>
 					</div>
@@ -100,9 +94,22 @@
 					<span><?php _e("CONNECT", "doppler-form"); ?></span>
 				</button>
 			</form>
+
+			<?php if($error): ?>
+			<div class="tooltip tooltip-warning tooltip--user_api_error">
+				<div class="tooltip-container">
+            <span><?= $errorMessage  ?></span>
+				</div>
+			</div>
+			<?php endif;?>
 		
 			<div class="loader">Loading...</div>
 		</div>
+
+		<p>
+				<?php _e("Do you have any doubts about how to connect your Forms with Doppler? Press")?>
+				<?= '<a href="'.esc_url('https://help.fromdoppler.com/en/where-do-i-find-my-api-key').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.
+		</p>
 		<?php } ?>
 	
 	</div>

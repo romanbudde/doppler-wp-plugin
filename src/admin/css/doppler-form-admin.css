@@ -172,7 +172,7 @@
     font-size: 16px;
     line-height: 21px; }
 .dplr_settings div.dplr_form_wrapper {
-  margin: 50px 0 115px 0 !important;
+  margin: 50px 0 !important;
   width: 760px;
   display: inline-block; }
   .dplr_settings div.dplr_form_wrapper .tooltip.tooltip-top .tooltip-container {
@@ -180,6 +180,9 @@
     text-align: left; }
   .dplr_settings div.dplr_form_wrapper .tooltip.tooltip-top .tooltip-container::after {
     right: 50%; }
+  .dplr_settings div.dplr_form_wrapper .tooltip.tooltip--user_api_error .tooltip-container {
+    transform: none;
+    top: 0px; }
 .dplr_settings .disconnect_box {
   position: absolute;
   top: 30px;
