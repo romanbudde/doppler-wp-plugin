@@ -240,7 +240,9 @@ class DPLR_Doppler {
 						$data = array('title'=>$v['title'],'description'=>'','list_id'=>$v['selected_lists'][0],'name'=>$v['title']);
 						$form_id = DPLR_Form_Model::insert($data); 
 						//Save email field
-						DPLR_Field_Model::insert(array('name'=>'EMAIL','form_id'=>$form_id,'type'=>'email','sort_order'=>1));
+						$field_id = DPLR_Field_Model::insert(array('name'=>'EMAIL','form_id'=>$form_id,'type'=>'email','sort_order'=>1));
+						//Email will be required by defalut
+						DPLR_Field_Model::setSettings($field_id, array('required'=>'required'));
 						//Create new widgets from old widgets
 						$new_widget[$id] = array('form_id'=>$form_id);
 						update_option('widget_dplr_form_widget', $new_widget);
@@ -248,16 +250,18 @@ class DPLR_Doppler {
 				}
 			}
 
-	
 			delete_option('widget_dplr_subscription_widget');
 			update_option('dplr_version','2.0.0');
 
-			/*PROBAR CON VARIOS FORMS*/
-			/* REDIRECCIONAR A CONFIG PARA QUE INGRESE EL USUARIO*/
+			add_action( 'admin_notices', function(){
+				?>
+				 <div class="notice notice-warning is-dismissible">
+					<p><?php _e( 'You updated <strong>Doppler Forms</strong> to version <strong>2.0.0</strong>. You need to <a href="'.admin_url( 'admin.php?page=doppler_forms_menu' ).'">enter your username</a> and re-connect.', 'sample-text-domain' ); ?></p>
+				</div>
+				<?php
+			} );
 
 		}
-
-
 	}
 
 	/**
