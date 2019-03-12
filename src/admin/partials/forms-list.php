@@ -1,14 +1,14 @@
-<h1><?php _e('Forms List', 'doppler-form')?></h1>
+<h1><?php _e('Created Forms', 'doppler-form')?></h1>
 <div class="dplr">
   <div class="panel">
     <div class="">
       <table class="fixed">
         <thead>
           <tr>
-            <th class="col-id"><?php _e('Id', 'doppler-form')?></th>
-            <th class="col-title"><?php _e('Form name', 'doppler-form')?></th>
-            <th class="col-listname"><?php _e('List name', 'doppler-form')?></th>
-            <th class="col-listid"><?php _e('List id', 'doppler-form')?></th>
+            <th class="col-id"><?php _e('Form ID', 'doppler-form')?></th>
+            <th class="col-title"><?php _e('Form Name', 'doppler-form')?></th>
+            <th class="col-listname"><?php _e('List Name', 'doppler-form')?></th>
+            <th class="col-listid"><?php _e('List ID', 'doppler-form')?></th>
           </tr>
         </thead>
         <tbody>
@@ -33,8 +33,8 @@
   </div>
 </div>
 
-<a href="<?php echo $create_form_url; ?>" class="button button-primary"><?php _e('New form', 'doppler-form')?></a>
+<a href="<?php echo $create_form_url; ?>" class="button button-primary"><?php _e('Create Form', 'doppler-form')?></a>
 
-<div id="dplr-dialog-confirm" title="<?php _e('Confirmation required', 'doppler-form'); ?>">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('This item will be permanently deleted and cannot be recovered. Are you sure?', 'doppler-form')?></p>
+<div id="dplr-dialog-confirm" title="<?php _e('Are you sure you want to delete the Form? ', 'doppler-form'); ?>">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('It\'ll be deleted and can\'t be recovered.', 'doppler-form')?></p>
 </div>
