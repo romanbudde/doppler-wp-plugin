@@ -104,13 +104,13 @@ class DPLR_Doppler_Form_Public {
 	}
 
 	public function submit_form() {
+		
 		$subscriber_resource = $this->doppler_service->getResource('subscribers');
 
 		$subscriber = $_POST['subscriber'];
 
 		$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
 
-		wp_die(var_dump($result));
 	}
 
 }

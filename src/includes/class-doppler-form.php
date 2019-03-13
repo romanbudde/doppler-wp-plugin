@@ -242,7 +242,7 @@ class DPLR_Doppler {
 						//Save email field
 						$field_id = DPLR_Field_Model::insert(array('name'=>'EMAIL','form_id'=>$form_id,'type'=>'email','sort_order'=>1));
 						//Email will be required by defalut
-						DPLR_Field_Model::setSettings($field_id, array('required'=>'required'));
+						DPLR_Field_Model::setSettings($field_id, array('required'=>'required', 'placeholder'=>''));
 						//Create new widgets from old widgets
 						$new_widget[$id] = array('form_id'=>$form_id);
 						update_option('widget_dplr_form_widget', $new_widget);
