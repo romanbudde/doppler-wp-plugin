@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-01 11:39-0300\n"
+"2019-03-13 15:07-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -55,13 +55,13 @@ msgid "Delete"
 msgstr ""
 
 #: admin/doppler-admin.php:79
-#: admin/partials/forms-create.php:106
-#: admin/partials/forms-edit.php:116
+#: admin/partials/forms-create.php:105
+#: admin/partials/forms-edit.php:117
 msgid "Cancel"
 msgstr ""
 
 #: admin/doppler-admin.php:83
-msgid "Edit field"
+msgid "Edit Field"
 msgstr ""
 
 #: admin/doppler-admin.php:84
@@ -69,7 +69,7 @@ msgid "Required"
 msgstr ""
 
 #: admin/doppler-admin.php:85
-msgid "Label to show"
+msgid "Label to be shown"
 msgstr ""
 
 #: admin/doppler-admin.php:86
@@ -77,141 +77,152 @@ msgid "Description"
 msgstr ""
 
 #: admin/doppler-admin.php:87
-msgid "Text type"
+msgid "Lines"
 msgstr ""
 
 #: admin/doppler-admin.php:88
-msgid "One single line"
+msgid "Simple"
 msgstr ""
 
 #: admin/doppler-admin.php:89
-msgid "Multiple lines"
+msgid "Multiple"
 msgstr ""
 
-#: admin/doppler-admin.php:149
+#: admin/doppler-admin.php:106
+#: admin/doppler-admin.php:107
+msgid "Doppler Forms"
+msgstr ""
+
+#: admin/doppler-admin.php:126
+#: admin/doppler-admin.php:127
+msgid "Forms"
+msgstr ""
+
+#: admin/doppler-admin.php:153
 msgid ""
-"Ouch! Enter a valid API "
-"Key."
+"Ouch! There's something "
+"wrong with your Username "
+"or API Key. Please, try "
+"again."
 msgstr ""
 
-#: admin/doppler-admin.php:152
+#: admin/doppler-admin.php:160
+#: admin/partials/api-connection.php:72
 msgid ""
 "Ouch! Enter a valid "
-"account."
+"Email."
 msgstr ""
 
-#: admin/partials/api-connection.php:6
+#: admin/doppler-admin.php:165
+#: admin/partials/api-connection.php:89
 msgid ""
-"¡Successful connection!"
+"Ouch! The field is empty."
 msgstr ""
 
 #: admin/partials/api-connection.php:7
+msgid ""
+"Successful connection!"
+msgstr ""
+
+#: admin/partials/api-connection.php:8
 msgid ""
 "Your account is now "
 "officially connected"
 msgstr ""
 
-#: admin/partials/api-connection.php:12
+#: admin/partials/api-connection.php:13
 msgid "Disconnect"
 msgstr ""
 
-#: admin/partials/api-connection.php:19
+#: admin/partials/api-connection.php:20
 msgid ""
-"¡You are almost done! "
+"You are almost done! "
 "Follow this steps"
 msgstr ""
 
-#: admin/partials/api-connection.php:30
+#: admin/partials/api-connection.php:31
 msgid ""
-"Go to the Forms tab and "
-"create a new form.  "
-"Select the list you want "
-"to populate and the "
-"fields you want to add."
+"Go to Doppler Forms > "
+"Forms > Create Form."
 msgstr ""
 
-#: admin/partials/api-connection.php:43
+#: admin/partials/api-connection.php:44
 msgid ""
 "Go to Appearance > "
-"Widgets.  Click in "
-"Doppler Forms and select "
-"where you want your new "
-"form to show."
+"Widgets > Doppler Forms "
+"and select where do you "
+"want the forms to be "
+"displayed."
 msgstr ""
 
-#: admin/partials/api-connection.php:56
+#: admin/partials/api-connection.php:57
 msgid ""
-"¡Done! You should now "
-"see your new form "
-"published with your "
-"theme's appearance."
-msgstr ""
-
-#: admin/partials/api-connection.php:64
-msgid ""
-"Connect with Doppler and "
-"create your forms from "
-"wordpress"
+"Done! You should now see "
+"your Form published on "
+"your website."
 msgstr ""
 
 #: admin/partials/api-connection.php:65
 msgid ""
-"Create forms that "
-"automatically adapt to "
-"your site's styles and "
-"send your new contacts "
-"automatically from "
-"wordpress to your "
-"Doppler Lists. The only "
-"thing you need to do is "
-"enter your user and API "
-"key to connect."
+"Connect your WordPress "
+"Forms with Doppler"
 msgstr ""
 
-#: admin/partials/api-connection.php:70
-msgid "Email"
+#: admin/partials/api-connection.php:66
+msgid ""
+"Create Subscription "
+"Forms that respect your "
+"Website styles and "
+"automatically send your "
+"new Subscribers from "
+"WordPress to Doppler "
+"Lists."
 msgstr ""
 
 #: admin/partials/api-connection.php:71
+msgid "Username"
+msgstr ""
+
+#: admin/partials/api-connection.php:83
 msgid ""
-"Ouch! Enter a valid "
-"Email address."
+"How do you find your API "
+"KEY? Press"
 msgstr ""
 
-#: admin/partials/api-connection.php:71
+#: admin/partials/api-connection.php:83
 msgid ""
-"Your Doppler user ;)"
+"https://help.fromdoppler."
+"com/en/where-do-i-find-"
+"my-api-key/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
-#: admin/partials/api-connection.php:81
-msgid ""
-"Don’t know where to find "
-"your Api Key?"
+#: admin/partials/api-connection.php:83
+#: admin/partials/api-connection.php:113
+#: admin/partials/forms-create.php:79
+#: admin/partials/forms-edit.php:89
+msgid "HELP"
 msgstr ""
 
-#: admin/partials/api-connection.php:81
-msgid "Read this post"
-msgstr ""
-
-#: admin/partials/api-connection.php:82
-msgid ""
-"Pst! Remember that this "
-"benefit is only "
-"available for paid "
-"accounts"
-msgstr ""
-
-#: admin/partials/api-connection.php:87
-msgid ""
-"Ouch! The field is empty."
-msgstr ""
-
-#: admin/partials/api-connection.php:87
-msgid "Enter your API Key."
-msgstr ""
-
-#: admin/partials/api-connection.php:97
+#: admin/partials/api-connection.php:96
 msgid "CONNECT"
+msgstr ""
+
+#: admin/partials/api-connection.php:112
+msgid ""
+"Do you have any doubts "
+"about how to connect "
+"your Forms with Doppler? "
+"Press"
+msgstr ""
+
+#: admin/partials/api-connection.php:113
+msgid ""
+"https://help.fromdoppler."
+"com/en/how-to-integrate-"
+"wordpress-forms-with-"
+"doppler?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
 #: admin/partials/forms-create.php:7
@@ -222,42 +233,53 @@ msgstr ""
 
 #: admin/partials/forms-create.php:11
 #: admin/partials/forms-edit.php:13
-#: admin/partials/forms-list.php:9
-msgid "Form name"
+msgid "Name"
 msgstr ""
 
 #: admin/partials/forms-create.php:15
 #: admin/partials/forms-edit.php:17
-msgid "Form title"
+msgid "Doppler List"
 msgstr ""
 
-#: admin/partials/forms-create.php:19
-#: admin/partials/forms-edit.php:21
-msgid "Doppler list"
+#: admin/partials/forms-create.php:17
+msgid ""
+"Select the destination "
+"List where your new "
+"Subscribers will be sent"
+msgstr ""
+
+#: admin/partials/forms-create.php:29
+#: admin/partials/forms-edit.php:33
+msgid "Form Fields"
 msgstr ""
 
 #: admin/partials/forms-create.php:33
 #: admin/partials/forms-edit.php:37
-msgid "Form fields"
+msgid "Fields to include"
 msgstr ""
 
-#: admin/partials/forms-create.php:37
-#: admin/partials/forms-edit.php:41
+#: admin/partials/forms-create.php:35
+#: admin/partials/forms-edit.php:39
 msgid ""
-"Select the fields to "
-"include"
+"Select the Fields that "
+"will appear on your Form"
 msgstr ""
 
-#: admin/partials/forms-create.php:39
-#: admin/partials/forms-edit.php:43
-msgid ""
-"Select the fields you "
-"want to add to your form"
+#: admin/partials/forms-create.php:48
+#: admin/partials/forms-edit.php:53
+msgid "Form settings"
 msgstr ""
 
 #: admin/partials/forms-create.php:52
 #: admin/partials/forms-edit.php:57
-msgid "Form settings"
+msgid "Title"
+msgstr ""
+
+#: admin/partials/forms-create.php:53
+#: admin/partials/forms-edit.php:58
+msgid ""
+"Subscribe to our "
+"Newsletter!"
 msgstr ""
 
 #: admin/partials/forms-create.php:56
@@ -273,89 +295,103 @@ msgstr ""
 
 #: admin/partials/forms-create.php:60
 #: admin/partials/forms-edit.php:65
-msgid ""
-"Confirmation message"
+msgid "Button alignment"
 msgstr ""
 
-#: admin/partials/forms-create.php:61
-#: admin/partials/forms-edit.php:66
-#: includes/helpers/Form_Helper.php:46
-msgid ""
-"Thanks for subscribing"
-msgstr ""
-
-#: admin/partials/forms-create.php:64
-#: admin/partials/forms-edit.php:69
-msgid "Button position"
-msgstr ""
-
-#: admin/partials/forms-create.php:66
-#: admin/partials/forms-edit.php:72
+#: admin/partials/forms-create.php:62
+#: admin/partials/forms-edit.php:68
 msgid "Left"
 msgstr ""
 
-#: admin/partials/forms-create.php:67
-#: admin/partials/forms-edit.php:73
+#: admin/partials/forms-create.php:63
+#: admin/partials/forms-edit.php:69
 msgid "Center"
 msgstr ""
 
-#: admin/partials/forms-create.php:68
-#: admin/partials/forms-edit.php:74
+#: admin/partials/forms-create.php:64
+#: admin/partials/forms-edit.php:70
 msgid "Right"
+msgstr ""
+
+#: admin/partials/forms-create.php:65
+#: admin/partials/forms-edit.php:71
+msgid "Full width"
 msgstr ""
 
 #: admin/partials/forms-create.php:69
 #: admin/partials/forms-edit.php:75
-msgid "Fill"
-msgstr ""
-
-#: admin/partials/forms-create.php:73
-#: admin/partials/forms-edit.php:79
 msgid ""
 "Button background color"
 msgstr ""
 
-#: admin/partials/forms-create.php:74
-#: admin/partials/forms-edit.php:80
+#: admin/partials/forms-create.php:70
+#: admin/partials/forms-edit.php:76
 msgid ""
 "Use my theme's default "
 "color"
 msgstr ""
 
-#: admin/partials/forms-create.php:75
-#: admin/partials/forms-edit.php:82
+#: admin/partials/forms-create.php:71
+#: admin/partials/forms-edit.php:78
 msgid ""
 "Choose another color"
 msgstr ""
 
+#: admin/partials/forms-create.php:75
+#: admin/partials/forms-edit.php:83
+msgid ""
+"Confirmation message"
+msgstr ""
+
+#: admin/partials/forms-create.php:76
+#: admin/partials/forms-edit.php:84
+msgid ""
+"Thanks for subscribing!"
+msgstr ""
+
 #: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:87
-msgid "¿Use consent field?"
+#: admin/partials/forms-edit.php:89
+msgid ""
+"Consent Field (GDPR)"
+msgstr ""
+
+#: admin/partials/forms-create.php:79
+#: admin/partials/forms-edit.php:89
+msgid "What is it? Press"
+msgstr ""
+
+#: admin/partials/forms-create.php:79
+#: admin/partials/forms-edit.php:89
+msgid ""
+"https://help.fromdoppler."
+"com/en/general-data-"
+"protection-regulation?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
 #: admin/partials/forms-create.php:80
-#: admin/partials/forms-edit.php:88
+#: admin/partials/forms-edit.php:90
 msgid "Yes"
 msgstr ""
 
 #: admin/partials/forms-create.php:81
-#: admin/partials/forms-edit.php:90
+#: admin/partials/forms-edit.php:92
 msgid "No"
 msgstr ""
 
 #: admin/partials/forms-create.php:89
-#: admin/partials/forms-edit.php:99
+#: admin/partials/forms-edit.php:101
 msgid ""
-"Consent field settings"
+"Consent Field settings"
 msgstr ""
 
 #: admin/partials/forms-create.php:93
-#: admin/partials/forms-edit.php:103
+#: admin/partials/forms-edit.php:105
 msgid "Checkbox label"
 msgstr ""
 
 #: admin/partials/forms-create.php:94
-#: admin/partials/forms-edit.php:104
+#: admin/partials/forms-edit.php:106
 #: includes/helpers/Form_Helper.php:28
 msgid ""
 "I've read and accept the "
@@ -363,43 +399,48 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:98
-#: admin/partials/forms-edit.php:108
+#: admin/partials/forms-edit.php:110
 msgid ""
 "Enter the URL of your "
-"privacy policy. Do you "
-"want to know more? Press "
+"privacy policy"
 msgstr ""
 
-#: admin/partials/forms-create.php:99
-#: admin/partials/forms-edit.php:109
-msgid "HELP"
-msgstr ""
-
-#: admin/partials/forms-create.php:101
-#: admin/partials/forms-edit.php:111
+#: admin/partials/forms-create.php:100
+#: admin/partials/forms-edit.php:112
 msgid ""
 "https://www.mysite.com"
 msgstr ""
 
-#: admin/partials/forms-create.php:106
-#: admin/partials/forms-edit.php:116
+#: admin/partials/forms-create.php:105
+#: admin/partials/forms-edit.php:117
 msgid "Save"
 msgstr ""
 
+#: admin/partials/forms-edit.php:19
+msgid ""
+"Select the destination "
+"List where your your new "
+"Subscribers will be sent"
+msgstr ""
+
 #: admin/partials/forms-list.php:1
-msgid "Forms List"
+msgid "Created Forms"
 msgstr ""
 
 #: admin/partials/forms-list.php:8
-msgid "Id"
+msgid "Form ID"
+msgstr ""
+
+#: admin/partials/forms-list.php:9
+msgid "Form Name"
 msgstr ""
 
 #: admin/partials/forms-list.php:10
-msgid "List name"
+msgid "List Name"
 msgstr ""
 
 #: admin/partials/forms-list.php:11
-msgid "List id"
+msgid "List ID"
 msgstr ""
 
 #: admin/partials/forms-list.php:22
@@ -407,45 +448,56 @@ msgid "Edit"
 msgstr ""
 
 #: admin/partials/forms-list.php:36
-msgid "New form"
+msgid "Create Form"
 msgstr ""
 
 #: admin/partials/forms-list.php:38
 msgid ""
-"Confirmation required"
+"Are you sure you want to "
+"delete the Form? "
 msgstr ""
 
 #: admin/partials/forms-list.php:39
 msgid ""
-"This item will be "
-"permanently deleted and "
-"cannot be recovered. Are "
-"you sure?"
+"It'll be deleted and "
+"can't be recovered."
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:9
+#: includes/class-doppler-form-widget.php:10
 msgid ""
 "Create a Doppler form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:10
+#: includes/class-doppler-form-widget.php:11
 msgid "Doppler form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:49
-msgid "Forms"
+#: includes/class-doppler-form-widget.php:68
+msgid ""
+"Select the Form that you "
+"want to publish"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:52
-msgid "Select a form"
-msgstr ""
-
-#: includes/class-doppler-form-widget.php:62
+#: includes/class-doppler-form-widget.php:78
 msgid ""
 "You haven't created any "
 "form"
 msgstr ""
 
+#: includes/class-doppler-form.php:259
+msgid ""
+"You updated "
+"<strong>Doppler Forms</"
+"strong> to version "
+"<strong>2.0.0</strong>. "
+"You need to <a href=\""
+msgstr ""
+
 #: includes/helpers/Form_Helper.php:32
 msgid "Read more"
+msgstr ""
+
+#: includes/helpers/Form_Helper.php:46
+msgid ""
+"Thanks for subscribing"
 msgstr ""

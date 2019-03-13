@@ -38,6 +38,12 @@
     color: #525845;
   }
 
+  label{
+    i{
+      font-weight: regular;
+    }
+  }
+
 
   .loading {
     z-index: 999;
@@ -784,6 +790,9 @@
       font-weight: bold;
       padding-bottom: 5px;
       padding-left: 10px;
+      i{
+        font-weight: 400;
+      }
     }
 
     input[type="text"], input[type="url"], select, textarea {
@@ -836,6 +845,19 @@
       bottom: -7px;
     }
 
+   ::-webkit-input-placeholder {
+      font-style: italic;
+   }
+   :-moz-placeholder {
+      font-style: italic;  
+   }
+   ::-moz-placeholder {
+      font-style: italic;  
+   }
+   :-ms-input-placeholder {  
+      font-style: italic; 
+   }
+
   }
 
   .sortable {
@@ -882,7 +904,7 @@
         width: 5%;
       }
       &.col-id {
-        width: 5%;
+        width: 10%;
       }
       &.col-title {
         width: 40%;

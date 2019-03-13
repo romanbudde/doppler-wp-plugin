@@ -17,7 +17,7 @@
 			<img width="54" src="<?= plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
 			<hr/>
 			<div class="dplr-pasos">
-				<h2><?php _e('¡You are almost done! Follow this steps', 'doppler-form')?></h2>
+				<h2><?php _e('You are almost done! Follow this steps', 'doppler-form')?></h2>
 				<div><!-- 3 boxes -->
 					<div>
 						<figure>
@@ -41,7 +41,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to Appearance > Widgets > Doppler Forms and select the place where you want it to appear.', 'doppler-form');
+							_e('Go to Appearance > Widgets > Doppler Forms and select where do you want the forms to be displayed.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -79,8 +79,9 @@
 					<div class="icon">
             <span class="tooltip tooltip-info tooltip-top tooltip-hover">?
               <div class="tooltip-container">
-                <p><?php _e("Don’t know where to find your Api Key?", "doppler-form"); ?> <a href="http://help.fromdoppler.com/en/api-interfaz-de-programacion-de-aplicaciones/?utm_source=wordpress&utm_medium=blog&utm_campaign=plugin"><?php _e("Read this post", "doppler-form"); ?></a><br>
-                <small><?php _e("Pst! Remember that this benefit is only available for paid accounts", "doppler-form"); ?></small></p>
+                <p>
+									<?php _e("How do you find your API KEY? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a><br>
+                </p>
               </div>
             </span>
           </div>
@@ -108,8 +109,8 @@
 		</div>
 
 		<p>
-				<?php _e("Do you have any doubts about how to connect your Forms with Doppler? Press")?>
-				<?= '<a href="'.esc_url('https://help.fromdoppler.com/en/where-do-i-find-my-api-key').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.
+				<?php _e("Do you have any doubts about how to connect your Forms with Doppler? Press", "doppler-form")?>
+				<?= '<a href="'.__('https://help.fromdoppler.com/en/how-to-integrate-wordpress-forms-with-doppler?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress','doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.
 		</p>
 		<?php } ?>
 	

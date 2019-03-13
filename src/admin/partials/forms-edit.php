@@ -10,13 +10,13 @@
           </div>
           <div class="panel-body">
             <div class="dplr_input_section">
-              <label for="name"><?php _e('Form Name', 'doppler-form')?></label>
+              <label for="name"><?php _e('Name', 'doppler-form')?></label>
               <input type="text" name="name" placeholder="" value="<?php echo $form->name; ?>" required/>
             </div>
             <div class="dplr_input_section">
               <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
               <select class="" name="list_id" id="list-id" required>
-                <option value=""><?php _e('Select the List to which you want to send your new Subscribers'); ?></option>
+                <option value=""><?php _e('Select the destination List where your your new Subscribers will be sent', 'doppler-form'); ?></option>
                 <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
                   <option <?php echo $form->list_id == $dplr_lists[$i]->listId ? 'selected="selected"' : ''; ?> value="<?php echo $dplr_lists[$i]->listId; ?>">
                     <?php echo $dplr_lists[$i]->name; ?>
@@ -55,7 +55,7 @@
           <div class="panel-body grid">
             <div class="dplr_input_section">
               <label for="title"><?php _e('Title', 'doppler-form')?></label>
-              <input type="text" name="title" placeholder="<?php _e('Sign up for our Newsletter!')?>" value="<?php echo $form->title; ?>"/>
+              <input type="text" name="title" placeholder="<?php _e('Subscribe to our Newsletter!', 'doppler-form')?>" value="<?php echo $form->title; ?>"/>
             </div>
             <div class="dplr_input_section">
               <label for="submit_text"><?php _e('Button text', 'doppler-form')?></label>
@@ -68,7 +68,7 @@
                 <option <?php if($button_position == 'left') echo 'selected="selected"';?> value="left"><?php _e('Left', 'doppler-form')?></option>
                 <option <?php if($button_position == 'center') echo 'selected="selected"';?> value="center"><?php _e('Center', 'doppler-form')?></option>
                 <option <?php if($button_position == 'right') echo 'selected="selected"';?> value="right"><?php _e('Right', 'doppler-form')?></option>
-                <option <?php if($button_position == 'fill') echo 'selected="selected"';?> value="fill"><?php _e('Fill', 'doppler-form')?></option>
+                <option <?php if($button_position == 'fill') echo 'selected="selected"';?> value="fill"><?php _e('Full width', 'doppler-form')?></option>
               </select>
             </div>
             <div class="dplr_input_section">
@@ -86,7 +86,7 @@
             
             
             <div class="dplr_input_section">
-              <label for="settings[use_consent_field]"><?php _e('GDPR Field', 'doppler-form')?> <?= '<a href="'.esc_url('https://help.fromdoppler.com/es/reglamento-general-de-proteccion-de-datos').'" target="blank">'.__('HELP','doppler-form').'</a>'?></label>
+             <label for="settings[use_consent_field]"><?php _e('Consent Field (GDPR)', 'doppler-form')?> <i><?php _e('What is it? Press','doppler-form')?> <?= '<a href="'.__('https://help.fromdoppler.com/en/general-data-protection-regulation?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?></i></label>
               <?php _e('Yes', 'doppler-form')?>
                 <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="yes" <?php if($form->settings['use_consent_field']==='yes') echo 'checked'?>>&nbsp; 
               <?php _e('No', 'doppler-form')?>
@@ -98,7 +98,7 @@
       <div class="grid" id="dplr_consent_section" <?= ($form->settings['use_consent_field']==='yes')? 'style="display:block"' : 'style="display:none"'; ?>>
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
-            <h2><?php _e('GDPR Field settings', 'doppler-form')?></h2>
+            <h2><?php _e('Consent Field settings', 'doppler-form')?></h2>
           </div>
           <div class="panel-body grid">
               <div class="dplr_input_section">
@@ -107,7 +107,7 @@
               </div>
               <div class="dplr_input_section">
               <label for="settings[consent_field_url]">
-                <?php _e('Enter the URL of your privacy policy.', 'doppler-form'); ?> 
+                <?php _e('Enter the URL of your privacy policy', 'doppler-form'); ?> 
               </label>
               <input type="url" name="settings[consent_field_url]" pattern="https?://.+" value="<?=$form->settings["consent_field_url"] ?>" placeholder="<?php esc_html_e("https://www.mysite.com", "doppler-form")?>"/>
             </div>

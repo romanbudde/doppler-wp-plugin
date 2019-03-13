@@ -17,8 +17,8 @@
  * Plugin URI:        http://example.com/plugin-name-uri/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           2.0.0
- * Author:            Making Sense
- * Author URI:        http://makingsense.com/
+ * Author:            Doppler LLC
+ * Author URI:        https://www.fromdoppler.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       doppler-form
@@ -49,7 +49,7 @@ function deactivate_doppler() {
 }
 
  register_activation_hook( __FILE__, 'activate_doppler' );
-// register_deactivation_hook( __FILE__, 'deactivate_doppler' );
+ //register_deactivation_hook( __FILE__, 'deactivate_doppler' );
 
 /**
  * The core plugin class that is used to define internationalization,

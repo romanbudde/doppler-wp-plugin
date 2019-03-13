@@ -33,6 +33,8 @@
     font-size: 14px;
     line-height: 21px;
     color: #525845; }
+  .dplr_settings label i {
+    font-weight: regular; }
   .dplr_settings .loading {
     z-index: 999;
     overflow: show;
@@ -626,6 +628,8 @@
       font-weight: bold;
       padding-bottom: 5px;
       padding-left: 10px; }
+      .dplr .dplr_input_section label i {
+        font-weight: 400; }
     .dplr .dplr_input_section input[type="text"], .dplr .dplr_input_section input[type="url"], .dplr .dplr_input_section select, .dplr .dplr_input_section textarea {
       width: 100%;
       -moz-box-sizing: border-box;
@@ -658,6 +662,14 @@
       position: absolute;
       left: 405px;
       bottom: -7px; }
+    .dplr .dplr_input_section ::-webkit-input-placeholder {
+      font-style: italic; }
+    .dplr .dplr_input_section :-moz-placeholder {
+      font-style: italic; }
+    .dplr .dplr_input_section ::-moz-placeholder {
+      font-style: italic; }
+    .dplr .dplr_input_section :-ms-input-placeholder {
+      font-style: italic; }
   .dplr .sortable > li {
     cursor: move; }
   .dplr form .button {
@@ -682,7 +694,7 @@
       .dplr table th.cb {
         width: 5%; }
       .dplr table th.col-id {
-        width: 5%; }
+        width: 10%; }
       .dplr table th.col-title {
         width: 40%; }
       .dplr table th.col-description {

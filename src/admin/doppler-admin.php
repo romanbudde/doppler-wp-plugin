@@ -82,7 +82,7 @@ class Doppler_Admin {
 		wp_localize_script( 'field-module', 'ObjStr', array( 
 			'editField'   	=> __( 'Edit Field', 'doppler-form' ),
 			'Required'    	=> __( 'Required', 'doppler-form'),
-			'LabelToShow' 	=> __( 'Label to show', 'doppler-form'),
+			'LabelToShow' 	=> __( 'Label to be shown', 'doppler-form'),
 			'Description' 	=> __( 'Description', 'doppler-form'),
 			'TextType'    	=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' => __( 'Simple', 'doppler-form'),
@@ -103,8 +103,8 @@ class Doppler_Admin {
 
 	public function init_menu() {
 		add_menu_page(
-			'Doppler Forms',
-			'Doppler Forms',
+			__('Doppler Forms', 'doppler-form'),
+		    __('Doppler Forms', 'doppler-form'),
 			'manage_options',
 			'doppler_forms_menu',
 			array($this, "show_template")
@@ -123,8 +123,8 @@ class Doppler_Admin {
 		if ($options['dplr_option_apikey'] != '' && $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])) {
 			add_submenu_page(
 				'doppler_forms_menu',
-				'Forms',
-				'Forms',
+				__('Forms', 'doppler-form'),
+				__('Forms', 'doppler-form'),
 				'manage_options',
 				'doppler_forms_submenu_forms',
 				array($this, 'show_forms'));
@@ -150,7 +150,7 @@ class Doppler_Admin {
 				if ($connected !== true) {
 
 					$error = true;
-					$errorMessage = __("Ouch! There is an error in your Username or API Key. Please, try again..", "doppler-form");
+					$errorMessage = __("Ouch! There's something wrong with your Username or API Key. Please, try again.", "doppler-form");
 
 				}
 

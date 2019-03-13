@@ -63,11 +63,9 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		$forms = DPLR_Form_Model::getAll();
 	
 	 ?>
-		<!-- Widget title -->
-		<p><?php _e('Forms', 'doppler-form')?></p>
 		<?php if (count($forms) > 0) { ?>
 		<p>
-			<label for="form_id"><?php _e('Select a form', 'doppler-form')?></label>
+			<label for="form_id"><?php _e('Select the Form that you want to publish', 'doppler-form')?></label>
 			<select id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>">
 				<option> </option>
 				<?php for ($i=0; $i < count($forms); $i++) { ?>

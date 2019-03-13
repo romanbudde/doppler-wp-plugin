@@ -13,14 +13,18 @@ class DPLR_Form_helper
     ?>
     <form class="dplr_form <?php echo $form_class; ?>" action="<?php echo $form_action; ?>" method="<?php echo $form_method; ?>">
       <input type="hidden" name="list_id" value="<?php echo $form->list_id; ?>">
-    <?php foreach ($fields as $field) {
-      $label = isset($field->settings['label']) ? $field->settings['label'] : $field->name;
-      ?>
-      <div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>">
-        <label for="<?php echo $field->name; ?>" ><?php echo $label; ?></label>
-        <?php echo self::printInput($field);?>
-      </div>
-		<?php }
+		<?php 
+		foreach ($fields as $field) {
+				$label = isset($field->settings['label']) ? $field->settings['label'] : $field->name;
+				?>
+				<div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>">
+					<?php if($label!==''): ?>
+						<label for="<?php echo $field->name; ?>" ><?php echo $label; ?></label>
+					<?php endif; ?>
+					<?php echo self::printInput($field);?>
+				</div>
+				<?php 
+		}
 		if($form->settings['use_consent_field']==='yes'){
 			?>
 			<div class="input-field" required>
