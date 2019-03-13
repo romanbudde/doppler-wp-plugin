@@ -123,6 +123,9 @@
   .dplr_settings .chosen-container > ul > li > input {
     width: 100% !important; }
 
+.ui-dialog-titlebar span.ui-dialog-title {
+  font-size: 14px; }
+
 #dplr_logo {
   width: 184px;
   padding: 90px 0 60px 0; }
@@ -663,13 +666,17 @@
       left: 405px;
       bottom: -7px; }
     .dplr .dplr_input_section ::-webkit-input-placeholder {
-      font-style: italic; }
+      font-style: italic;
+      color: #838370; }
     .dplr .dplr_input_section :-moz-placeholder {
-      font-style: italic; }
+      font-style: italic;
+      color: #838370; }
     .dplr .dplr_input_section ::-moz-placeholder {
-      font-style: italic; }
+      font-style: italic;
+      color: #838370; }
     .dplr .dplr_input_section :-ms-input-placeholder {
-      font-style: italic; }
+      font-style: italic;
+      color: #838370; }
   .dplr .sortable > li {
     cursor: move; }
   .dplr form .button {

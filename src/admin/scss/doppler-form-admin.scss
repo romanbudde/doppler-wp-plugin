@@ -6,7 +6,7 @@
  *--------------------------------------------------------------------
  */
 
- @import "fonts/fonts.css";
+@import "fonts/fonts.css";
 
 .dplr_settings {
   width: 100%;
@@ -176,6 +176,10 @@
     width: 100% !important;
   }
 
+}
+
+.ui-dialog-titlebar span.ui-dialog-title{
+  font-size: 14px;
 }
 
 #dplr_logo {
@@ -847,15 +851,19 @@
 
    ::-webkit-input-placeholder {
       font-style: italic;
+      color:#838370;
    }
    :-moz-placeholder {
-      font-style: italic;  
+      font-style: italic;
+      color:#838370; 
    }
    ::-moz-placeholder {
-      font-style: italic;  
+      font-style: italic; 
+      color:#838370; 
    }
    :-ms-input-placeholder {  
       font-style: italic; 
+      color:#838370;
    }
 
   }
