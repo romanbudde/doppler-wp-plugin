@@ -630,8 +630,10 @@
       display: block;
       font-weight: bold;
       padding-bottom: 5px;
-      padding-left: 10px; }
-      .dplr .dplr_input_section label i {
+      padding-left: 10px;
+      cursor: default; }
+      .dplr .dplr_input_section label span.req, .dplr .dplr_input_section label span.hlp {
+        color: #838370;
         font-weight: 400; }
     .dplr .dplr_input_section input[type="text"], .dplr .dplr_input_section input[type="url"], .dplr .dplr_input_section select, .dplr .dplr_input_section textarea {
       width: 100%;

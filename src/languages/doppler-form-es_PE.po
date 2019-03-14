@@ -148,7 +148,7 @@ msgstr ""
 #: admin/partials/api-connection.php:83 admin/partials/api-connection.php:113
 #: admin/partials/forms-create.php:81 admin/partials/forms-edit.php:93
 msgid "HELP"
-msgstr "AYUDA"
+msgstr "HELP"
 
 #: admin/partials/api-connection.php:96
 msgid "CONNECT"

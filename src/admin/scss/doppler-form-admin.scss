@@ -794,7 +794,9 @@
       font-weight: bold;
       padding-bottom: 5px;
       padding-left: 10px;
-      i{
+      cursor: default;
+      span.req, span.hlp{
+        color:#838370;
         font-weight: 400;
       }
     }

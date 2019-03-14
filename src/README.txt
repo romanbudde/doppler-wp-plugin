@@ -1,61 +1,76 @@
-=== Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+=== Doppler Forms ===
+Contributors: fromdoppler
+Donate link: --
+Tags: Doppler, Email marketing, integration, subscription, form, automation
+Requires at least: 3.9
+Tested up to: 5.0.4
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Crea Formularios de Suscripción con la misma estética de tu sitio web o blog en minutos. 
+Conéctalo con Doppler y envía a tus nuevos contactos automáticamente a una Lista de Suscriptores.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Este plugin te permite crear Formularios de Suscripción totalmente personalizados que puedes agregar a tu sitio web o blog.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Lo único que tienes que hacer es ingresar un título, elegir los Campos que deseas mostrar, 
+la Lista a la que quieres enviar tus nuevos Suscriptores y el lugar donde aparecerá tu Formulario. ¡Eso es todo!
 
-A few notes about the sections above:
+¿Aún no tienes cuenta en Doppler? [CREA UNA GRATIS](https://app2.fromdoppler.com/Registration/Register/StartRegistration/?id=en&origin=wordpress) y prueba el poder del Email & Automation Marketing. No necesitas contratos ni tarjetas de crédito.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+== Funcionalidades ==
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+*Conexión rápida y sencilla con tu cuenta de Doppler.
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+*Fácil personalización del Formulario.
+
+*Puedes asociar tu Lista de Suscriptores a Campañas automatizadas de Emails para que cada contacto reciba un Email de Bienvenida al suscribirse.
+
+*Disponible en Español e Inglés
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+1- Dirígete al panel de control de WordPress y selecciona la pestaña "Plugins" > Nuevo Plugin.
 
-e.g.
+2- Elige el plugin llamado "Formularios Doppler" y haz clic en "Instalar ahora".
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+3- Elige la opción "Activar Plugin". Este se agregará a tu lista de Plugins.
+
+4- Vuelve al panel de control y haz clic en la pestaña "Formularios de Doppler".
+
+5- Ingresa tu Email de usuario y el [API Key](https://help.fromdoppler.com/es/api-interfaz-de-programacion-de-aplicaciones?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress) de tu cuenta de Doppler. Presiona "Conectar".
+
+== Configuración ==
+
+1. Dirígete a "Apariencia" y haz clic en el Widget "Formularios de Doppler".
+
+2. Arrástralo al área de Widgets y elige el lugar de tu sitio web donde quieras que se muestre.
+
+3. Ya podrás visualizar el Formulario en tu sitio web.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= ¿Un Suscriptor puede suscribirse a más de una Lista de una vez? =
 
-An answer to that question.
+No, el Formulario puede ser asociado a una única Lista.
 
-= What about foo bar? =
+= ¿Hay un límite máximo de Suscriptores que pueden ser importados al mismo momento? =
 
-Answer to foo bar dilemma.
+No, no hay un límite.
+
+= ¿Puedo cambiar el API Key que he utilizado para realizar la conexión? =
+
+Sí, si tienes más de una cuenta de Doppler, y por ende, más de una API Key, puedes cambiarla. Presta atención a qué cuenta pertenece cada una para evitar enviar Suscriptores a una cuenta equivocada.
+
+= ¿Los Formularios traen un diseño por defecto? =
+
+No, puedes elegir que tenga el mismo diseño que tu sitio o blog, o bien, personalizarlo a tu gusto.
+
+= ¿Dónde puedo encontrar la API Key de mi cuenta de Doppler? =
+
+En [este artículo](https://help.fromdoppler.com/es/api-interfaz-de-programacion-de-aplicaciones?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress) te lo explicamos.
 
 == Screenshots ==
 
@@ -67,48 +82,8 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
+= 2.0.0 =
+* Added support for new API.
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+= 1.0.0 =
+* Initial release.
