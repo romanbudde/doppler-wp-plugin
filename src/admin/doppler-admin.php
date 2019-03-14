@@ -196,7 +196,9 @@ class Doppler_Admin {
 	}
 
 	public function show_admin_notices(){
-	
+		/**
+		 *  echo admin notices here
+		 */
 	}
 
 }

@@ -159,6 +159,7 @@ class Doppler_Service
     $headers=array(
             "Accept" => "application/json",
             "Content-Type" => "application/json",
+            "X-Doppler-Subscriber-Origin" => "Wordpress",
             "Authorization" => "token ". $this->config["credentials"]["api_key"]
              );
     $response = "";
