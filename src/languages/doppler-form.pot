@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-13 15:07-0300\n"
+"2019-03-14 11:52-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -55,8 +55,8 @@ msgid "Delete"
 msgstr ""
 
 #: admin/doppler-admin.php:79
-#: admin/partials/forms-create.php:105
-#: admin/partials/forms-edit.php:117
+#: admin/partials/forms-create.php:107
+#: admin/partials/forms-edit.php:121
 msgid "Cancel"
 msgstr ""
 
@@ -199,8 +199,8 @@ msgstr ""
 
 #: admin/partials/api-connection.php:83
 #: admin/partials/api-connection.php:113
-#: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:89
+#: admin/partials/forms-create.php:81
+#: admin/partials/forms-edit.php:93
 msgid "HELP"
 msgstr ""
 
@@ -248,120 +248,120 @@ msgid ""
 "Subscribers will be sent"
 msgstr ""
 
-#: admin/partials/forms-create.php:29
-#: admin/partials/forms-edit.php:33
+#: admin/partials/forms-create.php:31
+#: admin/partials/forms-edit.php:37
 msgid "Form Fields"
 msgstr ""
 
-#: admin/partials/forms-create.php:33
-#: admin/partials/forms-edit.php:37
+#: admin/partials/forms-create.php:35
+#: admin/partials/forms-edit.php:41
 msgid "Fields to include"
 msgstr ""
 
-#: admin/partials/forms-create.php:35
-#: admin/partials/forms-edit.php:39
+#: admin/partials/forms-create.php:37
+#: admin/partials/forms-edit.php:43
 msgid ""
 "Select the Fields that "
 "will appear on your Form"
 msgstr ""
 
-#: admin/partials/forms-create.php:48
-#: admin/partials/forms-edit.php:53
+#: admin/partials/forms-create.php:50
+#: admin/partials/forms-edit.php:57
 msgid "Form settings"
 msgstr ""
 
-#: admin/partials/forms-create.php:52
-#: admin/partials/forms-edit.php:57
+#: admin/partials/forms-create.php:54
+#: admin/partials/forms-edit.php:61
 msgid "Title"
 msgstr ""
 
-#: admin/partials/forms-create.php:53
-#: admin/partials/forms-edit.php:58
+#: admin/partials/forms-create.php:55
+#: admin/partials/forms-edit.php:62
 msgid ""
 "Subscribe to our "
 "Newsletter!"
 msgstr ""
 
-#: admin/partials/forms-create.php:56
-#: admin/partials/forms-edit.php:61
+#: admin/partials/forms-create.php:58
+#: admin/partials/forms-edit.php:65
 msgid "Button text"
 msgstr ""
 
-#: admin/partials/forms-create.php:57
-#: admin/partials/forms-edit.php:62
-#: includes/helpers/Form_Helper.php:43
+#: admin/partials/forms-create.php:59
+#: admin/partials/forms-edit.php:66
+#: includes/helpers/Form_Helper.php:47
 msgid "Submit"
 msgstr ""
 
-#: admin/partials/forms-create.php:60
-#: admin/partials/forms-edit.php:65
+#: admin/partials/forms-create.php:62
+#: admin/partials/forms-edit.php:69
 msgid "Button alignment"
 msgstr ""
 
-#: admin/partials/forms-create.php:62
-#: admin/partials/forms-edit.php:68
+#: admin/partials/forms-create.php:64
+#: admin/partials/forms-edit.php:72
 msgid "Left"
 msgstr ""
 
-#: admin/partials/forms-create.php:63
-#: admin/partials/forms-edit.php:69
+#: admin/partials/forms-create.php:65
+#: admin/partials/forms-edit.php:73
 msgid "Center"
 msgstr ""
 
-#: admin/partials/forms-create.php:64
-#: admin/partials/forms-edit.php:70
+#: admin/partials/forms-create.php:66
+#: admin/partials/forms-edit.php:74
 msgid "Right"
 msgstr ""
 
-#: admin/partials/forms-create.php:65
-#: admin/partials/forms-edit.php:71
+#: admin/partials/forms-create.php:67
+#: admin/partials/forms-edit.php:75
 msgid "Full width"
 msgstr ""
 
-#: admin/partials/forms-create.php:69
-#: admin/partials/forms-edit.php:75
+#: admin/partials/forms-create.php:71
+#: admin/partials/forms-edit.php:79
 msgid ""
 "Button background color"
 msgstr ""
 
-#: admin/partials/forms-create.php:70
-#: admin/partials/forms-edit.php:76
+#: admin/partials/forms-create.php:72
+#: admin/partials/forms-edit.php:80
 msgid ""
 "Use my theme's default "
 "color"
 msgstr ""
 
-#: admin/partials/forms-create.php:71
-#: admin/partials/forms-edit.php:78
+#: admin/partials/forms-create.php:73
+#: admin/partials/forms-edit.php:82
 msgid ""
 "Choose another color"
 msgstr ""
 
-#: admin/partials/forms-create.php:75
-#: admin/partials/forms-edit.php:83
+#: admin/partials/forms-create.php:77
+#: admin/partials/forms-edit.php:87
 msgid ""
 "Confirmation message"
 msgstr ""
 
-#: admin/partials/forms-create.php:76
-#: admin/partials/forms-edit.php:84
+#: admin/partials/forms-create.php:78
+#: admin/partials/forms-edit.php:88
 msgid ""
 "Thanks for subscribing!"
 msgstr ""
 
-#: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:89
+#: admin/partials/forms-create.php:81
+#: admin/partials/forms-edit.php:93
 msgid ""
 "Consent Field (GDPR)"
 msgstr ""
 
-#: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:89
+#: admin/partials/forms-create.php:81
+#: admin/partials/forms-edit.php:93
 msgid "What is it? Press"
 msgstr ""
 
-#: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:89
+#: admin/partials/forms-create.php:81
+#: admin/partials/forms-edit.php:93
 msgid ""
 "https://help.fromdoppler."
 "com/en/general-data-"
@@ -369,50 +369,50 @@ msgid ""
 "utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
-#: admin/partials/forms-create.php:80
-#: admin/partials/forms-edit.php:90
+#: admin/partials/forms-create.php:82
+#: admin/partials/forms-edit.php:94
 msgid "Yes"
 msgstr ""
 
-#: admin/partials/forms-create.php:81
-#: admin/partials/forms-edit.php:92
+#: admin/partials/forms-create.php:83
+#: admin/partials/forms-edit.php:96
 msgid "No"
 msgstr ""
 
-#: admin/partials/forms-create.php:89
-#: admin/partials/forms-edit.php:101
+#: admin/partials/forms-create.php:91
+#: admin/partials/forms-edit.php:105
 msgid ""
 "Consent Field settings"
 msgstr ""
 
-#: admin/partials/forms-create.php:93
-#: admin/partials/forms-edit.php:105
+#: admin/partials/forms-create.php:95
+#: admin/partials/forms-edit.php:109
 msgid "Checkbox label"
 msgstr ""
 
-#: admin/partials/forms-create.php:94
-#: admin/partials/forms-edit.php:106
-#: includes/helpers/Form_Helper.php:28
+#: admin/partials/forms-create.php:96
+#: admin/partials/forms-edit.php:110
+#: includes/helpers/Form_Helper.php:32
 msgid ""
 "I've read and accept the "
 "privace policy"
 msgstr ""
 
-#: admin/partials/forms-create.php:98
-#: admin/partials/forms-edit.php:110
+#: admin/partials/forms-create.php:100
+#: admin/partials/forms-edit.php:114
 msgid ""
 "Enter the URL of your "
 "privacy policy"
 msgstr ""
 
-#: admin/partials/forms-create.php:100
-#: admin/partials/forms-edit.php:112
+#: admin/partials/forms-create.php:102
+#: admin/partials/forms-edit.php:116
 msgid ""
 "https://www.mysite.com"
 msgstr ""
 
-#: admin/partials/forms-create.php:105
-#: admin/partials/forms-edit.php:117
+#: admin/partials/forms-create.php:107
+#: admin/partials/forms-edit.php:121
 msgid "Save"
 msgstr ""
 
@@ -484,20 +484,30 @@ msgid ""
 "form"
 msgstr ""
 
-#: includes/class-doppler-form.php:259
+#: includes/class-doppler-form.php:260
 msgid ""
-"You updated "
+"You've updated the "
 "<strong>Doppler Forms</"
-"strong> to version "
-"<strong>2.0.0</strong>. "
-"You need to <a href=\""
+"strong> plugin into the "
+"<strong>2.0.0</strong> "
+"version. Please,"
 msgstr ""
 
-#: includes/helpers/Form_Helper.php:32
+#: includes/class-doppler-form.php:262
+msgid "enter your username"
+msgstr ""
+
+#: includes/class-doppler-form.php:263
+msgid ""
+"and re-connect your "
+"Doppler account."
+msgstr ""
+
+#: includes/helpers/Form_Helper.php:36
 msgid "Read more"
 msgstr ""
 
-#: includes/helpers/Form_Helper.php:46
+#: includes/helpers/Form_Helper.php:50
 msgid ""
 "Thanks for subscribing"
 msgstr ""

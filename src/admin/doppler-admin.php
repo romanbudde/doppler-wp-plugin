@@ -172,7 +172,7 @@ class Doppler_Admin {
 	}
 
 	public function show_forms() {
-			
+		
 			$action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
 			switch ($action) {
@@ -196,7 +196,7 @@ class Doppler_Admin {
 	}
 
 	public function show_admin_notices(){
-		
+	
 	}
 
 }

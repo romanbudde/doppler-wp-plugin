@@ -256,7 +256,12 @@ class DPLR_Doppler {
 			add_action( 'admin_notices', function(){
 				?>
 				 <div class="notice notice-warning is-dismissible">
-					<p><?php _e( 'You updated <strong>Doppler Forms</strong> to version <strong>2.0.0</strong>. You need to <a href="'.admin_url( 'admin.php?page=doppler_forms_menu' ).'">enter your username</a> and re-connect.', 'sample-text-domain' ); ?></p>
+					<p>
+						<?php _e( 'You\'ve updated the <strong>Doppler Forms</strong> plugin into the <strong>2.0.0</strong> version. Please,', 'doppler-form');?>
+						<a href="<?= admin_url( 'admin.php?page=doppler_forms_menu' )?>">
+							<?php _e('enter your username', 'doppler-form')?>
+						</a> <?php _e('and re-connect your Doppler account.', 'doppler-form' ); ?>
+					</p>
 				</div>
 				<?php
 			} );

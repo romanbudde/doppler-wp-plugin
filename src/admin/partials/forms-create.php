@@ -15,9 +15,11 @@
             <label for="list_id"><?php _e('Doppler List', 'doppler-form')?></label>
             <select class="" name="list_id" id="list-id" required>
               <option value=""><?php _e('Select the destination List where your new Subscribers will be sent', 'doppler-form'); ?></option>
-              <?php for ($i=0; $i < count($dplr_lists); $i++) { ?>
-              <option value="<?php echo $dplr_lists[$i]->listId; ?>"><?php echo $dplr_lists[$i]->name; ?></option>
-              <?php } ?>
+              <?php 
+                for ($i=0; $i < count($dplr_lists); $i++) { 
+                ?><option value="<?php echo $dplr_lists[$i]->listId; ?>"><?php echo trim($dplr_lists[$i]->name); ?></option><?php
+                }
+              ?>
             </select>
           </div>
         </div>
