@@ -92,7 +92,7 @@ class DPLR_Form_Controller
   
     foreach($dplr_lists as $k=>$v){
       foreach($v as $i=>$j){
-        $dplr_lists_aux[$j->listId] = $j->name;
+        $dplr_lists_aux[$j->listId] = trim($j->name);
       }
     }
 

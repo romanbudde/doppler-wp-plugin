@@ -237,7 +237,7 @@ class Doppler_Service
       
       $lists[] = $z->items;
 
-      if($z->currentPage < $z->pagesCount && $page<2){
+      if($z->currentPage < $z->pagesCount && $page<4){
         
         $page = $page+1;
         return $this->getAllLists(null, $lists, $page);
