@@ -152,6 +152,10 @@ class Doppler_Admin {
 					$error = true;
 					$errorMessage = __("Ouch! There's something wrong with your Username or API Key. Please, try again.", "doppler-form");
 
+				}else{
+
+					delete_option('dplr_2_0_updated');
+
 				}
 
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
@@ -196,9 +200,22 @@ class Doppler_Admin {
 	}
 
 	public function show_admin_notices(){
-		/**
-		 *  echo admin notices here
-		 */
+
+		$options = get_option('dplr_settings');
+
+		if( '1' === get_option('dplr_2_0_updated') && !$options['dplr_option_useraccount'] ):
+		?>	
+			<div class="notice notice-warning is-dismissible">
+				<p>
+					<?php _e( 'You\'ve updated the <strong>Doppler Forms</strong> plugin into the <strong>2.0.0</strong> version. Please,', 'doppler-form');?>
+					<a href="<?= admin_url( 'admin.php?page=doppler_forms_menu' )?>">
+						<?php _e('enter your username', 'doppler-form')?>
+					</a> <?php _e('and re-connect your Doppler account.', 'doppler-form' ); ?>
+				</p>
+			</div>
+		<?php
+		endif;
+
 	}
 
 }

@@ -252,7 +252,8 @@ class DPLR_Doppler {
 
 			delete_option('widget_dplr_subscription_widget');
 			update_option('dplr_version','2.0.0');
-
+			update_option('dplr_2_0_updated',1);
+			/*
 			add_action( 'admin_notices', function(){
 				?>
 				 <div class="notice notice-warning is-dismissible">
@@ -265,6 +266,7 @@ class DPLR_Doppler {
 				</div>
 				<?php
 			} );
+			*/
 
 		}
 	}
