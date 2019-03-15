@@ -4,12 +4,12 @@ Donate link: --
 Tags: Doppler, Email marketing, integration, subscription, form, automation
 Requires at least: 3.9
 Tested up to: 5.0.4
+Requires PHP: 5.2.4
 Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Crea Formularios de Suscripción con la misma estética de tu sitio web o blog en minutos. 
-Conéctalo con Doppler y envía a tus nuevos contactos automáticamente a una Lista de Suscriptores.
+Crea Formularios con la misma estética de tu web o blog. Conéctalos con Doppler y envía a tus contactos automáticamente a Listas de Suscriptores.
 
 == Description ==
 

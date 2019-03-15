@@ -14,8 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Doppler Forms
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Crea Formularios de Suscripción con la misma estética de tu sitio web o blog en minutos. Conéctalo con Doppler y envía a tus nuevos contactos automáticamente a una Lista de Suscriptores.
  * Version:           2.0.0
  * Author:            Doppler LLC
  * Author URI:        https://www.fromdoppler.com/
