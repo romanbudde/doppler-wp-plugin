@@ -59,7 +59,7 @@ class DPLR_Form_helper
     ?>
       <div class="input-buttom ">
         <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>"><?=$submit_text?></button>
-        <label id="msg-data-sending"><?=$message_success?></label>
+        <label class="msg-data-sending"><?=$message_success?></label>
       <div>
     </form>
     <?php

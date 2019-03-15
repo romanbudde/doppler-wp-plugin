@@ -10,17 +10,31 @@
 				'altField': 'input[name="fields-'+elementName+'"]'
 			});
 		});
+
+		$('.dplr_form input[name="EMAIL"]').focus(function(){
+			var f = $(this).closest('form');
+			f.find('.msg-data-sending').hide();
+		});
+
 		$('.dplr_form').submit(function(ev) {
+						
 			ev.preventDefault();
-			$("button[name='submit']").attr("disabled", "disabled");
-			$("#msg-data-sending").show();
+
+			var f = $(this);
+			var s = $(this).find("button[name='submit']");
+			var m = $(this).find(".msg-data-sending");
+			var l = $(this).find("input[name='list_id']");
+			var e = $(this).find("input[name='EMAIL']");
+			var fields = $(this).find("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
+
+			s.attr("disabled", "disabled");
 
 			var subscriber = {},
-				list_id = $("input[name='list_id']").val();
-			subscriber.email = $("input[name='EMAIL']").val();
+			list_id = l.val();
+			subscriber.email = e.val();
 			subscriber.fields = [];
 
-			var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']"); 
+			//var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']"); 
 
 			fields.each(function(index) {
 				var input = $(fields[index]);
@@ -42,14 +56,19 @@
 			$.post(ajax_object.ajax_url,
 				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
 				function(res) {
-					$("#msg-data-sending").show();
-					$("button[name='submit']").removeAttr("disabled");
-			}).done(function( data ) {
+					m.show();
+					s.removeAttr("disabled");
+					f.trigger('reset');
+			})/*.done(function( data ) {
+				
 				setTimeout(function(){
-				$("#msg-data-sending").hide();
-		}, 2000);
-				$(".dplr_form")[0].reset();
-  		});
+					
+					//m.hide();
+					//f.trigger("reset");
+				
+				}, 2000);
+				
+			})*/;
 		});
 	});
 })( jQuery );
