@@ -24,6 +24,7 @@ final class DPLR_Form_Model extends DPLR_Base_Model {
 
       require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
       dbDelta( $sql );
+
     }
 
     self::initSettings();

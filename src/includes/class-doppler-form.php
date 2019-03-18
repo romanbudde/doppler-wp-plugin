@@ -203,9 +203,10 @@ class DPLR_Doppler {
 
 	public function check_version_update(){
 
+		$settings = get_option('dplr_settings');
 		$db_version = get_option('dplr_version');
 
-		if( !$db_version || version_compare($db_version,'2.0.0','<') ){
+		if( isset($settings['dplr_option_apikey']) && (!$db_version || version_compare($db_version,'2.0.0','<')) ){
 
 			$sidebar_widgets = get_option('sidebars_widgets');
 			$actual_widgets = get_option('widget_dplr_subscription_widget');
@@ -254,7 +255,12 @@ class DPLR_Doppler {
 			update_option('dplr_version','2.0.0');
 			update_option('dplr_2_0_updated',1);
 
+		}else{
+
+			update_option('dplr_version', $this->get_version() );
+		
 		}
+	
 	}
 
 	/**
