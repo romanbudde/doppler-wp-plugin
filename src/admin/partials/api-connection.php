@@ -21,7 +21,7 @@
 				<div><!-- 3 boxes -->
 					<div>
 						<figure>
-							<img src="<?= plugins_url( '/../img/screenshot-1.png', __FILE__ ); ?>" alt="step 1"/>
+							<img src="<?= plugins_url( '/../img/'.__('screenshot-1.png', 'doppler-form'), __FILE__ ); ?>" alt="step 1"/>
 						</figure>
 						<span>
 							1.
@@ -34,7 +34,7 @@
 					</div>
 					<div>
 						<figure>
-							<img src="<?= plugins_url( '/../img/screenshot-2.png', __FILE__ ); ?>" alt="step 2"/>
+							<img src="<?= plugins_url( '/../img/'.__('screenshot-2.png', 'doppler-form'), __FILE__ ); ?>" alt="step 2"/>
 						</figure>
 						<span>
 							2.
@@ -47,7 +47,7 @@
 					</div>
 					<div>
 						<figure>
-							<img src="<?= plugins_url( '/../img/screenshot-3.png', __FILE__ ); ?>" alt="step 3"/>
+							<img src="<?= plugins_url( '/../img/'.__('screenshot-3.png', 'doppler-form'), __FILE__ ); ?>" alt="step 3"/>
 						</figure>
 						<span>
 							3.

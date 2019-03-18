@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-14 11:52-0300\n"
+"2019-03-18 11:45-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -106,17 +106,36 @@ msgid ""
 "again."
 msgstr ""
 
-#: admin/doppler-admin.php:160
+#: admin/doppler-admin.php:164
 #: admin/partials/api-connection.php:72
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:165
+#: admin/doppler-admin.php:169
 #: admin/partials/api-connection.php:89
 msgid ""
 "Ouch! The field is empty."
+msgstr ""
+
+#: admin/doppler-admin.php:210
+msgid ""
+"You've updated the "
+"<strong>Doppler Forms</"
+"strong> plugin into the "
+"<strong>2.0.0</strong> "
+"version. Please,"
+msgstr ""
+
+#: admin/doppler-admin.php:212
+msgid "enter your username"
+msgstr ""
+
+#: admin/doppler-admin.php:213
+msgid ""
+"and re-connect your "
+"Doppler account."
 msgstr ""
 
 #: admin/partials/api-connection.php:7
@@ -140,10 +159,18 @@ msgid ""
 "Follow this steps"
 msgstr ""
 
+#: admin/partials/api-connection.php:24
+msgid "screenshot-1.png"
+msgstr ""
+
 #: admin/partials/api-connection.php:31
 msgid ""
 "Go to Doppler Forms > "
 "Forms > Create Form."
+msgstr ""
+
+#: admin/partials/api-connection.php:37
+msgid "screenshot-2.png"
 msgstr ""
 
 #: admin/partials/api-connection.php:44
@@ -153,6 +180,10 @@ msgid ""
 "and select where do you "
 "want the forms to be "
 "displayed."
+msgstr ""
+
+#: admin/partials/api-connection.php:50
+msgid "screenshot-3.png"
 msgstr ""
 
 #: admin/partials/api-connection.php:57
@@ -482,25 +513,6 @@ msgstr ""
 msgid ""
 "You haven't created any "
 "form"
-msgstr ""
-
-#: includes/class-doppler-form.php:260
-msgid ""
-"You've updated the "
-"<strong>Doppler Forms</"
-"strong> plugin into the "
-"<strong>2.0.0</strong> "
-"version. Please,"
-msgstr ""
-
-#: includes/class-doppler-form.php:262
-msgid "enter your username"
-msgstr ""
-
-#: includes/class-doppler-form.php:263
-msgid ""
-"and re-connect your "
-"Doppler account."
 msgstr ""
 
 #: includes/helpers/Form_Helper.php:36
