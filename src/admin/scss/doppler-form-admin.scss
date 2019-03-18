@@ -703,7 +703,7 @@
       padding:15px;
       margin-bottom: 10px;
       >a{
-        font-weight: bold;
+        /*font-weight: bold;*/
       }
 
       .type {
@@ -783,16 +783,16 @@
     width: 100%;
     margin-top: 10px;
     position: relative;
+    margin-bottom: 15px;
 
     &:first-child {
-      margin-top: 0px;
+      /*margin-top: 0px;*/
     }
 
     label {
       color: #333;
       display: block;
       font-weight: bold;
-      padding-bottom: 5px;
       padding-left: 10px;
       cursor: default;
       span.req, span.hlp{
@@ -810,7 +810,7 @@
       border-radius: 3px;
       box-sizing: border-box;
       font-family: inherit;
-      font-size: 15px;
+      font-size: 13px;
       padding: 10px;
       position: relative;
       box-shadow: none;
@@ -849,6 +849,10 @@
       position: absolute;
       left: 405px;
       bottom: -7px;
+    }
+
+    .radio_section{
+      padding-left: 10px;
     }
 
    ::-webkit-input-placeholder {

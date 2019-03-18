@@ -77,11 +77,13 @@
             </div>
             <div class="dplr_input_section">
               <label for="settings[change_button_bg]"><?php _e('Button background color', 'doppler-form')?></label>
-              <?php _e('Use my theme\'s default color', 'doppler-form')?>
-                <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="no" <?php if(!isset($form->settings['change_button_bg']) || $form->settings['change_button_bg']==='no') echo 'checked'?>>&nbsp; 
-              <?php _e('Choose another color', 'doppler-form')?>
-                <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="yes" <?php if($form->settings['change_button_bg']==='yes') echo 'checked'?>> 
-              <input class="color-selector" type="hidden" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">   
+                <div class="radio_section">
+                  <?php _e('Use my theme\'s default color', 'doppler-form')?>
+                  <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="no" <?php if(!isset($form->settings['change_button_bg']) || $form->settings['change_button_bg']==='no') echo 'checked'?>>&nbsp; 
+                  <?php _e('Choose another color', 'doppler-form')?>
+                  <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="yes" <?php if($form->settings['change_button_bg']==='yes') echo 'checked'?>> 
+                  <input class="color-selector" type="hidden" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">   
+                </div>
             </div>
             <div class="dplr_input_section">
               <label for="submit_text"><?php _e('Confirmation message', 'doppler-form')?></label>
@@ -91,10 +93,12 @@
             
             <div class="dplr_input_section">
              <label for="settings[use_consent_field]"><?php _e('Consent Field (GDPR)', 'doppler-form')?> <span class="hlp"><?php _e('What is it? Press','doppler-form')?> <?= '<a href="'.__('https://help.fromdoppler.com/en/general-data-protection-regulation?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?></span></label>
-              <?php _e('Yes', 'doppler-form')?>
-                <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="yes" <?php if($form->settings['use_consent_field']==='yes') echo 'checked'?>>&nbsp; 
-              <?php _e('No', 'doppler-form')?>
-                <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no" <?php if($form->settings['use_consent_field']!=='yes') echo 'checked'?>> 
+                <div class="radio_section">
+                  <?php _e('Yes', 'doppler-form')?>
+                  <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="yes" <?php if($form->settings['use_consent_field']==='yes') echo 'checked'?>>&nbsp; 
+                  <?php _e('No', 'doppler-form')?>
+                  <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no" <?php if($form->settings['use_consent_field']!=='yes') echo 'checked'?>> 
+                </div>
             </div>
           </div>
         </div>

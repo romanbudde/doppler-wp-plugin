@@ -573,7 +573,7 @@
       padding: 15px;
       margin-bottom: 10px; }
       .dplr ul.accordion > li > a {
-        /*font-weight: bold;*/ }
+        font-weight: bold; }
       .dplr ul.accordion > li .type {
         font-size: 10px;
         font-style: italic;
@@ -622,14 +622,14 @@
   .dplr .dplr_input_section {
     width: 100%;
     margin-top: 10px;
-    position: relative;
-    margin-bottom: 15px; }
+    position: relative; }
     .dplr .dplr_input_section:first-child {
-      /*margin-top: 0px;*/ }
+      margin-top: 0px; }
     .dplr .dplr_input_section label {
       color: #333;
       display: block;
       font-weight: bold;
+      padding-bottom: 5px;
       padding-left: 10px;
       cursor: default; }
       .dplr .dplr_input_section label span.req, .dplr .dplr_input_section label span.hlp {
@@ -644,7 +644,7 @@
       border-radius: 3px;
       box-sizing: border-box;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 15px;
       padding: 10px;
       position: relative;
       box-shadow: none; }
@@ -667,8 +667,6 @@
       position: absolute;
       left: 405px;
       bottom: -7px; }
-    .dplr .dplr_input_section .radio_section {
-      padding-left: 10px; }
     .dplr .dplr_input_section ::-webkit-input-placeholder {
       font-style: italic;
       color: #838370; }
@@ -763,4 +761,4 @@
         .dplr_settings .dplr-pasos > div > div figure img {
           width: 75%; } }
 
-/*# sourceMappingURL=doppler-form-admin.css.map */
+/*# sourceMappingURL=doppler-form.css.map */
