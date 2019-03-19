@@ -10,7 +10,7 @@
 			<form method="POST" action="options.php" >
 				<?php settings_fields('dplr_plugin_options'); ?>
 				<input type="hidden" name="dplr_settings[action]" value="disconnect" />
-				<span><button class="button button--small button--fourth"><?php _e("Disconnect", "doppler-form"); ?></button></span>
+				<span><button class="dplr_button button--small button--fourth"><?php _e("Disconnect", "doppler-form"); ?></button></span>
 			</form>
 		</div>
 		<div class="updated_message">

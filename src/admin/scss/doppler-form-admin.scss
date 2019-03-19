@@ -24,13 +24,7 @@
     color: #33AC72;
     text-decoration: none;
   }
-  > .wrap {
-    /*
-    width:  98%;
-    margin: 0 auto;
-    height: 100%;
-    */
-  }
+
   p, span, label {
     font-family: "Proxima Nova", Arial;
     font-size: 14px;
@@ -280,7 +274,9 @@
     margin-bottom: 46px;
     border-top: 1px solid #979797;
   }
-  .button {
+  
+  .dplr_button {
+    
     background-color: gray !important;
     border: none !important;
     -webkit-appearance: none;
@@ -302,6 +298,7 @@
     box-shadow: none !important;
     text-transform: uppercase !important;
   }
+  
   .button--small {
     font-size: .8125em !important;
     font-weight: 600 !important;
@@ -675,7 +672,7 @@
     line-height: 2.1em;
 
     .panel-header {
-      background:#186388;
+      background:#666666;
       padding:1px 10px;
 
       p, h1, h2, h3, h4, h5, h6 {

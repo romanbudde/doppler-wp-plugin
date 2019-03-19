@@ -22,12 +22,6 @@
   .dplr_settings a {
     color: #33AC72;
     text-decoration: none; }
-  .dplr_settings > .wrap {
-    /*
-    width:  98%;
-    margin: 0 auto;
-    height: 100%;
-    */ }
   .dplr_settings p, .dplr_settings span, .dplr_settings label {
     font-family: "Proxima Nova", Arial;
     font-size: 14px;
@@ -198,7 +192,7 @@
   margin-top: 56px;
   margin-bottom: 46px;
   border-top: 1px solid #979797; }
-.dplr_settings .button {
+.dplr_settings .dplr_button {
   background-color: gray !important;
   border: none !important;
   -webkit-appearance: none;
@@ -553,7 +547,7 @@
     font-size: 13px;
     line-height: 2.1em; }
     .dplr .panel .panel-header {
-      background: #186388;
+      background: #666666;
       padding: 1px 10px; }
       .dplr .panel .panel-header p, .dplr .panel .panel-header h1, .dplr .panel .panel-header h2, .dplr .panel .panel-header h3, .dplr .panel .panel-header h4, .dplr .panel .panel-header h5, .dplr .panel .panel-header h6 {
         color: #ffffff;
