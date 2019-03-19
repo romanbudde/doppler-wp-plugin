@@ -683,7 +683,7 @@
     }
 
     .panel-body {
-      color:#333;
+      color:#525845;
       padding:10px;
     }
   }
@@ -699,14 +699,11 @@
       border: 1px solid #d2d2d2;
       padding:15px;
       margin-bottom: 10px;
-      >a{
-        /*font-weight: bold;*/
-      }
 
       .type {
         font-size: 10px;
         font-style: italic;
-        color: #000;
+        color: #525845;
         font-weight: 700;
       }
 
@@ -782,12 +779,8 @@
     position: relative;
     margin-bottom: 15px;
 
-    &:first-child {
-      /*margin-top: 0px;*/
-    }
-
     label {
-      color: #333;
+      color: #525845;
       display: block;
       font-weight: bold;
       padding-left: 10px;
@@ -811,6 +804,7 @@
       padding: 10px;
       position: relative;
       box-shadow: none;
+      color: #525845;
     }
 
     input:not([type="checkbox"]):not([type="radio"]),  select {
@@ -878,10 +872,31 @@
   }
 
   form{
+    a{
+      color:#33AD73;
+      &:hover{
+        color: #008046;
+      }
+    }
     .button{
       padding-left:30px;
       padding-right:30px;
       margin-left:20px;
+      border: 0px;
+      box-shadow: none;
+      text-shadow: none;
+      &.button--cancel{
+        background-color:#666666;
+        &:hover{
+          background-color: #333333;
+        }
+      }
+      &.button--save{
+        background-color: #33AD73;
+        &:hover{
+          background-color: #008046;
+        }
+      }
     }
   }
 

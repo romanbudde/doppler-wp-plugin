@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-    <input type="submit" value="<?php _e('Save', 'doppler-form')?>" class="button button-primary"> <a href="<?php echo admin_url('admin.php?page=doppler_forms_submenu_forms')?>"  class="button button-primary"><?php _e('Cancel', 'doppler-form')?></a>
+    <input type="submit" value="<?php _e('Save', 'doppler-form')?>" class="button button-primary button--save"> <a href="<?php echo admin_url('admin.php?page=doppler_forms_submenu_forms')?>"  class="button button-primary button--cancel"><?php _e('Cancel', 'doppler-form')?></a>
   </form>
 </div>
 <script type="text/javascript">

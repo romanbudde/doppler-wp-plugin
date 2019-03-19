@@ -109,7 +109,6 @@ class Doppler_Admin {
 			'doppler_forms_menu',
 			array($this, "show_template")
 		);
-
 		register_setting('dplr_plugin_options', 'dplr_settings', array($this, 'dplr_settings_validate'));
 	}
 

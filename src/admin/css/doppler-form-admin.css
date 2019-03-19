@@ -554,7 +554,7 @@
         font-size: 14px;
         line-height: 20px; }
     .dplr .panel .panel-body {
-      color: #333;
+      color: #525845;
       padding: 10px; }
   .dplr ul.accordion {
     list-style-type: none;
@@ -566,12 +566,10 @@
       border: 1px solid #d2d2d2;
       padding: 15px;
       margin-bottom: 10px; }
-      .dplr ul.accordion > li > a {
-        /*font-weight: bold;*/ }
       .dplr ul.accordion > li .type {
         font-size: 10px;
         font-style: italic;
-        color: #000;
+        color: #525845;
         font-weight: 700; }
       .dplr ul.accordion > li:last-child {
         margin-bottom: 0; }
@@ -618,10 +616,8 @@
     margin-top: 10px;
     position: relative;
     margin-bottom: 15px; }
-    .dplr .dplr_input_section:first-child {
-      /*margin-top: 0px;*/ }
     .dplr .dplr_input_section label {
-      color: #333;
+      color: #525845;
       display: block;
       font-weight: bold;
       padding-left: 10px;
@@ -641,7 +637,8 @@
       font-size: 13px;
       padding: 10px;
       position: relative;
-      box-shadow: none; }
+      box-shadow: none;
+      color: #525845; }
     .dplr .dplr_input_section input:not([type="checkbox"]):not([type="radio"]), .dplr .dplr_input_section select {
       height: 42px; }
     .dplr .dplr_input_section input[type="radio"] {
@@ -677,10 +674,25 @@
       color: #838370; }
   .dplr .sortable > li {
     cursor: move; }
+  .dplr form a {
+    color: #33AD73; }
+    .dplr form a:hover {
+      color: #008046; }
   .dplr form .button {
     padding-left: 30px;
     padding-right: 30px;
-    margin-left: 20px; }
+    margin-left: 20px;
+    border: 0px;
+    box-shadow: none;
+    text-shadow: none; }
+    .dplr form .button.button--cancel {
+      background-color: #666666; }
+      .dplr form .button.button--cancel:hover {
+        background-color: #333333; }
+    .dplr form .button.button--save {
+      background-color: #33AD73; }
+      .dplr form .button.button--save:hover {
+        background-color: #008046; }
   .dplr select#fieldList {
     color: #94917f; }
     .dplr select#fieldList .selected {
