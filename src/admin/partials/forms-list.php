@@ -1,5 +1,8 @@
 <h1><?php _e('Created Forms', 'doppler-form')?></h1>
 <div class="dplr">
+  <?php if($_GET['created']=='1'): ?>
+  <div>Formulario creado correctamente. </div>
+  <?php endif; ?>
   <div class="panel">
     <div class="">
       <table class="fixed">

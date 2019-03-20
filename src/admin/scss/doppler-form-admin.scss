@@ -1,6 +1,18 @@
 /**
  *--------------------------------------------------------------------
  *
+ *                       VARIABLES
+ *
+ *--------------------------------------------------------------------
+ */
+
+ $primary-green:#33AD73;
+ $dark-green: #008046;
+ $primary-grey: #525845;
+
+/**
+ *--------------------------------------------------------------------
+ *
  *                       OPTIONS PAGE STYLES
  *
  *--------------------------------------------------------------------
@@ -189,11 +201,6 @@
 
 .dplr_settings > div {
   h1 {
-    /*font-family: "Proxima Nova", Arial;
-    font-size: 42px !important;
-    letter-spacing: -1px !important;
-    color: #301F00 !important;
-    */
 	
     max-width: 700px;	
     color: #302100;	
@@ -307,7 +314,7 @@
   }
   .button--fourth {
     background: 0 0 !important;
-    border: 1px solid #33AD73 !important;
+    border: 1px solid $primary-green !important;
     color: #33AC72 !important;
     &:hover {
       background: rgba(51, 173, 115, 0.2) !important;
@@ -325,7 +332,7 @@
     border-top: 6px solid rgba(51, 173, 115, 0.2);
     border-right: 6px solid rgba(51, 173, 115, 0.2);
     border-bottom: 6px solid rgba(51, 173, 115, 0.2);
-    border-left: 6px solid #33AD73;
+    border-left: 6px solid $primary-green;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
@@ -479,7 +486,7 @@
 
 #dplr_apikey_options button {
   border-radius: 999999px;
-  background: #33AD73;
+  background: $primary-green;
   min-width: 122px;
   border: 0;
   height: 38px;
@@ -561,18 +568,6 @@
       border-width: 9px 8px 0;
       border-color: #302100 transparent transparent;
     }
-    /*
-    &::before {
-      border-width: 9px 10px 0;
-      border-color:  #302100 transparent transparent;
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      right: 12px;
-      bottom: -9px;
-    }*/
     p {
       color:#F2F1E9;
       font-size: 12px;
@@ -873,9 +868,9 @@
 
   form{
     a{
-      color:#33AD73;
+      color: $primary-green;
       &:hover{
-        color: #008046;
+        color: $dark-green;
       }
     }
     .button{
@@ -890,11 +885,23 @@
         &:hover{
           background-color: #333333;
         }
+        &:active{
+          box-shadow: inset 0 2px 5px -3px rgba(0,0,0,.5);
+        }
+        &:focus{
+          box-shadow:none;
+        }
       }
       &.button--save{
-        background-color: #33AD73;
+        background-color: $primary-green;
         &:hover{
-          background-color: #008046;
+          background-color: $dark-green;
+        }
+        &:focus{
+          box-shadow:none;
+        }
+        &:active{
+          box-shadow: inset 0 2px 5px -3px rgba(0,0,0,.5);
         }
       }
     }

@@ -1,6 +1,13 @@
 /**
  *--------------------------------------------------------------------
  *
+ *                       VARIABLES
+ *
+ *--------------------------------------------------------------------
+ */
+/**
+ *--------------------------------------------------------------------
+ *
  *                       OPTIONS PAGE STYLES
  *
  *--------------------------------------------------------------------
@@ -130,11 +137,6 @@
   display: inline-block; }
 
 .dplr_settings > div h1 {
-  /*font-family: "Proxima Nova", Arial;
-  font-size: 42px !important;
-  letter-spacing: -1px !important;
-  color: #301F00 !important;
-  */
   max-width: 700px;
   color: #302100;
   font-family: "Proxima Nova Rg", arial;
@@ -423,19 +425,7 @@
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    width: 322px;
-    /*
-    &::before {
-      border-width: 9px 10px 0;
-      border-color:  #302100 transparent transparent;
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      right: 12px;
-      bottom: -9px;
-    }*/ }
+    width: 322px; }
     .tooltip.tooltip-info > .tooltip-container::after {
       border-width: 9px 8px 0;
       border-color: #302100 transparent transparent; }
@@ -689,10 +679,18 @@
       background-color: #666666; }
       .dplr form .button.button--cancel:hover {
         background-color: #333333; }
+      .dplr form .button.button--cancel:active {
+        box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5); }
+      .dplr form .button.button--cancel:focus {
+        box-shadow: none; }
     .dplr form .button.button--save {
       background-color: #33AD73; }
       .dplr form .button.button--save:hover {
         background-color: #008046; }
+      .dplr form .button.button--save:focus {
+        box-shadow: none; }
+      .dplr form .button.button--save:active {
+        box-shadow: inset 0 2px 5px -3px rgba(0, 0, 0, 0.5); }
   .dplr select#fieldList {
     color: #94917f; }
     .dplr select#fieldList .selected {

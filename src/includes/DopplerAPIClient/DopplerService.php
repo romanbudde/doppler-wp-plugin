@@ -166,15 +166,34 @@ class Doppler_Service
 
     switch($method['httpMethod']){
       case 'get':
-        $response = \Httpful\Request::get($url)
+
+        try{
+          $response = \Httpful\Request::get($url)
           ->addHeaders( $headers )
           ->send();
+        }
+        catch(\Exception $e){
+          echo "API server returned an error";
+          echo $e->getMessage();
+          die();
+        }
+  
         break;
+      
       case 'post':
-        $response = \Httpful\Request::post($url)
-          ->body( json_encode($body) )
-          ->addHeaders( $headers )
-          ->send();
+        
+        try{
+          $response = \Httpful\Request::post($url)
+            ->body( json_encode($body) )
+            ->addHeaders( $headers )
+            ->send();
+          }
+        catch(\Exception $e){
+            echo "API server returned an error";
+            echo $e->getMessage();
+            die();
+        }
+        
         break;
     }
     

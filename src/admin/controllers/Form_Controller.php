@@ -40,7 +40,7 @@ class DPLR_Form_Controller
       }
       
       //TODO: create method redirect on controller
-      echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
+      echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms&created=1';</script>";
     
     } else {
       $this->showCreateEditForm();
