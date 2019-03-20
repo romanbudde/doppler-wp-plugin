@@ -605,7 +605,7 @@
     width: 100%;
     margin-top: 10px;
     position: relative;
-    margin-bottom: 15px; }
+    margin-bottom: 25px; }
     .dplr .dplr_input_section label {
       color: #525845;
       display: block;
@@ -674,7 +674,9 @@
     margin-left: 20px;
     border: 0px;
     box-shadow: none;
-    text-shadow: none; }
+    text-shadow: none;
+    height: 40px;
+    line-height: 40px; }
     .dplr form .button.button--cancel {
       background-color: #666666; }
       .dplr form .button.button--cancel:hover {
