@@ -79,7 +79,7 @@ var FieldModel;
 
 			var html = "<li data-field-name='"+ field.name +"'>";
 			html += !field.readonly ? "<div class='icon-close'></div>" : "";
-			html += "<a href='#'>"+ field.name + "</a><span class='type'> ("+field.type+")</span> <a class='alt-toggle'>"+ObjStr.editField+" <i></i></a> ";
+			html += field.name + "<span class='type'> ("+field.type+")</span> <a class='alt-toggle'>"+ObjStr.editField+" <i></i></a> ";
 			html += ' <input type="hidden" name="fields['+field.name+'][type]" value="'+field.type+'">'
 			html += ' <div class="accordion-content field-settings">';
 
@@ -101,7 +101,7 @@ var FieldModel;
 			html += '		</div>';
 			if ($.inArray(field.type, ['boolean', 'gender', 'date']) == -1) {
 				html += '		<div class="dplr_input_section horizontal">';
-				html += '			<label for="fields['+field.name+'][settings][placeholder]">Placeholder</label>';
+				html += '			<label for="fields['+field.name+'][settings][placeholder]">'+ObjStr.Placeholder+'</label>';
 				html += '   	<input type="text" name="fields['+field.name+'][settings][placeholder]" value="'+field.settings.placeholder+'">';
 				html += '		</div>';
 			}

@@ -84,8 +84,7 @@ class DPLR_Doppler {
 		 	$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
 
-		
-
+	
 		$this->load_dependencies();
 		$this->set_locale(); 
 		$this->define_admin_hooks();

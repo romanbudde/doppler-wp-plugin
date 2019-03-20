@@ -407,7 +407,6 @@
  */
 
 .input-container {
-  background: #F2F1E9;
   position: relative;
   &.input-horizontally {
     display: inline;
@@ -678,8 +677,11 @@
     }
 
     .panel-body {
-      color:#525845;
+      color:#838370;
       padding:10px;
+      span.noti{
+        padding-left: 10px;
+      }
     }
   }
 
@@ -687,6 +689,7 @@
 
     list-style-type: none;
     padding:0;
+    margin-top: 5px;
 
     > li {
       background: #FFF;
@@ -694,11 +697,12 @@
       border: 1px solid #d2d2d2;
       padding:15px;
       margin-bottom: 10px;
+      color:#333;
 
       .type {
         font-size: 10px;
         font-style: italic;
-        color: #525845;
+        color: #333;
         font-weight: 700;
       }
 
@@ -786,7 +790,8 @@
     margin-bottom: 25px;
 
     label {
-      color: #525845;
+      /*color: #525845;*/
+      color: #333;
       display: block;
       font-weight: bold;
       padding-left: 10px;
@@ -810,7 +815,7 @@
       padding: 10px;
       position: relative;
       box-shadow: none;
-      color: #525845;
+      color: #333333;
     }
 
     input:not([type="checkbox"]):not([type="radio"]),  select {
@@ -850,6 +855,7 @@
 
     .radio_section{
       padding-left: 10px;
+      color: #333;
     }
 
    ::-webkit-input-placeholder {
@@ -921,6 +927,11 @@
   }
 
   select{
+    cursor: pointer;
+  }
+
+  /*
+  select{
     &#fieldList {
       color:  #94917f;
       .selected {
@@ -928,6 +939,7 @@
       }
     }
   }
+  */
 
 
   table {

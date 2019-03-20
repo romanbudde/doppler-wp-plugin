@@ -75,12 +75,12 @@
           </div>
         </div>
         <div class="input-container input-horizontally input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo $options['dplr_option_apikey'] ? ' notempty' : ''; ?>">
-					<label>API key 
+					<label>API Key 
 					<div class="icon">
             <span class="tooltip tooltip-info tooltip-top tooltip-hover">?
               <div class="tooltip-container">
                 <p>
-									<?php _e("How do you find your API KEY? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a><br>
+									<?php _e("How do you find your API KEY? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a>.<br>
                 </p>
               </div>
             </span>

@@ -83,6 +83,7 @@ class Doppler_Admin {
 			'editField'   	=> __( 'Edit Field', 'doppler-form' ),
 			'Required'    	=> __( 'Required', 'doppler-form'),
 			'LabelToShow' 	=> __( 'Label to be shown', 'doppler-form'),
+			'Placeholder' 	=> __( 'Placeholder', 'doppler-form'),
 			'Description' 	=> __( 'Description', 'doppler-form'),
 			'TextType'    	=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' => __( 'Simple', 'doppler-form'),
@@ -208,8 +209,8 @@ class Doppler_Admin {
 				<p>
 					<?php _e( 'You\'ve updated the <strong>Doppler Forms</strong> plugin into the <strong>2.0.0</strong> version. Please,', 'doppler-form');?>
 					<a href="<?= admin_url( 'admin.php?page=doppler_forms_menu' )?>">
-						<?php _e('enter your username', 'doppler-form')?>
-					</a> <?php _e('and re-connect your Doppler account.', 'doppler-form' ); ?>
+						<?php _e('enter your Username', 'doppler-form')?>
+					</a> <?php _e('in addition to the API Key and re-connect your Doppler account.', 'doppler-form' ); ?>
 				</p>
 			</div>
 		<?php
