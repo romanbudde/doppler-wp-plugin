@@ -548,8 +548,7 @@
       padding: 10px; }
   .dplr ul.accordion {
     list-style-type: none;
-    padding: 0;
-    /*font-weight:400;*/ }
+    padding: 0; }
     .dplr ul.accordion > li {
       background: #FFF;
       position: relative;
@@ -568,27 +567,36 @@
         color: #666; }
         .dplr ul.accordion > li > a:hover {
           color: #999; }
-      .dplr ul.accordion > li span.alt-toggle {
+      .dplr ul.accordion > li a.alt-toggle {
         position: absolute;
-        right: 50px;
+        right: 20px;
         font-weight: 400;
-        line-height: 30px; }
-      .dplr ul.accordion > li > i {
-        padding: 0 1.5em 0 .3rem;
         cursor: pointer;
-        /*float:right;*/
-        font-style: normal;
-        font-weight: 600;
-        position: absolute;
         display: inline-block;
-        right: 0;
-        color: #aaa;
-        font-size: 20px; }
-        .dplr ul.accordion > li > i::after {
-          content: '+';
-          font-weight: bold; }
-        .dplr ul.accordion > li > i:hover {
+        padding: 0 .3rem;
+        text-align: right; }
+        .dplr ul.accordion > li a.alt-toggle:hover {
           color: #777575; }
+          .dplr ul.accordion > li a.alt-toggle:hover > i {
+            color: #777575; }
+        .dplr ul.accordion > li a.alt-toggle > i {
+          font-style: normal;
+          font-weight: 600;
+          color: #aaa;
+          font-size: 20px;
+          position: relative;
+          top: 1px;
+          display: inline-block;
+          width: 18px;
+          text-align: center;
+          /*
+          &:hover {
+            color: #777575;
+          }*/ }
+          .dplr ul.accordion > li a.alt-toggle > i::after {
+            text-align: center;
+            content: '+';
+            font-weight: bold; }
       .dplr ul.accordion > li .accordion-content {
         padding: .75em 0;
         border-top: 1px solid #eee;
@@ -598,7 +606,7 @@
       .dplr ul.accordion > li.active .accordion-content {
         display: block;
         margin-top: 10px; }
-      .dplr ul.accordion > li.active > i::after {
+      .dplr ul.accordion > li.active a.alt-toggle > i::after {
         content: '-';
         font-weight: bold; }
   .dplr .dplr_input_section {

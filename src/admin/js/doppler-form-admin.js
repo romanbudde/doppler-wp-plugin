@@ -128,7 +128,7 @@ $(document).ready(function(){
 		}
 	};
 
-	$("body").on('click', "li i", function(e) {
+	$("body").on('click', "li .alt-toggle", function(e) {
 		$(this).closest('li').toggleClass('active');
 	});
 

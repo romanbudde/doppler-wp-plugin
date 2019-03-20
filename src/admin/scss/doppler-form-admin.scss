@@ -684,9 +684,9 @@
   }
 
   ul.accordion {
+
     list-style-type: none;
     padding:0;
-    /*font-weight:400;*/
 
     > li {
       background: #FFF;
@@ -715,34 +715,44 @@
         }
       }
 
-      span.alt-toggle{
+      a.alt-toggle{
         position: absolute;
-        right: 50px;
+        right: 20px;
         font-weight: 400;
-        line-height: 30px;
-      }
-
-      > i {
-        padding:0 1.5em 0 .3rem;
-        cursor:pointer;
-        /*float:right;*/
-        font-style:normal;
-        font-weight: 600;
-        position:absolute;
+        cursor: pointer;
         display:inline-block;
-        right:0;
-        color:#aaa;
-        font-size: 20px;
-
-        &::after {
-          content: '+';
-          font-weight: bold;
+        padding: 0 .3rem;
+        text-align:right;
+        &:hover{
+          color: #777575;
+          >i{
+            color: #777575;
+          }
         }
 
-        &:hover {
-          color: #777575;
+        > i {
+          font-style:normal;
+          font-weight: 600;
+          color:#aaa;
+          font-size: 20px;
+          position: relative;
+          top: 1px;
+          display: inline-block;
+          width: 18px;
+          text-align: center;
+          &::after {
+            text-align:center;
+            content: '+';
+            font-weight: bold;
+          }
+          /*
+          &:hover {
+            color: #777575;
+          }*/
         }
       }
+
+      
 
       .accordion-content {
         padding:.75em 0;
@@ -757,11 +767,12 @@
           display: block;
           margin-top: 10px;
         }
-
-        > i {
-          &::after {
-            content: '-';
-            font-weight: bold;
+        a.alt-toggle{
+          > i {
+            &::after {
+              content: '-';
+              font-weight: bold;
+            }
           }
         }
       }
