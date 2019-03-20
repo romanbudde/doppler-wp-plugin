@@ -119,7 +119,7 @@ class Doppler_Admin {
 			'dplr_option_useraccount' => ''
 			]);
 
-		if ($options['dplr_option_apikey'] != '' && $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])) {
+		if ($options['dplr_option_apikey'] != '' /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
 			add_submenu_page(
 				'doppler_forms_menu',
 				__('Forms', 'doppler-form'),

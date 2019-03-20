@@ -119,7 +119,6 @@ class Doppler_Service
 
   public function connectionStatus() {
     $response = $this->call(array('route' => '', 'httpMethod' => 'get'));
-
 	   return $response;
   }
 
@@ -164,37 +163,32 @@ class Doppler_Service
              );
     $response = "";
 
-    switch($method['httpMethod']){
-      case 'get':
+    try{
 
-        try{
-          $response = \Httpful\Request::get($url)
-          ->addHeaders( $headers )
-          ->send();
-        }
-        catch(\Exception $e){
-          echo "API server returned an error";
-          echo $e->getMessage();
-          die();
-        }
-  
-        break;
-      
-      case 'post':
+      switch($method['httpMethod']){
         
-        try{
-          $response = \Httpful\Request::post($url)
-            ->body( json_encode($body) )
+        case 'get':
+
+            $response = \Httpful\Request::get($url)
             ->addHeaders( $headers )
             ->send();
-          }
-        catch(\Exception $e){
-            echo "API server returned an error";
-            echo $e->getMessage();
-            die();
-        }
         
-        break;
+            break;
+        
+        case 'post':
+          
+            $response = \Httpful\Request::post($url)
+              ->body( json_encode($body) )
+              ->addHeaders( $headers )
+              ->send();
+
+            break;
+      }
+
+    }
+    catch(\Exception $e){
+      $this->throwConnectionErr();
+      return;
     }
     
     return $response;
@@ -204,6 +198,19 @@ class Doppler_Service
   function getResource( $resourceName ) {
     return $this->resources[ $resourceName ];
   }
+
+  function throwConnectionErr(){
+    add_action( 'admin_notices', function(){
+      ?>
+      <div class="notice notice-error">
+				<p>
+					<?php _e( '<b>Doppler Forms:</b> Connection error. Please contact support.', 'doppler-form');?>
+				</p>
+			</div>
+      <?php
+    } );
+  }
+
  }
 
   /**
@@ -223,9 +230,9 @@ class Doppler_Service
     }
 
 	public function getUserAccount(){
-	  $method = $methods['get'];
+    $method = $methods['get'];
       return $this->service->call($method, array());
-	}
+	  }
   }
 
   class Doppler_Service_Lists_Resource {

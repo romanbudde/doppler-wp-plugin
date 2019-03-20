@@ -90,13 +90,19 @@ class DPLR_Form_Controller
     $list_resource = $this->doppler_service->getResource('lists');
     $dplr_lists = $list_resource->getAllLists();
   
-    foreach($dplr_lists as $k=>$v){
-      foreach($v as $i=>$j){
-        $dplr_lists_aux[$j->listId] = trim($j->name);
-      }
-    }
+    if(is_array($dplr_lists)){
 
-    $dplr_lists_arr = $dplr_lists_aux;
+      foreach($dplr_lists as $k=>$v){
+        if(is_array($v)):
+          foreach($v as $i=>$j){
+            $dplr_lists_aux[$j->listId] = trim($j->name);
+          }
+        endif;
+      }
+
+      $dplr_lists_arr = $dplr_lists_aux;
+
+    }
 
     include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
     

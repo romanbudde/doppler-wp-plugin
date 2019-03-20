@@ -23,7 +23,10 @@ class Dplr_Subscription_Widget extends WP_Widget {
 			'dplr_option_useraccount' => ''
 			]);
 		
-		$doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]); 
+		try{
+			$doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]); 
+		}catch (Exception $e) {;}
+
 
 		$l = $doppler_service->getResource('lists');
 
