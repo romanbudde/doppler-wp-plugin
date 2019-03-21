@@ -120,14 +120,29 @@ class Doppler_Admin {
 			'dplr_option_useraccount' => ''
 			]);
 
-		if ($options['dplr_option_apikey'] != '' /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
 			add_submenu_page(
 				'doppler_forms_menu',
-				__('Forms', 'doppler-form'),
-				__('Forms', 'doppler-form'),
+				__('Connect with Doppler', 'doppler-form'),
+				__('Connect with Doppler', 'doppler-form'),
+				'manage_options',
+				'doppler_forms_menu',
+				array($this, 'show_template'));
+
+		if ($options['dplr_option_apikey'] != '' /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
+				add_submenu_page(
+				'doppler_forms_menu',
+				__('All Forms', 'doppler-form'),
+				__('All Forms', 'doppler-form'),
 				'manage_options',
 				'doppler_forms_submenu_forms',
 				array($this, 'show_forms'));
+				add_submenu_page(
+					'doppler_forms_menu',
+					__('Create Form', 'doppler-form'),
+					__('Create Form', 'doppler-form'),
+					'manage_options',
+					'doppler_forms_submenu_create_forms',
+					array($this, 'show_form_edit'));
 		}
 	}
 
@@ -173,6 +188,7 @@ class Doppler_Admin {
 		}
 
 		include "partials/api-connection.php";
+
 	}
 
 	public function show_forms() {
@@ -195,8 +211,9 @@ class Doppler_Admin {
 			}
 	}
 
-	private function show_form_edit() {
-		include "partials/forms-create.php";
+	public function show_form_edit() {
+		//include "partials/forms-create.php";
+		$this->form_controller->create($_POST);
 	}
 
 	public function show_admin_notices(){

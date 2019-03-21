@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-03-20 17:30-0300\n"
+"POT-Creation-Date: 2019-03-21 11:48-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -69,25 +69,34 @@ msgstr "Múltiple"
 msgid "Doppler Forms"
 msgstr "Formularios Doppler"
 
-#: admin/doppler-admin.php:126 admin/doppler-admin.php:127
-msgid "Forms"
-msgstr "Formularios"
+#: admin/doppler-admin.php:125 admin/doppler-admin.php:126
+msgid "Connect with Doppler"
+msgstr "Conectar con Doppler"
 
-#: admin/doppler-admin.php:153
+#: admin/doppler-admin.php:134 admin/doppler-admin.php:135
+msgid "All Forms"
+msgstr "Todos los Formularios"
+
+#: admin/doppler-admin.php:141 admin/doppler-admin.php:142
+#: admin/partials/forms-list.php:39
+msgid "Create Form"
+msgstr "Crear Formulario"
+
+#: admin/doppler-admin.php:168
 msgid ""
 "Ouch! There's something wrong with your Username or API Key. Please, try "
 "again."
 msgstr "¡Ouch! Hay un error en tu Usuario o API Key. Vuelve a intentarlo."
 
-#: admin/doppler-admin.php:164 admin/partials/api-connection.php:72
+#: admin/doppler-admin.php:179 admin/partials/api-connection.php:72
 msgid "Ouch! Enter a valid Email."
 msgstr "¡Ouch! Escribe un Email válido."
 
-#: admin/doppler-admin.php:169 admin/partials/api-connection.php:89
+#: admin/doppler-admin.php:184 admin/partials/api-connection.php:89
 msgid "Ouch! The field is empty."
 msgstr "¡Ouch! El campo está vacío."
 
-#: admin/doppler-admin.php:210
+#: admin/doppler-admin.php:227
 msgid ""
 "You've updated the <strong>Doppler Forms</strong> plugin into the "
 "<strong>2.0.0</strong> version. Please,"
@@ -95,11 +104,11 @@ msgstr ""
 "Has actualizado el plugin <strong>Formularios Doppler</strong> a la versión "
 "<strong>2.0.0</strong>. Para continuar utilizándolo,"
 
-#: admin/doppler-admin.php:212
+#: admin/doppler-admin.php:229
 msgid "enter your Username"
 msgstr "ingresa tu Email de Usuario"
 
-#: admin/doppler-admin.php:213
+#: admin/doppler-admin.php:230
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
 
@@ -124,9 +133,8 @@ msgid "screenshot-1.png"
 msgstr "screenshot-1-esp.png"
 
 #: admin/partials/api-connection.php:31
-msgid "Go to Doppler Forms > Forms > Create Form."
-msgstr ""
-"Dirígete a la pestaña Formularios Doppler > Formularios > Crear Formulario."
+msgid "Go to Doppler Forms > Create Form."
+msgstr "Dirígete a la pestaña Formularios Doppler  > Crear Formulario."
 
 #: admin/partials/api-connection.php:37
 msgid "screenshot-2.png"
@@ -366,10 +374,6 @@ msgstr "ID de la Lista"
 #: admin/partials/forms-list.php:25
 msgid "Edit"
 msgstr "Editar"
-
-#: admin/partials/forms-list.php:39
-msgid "Create Form"
-msgstr "Crear Formulario"
 
 #: admin/partials/forms-list.php:41
 msgid "Are you sure you want to delete the Form? "

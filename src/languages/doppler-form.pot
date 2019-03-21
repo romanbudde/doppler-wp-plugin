@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-20 17:29-0300\n"
+"2019-03-21 11:48-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -97,12 +97,24 @@ msgstr ""
 msgid "Doppler Forms"
 msgstr ""
 
+#: admin/doppler-admin.php:125
 #: admin/doppler-admin.php:126
-#: admin/doppler-admin.php:127
-msgid "Forms"
+msgid ""
+"Connect with Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:153
+#: admin/doppler-admin.php:134
+#: admin/doppler-admin.php:135
+msgid "All Forms"
+msgstr ""
+
+#: admin/doppler-admin.php:141
+#: admin/doppler-admin.php:142
+#: admin/partials/forms-list.php:39
+msgid "Create Form"
+msgstr ""
+
+#: admin/doppler-admin.php:168
 msgid ""
 "Ouch! There's something "
 "wrong with your Username "
@@ -110,20 +122,20 @@ msgid ""
 "again."
 msgstr ""
 
-#: admin/doppler-admin.php:164
+#: admin/doppler-admin.php:179
 #: admin/partials/api-connection.php:72
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:169
+#: admin/doppler-admin.php:184
 #: admin/partials/api-connection.php:89
 msgid ""
 "Ouch! The field is empty."
 msgstr ""
 
-#: admin/doppler-admin.php:210
+#: admin/doppler-admin.php:227
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -132,11 +144,11 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:212
+#: admin/doppler-admin.php:229
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:213
+#: admin/doppler-admin.php:230
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
@@ -171,7 +183,7 @@ msgstr ""
 #: admin/partials/api-connection.php:31
 msgid ""
 "Go to Doppler Forms > "
-"Forms > Create Form."
+"Create Form."
 msgstr ""
 
 #: admin/partials/api-connection.php:37
@@ -483,10 +495,6 @@ msgstr ""
 
 #: admin/partials/forms-list.php:25
 msgid "Edit"
-msgstr ""
-
-#: admin/partials/forms-list.php:39
-msgid "Create Form"
 msgstr ""
 
 #: admin/partials/forms-list.php:41

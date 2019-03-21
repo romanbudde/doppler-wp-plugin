@@ -28,7 +28,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to Doppler Forms > Forms > Create Form.', 'doppler-form');
+							_e('Go to Doppler Forms > Create Form.', 'doppler-form');
 						?>
 						</p>
 					</div>
