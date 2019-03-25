@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-03-21 17:31-0300\n"
+"POT-Creation-Date: 2019-03-25 11:11-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -142,11 +142,11 @@ msgstr "screenshot-2-esp.png"
 
 #: admin/partials/api-connection.php:44
 msgid ""
-"Go to Appearance > Widgets > Doppler Forms and select where do you want the "
+"Go to Appearance > Widgets > Doppler Form and select where do you want the "
 "forms to be displayed."
 msgstr ""
-"Ve a Apariencia > Widgets. Haz clic en Formularios de Doppler y selecciona "
-"el lugar donde quieras que aparezca."
+"Ve a Apariencia > Widgets. Haz clic en Formulario de Doppler y selecciona el "
+"lugar donde quieras que aparezca."
 
 #: admin/partials/api-connection.php:50
 msgid "screenshot-3.png"

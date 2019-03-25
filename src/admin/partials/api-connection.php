@@ -41,7 +41,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to Appearance > Widgets > Doppler Forms and select where do you want the forms to be displayed.', 'doppler-form');
+							_e('Go to Appearance > Widgets > Doppler Form and select where do you want the forms to be displayed.', 'doppler-form');
 						?>
 						</p>
 					</div>
