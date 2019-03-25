@@ -47,7 +47,7 @@ msgstr "Nombre a mostrar"
 
 #: admin/doppler-admin.php:86
 msgid "Placeholder"
-msgstr "Arrastra y suelta los Campos para darles el orden que quieras"
+msgstr "Texto de ejemplo"
 
 #: admin/doppler-admin.php:87
 msgid "Description"
