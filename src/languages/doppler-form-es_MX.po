@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-03-25 11:11-0300\n"
+"POT-Creation-Date: 2019-03-25 13:22-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -111,6 +111,14 @@ msgstr "ingresa tu Email de Usuario"
 #: admin/doppler-admin.php:230
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
+
+#: admin/partials/api-connection.php:4
+msgid ""
+"https://www.fromdoppler.com/en/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
+msgstr ""
+"https://www.fromdoppler.com/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 
 #: admin/partials/api-connection.php:7
 msgid "Successful connection!"
