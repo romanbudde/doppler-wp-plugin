@@ -13,6 +13,11 @@
  *--------------------------------------------------------------------
  */
 @import url(fonts/fonts.css);
+#toplevel_page_doppler_forms_menu a .dashicons-before img {
+  width: 20px; }
+#toplevel_page_doppler_forms_menu.current a .dashicons-before img {
+  opacity: 1; }
+
 .dplr_settings {
   width: 100%;
   text-align: center;

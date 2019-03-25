@@ -102,13 +102,15 @@ class Doppler_Admin {
 
 	}
 
+	
 	public function init_menu() {
 		add_menu_page(
 			__('Doppler Forms', 'doppler-form'),
 		    __('Doppler Forms', 'doppler-form'),
 			'manage_options',
 			'doppler_forms_menu',
-			array($this, "show_template")
+			array($this, "show_template"),
+			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu'
 		);
 		register_setting('dplr_plugin_options', 'dplr_settings', array($this, 'dplr_settings_validate'));
 	}
