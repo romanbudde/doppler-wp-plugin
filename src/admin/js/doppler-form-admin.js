@@ -157,13 +157,17 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#dplr-dialog-confirm").dialog({
-		autoOpen: false,
-		resizable: false,
-		height: "auto",
-		width: 400,
-		modal: true
-	});
+	if($('#dplr-dialog-confirm').length>0){
+
+		$("#dplr-dialog-confirm").dialog({
+			autoOpen: false,
+			resizable: false,
+			height: "auto",
+			width: 400,
+			modal: true
+		});
+
+	}
 
 	$(".dplr-remove").click(function(e) {
 		
