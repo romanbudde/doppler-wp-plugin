@@ -352,12 +352,10 @@
       font-size: 12px; }
   .input-container.input-error {
     border-color: #E34F45; }
-  .input-container.notempty {
-    background: #FFF; }
-    .input-container.notempty input[type="text"] {
-      background: #FFF;
-      color: #555845;
-      font-style: normal; }
+  .input-container.notempty input[type="text"] {
+    background: #FFF;
+    color: #555845;
+    font-style: normal; }
 
 #dplr_apikey_options button {
   border-radius: 999999px;
