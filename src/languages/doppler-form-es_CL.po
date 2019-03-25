@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-03-21 11:48-0300\n"
+"POT-Creation-Date: 2019-03-21 17:31-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -186,7 +186,8 @@ msgstr ""
 "utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 
 #: admin/partials/api-connection.php:83 admin/partials/api-connection.php:113
-#: admin/partials/forms-create.php:84 admin/partials/forms-edit.php:96
+#: admin/partials/forms-create.php:35 admin/partials/forms-create.php:84
+#: admin/partials/forms-edit.php:96
 msgid "HELP"
 msgstr "HELP"
 
@@ -231,6 +232,18 @@ msgstr "Campos del Formulario"
 #: admin/partials/forms-create.php:35 admin/partials/forms-edit.php:41
 msgid "Fields to include"
 msgstr "Campos a incluir"
+
+#: admin/partials/forms-create.php:35
+msgid "Learn how to create Custom Fields with Doppler. Press"
+msgstr "Aprende cómo crear Campos Personalizados en Doppler. Presiona"
+
+#: admin/partials/forms-create.php:35
+msgid ""
+"https://help.fromdoppler.com/en/how-to-create-a-customized-field/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
+msgstr ""
+"https://help.fromdoppler.com/es/como-agregar-un-campo-personalizado/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 
 #: admin/partials/forms-create.php:37 admin/partials/forms-edit.php:43
 msgid "Select the Fields that will appear on your Form"
@@ -354,6 +367,20 @@ msgstr "Selecciona la Lista a la que quieres enviar tus nuevos Suscriptores"
 #: admin/partials/forms-list.php:1
 msgid "Created Forms"
 msgstr "Formularios creados"
+
+#: admin/partials/forms-list.php:4
+msgid "PST! Go to"
+msgstr "¡PSST! Dirígete a"
+
+#: admin/partials/forms-list.php:4
+msgid "Appearance > Widgets"
+msgstr "Apariencia > Widgets"
+
+#: admin/partials/forms-list.php:4
+msgid "to choose the place on your Website where you want your Form to appear."
+msgstr ""
+"para elegir el lugar de tu Sitio Web donde quieres que aparezca tu "
+"Formulario."
 
 #: admin/partials/forms-list.php:11
 msgid "Form ID"

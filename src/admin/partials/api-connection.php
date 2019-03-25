@@ -1,7 +1,7 @@
 <section class="dplr_settings theme_dplr">
 	<div class="wrap">
 		<h2></h2>
-		<a href="http://www.fromdoppler.com" target="_blank"><img id="dplr_logo" src="<?= plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
+		<a href="https://www.fromdoppler.com/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress" target="_blank"><img id="dplr_logo" src="<?= plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
 		<?php
 		if ($connected) { ?>
 		<h1><?php _e("Successful connection!", "doppler-form" ); ?></h1>

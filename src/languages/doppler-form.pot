@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-21 11:48-0300\n"
+"2019-03-21 17:30-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -247,6 +247,7 @@ msgstr ""
 
 #: admin/partials/api-connection.php:83
 #: admin/partials/api-connection.php:113
+#: admin/partials/forms-create.php:35
 #: admin/partials/forms-create.php:84
 #: admin/partials/forms-edit.php:96
 msgid "HELP"
@@ -304,6 +305,21 @@ msgstr ""
 #: admin/partials/forms-create.php:35
 #: admin/partials/forms-edit.php:41
 msgid "Fields to include"
+msgstr ""
+
+#: admin/partials/forms-create.php:35
+msgid ""
+"Learn how to create "
+"Custom Fields with "
+"Doppler. Press"
+msgstr ""
+
+#: admin/partials/forms-create.php:35
+msgid ""
+"https://help.fromdoppler."
+"com/en/how-to-create-a-"
+"customized-field/?"
+"utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
 #: admin/partials/forms-create.php:37
@@ -475,6 +491,22 @@ msgstr ""
 
 #: admin/partials/forms-list.php:1
 msgid "Created Forms"
+msgstr ""
+
+#: admin/partials/forms-list.php:4
+msgid "PST! Go to"
+msgstr ""
+
+#: admin/partials/forms-list.php:4
+msgid ""
+"Appearance > Widgets"
+msgstr ""
+
+#: admin/partials/forms-list.php:4
+msgid ""
+"to choose the place on "
+"your Website where you "
+"want your Form to appear."
 msgstr ""
 
 #: admin/partials/forms-list.php:11
