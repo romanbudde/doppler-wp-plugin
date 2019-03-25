@@ -112,8 +112,10 @@ abstract class DPLR_Base_Model {
   private static function groupSettings(& $rows) {
     if ($rows == NULL) return;
     global $wpdb;
-    $elements = count($rows) == 1 ? (is_array($rows) ? $rows : [$rows]) : $rows;
-
+    
+    //$elements = count($rows) == 1 ? (is_array($rows) ? $rows : [$rows]) : $rows;
+    is_object($rows)? $elements = [$rows] : $elements = $rows;
+    
     foreach ($elements as $to_attach) {
         $sql = sprintf("SELECT setting_key, value FROM %s WHERE parent_id = %d", self::_settings_table(), $to_attach->id);
 
