@@ -131,11 +131,6 @@ class DPLR_Form_Controller
     $dplr_fields = $fields_resource->getAllFields();
     $dplr_fields = isset($dplr_fields->items) ? $dplr_fields->items : [];
 
-    if(($key = array_search('consent', array_column($dplr_fields, 'type'))) !== FALSE) {
-      echo $dplr_fields[$key];
-      //unset($dplr_fields[$key]);
-    }
-
     usort($dplr_fields, function($a, $b) {
       return strtolower($a->name) > strtolower($b->name);
     });
