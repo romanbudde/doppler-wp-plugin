@@ -131,5 +131,5 @@ var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = <?php echo json_encode($fields); ?>;
 var fieldsView = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
-jQuery(".color-selector").colorpicker({color: "<?php echo $form->settings["button_color"]; ?>"});
+jQuery(".color-selector").colorpicker({color: "<?php echo isset($form->settings["button_color"])? $form->settings["button_color"]: '#ffffff' ?>"});
 </script>
