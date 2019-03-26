@@ -109,7 +109,10 @@ class DPLR_Doppler_Form_Public {
 
 		$subscriber = $_POST['subscriber'];
 
-		$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
+		if(isset($subscriber['hp']) && $subscriber['hp']==''){
+			unset($subscriber['hp']);
+			$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
+		}
 
 	}
 

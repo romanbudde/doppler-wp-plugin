@@ -40,6 +40,9 @@ class DPLR_Form_helper
 			</div>
 			<?php
 		}
+		?>
+		<input type="text" name="secondary-dplrEmail" value="" class="dplr-secondary-email"/>
+		<?php
     $button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "left";
     $submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "";
     $message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "";

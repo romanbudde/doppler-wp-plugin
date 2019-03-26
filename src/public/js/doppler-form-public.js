@@ -25,6 +25,7 @@
 			var m = $(this).find(".msg-data-sending");
 			var l = $(this).find("input[name='list_id']");
 			var e = $(this).find("input[name='EMAIL']");
+			var honey =  $(this).find("input[name='secondary-dplrEmail']");
 			var fields = $(this).find("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
 
 			s.attr("disabled", "disabled");
@@ -32,9 +33,8 @@
 			var subscriber = {},
 			list_id = l.val();
 			subscriber.email = e.val();
+			subscriber.hp = honey.val();
 			subscriber.fields = [];
-
-			//var fields = $("input[name|='fields'], select[name|='fields'], textarea[name|='fields']"); 
 
 			fields.each(function(index) {
 				var input = $(fields[index]);
