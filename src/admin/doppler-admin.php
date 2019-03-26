@@ -110,7 +110,7 @@ class Doppler_Admin {
 			'manage_options',
 			'doppler_forms_menu',
 			array($this, "show_template"),
-			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu'
+			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu.png'
 		);
 		register_setting('dplr_plugin_options', 'dplr_settings', array($this, 'dplr_settings_validate'));
 	}
