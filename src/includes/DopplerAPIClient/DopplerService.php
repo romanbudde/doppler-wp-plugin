@@ -102,7 +102,8 @@ class Doppler_Service
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
     $connectionStatus = $this->connectionStatus();
 
-    switch($connectionStatus->code) {
+    //switch($connectionStatus->code) {
+    switch($connectionStatus['response']['code']) {
       case 200:
         return true;
         break;
@@ -169,21 +170,32 @@ class Doppler_Service
         
         case 'get':
             
+          /*
             $response = \Httpful\Request::get($url)
             ->addHeaders( $headers )
             ->timeoutIn(12)
             ->send();
+            */
             
+            $response = wp_remote_get($url, array(
+              'headers'=>$headers,
+              'timeout' => 12
+            ));
             break;
         
         case 'post':
-            
+            /*
             $response = \Httpful\Request::post($url)
               ->body( json_encode($body) )
               ->addHeaders( $headers )
               ->timeoutIn(12)
               ->send();
-
+            */
+            $response = wp_remote_post($url, array(
+              'headers'=>$headers,
+              'timeout' => 12,
+              'body'=> json_encode($body)
+            ));
             break;
       }
 
@@ -192,8 +204,13 @@ class Doppler_Service
       $this->throwConnectionErr();
       return;
     }
-    
-    return $response;
+
+    if(is_array($response)){
+      return $response;
+    }else{
+      $this->throwConnectionErr();
+      return;
+    }
 
   }
 
@@ -262,7 +279,9 @@ class Doppler_Service
       
       $method = $this->methods['list'];
       
-      $z = $this->service->call($method, array("listId" => $listId, 'page' => $page))->body;
+      //$z = $this->service->call($method, array("listId" => $listId, 'page' => $page))->body;
+
+      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
       
       $lists[] = $z->items;
 
@@ -297,7 +316,8 @@ class Doppler_Service
 
     public function getAllFields( $listId = null ){
       $method = $this->methods['list'];
-      return $this->service->call($method, array("listId" => $listId) )->body;
+      //return $this->service->call($method, array("listId" => $listId) )->body;
+      return json_decode($this->service->call($method, array("listId" => $listId) )['body']);
     }
 
   }
