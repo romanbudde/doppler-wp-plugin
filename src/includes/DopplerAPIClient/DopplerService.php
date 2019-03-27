@@ -271,7 +271,8 @@ class Doppler_Service
     public function getList( $listId ){
       //$method = $methods['get'];
       $method = $this->methods['get'];
-      return $this->service->call($method, array("listId" => $listId) )->body;
+     // return $this->service->call($method, array("listId" => $listId) )->body;
+      return json_decode($this->service->call($method, array("listId" => $listId))['body']);
     }
 
     
