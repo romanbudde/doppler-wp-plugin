@@ -168,18 +168,20 @@ class Doppler_Service
       switch($method['httpMethod']){
         
         case 'get':
-
+            
             $response = \Httpful\Request::get($url)
             ->addHeaders( $headers )
+            ->timeoutIn(12)
             ->send();
-        
+            
             break;
         
         case 'post':
-          
+            
             $response = \Httpful\Request::post($url)
               ->body( json_encode($body) )
               ->addHeaders( $headers )
+              ->timeoutIn(12)
               ->send();
 
             break;
