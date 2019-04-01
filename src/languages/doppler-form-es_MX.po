@@ -162,7 +162,7 @@ msgstr "screenshot-3-esp.png"
 
 #: admin/partials/api-connection.php:57
 msgid "Done! You should now see your Form published on your website."
-msgstr "¡Listo! Tu Formulario aparecerá publicado en tu sitio web."
+msgstr "¡Listo! Tu Formulario aparecerá publicado en tu Sitio Web."
 
 #: admin/partials/api-connection.php:65
 msgid "Connect your WordPress Forms with Doppler"
