@@ -1,6 +1,6 @@
 <?php
 
-include('lib/httpful.phar');
+//include('lib/httpful.phar');
 
 class Doppler_Service
 {
@@ -24,7 +24,9 @@ class Doppler_Service
       $usr_account = $config['credentials'][ 'user_account'] . '/';
     }
 
-    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
+    //$this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
+    $this->baseUrl = 'http://newapiqa.fromdoppler.net/accounts/' . $usr_account;
+
 
     $this->resources = [
 	  'home'	=> new Doppler_Service_Home_Resource(
@@ -101,7 +103,7 @@ class Doppler_Service
 
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
     $connectionStatus = $this->connectionStatus();
-
+    
     //switch($connectionStatus->code) {
     switch($connectionStatus['response']['code']) {
       case 200:
@@ -125,7 +127,8 @@ class Doppler_Service
 
   function call( $method, $args=null, $body=null ) {
     
-    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
     $query = "";
     
@@ -176,7 +179,6 @@ class Doppler_Service
             ->timeoutIn(12)
             ->send();
             */
-            
             $response = wp_remote_get($url, array(
               'headers'=>$headers,
               'timeout' => 12
@@ -236,6 +238,7 @@ class Doppler_Service
    * These classes represent the different resources of the API.
    */
   class Doppler_Service_Home_Resource {
+    
   	private $service;
 
     private $client;

@@ -179,7 +179,7 @@ msgstr ""
 
 #: admin/partials/api-connection.php:71
 msgid "Username"
-msgstr "Email de usuario"
+msgstr "Email de Usuario"
 
 #: admin/partials/api-connection.php:83
 msgid "How do you find your API KEY? Press"

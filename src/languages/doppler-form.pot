@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-03-25 13:22-0300\n"
+"2019-04-01 10:03-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -92,29 +92,29 @@ msgstr ""
 msgid "Multiple"
 msgstr ""
 
-#: admin/doppler-admin.php:107
 #: admin/doppler-admin.php:108
+#: admin/doppler-admin.php:109
 msgid "Doppler Forms"
 msgstr ""
 
-#: admin/doppler-admin.php:125
-#: admin/doppler-admin.php:126
+#: admin/doppler-admin.php:127
+#: admin/doppler-admin.php:128
 msgid ""
 "Connect with Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:134
-#: admin/doppler-admin.php:135
+#: admin/doppler-admin.php:136
+#: admin/doppler-admin.php:137
 msgid "All Forms"
 msgstr ""
 
-#: admin/doppler-admin.php:141
-#: admin/doppler-admin.php:142
+#: admin/doppler-admin.php:143
+#: admin/doppler-admin.php:144
 #: admin/partials/forms-list.php:39
 msgid "Create Form"
 msgstr ""
 
-#: admin/doppler-admin.php:168
+#: admin/doppler-admin.php:170
 msgid ""
 "Ouch! There's something "
 "wrong with your Username "
@@ -122,20 +122,20 @@ msgid ""
 "again."
 msgstr ""
 
-#: admin/doppler-admin.php:179
+#: admin/doppler-admin.php:181
 #: admin/partials/api-connection.php:72
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:184
+#: admin/doppler-admin.php:186
 #: admin/partials/api-connection.php:89
 msgid ""
 "Ouch! The field is empty."
 msgstr ""
 
-#: admin/doppler-admin.php:227
+#: admin/doppler-admin.php:229
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -144,11 +144,11 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:229
+#: admin/doppler-admin.php:231
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:230
+#: admin/doppler-admin.php:232
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
@@ -368,7 +368,7 @@ msgstr ""
 
 #: admin/partials/forms-create.php:60
 #: admin/partials/forms-edit.php:67
-#: includes/helpers/Form_Helper.php:47
+#: includes/helpers/Form_Helper.php:50
 msgid "Submit"
 msgstr ""
 
@@ -548,7 +548,7 @@ msgid ""
 "can't be recovered."
 msgstr ""
 
-#: includes/DopplerAPIClient/DopplerService.php:207
+#: includes/DopplerAPIClient/DopplerService.php:228
 msgid ""
 "<b>Doppler Forms:</b> "
 "Connection error. Please "
@@ -564,13 +564,13 @@ msgstr ""
 msgid "Doppler form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:71
+#: includes/class-doppler-form-widget.php:73
 msgid ""
 "Select the Form that you "
 "want to publish"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:81
+#: includes/class-doppler-form-widget.php:83
 msgid ""
 "You haven't created any "
 "form"
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: includes/helpers/Form_Helper.php:50
+#: includes/helpers/Form_Helper.php:53
 msgid ""
 "Thanks for subscribing"
 msgstr ""
