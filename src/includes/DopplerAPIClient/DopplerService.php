@@ -1,6 +1,6 @@
 <?php
 
-//include('lib/httpful.phar');
+if( ! class_exists( 'Doppler_Service' ) ) :
 
 class Doppler_Service
 {
@@ -24,8 +24,8 @@ class Doppler_Service
       $usr_account = $config['credentials'][ 'user_account'] . '/';
     }
 
-    //$this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
-    $this->baseUrl = 'http://newapiqa.fromdoppler.net/accounts/' . $usr_account;
+    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
+    //$this->baseUrl = 'http://newapiqa.fromdoppler.net/accounts/' . $usr_account;
 
 
     $this->resources = [
@@ -127,8 +127,8 @@ class Doppler_Service
 
   function call( $method, $args=null, $body=null ) {
     
-    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
+    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    //$url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
     $query = "";
     
@@ -234,9 +234,15 @@ class Doppler_Service
 
  }
 
+endif;
+
   /**
    * These classes represent the different resources of the API.
    */
+
+  
+if( ! class_exists( 'Doppler_Service_Home_Resource' ) ) :
+
   class Doppler_Service_Home_Resource {
     
   	private $service;
@@ -256,6 +262,10 @@ class Doppler_Service
       return $this->service->call($method, array());
 	  }
   }
+
+endif;
+
+if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
 
   class Doppler_Service_Lists_Resource {
 
@@ -304,6 +314,11 @@ class Doppler_Service
     
   }
 
+endif;
+
+
+if( ! class_exists( 'Doppler_Service_Fields' ) ) :
+
   class Doppler_Service_Fields {
 
     private $service;
@@ -326,6 +341,10 @@ class Doppler_Service
 
   }
 
+endif;
+
+if( ! class_exists( 'Doppler_Service_Subscribers' ) ) :
+
   class Doppler_Service_Subscribers {
 
     private $service;
@@ -347,8 +366,14 @@ class Doppler_Service
 
   }
 
-  class Doppler_Exception_Invalid_Account extends Exception {};
+endif;
 
+if( ! class_exists( 'Doppler_Exception_Invalid_Account' ) ){
+  class Doppler_Exception_Invalid_Account extends Exception {};
+}
+
+if( ! class_exists( 'Doppler_Exception_Invalid_APIKey' ) ){
   class Doppler_Exception_Invalid_APIKey extends Exception {};
+}
 
 ?>

@@ -172,7 +172,7 @@ class Doppler_Admin {
 				}else{
 
 					delete_option('dplr_2_0_updated');
-
+					
 				}
 
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
