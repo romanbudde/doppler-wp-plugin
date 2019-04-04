@@ -1,7 +1,7 @@
 <h1><?php _e('Created Forms', 'doppler-form')?></h1>
 <div class="dplr">
   <?php if($_GET['created']=='1'): ?>
-  <div class="notice notice-success"><?php _e('PST! Go to', 'doppler-form')?> <a href="<?= admin_url( 'widgets.php') ?>"> <?php _e('Appearance > Widgets', 'doppler-form')?></a> <?php _e('to choose the place on your Website where you want your Form to appear.','doppler-form')?></div>
+  <div class="notice notice-success"><?php _e('Pst! Go to', 'doppler-form')?> <a href="<?= admin_url( 'widgets.php') ?>"> <?php _e('Appearance > Widgets', 'doppler-form')?></a> <?php _e('to choose the place on your Website where you want your Form to appear.','doppler-form')?></div>
   <?php endif; ?>
   <div class="panel">
     <div class="">

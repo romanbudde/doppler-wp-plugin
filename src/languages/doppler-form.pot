@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-04-01 10:03-0300\n"
+"2019-04-04 13:22-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -202,7 +202,7 @@ msgid ""
 "Go to Appearance > "
 "Widgets > Doppler Form "
 "and select where do you "
-"want the forms to be "
+"want the Forms to be "
 "displayed."
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid ""
 "Done! You should now see "
 "your Form published on "
-"your website."
+"your Website."
 msgstr ""
 
 #: admin/partials/api-connection.php:65
@@ -241,7 +241,7 @@ msgstr ""
 #: admin/partials/api-connection.php:83
 msgid ""
 "How do you find your API "
-"KEY? Press"
+"Key? Press"
 msgstr ""
 
 #: admin/partials/api-connection.php:83
@@ -501,7 +501,7 @@ msgid "Created Forms"
 msgstr ""
 
 #: admin/partials/forms-list.php:4
-msgid "PST! Go to"
+msgid "Pst! Go to"
 msgstr ""
 
 #: admin/partials/forms-list.php:4
@@ -548,7 +548,7 @@ msgid ""
 "can't be recovered."
 msgstr ""
 
-#: includes/DopplerAPIClient/DopplerService.php:228
+#: includes/DopplerAPIClient/DopplerService.php:226
 msgid ""
 "<b>Doppler Forms:</b> "
 "Connection error. Please "
@@ -557,7 +557,8 @@ msgstr ""
 
 #: includes/class-doppler-form-widget.php:10
 msgid ""
-"Create a Doppler form"
+"Your Doppler "
+"Subscription Forms"
 msgstr ""
 
 #: includes/class-doppler-form-widget.php:11

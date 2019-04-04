@@ -41,7 +41,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Go to Appearance > Widgets > Doppler Form and select where do you want the forms to be displayed.', 'doppler-form');
+							_e('Go to Appearance > Widgets > Doppler Form and select where do you want the Forms to be displayed.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -54,7 +54,7 @@
 						</span>
 						<p>
 						<?php 
-							_e('Done! You should now see your Form published on your website.', 'doppler-form');
+							_e('Done! You should now see your Form published on your Website.', 'doppler-form');
 						?>
 						</p>
 					</div>
@@ -80,7 +80,7 @@
             <span class="tooltip tooltip-info tooltip-top tooltip-hover">?
               <div class="tooltip-container">
                 <p>
-									<?php _e("How do you find your API KEY? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a>.<br>
+									<?php _e("How do you find your API Key? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a>.<br>
                 </p>
               </div>
             </span>

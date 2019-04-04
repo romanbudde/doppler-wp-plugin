@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-03-25 13:22-0300\n"
+"POT-Creation-Date: 2019-04-04 13:23-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -65,38 +65,38 @@ msgstr "Simple"
 msgid "Multiple"
 msgstr "Múltiple"
 
-#: admin/doppler-admin.php:107 admin/doppler-admin.php:108
+#: admin/doppler-admin.php:108 admin/doppler-admin.php:109
 msgid "Doppler Forms"
 msgstr "Formularios Doppler"
 
-#: admin/doppler-admin.php:125 admin/doppler-admin.php:126
+#: admin/doppler-admin.php:127 admin/doppler-admin.php:128
 msgid "Connect with Doppler"
 msgstr "Conectar con Doppler"
 
-#: admin/doppler-admin.php:134 admin/doppler-admin.php:135
+#: admin/doppler-admin.php:136 admin/doppler-admin.php:137
 msgid "All Forms"
 msgstr "Todos los Formularios"
 
-#: admin/doppler-admin.php:141 admin/doppler-admin.php:142
+#: admin/doppler-admin.php:143 admin/doppler-admin.php:144
 #: admin/partials/forms-list.php:39
 msgid "Create Form"
 msgstr "Crear Formulario"
 
-#: admin/doppler-admin.php:168
+#: admin/doppler-admin.php:170
 msgid ""
 "Ouch! There's something wrong with your Username or API Key. Please, try "
 "again."
 msgstr "¡Ouch! Hay un error en tu Usuario o API Key. Vuelve a intentarlo."
 
-#: admin/doppler-admin.php:179 admin/partials/api-connection.php:72
+#: admin/doppler-admin.php:181 admin/partials/api-connection.php:72
 msgid "Ouch! Enter a valid Email."
 msgstr "¡Ouch! Escribe un Email válido."
 
-#: admin/doppler-admin.php:184 admin/partials/api-connection.php:89
+#: admin/doppler-admin.php:186 admin/partials/api-connection.php:89
 msgid "Ouch! The field is empty."
 msgstr "¡Ouch! El campo está vacío."
 
-#: admin/doppler-admin.php:227
+#: admin/doppler-admin.php:229
 msgid ""
 "You've updated the <strong>Doppler Forms</strong> plugin into the "
 "<strong>2.0.0</strong> version. Please,"
@@ -104,11 +104,11 @@ msgstr ""
 "Has actualizado el plugin <strong>Formularios Doppler</strong> a la versión "
 "<strong>2.0.0</strong>. Para continuar utilizándolo,"
 
-#: admin/doppler-admin.php:229
+#: admin/doppler-admin.php:231
 msgid "enter your Username"
 msgstr "ingresa tu Email de Usuario"
 
-#: admin/doppler-admin.php:230
+#: admin/doppler-admin.php:232
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
 
@@ -151,7 +151,7 @@ msgstr "screenshot-2-esp.png"
 #: admin/partials/api-connection.php:44
 msgid ""
 "Go to Appearance > Widgets > Doppler Form and select where do you want the "
-"forms to be displayed."
+"Forms to be displayed."
 msgstr ""
 "Ve a Apariencia > Widgets. Haz clic en Formulario de Doppler y selecciona el "
 "lugar donde quieras que aparezca."
@@ -161,7 +161,7 @@ msgid "screenshot-3.png"
 msgstr "screenshot-3-esp.png"
 
 #: admin/partials/api-connection.php:57
-msgid "Done! You should now see your Form published on your website."
+msgid "Done! You should now see your Form published on your Website."
 msgstr "¡Listo! Tu Formulario aparecerá publicado en tu Sitio Web."
 
 #: admin/partials/api-connection.php:65
@@ -182,7 +182,7 @@ msgid "Username"
 msgstr "Email de Usuario"
 
 #: admin/partials/api-connection.php:83
-msgid "How do you find your API KEY? Press"
+msgid "How do you find your API Key? Press"
 msgstr "¿Dónde encontrar el API Key de tu cuenta? Presiona"
 
 #: admin/partials/api-connection.php:83
@@ -278,7 +278,7 @@ msgid "Button text"
 msgstr "Texto del botón"
 
 #: admin/partials/forms-create.php:60 admin/partials/forms-edit.php:67
-#: includes/helpers/Form_Helper.php:47
+#: includes/helpers/Form_Helper.php:50
 msgid "Submit"
 msgstr "Enviar"
 
@@ -377,8 +377,8 @@ msgid "Created Forms"
 msgstr "Formularios creados"
 
 #: admin/partials/forms-list.php:4
-msgid "PST! Go to"
-msgstr "¡PSST! Dirígete a"
+msgid "Pst! Go to"
+msgstr "¡Psst! Dirígete a"
 
 #: admin/partials/forms-list.php:4
 msgid "Appearance > Widgets"
@@ -418,23 +418,23 @@ msgstr "¿Estás seguro de que deseas eliminar el Formulario?"
 msgid "It'll be deleted and can't be recovered."
 msgstr "Será eliminado y ya no podrás recuperarlo."
 
-#: includes/DopplerAPIClient/DopplerService.php:207
+#: includes/DopplerAPIClient/DopplerService.php:226
 msgid "<b>Doppler Forms:</b> Connection error. Please contact support."
 msgstr "<b>Doppler Forms:</b> Error de conexión."
 
 #: includes/class-doppler-form-widget.php:10
-msgid "Create a Doppler form"
-msgstr "Crear un Formulario Doppler"
+msgid "Your Doppler Subscription Forms"
+msgstr "Tus Formularios de Suscripción de Doppler"
 
 #: includes/class-doppler-form-widget.php:11
 msgid "Doppler form"
 msgstr "Formulario Doppler"
 
-#: includes/class-doppler-form-widget.php:71
+#: includes/class-doppler-form-widget.php:73
 msgid "Select the Form that you want to publish"
 msgstr "Selecciona el Formulario que deseas publicar"
 
-#: includes/class-doppler-form-widget.php:81
+#: includes/class-doppler-form-widget.php:83
 msgid "You haven't created any form"
 msgstr "No ha creado ningún Formulario"
 
@@ -442,9 +442,12 @@ msgstr "No ha creado ningún Formulario"
 msgid "Read more"
 msgstr "Leer más"
 
-#: includes/helpers/Form_Helper.php:50
+#: includes/helpers/Form_Helper.php:53
 msgid "Thanks for subscribing"
 msgstr "Gracias por suscribirte"
+
+#~ msgid "Create a Doppler form"
+#~ msgstr "Crear un Formulario Doppler"
 
 #~ msgid "https://www.mysite.com"
 #~ msgstr "https://www.misitio.com"
@@ -483,9 +486,6 @@ msgstr "Gracias por suscribirte"
 
 #~ msgid "Email"
 #~ msgstr "Email"
-
-#~ msgid "Your Doppler user ;)"
-#~ msgstr "Tu usuario de Doppler ;)"
 
 #~ msgid "Don’t know where to find your Api Key?"
 #~ msgstr "¿No sabes dónde encontrar tu Api Key?"
