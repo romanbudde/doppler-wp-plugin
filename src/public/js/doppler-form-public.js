@@ -52,11 +52,11 @@
 				field['value'] = input.val();
 				subscriber.fields.push(field);
 			});
-
+			m.show();
 			$.post(ajax_object.ajax_url,
 				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
 				function(res) {
-					m.show();
+					//m.show();
 					s.removeAttr("disabled");
 					f.trigger('reset');
 			})/*.done(function( data ) {
