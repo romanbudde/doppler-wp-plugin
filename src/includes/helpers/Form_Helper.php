@@ -61,7 +61,10 @@ class DPLR_Form_helper
 		
     ?>
       <div class="input-buttom">
-        <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>"><?=$submit_text?></button>
+        <button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>">
+					<img src="<?php echo plugin_dir_url(__FILE__)?>../../public/img/spinner.svg"/>
+					<span><?=$submit_text?></span>
+				</button>
         <label class="msg-data-sending"><?=$message_success?></label>
 			</div>
     </form>

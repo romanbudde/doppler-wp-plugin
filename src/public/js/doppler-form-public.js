@@ -29,6 +29,7 @@
 			var fields = $(this).find("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
 
 			s.attr("disabled", "disabled");
+			s.addClass('sending');
 
 			var subscriber = {},
 			list_id = l.val();
@@ -52,23 +53,19 @@
 				field['value'] = input.val();
 				subscriber.fields.push(field);
 			});
-			m.show();
+			
 			$.post(ajax_object.ajax_url,
 				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
 				function(res) {
-					//m.show();
+					s.removeClass('sending');
+					m.show();
 					s.removeAttr("disabled");
 					f.trigger('reset');
-			})/*.done(function( data ) {
-				
-				setTimeout(function(){
-					
-					//m.hide();
-					//f.trigger("reset");
-				
-				}, 2000);
-				
-			})*/;
+					setTimeout(function() {
+						m.hide();
+						f[0].reset();
+					}, 8000);
+			});
 		});
 	});
 })( jQuery );

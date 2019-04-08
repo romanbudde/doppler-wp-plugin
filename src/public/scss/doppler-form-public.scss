@@ -56,6 +56,7 @@ form.dplr_form {
     }
 
     button {
+
       &.left {
         float: left;
       }
@@ -65,6 +66,51 @@ form.dplr_form {
       &.fill {
         width: 100%;
       }
+
+      position: relative;
+
+      img{
+        display: none;
+        position: absolute;
+        animation: rotation 2s infinite linear;
+        -webkit-animation: rotation 2s infinite linear;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+      }
+
+      @keyframes rotation{
+        from {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+        }
+      }
+
+      @-webkit-keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+        }
+      }
+
+      &.sending{
+        img{
+          display: table;
+        }
+        span{
+          opacity: 0.3;
+        }
+      }
+      
     }
   }
 
