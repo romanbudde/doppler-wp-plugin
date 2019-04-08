@@ -65,8 +65,8 @@ class DPLR_Form_helper
 					<img src="<?php echo plugin_dir_url(__FILE__)?>../../public/img/spinner.svg"/>
 					<span><?=$submit_text?></span>
 				</button>
-        <label class="msg-data-sending"><?=$message_success?></label>
 			</div>
+			<label class="msg-data-sending"><?=$message_success?></label>
     </form>
     <?php
   }

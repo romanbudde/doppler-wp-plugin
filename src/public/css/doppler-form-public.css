@@ -11,7 +11,8 @@ form.dplr_form {
     width: 0;
     z-index: -1; }
   form.dplr_form .msg-data-sending {
-    display: none; }
+    display: none;
+    margin-top: 1em; }
   form.dplr_form .input-field {
     margin-bottom: .5rem; }
     form.dplr_form .input-field label {
