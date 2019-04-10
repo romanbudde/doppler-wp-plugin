@@ -130,7 +130,7 @@ class Doppler_Admin {
 				'doppler_forms_menu',
 				array($this, 'show_template'));
 
-		if ($options['dplr_option_apikey'] != '' /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
+		if ($options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
 				add_submenu_page(
 				'doppler_forms_menu',
 				__('All Forms', 'doppler-form'),
