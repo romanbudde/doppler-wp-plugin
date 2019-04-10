@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-04-04 13:23-0300\n"
+"POT-Creation-Date: 2019-04-10 10:07-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -427,8 +427,8 @@ msgid "Your Doppler Subscription Forms"
 msgstr "Tus Formularios de Suscripción de Doppler"
 
 #: includes/class-doppler-form-widget.php:11
-msgid "Doppler form"
-msgstr "Formulario Doppler"
+msgid "Doppler Form"
+msgstr "Formulario de Doppler"
 
 #: includes/class-doppler-form-widget.php:73
 msgid "Select the Form that you want to publish"
@@ -445,6 +445,9 @@ msgstr "Leer más"
 #: includes/helpers/Form_Helper.php:53
 msgid "Thanks for subscribing"
 msgstr "Gracias por suscribirte"
+
+#~ msgid "Doppler form"
+#~ msgstr "Formulario Doppler"
 
 #~ msgid "Create a Doppler form"
 #~ msgstr "Crear un Formulario Doppler"

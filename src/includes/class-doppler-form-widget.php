@@ -8,7 +8,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'dplr_form_widget', 'description' => __('Your Doppler Subscription Forms', 'doppler-form') );
-		parent::__construct('dplr_form_widget', __('Doppler form', 'doppler-form'), $widget_ops);
+		parent::__construct('dplr_form_widget', __('Doppler Form', 'doppler-form'), $widget_ops);
 	}
 
 	// widget output
