@@ -24,8 +24,7 @@ class Doppler_Service
       $usr_account = $config['credentials'][ 'user_account'] . '/';
     }
 
-    //$this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
-    $this->baseUrl = 'http://newapiqa.fromdoppler.net/accounts/'. $usr_account;
+    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
 
     $this->resources = [
 	  'home'	=> new Doppler_Service_Home_Resource(
@@ -126,8 +125,7 @@ class Doppler_Service
 
   function call( $method, $args=null, $body=null ) {
     
-    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    $url = 'http://newapiqa.fromdoppler.net/accounts/'. $this->config['credentials']['user_account'] . '/';
+    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
     
     $url .= $method[ 'route' ];
     $query = "";
