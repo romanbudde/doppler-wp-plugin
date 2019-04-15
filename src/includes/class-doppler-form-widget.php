@@ -2,6 +2,8 @@
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/helpers/Form_Helper.php';
 require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 
+if(!class_exists('Dplr_Subscription_Widget')):
+
 class Dplr_Subscription_Widget extends WP_Widget {
 
 	// constructor
@@ -84,4 +86,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 	<?php }
 	}
 }
+
+endif;
+
 ?>
