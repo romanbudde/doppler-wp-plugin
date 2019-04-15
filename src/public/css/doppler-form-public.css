@@ -19,6 +19,10 @@ form.dplr_form {
       display: block; }
     form.dplr_form .input-field input[type="text"], form.dplr_form .input-field input[type="email"], form.dplr_form .input-field input[type="url"], form.dplr_form .input-field input[type="date"], form.dplr_form .input-field select {
       width: 100%; }
+    form.dplr_form .input-field input[type="radio"] {
+      margin-left: 10px; }
+      form.dplr_form .input-field input[type="radio"]:first-child {
+        margin-left: 0px; }
     form.dplr_form .input-field p.description {
       display: block;
       font-style: italic;

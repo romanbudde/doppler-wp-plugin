@@ -78,11 +78,11 @@ class DPLR_Form_helper
         if ($input->settings['text_lines'] == 'single') {?>
           <input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
       <?php } else {?>
-          <textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
+          <textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80" maxlength="150"></textarea>
         <?php }
         break;
         case 'number':?>
-        	<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+        	<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="27"/>
       <?php
           break;
         case 'consent':?>

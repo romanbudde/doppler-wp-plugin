@@ -30,6 +30,13 @@ form.dplr_form {
       width: 100%;
     }
 
+    input[type="radio"]{
+      margin-left: 10px;
+      &:first-child{
+        margin-left: 0px;
+      }
+    }
+
     p.description {
       display: block;
       font-style: italic;
