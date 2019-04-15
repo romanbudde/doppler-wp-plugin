@@ -9,7 +9,7 @@
         <div class="panel-body">
           <div class="dplr_input_section">
             <label for="name"><?php _e('Name', 'doppler-form')?> <span class="req">(Obligatorio)</span></label>
-            <input type="text" name="name" placeholder="" value="" required/>
+            <input type="text" name="name" placeholder="" value="" required maxlength="80"/>
           </div>
           <div class="dplr_input_section">
             <label for="list_id"><?php _e('Doppler List', 'doppler-form')?> <span class="req">(Obligatorio)</span></label>
@@ -53,11 +53,11 @@
         <div class="panel-body grid">
           <div class="dplr_input_section">
             <label for="title"><?php _e('Title', 'doppler-form')?></label>
-            <input type="text" name="title" placeholder="<?php _e('Subscribe to our Newsletter!', 'doppler-form')?>" value=""/>
+            <input type="text" name="title" placeholder="<?php _e('Subscribe to our Newsletter!', 'doppler-form')?>" value="" maxlength="150"/>
           </div>
           <div class="dplr_input_section">
             <label for="submit_text"><?php _e('Button text', 'doppler-form')?></label>
-            <input type="text" name="settings[button_text]" value="" placeholder="<?php _e('Submit', 'doppler-form')?>"/>
+            <input type="text" name="settings[button_text]" value="" placeholder="<?php _e('Submit', 'doppler-form')?>" maxlength="40"/>
           </div>
           <div class="dplr_input_section">
             <label for="settings[button_position]"><?php _e('Button alignment', 'doppler-form')?></label>
@@ -78,7 +78,7 @@
           </div>
           <div class="dplr_input_section">
             <label for="submit_text"><?php _e('Confirmation message', 'doppler-form')?></label>
-            <input type="text" name="settings[message_success]" value="" placeholder="<?php _e('Thanks for subscribing!', 'doppler-form')?>"/>
+            <input type="text" name="settings[message_success]" value="" placeholder="<?php _e('Thanks for subscribing!', 'doppler-form')?>" maxlength="150"/>
           </div>
           <div class="dplr_input_section">
             <label for="settings[use_consent_field]"><?php _e('Consent Field (GDPR)', 'doppler-form')?> <span class="hlp"><?php _e('What is it? Press','doppler-form')?> <?= '<a href="'.__('https://help.fromdoppler.com/en/general-data-protection-regulation?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.</span></label>
@@ -98,13 +98,13 @@
         <div class="panel-body grid">
             <div class="dplr_input_section">
               <label for="settings[consent_field_text]"><?php _e('Checkbox label', 'doppler-form')?></label>
-              <input type="text" name="settings[consent_field_text]" value="" placeholder="<?php _e("I've read and accept the privace policy", "doppler-form")?>"/>
+              <input type="text" name="settings[consent_field_text]" value="" placeholder="<?php _e("I've read and accept the privace policy", "doppler-form")?>" maxlength="150"/>
             </div>
             <div class="dplr_input_section">
               <label for="settings[consent_field_url]">
                 <?php _e('Enter the URL of your privacy policy', 'doppler-form'); ?> 
               </label>
-              <input type="url" name="settings[consent_field_url]" pattern="https?://.+" value="" placeholder=""/>
+              <input type="url" name="settings[consent_field_url]" pattern="https?://.+" value="" placeholder="" maxlength="150"/>
             </div>
         </div>
       </div>

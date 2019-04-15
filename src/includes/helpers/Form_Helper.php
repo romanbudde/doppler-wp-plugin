@@ -76,7 +76,7 @@ class DPLR_Form_helper
     switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
-          <input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" />
+          <input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
       <?php } else {?>
           <textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80"></textarea>
         <?php }
@@ -97,11 +97,11 @@ class DPLR_Form_helper
         break;
       case 'email':
         ?>
-        <input <?=$required?> type="email" name="<?php echo $input->name; ?>" value="" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+        <input <?=$required?> type="email" name="<?php echo $input->name; ?>" value="" maxlength="150" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
         break;
       case 'date':
         ?>
-        <input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date">
+        <input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date" maxlength="150">
         <input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
         break;
       case 'gender':
