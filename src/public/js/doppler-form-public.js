@@ -7,6 +7,8 @@
 			dateElement.datepicker({
 				'dateFormat': 'dd/mm/yy',
 				'altFormat': 'yy-mm-dd',
+				'changeMonth': true,
+      			'changeYear': true,
 				'altField': 'input[name="fields-'+elementName+'"]'
 			});
 		});
