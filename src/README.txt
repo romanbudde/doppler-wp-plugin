@@ -52,6 +52,10 @@ la Lista a la que quieres enviar tus nuevos Suscriptores y el lugar donde aparec
 
 == Frequently Asked Questions ==
 
+= He instalado la versión 2.0 del plugin y mi Formulario no se muestra, ¿a qué se debe? =
+
+Esta versión requiere que ingreses tu Email de Usuario además de tu API Key. Si aún no lo has hecho, ese puede ser el motivo.
+
 = ¿Un Suscriptor puede suscribirse a más de una Lista de una vez? =
 
 No, el Formulario puede ser asociado a una única Lista.
