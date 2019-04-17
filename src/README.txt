@@ -91,7 +91,7 @@ En [este artículo](https://help.fromdoppler.com/es/api-interfaz-de-programacion
 
 = 2.0.0 =
 * Added support for new API.
-* Can add Doppler custom fields to the form.
+* It's possible to add Doppler custom fields to the form.
 
 = 1.0.0 =
 * Initial release.
