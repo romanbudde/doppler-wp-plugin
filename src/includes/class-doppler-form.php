@@ -80,8 +80,9 @@ class DPLR_Doppler {
 			'dplr_option_apikey' => '',
 			'dplr_option_useraccount' => ''
 			]);
+
 		 try {
-		 	$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+		 	//$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
 
 	

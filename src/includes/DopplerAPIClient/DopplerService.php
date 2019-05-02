@@ -124,7 +124,7 @@ class Doppler_Service
   }
 
   function call( $method, $args=null, $body=null ) {
-    
+
     $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
     
     $url .= $method[ 'route' ];

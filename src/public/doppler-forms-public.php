@@ -105,6 +105,9 @@ class DPLR_Doppler_Form_Public {
 
 	public function submit_form() {
 		
+		$options = get_option('dplr_settings');
+		$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]); 
+		
 		$subscriber_resource = $this->doppler_service->getResource('subscribers');
 
 		$subscriber = $_POST['subscriber'];

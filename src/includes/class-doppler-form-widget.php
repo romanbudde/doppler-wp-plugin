@@ -18,6 +18,13 @@ class Dplr_Subscription_Widget extends WP_Widget {
 
 		extract($args);
 
+		$options = get_option('dplr_settings');
+		
+		if(empty($options['dplr_option_useraccount']) && empty($options['dplr_option_apikey'])){
+			return false;
+		}
+
+		/*
 		$doppler_service = new Doppler_Service();
 
 		$options = get_option('dplr_settings', [
@@ -30,17 +37,19 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		}catch (Exception $e) {
 			return false;
 		}
+		
 
-
-		$l = $doppler_service->getResource('lists');
+		$l = $doppler_service->getResource('lists');*/
 
 		$form = array('form' => DPLR_Form_Model::get($instance['form_id'], true));
 		
+		/*
 		$obj = $l->getList($form['form']->list_id);
 
 		if( $obj->status === 404 || $obj->currentStatus === 'deleted' ){
 			return false;
 		}
+		*/
 		
 		if($form['form'] != NULL) {
 			echo $before_widget;

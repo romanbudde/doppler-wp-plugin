@@ -87,6 +87,10 @@ class DPLR_Form_Controller
 		$create_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=create');
 		$edit_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=edit&form_id=[FORM_ID]' );
     $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
+    
+    $options = get_option('dplr_settings');
+    $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+  
     $list_resource = $this->doppler_service->getResource('lists');
     $dplr_lists = $list_resource->getAllLists();
   
@@ -115,6 +119,8 @@ class DPLR_Form_Controller
 
   private function showCreateEditForm($form_id = NULL) {
     
+    $options = get_option('dplr_settings');
+    $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
     $list_resource = $this->doppler_service->getResource('lists');
     $fields_resource = $this->doppler_service->getResource('fields');
 
