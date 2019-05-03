@@ -214,7 +214,6 @@ class Doppler_Admin {
 	}
 
 	public function show_form_edit() {
-		//include "partials/forms-create.php";
 		$this->form_controller->create($_POST);
 	}
 
