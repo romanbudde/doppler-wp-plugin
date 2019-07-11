@@ -75,6 +75,17 @@ class DPLR_Doppler {
 		$this->plugin_name = 'Doppler';
 		$this->version = '2.0.1';
 		$this->doppler_service = new Doppler_Service();
+
+		$options = get_option('dplr_settings', [
+			'dplr_option_apikey' => '',
+			'dplr_option_useraccount' => ''
+			]);
+
+		 try {
+		 	//$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+		 } catch (Exception $e) {;}
+
+	
 		$this->load_dependencies();
 		$this->set_locale(); 
 		$this->define_admin_hooks();

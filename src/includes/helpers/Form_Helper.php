@@ -38,6 +38,11 @@ class DPLR_Form_helper
 			</div>
 			<?php
 		}
+		if($form->settings['use_thankyou_page']==='yes'){
+			?>
+			<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
+			<?php
+		}
 		?>
 		<input type="text" name="secondary-dplrEmail" value="" class="dplr-secondary-email"/>
 		<?php
@@ -70,25 +75,24 @@ class DPLR_Form_helper
   }
 
   private static function printInput($input) {
-		
+
 		$required = isset($input->settings["required"]) ? "required" : "";
-		
-		switch ($input->type) {
+    switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
           <input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
-				<?php } else {?>
+      <?php } else {?>
           <textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80" maxlength="150"></textarea>
         <?php }
         break;
-			case 'number':?>
+        case 'number':?>
         	<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="27"/>
-      		<?php
+      <?php
           break;
-			case 'consent':?>
+        case 'consent':?>
           <input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
           <?php
-      		break;
+      break;
       case 'boolean':
         ?>
         <input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
@@ -104,7 +108,7 @@ class DPLR_Form_helper
         <input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
         break;
       case 'gender':
-      	?>
+      ?>
       	<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="M">M
       	<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="F">F<?php
         break;
@@ -359,9 +363,9 @@ class DPLR_Form_helper
           	<option value="YE">Yemen</option>
           	<option value="ZM">Zambia</option>
           	<option value="ZW">Zimbabwe</option>
-					</select><?php
+</select><?php
         break;
     }
   }
 }
-?>
+ ?>

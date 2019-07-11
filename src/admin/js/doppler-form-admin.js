@@ -132,6 +132,19 @@ $(document).ready(function(){
 		$(this).closest('li').toggleClass('active');
 	});
 
+	$(".dplr-toggle-thankyou").change(function(){
+		var o = $('.dplr-toggle-thankyou:checked').val();
+		if(o === 'yes'){
+			$('.dplr_thankyou_url input').attr('required','required');
+			$('.dplr_thankyou_url').css('display','inline');
+			$('.dplr_confirmation_message').val('').css('display','none');
+		}else{
+			$('.dplr_thankyou_url input').removeAttr('required');
+			$('.dplr_thankyou_url').val('').css('display','none');
+			$('.dplr_confirmation_message').css('display','inline');
+		}
+	});
+
 	$(".dplr-toggle-consent").change(function(){
 		var o = $('.dplr-toggle-consent:checked').val();
 		if(o === 'yes'){
