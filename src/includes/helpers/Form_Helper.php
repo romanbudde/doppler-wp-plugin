@@ -5,9 +5,7 @@ class DPLR_Form_helper
   public static function generate($context, $options = NULL) {
 		
     $form = $context['form'];
-
     $fields = isset($context['fields']) ? $context['fields'] : [];
-
     $form_class = isset($context['classes']) ? implode(" ", $context['classes']) : "";
 
     ?>
@@ -38,6 +36,11 @@ class DPLR_Form_helper
 					} 
 				?>
 			</div>
+			<?php
+		}
+		if($form->settings['use_thankyou_page']==='yes'){
+			?>
+			<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
 			<?php
 		}
 		?>
@@ -72,7 +75,8 @@ class DPLR_Form_helper
   }
 
   private static function printInput($input) {
-    $required = isset($input->settings["required"]) ? "required" : "";
+
+		$required = isset($input->settings["required"]) ? "required" : "";
     switch ($input->type) {
       case 'string':
         if ($input->settings['text_lines'] == 'single') {?>
@@ -91,7 +95,6 @@ class DPLR_Form_helper
       break;
       case 'boolean':
         ?>
-
         <input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
         <input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
         break;

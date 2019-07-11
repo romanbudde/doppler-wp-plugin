@@ -77,8 +77,19 @@
             </div>   
           </div>
           <div class="dplr_input_section">
+            <label for="settings[use_thankyou_page]"><?php _e('What do you want to show to your users after submitting the Form?', 'doppler-form')?></label>
+            <div class="radio_section">
+              <?php _e('Custom confirmation page', 'doppler-form')?><input type="radio" name="settings[use_thankyou_page]" class="dplr-toggle-thankyou" value="yes">&nbsp; 
+              <?php _e('Confirmation message', 'doppler-form')?><input type="radio" name="settings[use_thankyou_page]" class="dplr-toggle-thankyou" value="no" checked> 
+            </div>
+          </div>
+          <div class="dplr_input_section dplr_confirmation_message">
             <label for="submit_text"><?php _e('Confirmation message', 'doppler-form')?></label>
             <input type="text" name="settings[message_success]" value="" placeholder="<?php _e('Thanks for subscribing!', 'doppler-form')?>" maxlength="150"/>
+          </div>
+          <div class="dplr_input_section dplr_thankyou_url">
+            <label for="submit_text"><?php _e('Custom confirmation page URL', 'doppler-form')?> <span class="hlp"><?php _e('Enter the URL of the page that you\'ve created.')?></span></label>
+            <input type="url" name="settings[thankyou_page_url]" value="" pattern="https?://.+" placeholder="" maxlength="150"/>
           </div>
           <div class="dplr_input_section">
             <label for="settings[use_consent_field]"><?php _e('Consent Field (GDPR)', 'doppler-form')?> <!--<span class="hlp"><?php _e('What is it? Press','doppler-form')?> <?= '<a href="'.__('https://help.fromdoppler.com/en/general-data-protection-regulation?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.</span>--></label>
@@ -86,7 +97,7 @@
               <?php _e('Yes', 'doppler-form')?><input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="yes" checked>&nbsp; 
               <?php _e('No', 'doppler-form')?><input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no"> 
             </div>
-           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -98,7 +109,7 @@
         <div class="panel-body grid">
             <div class="dplr_input_section">
               <label for="settings[consent_field_text]"><?php _e('Checkbox label', 'doppler-form')?></label>
-              <input type="text" name="settings[consent_field_text]" value="" placeholder="<?php _e("I've read and accept the privace policy", "doppler-form")?>" maxlength="150"/>
+              <input type="text" name="settings[consent_field_text]" value="" placeholder="<?php _e("I've read and accept the privacy policy", "doppler-form")?>" maxlength="150"/>
             </div>
             <div class="dplr_input_section">
               <label for="settings[consent_field_url]">

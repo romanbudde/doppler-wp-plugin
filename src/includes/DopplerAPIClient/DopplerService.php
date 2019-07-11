@@ -102,7 +102,6 @@ class Doppler_Service
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
     $connectionStatus = $this->connectionStatus();
     
-    //switch($connectionStatus->code) {
     switch($connectionStatus['response']['code']) {
       case 200:
         return true;
@@ -125,7 +124,8 @@ class Doppler_Service
 
   function call( $method, $args=null, $body=null ) {
 
-    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    $url = 'http://newapiqa.fromdoppler.net/accounts/'. $this->config['credentials']['user_account'] . '/';
     
     $url .= $method[ 'route' ];
     $query = "";
@@ -333,7 +333,6 @@ if( ! class_exists( 'Doppler_Service_Fields' ) ) :
 
     public function getAllFields( $listId = null ){
       $method = $this->methods['list'];
-      //return $this->service->call($method, array("listId" => $listId) )->body;
       return json_decode($this->service->call($method, array("listId" => $listId) )['body']);
     }
 

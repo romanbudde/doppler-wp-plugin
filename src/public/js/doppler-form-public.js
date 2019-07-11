@@ -28,6 +28,7 @@
 			var l = $(this).find("input[name='list_id']");
 			var e = $(this).find("input[name='EMAIL']");
 			var honey =  $(this).find("input[name='secondary-dplrEmail']");
+			var thankyou = $(this).find("input[name='thankyou']");
 			var fields = $(this).find("input[name|='fields'], select[name|='fields'], textarea[name|='fields']");
 
 			s.attr("disabled", "disabled");
@@ -59,14 +60,18 @@
 			$.post(ajax_object.ajax_url,
 				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
 				function(res) {
-					s.removeClass('sending');
-					m.show();
-					s.removeAttr("disabled");
-					f.trigger('reset');
-					setTimeout(function() {
-						m.hide();
-						f[0].reset();
-					}, 8000);
+					if(thankyou.length !== 0){
+						window.location.href = thankyou.val();
+					}else{
+						s.removeClass('sending');
+						m.show();
+						s.removeAttr("disabled");
+						f.trigger('reset');
+						setTimeout(function() {
+							m.hide();
+							f[0].reset();
+						}, 8000);
+					}
 			});
 		});
 	});
