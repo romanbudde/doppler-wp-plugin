@@ -57,10 +57,10 @@ $(document).ready(function(){
 	});
 
 	$(".dplr-input-section input[type='text']").focusin(function(e) {
-		$(this).closest(".dplr-input-section").addClass("notempty");
+		$(this).closest(".dplr-input-section").addClass("notempty").find('.tooltip-container span').html('');
 		$(this).addClass("notempty");
-
 	});
+	
 	$(".dplr-input-section input[type='text']").focusout(function(e) {
 		if( $(this).val() == ""){
 			$(this).closest(".dplr-input-section").removeClass("notempty");
@@ -75,8 +75,7 @@ $(document).ready(function(){
 		validateEmail($("input[data-validation-email]"));
 		validateRequired($("input[data-validation-required]"));
 
-		var inputErrors = $(this).children(".input-error");
-
+		var inputErrors = $(this).find(".input-error");
 		if(inputErrors.length > 0){
 			event.preventDefault();
 			button.removeClass("button--loading");
