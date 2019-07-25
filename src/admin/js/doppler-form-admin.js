@@ -7,7 +7,7 @@ function triggerError(input) {
 	container.find(".tooltip-container span").html(input.attr("data-validation-fixed"));
 }
 
-function validateEmail(emailElement){
+function validateEmail(emailElement) {
 	var email = emailElement.val();
 	var container = emailElement.closest(".dplr-input-section");
 
@@ -69,18 +69,50 @@ $(document).ready(function(){
 	});
 
 	$("#dplr-connect-form").submit(function(event) {
+
+		event.preventDefault();
+		hideUserApiError();
+
+		var form = $(this);
 		var button = $(this).find('button');
-		button.addClass("button--loading");
+		var userfield = $('#user-account');
+		var keyfield = $('#api-key');
 
 		validateEmail($("input[data-validation-email]"));
 		validateRequired($("input[data-validation-required]"));
 
-		var inputErrors = $(this).children(".input-error");
+		var inputErrors = $(this).find(".input-error");
 
 		if(inputErrors.length > 0){
-			event.preventDefault();
 			button.removeClass("button--loading");
+			return false;
 		}
+
+		button.attr('disabled','disabled').addClass("button--loading");
+
+		var data = {
+			action: 'dplr_ajax_connect',
+			user: userfield.val(),
+			key: keyfield.val()
+		}
+
+		$.post( ajaxurl, data, function( response ) {	
+			if(response == '200'){				
+				var fields = form.serialize();
+				$.post( 'options.php', fields, function(obj){
+					window.location.reload(false); 					
+				});	
+			}else{
+				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
+					error+= '<div class="tooltip-container text-left">';
+					error+= '<span>'+ObjStr.ConnectionErr+'</span>'
+					error+= '</div>';
+					error+= '</div>';
+				form.after(error);
+				button.removeAttr('disabled').removeClass('button--loading');
+			}
+		})
+
 	});
 
 	$("#dplr-connect-form.error label input[type='text']").keyup(function(event) {

@@ -109,7 +109,7 @@
 						
 						<label><?php _e('Username', 'doppler-form');?></label>	
 						
-						<input class="validation"  data-validation-email="<?php _e("Ouch! Enter a valid Email.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?> type="text" placeholder="" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />
+						<input class="validation"  id="user-account" data-validation-email="<?php _e("Ouch! Enter a valid Email.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?> type="text" placeholder="" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />
 						
 						<div class="tooltip-container">
 							<span></span>
@@ -131,7 +131,7 @@
 							</div>
 						</label>
 
-						<input data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
+						<input id="api-key" data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
 						
 						<div class="tooltip-container">
 							<span></span>
@@ -155,9 +155,7 @@
 				</div>
 			
 			<?php endif;?>
-		
-			<!--<div class="loader">Loading...</div>-->
-		
+				
 		</div>
 
 		<p class="margin-auto">
