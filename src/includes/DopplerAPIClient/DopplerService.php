@@ -4,9 +4,9 @@
  * Doppler Service v2.0.0
  */
 
-if( ! class_exists( 'Woo_Doppler_Service' ) ) :
+if( ! class_exists( 'Doppler_Service' ) ) :
 
-class Woo_Doppler_Service
+class Doppler_Service
 {
 
   private $config;

@@ -109,7 +109,7 @@ class Doppler_Admin {
 		    __('Doppler Forms', 'doppler-form'),
 			'manage_options',
 			'doppler_forms_menu',
-			array($this, "show_template"),
+			array($this, "display_connection_screen"),
 			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu.png'
 		);
 		register_setting('dplr_plugin_options', 'dplr_settings', array($this, 'dplr_settings_validate'));
@@ -128,7 +128,7 @@ class Doppler_Admin {
 				__('Connect with Doppler', 'doppler-form'),
 				'manage_options',
 				'doppler_forms_menu',
-				array($this, 'show_template'));
+				array($this, 'display_connection_screen'));
 
 		if ($options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
 				add_submenu_page(
@@ -148,7 +148,7 @@ class Doppler_Admin {
 		}
 	}
 
-	public function show_template() {
+	public function display_connection_screen() {
 
 		$options = get_option('dplr_settings', [
 			'dplr_option_apikey' => '',
@@ -162,7 +162,14 @@ class Doppler_Admin {
 
 		try{
 				
-				$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+				if($this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])){
+					
+					$connection_status = $this->doppler_service->connectionStatus();
+					if( is_array($connection_status) && $connection_status['response']['code'] === 200){
+						$connected = true;
+					}
+			
+				}
 				
 				if ($connected !== true) {
 
@@ -214,7 +221,6 @@ class Doppler_Admin {
 	}
 
 	public function show_form_edit() {
-		//include "partials/forms-create.php";
 		$this->form_controller->create($_POST);
 	}
 

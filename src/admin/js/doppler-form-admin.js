@@ -1,8 +1,7 @@
 (function( $ ) {
 
 function triggerError(input) {
-	var container = input.closest(".input-container");
-
+	var container = input.closest(".dplr-input-section");
 	container.addClass('input-error');
 	container.removeClass('tooltip-hide');
 	container.find(".tooltip-container span").html(input.attr("data-validation-fixed"));
@@ -10,7 +9,7 @@ function triggerError(input) {
 
 function validateEmail(emailElement){
 	var email = emailElement.val();
-	var container = emailElement.closest(".input-container");
+	var container = emailElement.closest(".dplr-input-section");
 
 	if (email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
 		container.removeClass('input-error');
@@ -23,10 +22,8 @@ function validateEmail(emailElement){
 }
 
 function validateRequired(requiredElement) {
-	
 	var value = requiredElement.val();
-
-	var container = requiredElement.closest(".input-container");
+	var container = requiredElement.closest(".dplr-input-section");
 
 	if (value) {
 		container.removeClass('input-error');
@@ -59,21 +56,21 @@ $(document).ready(function(){
 		validateRequired($(this));
 	});
 
-	$(".input-container input[type='text']").focusin(function(e) {
-		$(this).closest(".input-container").addClass("notempty");
+	$(".dplr-input-section input[type='text']").focusin(function(e) {
+		$(this).closest(".dplr-input-section").addClass("notempty");
 		$(this).addClass("notempty");
 
 	});
-	$(".input-container input[type='text']").focusout(function(e) {
+	$(".dplr-input-section input[type='text']").focusout(function(e) {
 		if( $(this).val() == ""){
-			$(this).closest(".input-container").removeClass("notempty");
+			$(this).closest(".dplr-input-section").removeClass("notempty");
 			$(this).removeClass("notempty");
 		}
 	});
 
-	$("#dplr_apikey_options").submit(function(event) {
-		var button = $(this).children('button');
-		button.addClass("sending");
+	$("#dplr-connect-form").submit(function(event) {
+		var button = $(this).find('button');
+		button.addClass("button--loading");
 
 		validateEmail($("input[data-validation-email]"));
 		validateRequired($("input[data-validation-required]"));
@@ -82,11 +79,11 @@ $(document).ready(function(){
 
 		if(inputErrors.length > 0){
 			event.preventDefault();
-			button.removeClass("sending");
+			button.removeClass("button--loading");
 		}
 	});
 
-	$("#dplr_apikey_options.error label input[type='text']").keyup(function(event) {
+	$("#dplr-connect-form.error label input[type='text']").keyup(function(event) {
 		$(".error").each(function(index, el) {
 			$(this).removeClass('error');
 		});
@@ -110,6 +107,7 @@ $(document).ready(function(){
 
 	$( ".sortable" ).disableSelection();
 
+	/*
 	var fields = {
 		container: $("ul#formFields"),
 
@@ -126,7 +124,7 @@ $(document).ready(function(){
 		removeItem: function(element) {
 
 		}
-	};
+	};*/
 
 	$("body").on('click', "li .alt-toggle", function(e) {
 		$(this).closest('li').toggleClass('active');
@@ -171,7 +169,6 @@ $(document).ready(function(){
 	});
 
 	if($('#dplr-dialog-confirm').length>0){
-
 		$("#dplr-dialog-confirm").dialog({
 			autoOpen: false,
 			resizable: false,
@@ -179,13 +176,11 @@ $(document).ready(function(){
 			width: 400,
 			modal: true
 		});
-
 	}
 
 	$(".dplr-remove").click(function(e) {
 		
 		e.preventDefault();
-
 		var l = $(this).attr("href");
 
 		$("#dplr-dialog-confirm").dialog("option", "buttons", [{
@@ -207,21 +202,18 @@ $(document).ready(function(){
 });
 
 $(document).on('widget-updated',  function(e, elem){
-		select = elem.find("form select.multiple-selec");
+	select = elem.find("form select.multiple-selec");
+	select.chosen({
+		width: "100%"
 
-		select.chosen({
-			width: "100%"
-
-		});
 	});
+});
 
 $(document).on('widget-added', function(e, elem){
-		select = elem.find("form select.multiple-selec");
-
-		select.chosen({
-			width: "100%",
-		});
+	select = elem.find("form select.multiple-selec");
+	select.chosen({
+		width: "100%",
 	});
-
+});
 
 })( jQuery );

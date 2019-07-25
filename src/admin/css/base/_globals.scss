@@ -1,0 +1,86 @@
+/* Variables */
+
+a{
+    color: $primary-green;
+    text-decoration: none;
+    &:hover{
+        color: $dark-green;
+        text-decoration: none;
+    }
+}
+
+p{
+    color: $primary-grey;
+}
+
+// Widths
+.w-100{
+    width: 100%;
+}
+
+// Font styles
+.text-bold{
+    font-weight: 700;
+}
+
+.size-regular{
+    font-size: $font-size-regular;
+}
+
+.size-big{
+    font-size: $font-size-big;
+    line-height: 24px;
+}
+
+.size-huge{
+    font-size: $font-size-huge;
+}
+
+// Alignment styles
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
+}
+
+// Box styles
+.d-block{
+    display: block;
+}
+.d-inline-block{
+    display: inline-block;
+}
+.d-none{
+    display: none;
+}
+.margin-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mb-1{
+    margin-bottom: $m1;
+}
+
+.mb-2{
+    margin-bottom: $m2;
+}
+
+.mb-3{
+    margin-bottom: $m3;
+}
+
+.mb-4{
+    margin-bottom: $m4;
+}
+
+.pl-1{
+    padding-left: 10px;
+}
+
+// Flexbox
+.d-flex{
+    display: flex;
+}
