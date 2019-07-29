@@ -83,8 +83,9 @@ class DPLR_Form_Controller
   }
 
   function getAll() {
+    
     $forms = DPLR_Form_Model::getAll(false, array('id'));
-		$create_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=create');
+		$create_form_url = admin_url( 'admin.php?page=doppler_forms_main&tab=new');
 		$edit_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=edit&form_id=[FORM_ID]' );
     $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
     

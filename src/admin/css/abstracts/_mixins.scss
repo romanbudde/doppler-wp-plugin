@@ -1,0 +1,8 @@
+@mixin green-link{
+    color: $primary-green;
+    text-decoration: none;
+    &:hover{
+        color: $dark-green;
+        text-decoration: none;
+    }
+}

@@ -55,6 +55,9 @@ class Doppler_Admin {
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 	}
 
+	public function get_version() {
+		return $this->version;
+	}
 
 	/**
 	 * Register the stylesheets for the admin area.
@@ -102,21 +105,20 @@ class Doppler_Admin {
 		register_widget('Dplr_Subscription_Widget');
 
 	}
-
 	
+	public function init_settings(){
+		register_setting('dplr_plugin_options', 'dplr_settings');
+	}
+
 	public function init_menu() {
 		add_menu_page(
-			__('Doppler Forms', 'doppler-form'),
-		    __('Doppler Forms', 'doppler-form'),
+			__('Doppler', 'doppler-form'),
+		  __('Doppler', 'doppler-form'),
 			'manage_options',
 			'doppler_forms_menu',
 			array($this, "display_connection_screen"),
 			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu.png'
 		);
-	}
-
-	public function init_settings(){
-		register_setting('dplr_plugin_options', 'dplr_settings');
 	}
 
 	public function add_submenu() {
@@ -136,11 +138,12 @@ class Doppler_Admin {
 		if ( $options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) ){
 				add_submenu_page(
 				'doppler_forms_menu',
-				__('All Forms', 'doppler-form'),
-				__('All Forms', 'doppler-form'),
+				__('Doppler Forms', 'doppler-form'),
+				__('Doppler Forms', 'doppler-form'),
 				'manage_options',
-				'doppler_forms_submenu_forms',
-				array($this, 'show_forms'));
+				'doppler_forms_main',
+				array($this, 'doppler_forms_screen'));
+				/*
 				add_submenu_page(
 					'doppler_forms_menu',
 					__('Create Form', 'doppler-form'),
@@ -148,7 +151,9 @@ class Doppler_Admin {
 					'manage_options',
 					'doppler_forms_submenu_create_forms',
 					array($this, 'show_form_edit'));
+				*/
 		}
+	
 	}
 
 	public function display_connection_screen() {
@@ -198,24 +203,27 @@ class Doppler_Admin {
 
 	}
 
-	public function show_forms() {
+	public function doppler_forms_screen() {
 		
-			$action = isset($_GET['action']) ? $_GET['action'] : 'list';
+		require_once('partials/doppler-forms-display.php');
+		/*
+		$action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
-			switch ($action) {
-				case 'list':
-					$this->form_controller->getAll();
-					break;
-				case 'create':
-					$this->form_controller->create($_POST);
-					break;
-				case 'edit':
-					$this->form_controller->update($_GET['form_id'], $_POST);
-					break;
-				case 'delete':
-					$this->form_controller->delete($_GET['form_id']);
-					break;
-			}
+		switch ($action) {
+			case 'list':
+				$this->form_controller->getAll();
+				break;
+			case 'create':
+				$this->form_controller->create($_POST);
+				break;
+			case 'edit':
+				$this->form_controller->update($_GET['form_id'], $_POST);
+				break;
+			case 'delete':
+				$this->form_controller->delete($_GET['form_id']);
+				break;
+		}
+		*/
 	}
 
 	public function show_form_edit() {
@@ -254,6 +262,10 @@ class Doppler_Admin {
 			echo json_encode($connection_status['response']['code']);
 			exit();
 		}
+	}
+
+	public function checkExtensions(){
+
 	}
 
 }

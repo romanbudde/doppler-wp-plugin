@@ -3,12 +3,15 @@
 
 .dplr_settings {
   @import 'abstracts/_variables.scss';
+  @import 'abstracts/_mixins.scss';
   @import 'base/_globals.scss';
   @import 'abstracts/_mixins.scss';
   @import 'layout/_settings.scss';
-  @import 'pages/_connect.scss';
   @import 'components/_form.scss';
   @import 'components/_button.scss';
+  @import 'pages/_connect.scss';
+  @import 'pages/_forms.scss';
+  @import 'pages/_page_form.scss';
 }
 
 /*
