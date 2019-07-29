@@ -9,11 +9,19 @@
   @import 'layout/_settings.scss';
   @import 'components/_form.scss';
   @import 'components/_button.scss';
+  @import 'components/_panel.scss';
   @import 'pages/_connect.scss';
   @import 'pages/_forms.scss';
   @import 'pages/_page_form.scss';
 }
 
+.doppler_page_doppler_forms_main {
+  
+  .ui-dialog-titlebar span.ui-dialog-title{
+    font-size: 14px;
+  }
+
+}
 /*
 .dplr_settings {
   width: 100%;
