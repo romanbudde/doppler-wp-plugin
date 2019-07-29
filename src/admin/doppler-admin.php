@@ -55,6 +55,9 @@ class Doppler_Admin {
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 	}
 
+	public function get_version() {
+		return $this->version;
+	}
 
 	/**
 	 * Register the stylesheets for the admin area.
@@ -87,7 +90,8 @@ class Doppler_Admin {
 			'Description' 	=> __( 'Description', 'doppler-form'),
 			'TextType'    	=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' => __( 'Simple', 'doppler-form'),
-			'MultipleLines' => __( 'Multiple', 'doppler-form')									 				
+			'MultipleLines' => __( 'Multiple', 'doppler-form'),
+			'ConnectionErr' => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form')								 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
@@ -101,23 +105,25 @@ class Doppler_Admin {
 		register_widget('Dplr_Subscription_Widget');
 
 	}
-
 	
+	public function init_settings(){
+		register_setting('dplr_plugin_options', 'dplr_settings');
+	}
+
 	public function init_menu() {
 		add_menu_page(
-			__('Doppler Forms', 'doppler-form'),
-		    __('Doppler Forms', 'doppler-form'),
+			__('Doppler', 'doppler-form'),
+		  __('Doppler', 'doppler-form'),
 			'manage_options',
 			'doppler_forms_menu',
-			array($this, "show_template"),
+			array($this, "display_connection_screen"),
 			plugin_dir_url( __FILE__ ) . 'img/icon-doppler-menu.png'
 		);
-		register_setting('dplr_plugin_options', 'dplr_settings', array($this, 'dplr_settings_validate'));
 	}
 
 	public function add_submenu() {
 
-		$options = get_option('dplr_settings', [
+			$options = get_option('dplr_settings', [
 			'dplr_option_apikey' => '',
 			'dplr_option_useraccount' => ''
 			]);
@@ -128,16 +134,16 @@ class Doppler_Admin {
 				__('Connect with Doppler', 'doppler-form'),
 				'manage_options',
 				'doppler_forms_menu',
-				array($this, 'show_template'));
-
-		if ($options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) /*&& $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])*/) {
+				array($this, 'display_connection_screen'));
+		if ( $options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) ){
 				add_submenu_page(
 				'doppler_forms_menu',
-				__('All Forms', 'doppler-form'),
-				__('All Forms', 'doppler-form'),
+				__('Doppler Forms', 'doppler-form'),
+				__('Doppler Forms', 'doppler-form'),
 				'manage_options',
-				'doppler_forms_submenu_forms',
-				array($this, 'show_forms'));
+				'doppler_forms_main',
+				array($this, 'doppler_forms_screen'));
+				/*
 				add_submenu_page(
 					'doppler_forms_menu',
 					__('Create Form', 'doppler-form'),
@@ -145,10 +151,12 @@ class Doppler_Admin {
 					'manage_options',
 					'doppler_forms_submenu_create_forms',
 					array($this, 'show_form_edit'));
+				*/
 		}
+	
 	}
 
-	public function show_template() {
+	public function display_connection_screen() {
 
 		$options = get_option('dplr_settings', [
 			'dplr_option_apikey' => '',
@@ -162,17 +170,19 @@ class Doppler_Admin {
 
 		try{
 				
-				$connected = $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
+				if($this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])){
+					$connection_status = $this->doppler_service->connectionStatus();
+					if( is_array($connection_status) && $connection_status['response']['code'] === 200){
+						$connected = true;
+					}
+				}
 				
 				if ($connected !== true) {
-
+					$this->doppler_service->unsetCredentials();
 					$error = true;
 					$errorMessage = __("Ouch! There's something wrong with your Username or API Key. Please, try again.", "doppler-form");
-
 				}else{
-
 					delete_option('dplr_2_0_updated');
-					
 				}
 
 			} catch(Doppler_Exception_Invalid_APIKey $e) {
@@ -193,28 +203,30 @@ class Doppler_Admin {
 
 	}
 
-	public function show_forms() {
+	public function doppler_forms_screen() {
 		
-			$action = isset($_GET['action']) ? $_GET['action'] : 'list';
+		require_once('partials/doppler-forms-display.php');
+		/*
+		$action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
-			switch ($action) {
-				case 'list':
-					$this->form_controller->getAll();
-					break;
-				case 'create':
-					$this->form_controller->create($_POST);
-					break;
-				case 'edit':
-					$this->form_controller->update($_GET['form_id'], $_POST);
-					break;
-				case 'delete':
-					$this->form_controller->delete($_GET['form_id']);
-					break;
-			}
+		switch ($action) {
+			case 'list':
+				$this->form_controller->getAll();
+				break;
+			case 'create':
+				$this->form_controller->create($_POST);
+				break;
+			case 'edit':
+				$this->form_controller->update($_GET['form_id'], $_POST);
+				break;
+			case 'delete':
+				$this->form_controller->delete($_GET['form_id']);
+				break;
+		}
+		*/
 	}
 
 	public function show_form_edit() {
-		//include "partials/forms-create.php";
 		$this->form_controller->create($_POST);
 	}
 
@@ -234,6 +246,25 @@ class Doppler_Admin {
 			</div>
 		<?php
 		endif;
+
+	}
+
+	/**
+	 * Called upon user pressing the connect button.
+	 * Check if user is valid, then it continues 
+	 * the form submission and save the settings.
+	 */
+	public function ajax_connect(){
+		if( empty($_POST['key']) || empty($_POST['user']) ) return false;
+		$this->doppler_service->setCredentials(['api_key' => $_POST['key'], 'user_account' => $_POST['user']]);
+		$connection_status = $this->doppler_service->connectionStatus();
+		if( is_array($connection_status)){
+			echo json_encode($connection_status['response']['code']);
+			exit();
+		}
+	}
+
+	public function checkExtensions(){
 
 	}
 

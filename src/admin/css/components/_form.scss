@@ -1,0 +1,55 @@
+form{
+    font-family: $text-family-rg;
+    label{
+        font-size: $font-size-regular;
+        font-family: $text-family-rg;
+        font-weight: bold;
+        text-align: left;
+        display: block;
+        cursor: default;
+    }
+    input[type="text"], input[type="email"], input[type="date"], input[type="tel"],
+    textarea{
+        font-size: $font-size-regular;
+        font-family: $text-family-rg;
+        height: 40px;
+        border: 1px solid $lighter-grey;
+        border-radius: 3px;
+        width: 100%;
+    }
+    textarea{
+        height: initial;
+    }
+    &.form-horizontal{
+        .dplr-row-section{
+            position: relative;
+            .dplr-input-section{
+                display: block;
+                width: 40%;
+                text-align: left;
+                float: left;
+                padding-left: 10px;
+                &:first-child{
+                    padding-left: 0px;
+                }
+            }
+        }
+        
+    }
+    ::-webkit-input-placeholder {
+        font-style: italic;
+        color: $light-grey;
+     }
+     :-moz-placeholder {
+        font-style: italic;
+        color: $light-grey;
+     }
+     ::-moz-placeholder {
+        font-style: italic; 
+        color: $light-grey;
+     }
+     :-ms-input-placeholder {  
+        font-style: italic; 
+        color: $light-grey;
+     }
+}

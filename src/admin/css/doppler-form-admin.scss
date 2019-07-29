@@ -1,44 +1,20 @@
-/**
- *--------------------------------------------------------------------
- *
- *                       VARIABLES
- *
- *--------------------------------------------------------------------
- */
+@import 'fonts/fonts.css';
+@import 'components/menu';
 
- $primary-green:#33AD73;
- $dark-green: #008046;
- $primary-grey: #525845;
-
-/**
- *--------------------------------------------------------------------
- *
- *                       OPTIONS PAGE STYLES
- *
- *--------------------------------------------------------------------
- */
-
-@import "fonts/fonts.css";
-
-#toplevel_page_doppler_forms_menu{
-  a{
-    .dashicons-before{
-      img{
-        width: 20px;
-      }
-    }
-  }
-  &.current{
-    a{
-      .dashicons-before{
-        img{
-          opacity:1;
-        }
-      }
-    }
-  }
+.dplr_settings {
+  @import 'abstracts/_variables.scss';
+  @import 'abstracts/_mixins.scss';
+  @import 'base/_globals.scss';
+  @import 'abstracts/_mixins.scss';
+  @import 'layout/_settings.scss';
+  @import 'components/_form.scss';
+  @import 'components/_button.scss';
+  @import 'pages/_connect.scss';
+  @import 'pages/_forms.scss';
+  @import 'pages/_page_form.scss';
 }
 
+/*
 .dplr_settings {
   width: 100%;
   text-align: center;
@@ -55,14 +31,6 @@
     color: #33AC72;
     text-decoration: none;
   }
-
-  /*
-  p, span, label {
-    font-family: "Proxima Nova", Arial;
-    font-size: 14px;
-    line-height: 21px;
-    color: #525845;
-  }*/
 
   label{
     i{
@@ -99,7 +67,7 @@
     }
   }
 
-  /* Animation */
+  // Animation
 
   @-webkit-keyframes spinner {
     0% {
@@ -176,7 +144,7 @@
     }
   }
 
-  /****spinners****/
+  // Spinners
 
   @-webkit-keyframes load8 {
     0% {}
@@ -334,7 +302,7 @@
   }
   .button--fourth {
     background: 0 0 !important;
-    border: 1px solid $primary-green !important;
+    //border: 1px solid $primary-green !important;
     color: #33AC72 !important;
     &:hover {
       background: rgba(51, 173, 115, 0.2) !important;
@@ -416,7 +384,7 @@
   }
 }
 
-
+*/
 
 /**
  *--------------------------------------------------------------------
@@ -426,6 +394,7 @@
  *--------------------------------------------------------------------
  */
 
+ /*
 .input-container {
   position: relative;
   &.input-horizontally {
@@ -458,12 +427,9 @@
       max-width: 306px;
       padding: 0 12px;
       -webkit-box-sizing: border-box;
-      /* Safari/Chrome, other WebKit */
       -moz-box-sizing: border-box;
-      /* Firefox, other Gecko */
       box-sizing: border-box;
       font-size: 14px;
-      /*color: #555845;*/
       letter-spacing: 0;
       line-height: 22px;
       opacity:0.8;
@@ -502,7 +468,7 @@
   }
 }
 
-/* honeypot field*/
+//honeytpot field
 .dplr-secondary-email{
   opacity: 0;
   position: absolute;
@@ -551,7 +517,7 @@
  *
  *--------------------------------------------------------------------
  */
-
+/*
 .tooltip {
   position: relative;
   > .tooltip-container {
@@ -609,7 +575,6 @@
       font-family: "Proxima Nova Rg";
       font-style: italic;
       margin-top: 8px;
-      /* font-weight: lighter; */
       display: inline-block;
     }
   }
@@ -779,10 +744,6 @@
             content: '+';
             font-weight: bold;
           }
-          /*
-          &:hover {
-            color: #777575;
-          }*/
         }
       }
 
@@ -820,7 +781,6 @@
     margin-bottom: 25px;
 
     label {
-      /*color: #525845;*/
       color: #333;
       display: block;
       font-weight: bold;
@@ -960,18 +920,6 @@
     cursor: pointer;
   }
 
-  /*
-  select{
-    &#fieldList {
-      color:  #94917f;
-      .selected {
-        display: none;
-      }
-    }
-  }
-  */
-
-
   table {
     table-layout: fixed;
     background: #FFF;
@@ -1039,7 +987,7 @@
  *--------------------------------------------------------------------
  */
 
-
+/*
 @media only screen and (max-width: 768px) {
 
   .dplr_settings div.dplr_form_wrapper, .dplr_settings > div > p.subtitle{
@@ -1098,4 +1046,4 @@
     }
   } 
 
-}
+}*/

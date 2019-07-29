@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Doppler Service v2.0.0
+ */
+
 if( ! class_exists( 'Doppler_Service' ) ) :
 
 class Doppler_Service
@@ -11,33 +15,31 @@ class Doppler_Service
 
   private $httpClient;
 
+  private $errors;
+
   function __construct($credentials = null) {
     
     $this->config = ['credentials' => []];
+
+    $this->error = 0;
 
     $usr_account = '';
 
     if ($credentials)
       $this->setCredentials($credentials);
-
-    if(isset($config['credentials'][ 'user_account'])){
-      $usr_account = $config['credentials'][ 'user_account'] . '/';
-    }
-
-    $this->baseUrl = 'https://restapi.fromdoppler.com/accounts/'. $usr_account;
-
+    
     $this->resources = [
 	  'home'	=> new Doppler_Service_Home_Resource(
 	    $this,
-		array(
-		  'methods' => array(
-		  	'get' => array(
-				'route' => '',
-				'httpMethod' => 'get',
-				'parameters' => null
-			)
-		  )
-		)
+      array(
+        'methods' => array(
+            'get' => array(
+              'route' => '',
+              'httpMethod' => 'get',
+              'parameters' => null
+            )
+          )
+      )
 	  ),
       'lists'   => new Doppler_Service_Lists_Resource(
         $this,
@@ -61,6 +63,20 @@ class Doppler_Service
                   'on_query_string' => true
                 ),
                 'per_page' => 200
+              )
+            ),
+            'new' => array(
+              'route' => 'lists',
+              'httpMethod' => 'post',
+              'parameters' => array()
+            ),
+            'delete' => array(
+              'route' => 'lists/:listId',
+              'httpMethod' => 'delete',
+              'parameters'  => array(
+                'listId' => array(
+                  'on_query_string' => false,
+                )
               )
             )
           )
@@ -90,6 +106,24 @@ class Doppler_Service
                   'on_query_string' => false,
                 )
               )
+            ),
+            'get' => array(
+              'route'       => 'lists/:listId/subscribers',
+              'httpmethod'  => 'get',
+              'parameters'  => array(
+                'listId' => array(
+                  'on_query_string' => false,
+                )
+              )
+            ),
+            'import' => array(
+              'route'   => 'lists/:listId/subscribers/import',
+              'httpMethod'  => 'post',
+              'parameters'  => array(
+                'listId' => array(
+                  'on_query_string' => false,
+                )
+              )
             )
           )
         )
@@ -97,36 +131,45 @@ class Doppler_Service
     ];
   }
 
-  public function setCredentials($credentials) {
-
+  /**
+   * Set credentials
+   * It wont check API connection anymore.
+   */
+  public function setCredentials( $credentials = array() ) {
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
+    return true;
+    /*
     $connectionStatus = $this->connectionStatus();
-    
     switch($connectionStatus['response']['code']) {
       case 200:
         return true;
         break;
       case 401:
         //TODO: Return formated error 
+        return false;
         break;
       case 403:
         //TODO: Return formated error
+        return false;
         break;
     }
+    */
+  }
 
-
+  public function unsetCredentials(){
+    $this->config['credentials'] = array();
+    echo 'USER INVALID DELETING OPTIONS';
+    update_option('dplr_settings', array('dplr_option_apikey'=>'','dplr_option_useraccount'=>''));
   }
 
   public function connectionStatus() {
     $response = $this->call(array('route' => '', 'httpMethod' => 'get'));
-	   return $response;
+	  return $response;
   }
 
   function call( $method, $args=null, $body=null ) {
-
     //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    $url = 'http://newapiqa.fromdoppler.net/accounts/'. $this->config['credentials']['user_account'] . '/';
-    
+    $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
     $query = "";
     
@@ -136,7 +179,7 @@ class Doppler_Service
       
       foreach ($args as $name => $val) {
         
-        isset( $resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
+        isset($resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
         
         if( $parameter && $parameter[ 'on_query_string' ] ){
           $query .= $name . "=" . $val ;
@@ -156,7 +199,6 @@ class Doppler_Service
 
     }
 
-
     $headers=array(
             "Accept" => "application/json",
             "Content-Type" => "application/json",
@@ -168,30 +210,22 @@ class Doppler_Service
     try{
 
       switch($method['httpMethod']){
-        
         case 'get':
-            
-          /*
-            $response = \Httpful\Request::get($url)
-            ->addHeaders( $headers )
-            ->timeoutIn(12)
-            ->send();
-            */
             $response = wp_remote_get($url, array(
               'headers'=>$headers,
               'timeout' => 12
             ));
             break;
-        
-        case 'post':
-            /*
-            $response = \Httpful\Request::post($url)
-              ->body( json_encode($body) )
-              ->addHeaders( $headers )
-              ->timeoutIn(12)
-              ->send();
-            */
+        case 'post':  
             $response = wp_remote_post($url, array(
+              'headers'=>$headers,
+              'timeout' => 12,
+              'body'=> json_encode($body)
+            ));
+            break;
+        case 'delete':
+            $response = wp_remote_request($url, array(
+              'method' => 'DELETE',
               'headers'=>$headers,
               'timeout' => 12,
               'body'=> json_encode($body)
@@ -199,18 +233,16 @@ class Doppler_Service
             break;
       }
 
+      if(empty($response)){
+        throw new Exception('Error.');
+      }
+
     }
     catch(\Exception $e){
-      $this->throwConnectionErr();
+      $this->throwConnectionErr($e->getMessage());
       return;
     }
-
-    if(is_array($response)){
-      return $response;
-    }else{
-      $this->throwConnectionErr();
-      return;
-    }
+    return $response;		  
 
   }
 
@@ -218,27 +250,28 @@ class Doppler_Service
     return $this->resources[ $resourceName ];
   }
 
-  function throwConnectionErr(){
-    add_action( 'admin_notices', function(){
+  function throwConnectionErr($msg) {
+    //Does this ever shows?
+    if($this->error == 0):
       ?>
       <div class="notice notice-error">
 				<p>
-					<?php _e( '<b>Doppler Forms:</b> Connection error. Please contact support.', 'doppler-form');?>
+					<b>Doppler Forms:</b> Connection error. <?php echo $msg ?>. Please contact support.
 				</p>
 			</div>
       <?php
-    } );
-  }
-
+    endif;
+    $this->error = 1;
  }
+
+}
 
 endif;
 
-  /**
-   * These classes represent the different resources of the API.
-   */
+/**
+ * These classes represent the different resources of the API.
+ */
 
-  
 if( ! class_exists( 'Doppler_Service_Home_Resource' ) ) :
 
   class Doppler_Service_Home_Resource {
@@ -256,7 +289,7 @@ if( ! class_exists( 'Doppler_Service_Home_Resource' ) ) :
     }
 
 	public function getUserAccount(){
-    $method = $methods['get'];
+      $method = $methods['get'];
       return $this->service->call($method, array());
 	  }
   }
@@ -280,34 +313,54 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
     }
 
     public function getList( $listId ){
-      //$method = $methods['get'];
+  
       $method = $this->methods['get'];
-     // return $this->service->call($method, array("listId" => $listId) )->body;
       return json_decode($this->service->call($method, array("listId" => $listId))['body']);
+    
     }
 
-    
-    public function getAllLists( $listId = null, $lists = [], $page = 1  ){
+    /**
+     * Get all lists recursively
+     */
+    public function getAllLists( $listId = null, $lists = [], $page = 1  ) {
       
       $method = $this->methods['list'];
-      
-      //$z = $this->service->call($method, array("listId" => $listId, 'page' => $page))->body;
-
       $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
-      
       $lists[] = $z->items;
 
       if($z->currentPage < $z->pagesCount && $page<4){
-        
         $page = $page+1;
         return $this->getAllLists(null, $lists, $page);
-
       }else{
-
         return $lists;
-        
       }
       
+    }
+
+    public function getListsByPage( $page = 1 ) {
+
+      $method = $this->methods['list'];
+      $z = json_decode($this->service->call($method, array("listId" => null, 'page' => $page))['body']);
+      return $z->items;
+
+    }
+
+    public function saveList( $list_name ) {
+      
+      if(!empty($list_name)){
+        $method = $this->methods['new'];
+        return $this->service->call( $method, null, array('name'=>$list_name)  );
+      }
+    
+    }
+
+    public function deleteList($list_id) {
+      
+      if(!empty($list_id)){
+        $method = $this->methods['delete'];
+        return $this->service->call( $method, array('listId'=>$list_id) );
+      }
+    
     }
     
   }
@@ -359,6 +412,29 @@ if( ! class_exists( 'Doppler_Service_Subscribers' ) ) :
     public function addSubscriber( $listId, $subscriber ){
       $method = $this->methods['post'];
       return $this->service->call( $method, array( 'listId' => $listId ),  $subscriber );
+    }
+
+    public function importSubscribers($listId, $subscribers){
+      $method = $this->methods['import'];
+      return $this->service->call( $method, array( 'listId' => $listId ), $subscribers);
+    }
+
+    public function getSubscribers( $listId, $page = 1 ) {
+      
+      /*
+      $method = $this->methods['list'];
+      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
+      $lists[] = $z->items;
+
+      if($z->currentPage < $z->pagesCount && $page<4){
+        $page = $page+1;
+        return $this->getAllLists(null, $lists, $page);
+      }else{
+        return $lists;
+      }*/
+
+      $method = $this->methods['get'];
+      return $this->service->call( $method, array( 'listId' => $listId ) );
     }
 
   }

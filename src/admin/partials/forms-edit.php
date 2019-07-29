@@ -98,8 +98,8 @@
               <input type="text" name="settings[message_success]" value="<?=$form->settings["message_success"] ?>"  placeholder="<?php _e('Thanks for subscribing!', 'doppler-form')?>" maxlength="150"/>
             </div>
             <div class="dplr_input_section dplr_thankyou_url" <?= ($form->settings['use_thankyou_page']==='yes')? 'style="display:block"' : 'style="display:none"'; ?>>
-              <label for="submit_text"><?php _e('Custom confirmation page URL', 'doppler-form')?> <span class="hlp"><?php _e('Enter the URL of the page that you\'ve created.')?></span></label>
-              <input type="url" name="settings[thankyou_page_url]" value="" pattern="https?://.+" placeholder="" maxlength="150" <?php if($form->settings['use_thankyou_page']==='yes') echo 'required';?> />
+              <label for="submit_text"><?php _e('Custom confirmation page URL', 'doppler-form')?> <span class="hlp"><?php _e('Enter the URL of the page that you\'ve created.', 'doppler-form')?></span></label>
+              <input type="url" name="settings[thankyou_page_url]" value="<?=$form->settings["thankyou_page_url"] ?>" pattern="https?://.+" placeholder="" maxlength="150" <?php if($form->settings['use_thankyou_page']==='yes') echo 'required';?> />
             </div>
             <div class="dplr_input_section">
              <label for="settings[use_consent_field]"><?php _e('Consent Field (GDPR)', 'doppler-form')?> <!--<span class="hlp"><?php _e('What is it? Press','doppler-form')?> <?= '<a href="'.__('https://help.fromdoppler.com/en/general-data-protection-regulation?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form').'" target="blank">'.__('HELP','doppler-form').'</a>'?>.</span>--></label>
