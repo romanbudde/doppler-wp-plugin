@@ -5,7 +5,12 @@ table {
     width: 100%;
     clear: both;
     margin: 0;
-
+    a{
+      text-decoration: none;
+    }
+    .bold{
+      font-weight: bold;
+    }
     * {
       word-wrap: break-word;
     }
