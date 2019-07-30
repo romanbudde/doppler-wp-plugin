@@ -3,7 +3,10 @@
 if ( ! current_user_can( 'manage_options' ) ) {
     return;
 }
-   
+
+
+if($this->connectionStatus):
+    
 ?>
 
 <div class="wrap dplr_settings">
@@ -35,22 +38,10 @@ switch($active_tab){
         break;
 }
 
-/*
-$action = isset($_GET['action']) ? $_GET['action'] : 'list';
+else:
 
-switch ($action) {
-    case 'list':
-        $this->form_controller->getAll();
-        break;
-    case 'create':
-        $this->form_controller->create($_POST);
-        break;
-    case 'edit':
-        $this->form_controller->update($_GET['form_id'], $_POST);
-        break;
-    case 'delete':
-        $this->form_controller->delete($_GET['form_id']);
-        break;
-}
-*/
+    ?>
+    <div class="notice notice-error"><?php echo $this->admin_notice[1]?></div>
+    <?php
 
+endif;

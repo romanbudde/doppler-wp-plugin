@@ -205,6 +205,7 @@ class Doppler_Service
             "X-Doppler-Subscriber-Origin" => "Wordpress",
             "Authorization" => "token ". $this->config["credentials"]["api_key"]
              );
+             
     $response = "";
 
     try{
