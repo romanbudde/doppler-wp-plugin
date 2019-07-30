@@ -41,6 +41,14 @@ class Doppler_Admin {
 
 	private $doppler_service;
 
+	private $admin_notice;
+
+	private $success_message;
+
+	private $error_message;
+
+	private $connectionStatus;
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -55,6 +63,7 @@ class Doppler_Admin {
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 		$this->success_message = false;
 		$this->error_message = false;
+		$this->connectionStatus = $this->check_connection_status();
 	}
 
 	public function get_version() {
@@ -311,6 +320,38 @@ class Doppler_Admin {
 			</div>
 		<?php
 		endif;
+
+	}
+
+	/**
+	 * Check connection status.
+	 */
+	public function check_connection_status() {
+
+		$options = get_option('dplr_settings');
+		
+		if( empty($options) ){
+			return false;
+		}
+
+		$user = $options['dplr_option_useraccount'];
+		$key = $options['dplr_option_apikey'];
+
+		if( !empty($user) && !empty($key) ){
+			if(empty($this->doppler_service->config['crendentials'])){
+				$this->doppler_service->setCredentials(array('api_key' => $key, 'user_account' => $user));
+			}
+			if( is_admin() ){ //... if we are at the backend.
+				$response =  $this->doppler_service->connectionStatus();
+				if($response['response']['code']>=400){
+					 $this->admin_notice = array('error', '<strong>Doppler API Connection error.</strong> ' . $response['response']['message']);
+					 return false;
+				}
+			}
+			return true;
+		}
+
+		return false;
 
 	}
 
