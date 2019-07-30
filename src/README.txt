@@ -18,7 +18,7 @@ Este plugin te permite crear Formularios de Suscripción totalmente personalizad
 Lo único que tienes que hacer es ingresar un título, elegir los Campos que deseas mostrar, 
 la Lista a la que quieres enviar tus nuevos Suscriptores y el lugar donde aparecerá tu Formulario. ¡Eso es todo!
 
-¿Aún no tienes cuenta en Doppler? [CREA UNA GRATIS](https://app2.fromdoppler.com/Registration/Register/StartRegistration/?id=en&origin=wordpress) y prueba el poder del Email & Automation Marketing. No necesitas contratos ni tarjetas de crédito.
+¿Aún no tienes cuenta en Doppler? [CREA UNA GRATIS](https://app.fromdoppler.com/#/signup?lang=es&id=es&origin=wordpress) y prueba el poder del Email & Automation Marketing. No necesitas contratos ni tarjetas de crédito.
 
 == Funcionalidades ==
 
