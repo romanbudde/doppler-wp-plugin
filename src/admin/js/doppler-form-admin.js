@@ -212,12 +212,24 @@ $(document).ready(function(){
 	$(".dplr-remove").click(function(e) {
 		
 		e.preventDefault();
-		var l = $(this).attr("href");
+		var a = $(this);
+		var listId = a.attr('data-list-id');
+		var row = a.closest('tr');
+		if(!listId>0) return false;
 
 		$("#dplr-dialog-confirm").dialog("option", "buttons", [{
 		  text: object_string.Delete,
 		  click: function() {
-			window.location.href = l;
+			var data = {action: 'dplr_delete_form', listId : listId}
+			var popup = $(this);
+			popup.find('.popupdplr-dialog-confirm').html();
+			popup.find('button').attr('disabled','disabled');
+			$.post(ajaxurl,data,function(resp){
+				if(resp == '1'){
+					row.remove();
+					popup.dialog("close");
+				}
+			});
 		  }
 		}, {
 		  text: object_string.Cancel,

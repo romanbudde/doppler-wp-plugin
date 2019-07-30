@@ -38,13 +38,11 @@ class DPLR_Form_Controller
         DPLR_Field_Model::setSettings($field_id, $field_settings);
 
       }
-      
-      //TODO: create method redirect on controller
-      echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms&created=1';</script>";
-    
-    } else {
-      $this->showCreateEditForm();
-    }
+
+      return 1;
+
+    } 
+  
   }
 
   function update($form_id, $form_to_update = NULL) {
@@ -75,50 +73,24 @@ class DPLR_Form_Controller
 
       }
 
-      echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
+      return 1;
     
-    } else {
-      $this->showCreateEditForm($form_id);
     }
   }
 
   function getAll() {
     
-    $forms = DPLR_Form_Model::getAll(false, array('id'));
-		$create_form_url = admin_url( 'admin.php?page=doppler_forms_main&tab=new');
-		$edit_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=edit&form_id=[FORM_ID]' );
-    $delete_form_url = admin_url( 'admin.php?page=doppler_forms_submenu_forms&action=delete&form_id=[FORM_ID]' );
-    
-    $options = get_option('dplr_settings');
-    $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
-  
-    $list_resource = $this->doppler_service->getResource('lists');
-    $dplr_lists = $list_resource->getAllLists();
-  
-    if(is_array($dplr_lists)){
-
-      foreach($dplr_lists as $k=>$v){
-        if(is_array($v)):
-          foreach($v as $i=>$j){
-            $dplr_lists_aux[$j->listId] = trim($j->name);
-          }
-        endif;
-      }
-
-      $dplr_lists_arr = $dplr_lists_aux;
-
-    }
-
-    include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
+    return DPLR_Form_Model::getAll(false, array('id'));
     
   }
 
   function delete($id) {
-    $form = DPLR_Form_Model::delete($id);
-    echo "<script>location.href = 'admin.php?page=doppler_forms_submenu_forms';</script>";
+    
+    return DPLR_Form_Model::delete($id);
+    
   }
 
-  private function showCreateEditForm($form_id = NULL) {
+  public function showCreateEditForm($form_id = NULL) {
     
     $options = get_option('dplr_settings');
     $this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);

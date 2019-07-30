@@ -181,6 +181,7 @@ class DPLR_Doppler {
 		$this->loader->add_action( 'widgets_init', 				$plugin_admin, 'init_widget' );
 		$this->loader->add_action( 'admin_notices', 			$plugin_admin, 'show_admin_notices' );
 		$this->loader->add_action( 'wp_ajax_dplr_ajax_connect', $plugin_admin, 'ajax_connect' );
+		$this->loader->add_action( 'wp_ajax_dplr_delete_form',  $plugin_admin, 'ajax_delete_form');
 
 	}
 
@@ -194,10 +195,8 @@ class DPLR_Doppler {
 	private function define_public_hooks() {
 
 		$plugin_public = new DPLR_Doppler_Form_Public( $this->get_plugin_name(), $this->get_version(), $this->doppler_service );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-		// AJAX
+		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'wp_ajax_submit_form', 		 $plugin_public, 'submit_form' );
 		$this->loader->add_action( 'wp_ajax_nopriv_submit_form', $plugin_public, 'submit_form' );
 

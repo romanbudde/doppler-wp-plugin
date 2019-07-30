@@ -53,10 +53,44 @@ class Doppler_Admin {
 		$this->version = $version;
 		$this->doppler_service = $doppler_service;
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
+		$this->success_message = false;
+		$this->error_message = false;
 	}
 
 	public function get_version() {
 		return $this->version;
+	}
+
+	public function set_error_message($message) {
+		$this->error_message = $message;
+	}
+
+	public function set_success_message($message) {
+		$this->success_message = $message;
+	}
+
+	public function get_error_message() {
+		return $this->error_message;
+	}
+
+	public function get_success_message() {
+		return $this->success_message;
+	}
+
+	public function display_error_message() {
+		?>
+		<div id="displayErrorMessage">
+			<?php echo $this->get_error_message(); ?>
+		</div>
+		<?php
+	}
+
+	public function display_success_message() {
+		?>
+		<div id="displaySuccessMessage">
+			<?php echo $this->get_success_message(); ?>
+		</div>
+		<?php
 	}
 
 	/**
@@ -204,26 +238,57 @@ class Doppler_Admin {
 	}
 
 	public function doppler_forms_screen() {
-		
-		require_once('partials/doppler-forms-display.php');
-		/*
-		$action = isset($_GET['action']) ? $_GET['action'] : 'list';
 
-		switch ($action) {
-			case 'list':
-				$this->form_controller->getAll();
-				break;
-			case 'create':
-				$this->form_controller->create($_POST);
-				break;
-			case 'edit':
-				$this->form_controller->update($_GET['form_id'], $_POST);
-				break;
-			case 'delete':
-				$this->form_controller->delete($_GET['form_id']);
-				break;
+		(!isset($_GET['tab']))? $active_tab = 'forms' : $active_tab = $_GET['tab'];
+
+		if(!empty($_POST)){
+			if(isset($_POST['form-create'])){
+				if($this->form_controller->create($_POST) == 1){
+					$this->set_success_message(__('Pst! Go to', 'doppler-form') . ' <a href="' .  admin_url( 'widgets.php') . '">'. __('Appearance > Widgets', 'doppler-form') . '</a> '  . __('to choose the place on your Website where you want your Form to appear.','doppler-form'));
+				}else{
+					$this->set_error_message(__('An error has ocurred and the Form could not be created.','doppler-form'));
+				}
+			}
+			if(isset($_POST['form-edit'])){
+				if($this->form_controller->update($_GET['form_id'], $_POST) == 1){
+					$this->set_success_message(__('The Form has been edited correctly.','doppler-form'));
+				}else{
+					$this->set_error_message(__('An error has ocurred and the Form could not be edited.','doppler-form'));
+				}
+			}
 		}
-		*/
+
+		if($_GET['action'] == 'delete'){
+			if( !empty($_GET['form_id']) && $this->form_controller->delete($_GET['form_id']) == 1 ){
+				$this->set_success_message(__('The Form has been deleted correctly.','doppler-form'));
+			}else{
+				$this->set_error_message(__('An error has ocurred and the Form could not be deleted.','doppler-form'));
+			}
+		}
+
+
+		if($active_tab == 'forms'){
+			$forms = $this->form_controller->getAll();
+			$create_form_url = admin_url( 'admin.php?page=doppler_forms_main&tab=new');
+			$edit_form_url = admin_url( 'admin.php?page=doppler_forms_main&tab=edit&form_id=[FORM_ID]' );
+			$delete_form_url = admin_url( 'admin.php?page=doppler_forms_main&action=delete&form_id=[FORM_ID]' );
+			$list_resource = $this->doppler_service->getResource('lists');
+			//This is just for the list name... TODO: find another way (transients? db name save?).
+			$dplr_lists = $list_resource->getAllLists();
+			if(is_array($dplr_lists)){
+				foreach($dplr_lists as $k=>$v){
+					if(is_array($v)):
+					foreach($v as $i=>$j){
+						$dplr_lists_aux[$j->listId] = trim($j->name);
+					}
+					endif;
+				}
+				$dplr_lists_arr = $dplr_lists_aux;
+			}
+		}
+
+		require_once('partials/doppler-forms-display.php');
+
 	}
 
 	public function show_form_edit() {
@@ -262,6 +327,12 @@ class Doppler_Admin {
 			echo json_encode($connection_status['response']['code']);
 			exit();
 		}
+	}
+
+	public function ajax_delete_form(){
+		if(empty($_POST['listId'])) return false;
+		echo $this->form_controller->delete($_POST['listId']);
+		exit();
 	}
 
 	public function checkExtensions(){

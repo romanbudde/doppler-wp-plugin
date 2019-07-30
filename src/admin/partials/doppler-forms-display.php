@@ -4,12 +4,6 @@ if ( ! current_user_can( 'manage_options' ) ) {
     return;
 }
    
-if( isset($_GET['tab']) ) {
-    $active_tab = $_GET['tab'];
- }else{
-    $active_tab = 'forms';
-} 
-
 ?>
 
 <div class="wrap dplr_settings">
@@ -26,12 +20,16 @@ if( isset($_GET['tab']) ) {
 
 switch($active_tab){
     case 'forms':
-        $this->form_controller->getAll();
+        include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
         break;
     case 'new':
-        $this->form_controller->create($_POST);
+        $this->form_controller->showCreateEditForm();
+        break;
+    case 'edit':
+        $this->form_controller->showCreateEditForm($_GET['form_id']);
         break;
     case 'lists':
+        include plugin_dir_path( __FILE__ ) . "../partials/lists-crud.php";
         break;
     default:
         break;
