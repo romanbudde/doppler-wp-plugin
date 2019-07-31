@@ -221,13 +221,11 @@ $(document).ready(function(){
 		  text: object_string.Delete,
 		  click: function() {
 			var data = {action: 'dplr_delete_form', listId : listId}
-			var popup = $(this);
-			popup.find('.popupdplr-dialog-confirm').html();
-			popup.find('button').attr('disabled','disabled');
+			$(this).dialog("close");
+			row.addClass('deleting');
 			$.post(ajaxurl,data,function(resp){
 				if(resp == '1'){
 					row.remove();
-					popup.dialog("close");
 				}
 			});
 		  }

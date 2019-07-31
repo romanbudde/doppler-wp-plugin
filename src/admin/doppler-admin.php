@@ -325,7 +325,7 @@ class Doppler_Admin {
 			}
 			if( is_admin() ){ //... if we are at the backend.
 				$response =  $this->doppler_service->connectionStatus();
-				if($response['response']['code']>=400){
+				if( is_array($response) && $response['response']['code']>=400 ){
 					 $this->admin_notice = array('error', '<strong>Doppler API Connection error.</strong> ' . $response['response']['message']);
 					 return false;
 				}
