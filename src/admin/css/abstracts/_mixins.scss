@@ -6,3 +6,13 @@
         text-decoration: none;
     }
 }
+
+@mixin circle-loading-gif{
+    background-image: url('../img/loading.gif');
+    background-repeat: no-repeat;
+    content: '';
+    height: 18px;
+    margin-top: -18px;
+    visibility: visible;
+    display:block;
+}

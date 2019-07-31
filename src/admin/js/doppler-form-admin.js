@@ -221,13 +221,11 @@ $(document).ready(function(){
 		  text: object_string.Delete,
 		  click: function() {
 			var data = {action: 'dplr_delete_form', listId : listId}
-			var popup = $(this);
-			popup.find('.popupdplr-dialog-confirm').html();
-			popup.find('button').attr('disabled','disabled');
+			$(this).dialog("close");
+			row.addClass('deleting');
 			$.post(ajaxurl,data,function(resp){
 				if(resp == '1'){
 					row.remove();
-					popup.dialog("close");
 				}
 			});
 		  }
@@ -307,6 +305,7 @@ function listsLoaded(){
 	$('form input, form button').prop('disabled', false);
 	$('form input').val('');
 	$('#dplr-crud').removeClass('loading');
+	$('#dplr-tbl-lists').removeClass('d-none');
 }
 
 function displayErrors(status,code){
