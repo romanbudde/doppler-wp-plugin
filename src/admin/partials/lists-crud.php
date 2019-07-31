@@ -1,6 +1,6 @@
-<div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud panel">
+<div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud panel pb-1">
 
-    <form id="dplr-form-list-crud" action="" method="post">
+    <form id="dplr-form-list-crud" class="mb-1" action="" method="post">
 
         <label><?php _e('Create a Doppler List', 'doppler-form')?></label>
         <input type="text" value="" maxlength="20" disabled="disabled" maxlength="100" placeholder="<?php _e('Write the List name', 'doppler-for-woocommerce')?>"/>
@@ -11,12 +11,15 @@
 
     </form>
 
-    <div class="dplr-loading"></div>
+    <div class="dplr-loading wrapper-loading pt-3">
+        <div class="loading-page">
+        </div>
+    </div>
 
     <div id="showErrorResponse"></div>
     <div id="showSuccessResponse"></div>
 
-    <table id="dplr-tbl-lists" class="grid widefat mt-30">
+    <table id="dplr-tbl-lists" class="grid widefat mt-30 d-none">
         <thead>
             <tr>
                 <th><?php _e('List ID', 'doppler-form')?></th>

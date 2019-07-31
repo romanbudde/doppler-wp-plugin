@@ -305,6 +305,7 @@ function listsLoaded(){
 	$('form input, form button').prop('disabled', false);
 	$('form input').val('');
 	$('#dplr-crud').removeClass('loading');
+	$('#dplr-tbl-lists').removeClass('d-none');
 }
 
 function displayErrors(status,code){

@@ -68,7 +68,15 @@ p{
 }
 
 .pl-1{
-    padding-left: 10px;
+    padding-left: $m1/3;
+}
+
+.pb-3{
+    padding-bottom: $m1;
+}
+
+.pt-3{
+    padding-top: $m1;
 }
 
 // Flexbox
@@ -80,3 +88,33 @@ p{
 .nav-tab{
     font-family: $text-family-rg;
 }
+
+@-webkit-keyframes spin{
+    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
+}
+
+@keyframes spin{
+    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
+}
+
+@-webkit-keyframes counterspin{
+    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(-359deg);transform:rotate(-359deg)}
+}
+
+@keyframes counterspin{
+    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(-359deg);transform:rotate(-359deg)}
+}
+
+@-webkit-keyframes dp-preloader-spin{
+    to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+
+@-webkit-keyframes flash{
+    0%,50%,to{opacity:1}25%,75%{opacity:0}
+}
+
+@keyframes dp-preloader-spin{
+    to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+
+@keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}
