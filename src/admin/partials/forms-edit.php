@@ -1,8 +1,11 @@
 <?php echo "<script>console.log(".json_encode($form).");</script>"; ?>
 
-<div class="dplr">
+<div class="dplr dplr-tab-content dplr-tab-content--form-edit">
+  
   <form method="post" action="<?php admin_url() ?>admin.php?page=doppler_forms_main">
+    
     <input type="hidden" name="create" value="true">
+      
       <div class="grid">
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -31,6 +34,7 @@
           </div>
         </div>
       </div>
+      
       <div class="grid">
           <div class="col-4-5 panel nopd">
             <div class="panel-header">
@@ -52,6 +56,7 @@
             </div>
           </div>
       </div>
+      
       <div class="grid">
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -113,6 +118,7 @@
           </div>
         </div>
       </div>
+      
       <div class="grid" id="dplr_consent_section" <?= ($form->settings['use_consent_field']==='yes')? 'style="display:block"' : 'style="display:none"'; ?>>
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -132,9 +138,13 @@
           </div>
         </div>
       </div>
-    <input type="submit" name="form-edit" value="<?php _e('Save', 'doppler-form')?>" class="dp-button primary-green button-medium"/> <a href="<?php echo admin_url('admin.php?page=doppler_forms_submenu_forms')?>"  class="dp-button primary-grey button-medium"><?php _e('Cancel', 'doppler-form')?></a>
+    
+      <input type="submit" name="form-edit" value="<?php _e('Save', 'doppler-form')?>" class="dp-button primary-green button-medium"/> <a href="<?php echo admin_url('admin.php?page=doppler_forms_submenu_forms')?>"  class="dp-button primary-grey button-medium"><?php _e('Cancel', 'doppler-form')?></a>
+  
   </form>
+
 </div>
+
 <script type="text/javascript">
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)

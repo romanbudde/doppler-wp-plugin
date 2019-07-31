@@ -175,13 +175,16 @@ class DPLR_Doppler {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_init', 				$plugin_admin, 'init_settings');
+		$this->loader->add_action( 'admin_init', 				$plugin_admin, 'init_settings' );
 		$this->loader->add_action( 'admin_menu', 				$plugin_admin, 'init_menu' );
 		$this->loader->add_action( 'admin_menu', 				$plugin_admin, 'add_submenu' );
 		$this->loader->add_action( 'widgets_init', 				$plugin_admin, 'init_widget' );
 		$this->loader->add_action( 'admin_notices', 			$plugin_admin, 'show_admin_notices' );
 		$this->loader->add_action( 'wp_ajax_dplr_ajax_connect', $plugin_admin, 'ajax_connect' );
-		$this->loader->add_action( 'wp_ajax_dplr_delete_form',  $plugin_admin, 'ajax_delete_form');
+		$this->loader->add_action( 'wp_ajax_dplr_delete_form',  $plugin_admin, 'ajax_delete_form' );
+		$this->loader->add_action( 'wp_ajax_dplr_get_lists',	$plugin_admin, 'ajax_get_lists' );
+		$this->loader->add_action( 'wp_ajax_dplr_save_list', 	$plugin_admin, 'ajax_save_list' );
+		$this->loader->add_action( 'wp_ajax_dplr_delete_list',  $plugin_admin, 'ajax_delete_list' );
 
 	}
 

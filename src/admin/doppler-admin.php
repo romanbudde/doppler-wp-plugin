@@ -1,23 +1,8 @@
 <?php
-/**
- * The admin-specific functionality of the plugin.
- *
- * @link       http://example.com
- * @since      1.0.0
- *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/admin
- */
 
 /**
  * The admin-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/admin
- * @author     Your Name <email@example.com>
  */
 class Doppler_Admin {
 
@@ -25,8 +10,6 @@ class Doppler_Admin {
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
 	private $plugin_name;
 
@@ -34,8 +17,6 @@ class Doppler_Admin {
 	 * The version of this plugin.
 	 *
 	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
 
@@ -53,8 +34,6 @@ class Doppler_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version,  $doppler_service ) {
 		$this->plugin_name = $plugin_name;
@@ -134,7 +113,12 @@ class Doppler_Admin {
 			'TextType'    	=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' => __( 'Simple', 'doppler-form'),
 			'MultipleLines' => __( 'Multiple', 'doppler-form'),
-			'ConnectionErr' => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form')								 				
+			'ConnectionErr' => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-for-woocommerce'),
+			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-for-woocommerce'),
+			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-for-woocommerce'),	
+			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-for-woocommerce'),
+			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-for-woocommerce')					 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
@@ -143,10 +127,8 @@ class Doppler_Admin {
 	}
 
 	public function init_widget() {
-
 		require_once(plugin_dir_path( __FILE__ ) . "../includes/class-doppler-form-widget.php");
 		register_widget('Dplr_Subscription_Widget');
-
 	}
 	
 	public function init_settings(){
@@ -304,7 +286,7 @@ class Doppler_Admin {
 		$this->form_controller->create($_POST);
 	}
 
-	public function show_admin_notices(){
+	public function show_admin_notices() {
 
 		$options = get_option('dplr_settings');
 
@@ -360,7 +342,7 @@ class Doppler_Admin {
 	 * Check if user is valid, then it continues 
 	 * the form submission and save the settings.
 	 */
-	public function ajax_connect(){
+	public function ajax_connect() {
 		if( empty($_POST['key']) || empty($_POST['user']) ) return false;
 		$this->doppler_service->setCredentials(['api_key' => $_POST['key'], 'user_account' => $_POST['user']]);
 		$connection_status = $this->doppler_service->connectionStatus();
@@ -370,10 +352,43 @@ class Doppler_Admin {
 		}
 	}
 
-	public function ajax_delete_form(){
+	public function ajax_delete_form() {
 		if(empty($_POST['listId'])) return false;
 		echo $this->form_controller->delete($_POST['listId']);
 		exit();
+	}
+
+	/**
+	 * CRUD
+	 */
+	public function ajax_get_lists() {
+		echo json_encode($this->get_lists_by_page($_POST['page']));
+		exit();
+	}
+
+	public function ajax_save_list() {
+		if(!empty($_POST['listName'])){
+			echo $this->create_list($_POST['listName']);
+		}
+		exit();
+	}
+
+	private function create_list($list_name) {
+		$subscriber_resource = $this->doppler_service->getResource('lists');
+		return $subscriber_resource->saveList( $list_name )['body'];
+	}
+
+	public function ajax_delete_list() {
+		if(empty($_POST['listId'])) return false;
+		$subscribers_lists = get_option('dplr_subscribers_list');
+		$subscriber_resource = $this->doppler_service->getResource('lists');
+		echo json_encode($subscriber_resource->deleteList( $_POST['listId'] ));
+		exit();
+	}
+
+	public function get_lists_by_page( $page = 1 ) {
+		$list_resource = $this->doppler_service->getResource( 'lists' );
+		return $list_resource->getListsByPage( $page );
 	}
 
 	public function checkExtensions(){

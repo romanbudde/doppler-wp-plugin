@@ -1,6 +1,6 @@
 <h1><?php _e('Created Forms', 'doppler-form')?></h1>
 
-<div class="dplr">
+<div class="dplr dplr-tab-content dplr-tab-content--list">
   
   <?php if($_GET['created']=='1'){ ?>
   

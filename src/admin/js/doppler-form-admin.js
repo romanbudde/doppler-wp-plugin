@@ -209,7 +209,7 @@ $(document).ready(function(){
 		});
 	}
 
-	$(".dplr-remove").click(function(e) {
+	$(".dplr-tab-content--list .dplr-remove").click(function(e) {
 		
 		e.preventDefault();
 		var a = $(this);
@@ -239,11 +239,49 @@ $(document).ready(function(){
 		}]);
 
 		$("#dplr-dialog-confirm").dialog("open");
-	  
+		
 	});
+
+	/* CRUD */
+
+	$("#dplr-save-list").click(function(e){
+		e.preventDefault();			
+		var listName = $(this).closest('form').find('input[type="text"]').val();
+		if(listName!==''){
+			var data = {
+				action: 'dplr_save_list',
+				listName: listName
+			};
+			listsLoading();
+			$.post( ajaxurl, data, function( response ) {
+				var body = 	JSON.parse(response);
+				if(body.createdResourceId){		
+					var html ='<tr>';
+					html+='<td>'+body.createdResourceId+'</td><td><strong>'+listName+'</strong></td>';
+					html+='<td>0</td>';
+					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">Delete</a></td>'
+					html+='</tr>';
+					$("#dplr-tbl-lists tbody").prepend(html);
+				}else{
+					if(body.status >= 400){
+						//body.status
+						displayErrors(body.status,body.errorCode);
+					}
+				}
+				listsLoaded();
+			});
+		}
+	});
+
+	$("#dplr-tbl-lists tbody").on("click","tr a",deleteList);
+
+	if($("#dplr-tbl-lists").length>0){
+		loadLists(1);
+	}
 
 });
 
+/*
 $(document).on('widget-updated',  function(e, elem){
 	select = elem.find("form select.multiple-selec");
 	select.chosen({
@@ -258,5 +296,112 @@ $(document).on('widget-added', function(e, elem){
 		width: "100%",
 	});
 });
+*/
+
+function listsLoading(){
+	$('form input, form button').prop('disabled', true);
+	$('#dplr-crud').addClass('loading');
+}
+
+function listsLoaded(){
+	$('form input, form button').prop('disabled', false);
+	$('form input').val('');
+	$('#dplr-crud').removeClass('loading');
+}
+
+function displayErrors(status,code){
+	var errorMsg = '';
+	errorMsg = generateErrorMsg(status,code);
+	$('#showErrorResponse').html(errorMsg);
+}
+
+function generateErrorMsg(status,code){
+	var err = '';
+	var errors = {	
+		400 : { 1: ObjStr.validationError,
+				2: ObjStr.duplicatedName,
+				3: ObjStr.maxListsReached},
+		429 : { 0: ObjStr.tooManyConn}
+	}
+	if(typeof errors[status] === 'undefined')
+		 err = 'Unexpected error';
+	else
+	   typeof errors[status][code] === 'undefined'? err='Unexpected error code' : err = errors[status][code];
+	 return err;
+}
+
+function loadLists( page ){
+
+	var data = {
+		action: 'dplr_get_lists',
+		page: page
+	};
+	
+	listsLoading();
+
+	$("#dplr-tbl-lists tbody tr").remove();
+
+	$.post( ajaxurl, data, function( response ) {
+		if(response.length>0){
+			var obj = JSON.parse(response);
+			var html = '';
+			for (const key in obj) {
+				var value = obj[key];
+				html += '<tr>';
+				html += '<td>'+value.listId+'</td>';
+				html += '<td><strong>'+value.name+'</strong></td>';
+				html += '<td>'+value.subscribersCount+'</td>';
+				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">Delete</a></td>'
+				html += '</tr>';
+			}
+			$("#dplr-tbl-lists tbody").prepend(html);
+			$("#dplr-tbl-lists").attr('data-page','1');
+			listsLoaded();
+		}
+	})
+}
+
+function deleteList(e){
+
+	e.preventDefault();
+
+	var a = $(this);
+	var tr = a.closest('tr');
+	var listId = a.attr('data-list-id');
+	var data = {
+		action: 'dplr_delete_list',
+		listId : listId
+	};
+	
+	$("#dplr-dialog-confirm").dialog("option", "buttons", [{
+		text: 'Delete',
+		click: function() {
+			$(this).dialog("close");
+			tr.addClass('deleting');
+			$.post( ajaxurl, data, function( response ) {
+				var obj = JSON.parse(response);
+				if(obj.response.code == 200){
+					tr.remove();
+				}else{
+					if(obj.response.code == 0){
+						//alert('No se puede eliminar lista.')
+					}else{
+						//alert('Error');
+					}
+					tr.removeClass('deleting');
+				}
+			});
+		}
+	  }, 
+	  {
+		text: 'Cancel',
+		click: function() {
+		  $(this).dialog("close");
+		}
+	  }]);
+
+	  $("#dplr-dialog-confirm").dialog("open");
+
+}
 
 })( jQuery );
