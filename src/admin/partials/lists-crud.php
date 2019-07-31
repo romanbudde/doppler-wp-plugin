@@ -1,4 +1,4 @@
-<div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud panel pb-1">
+<div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud pb-1">
 
     <form id="dplr-form-list-crud" class="mb-1" action="" method="post">
 

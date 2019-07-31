@@ -27,6 +27,10 @@ p{
     font-size: $font-size-huge;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 // Alignment styles
 .text-center{
     text-align: center;
@@ -87,6 +91,46 @@ p{
 //Tabs
 .nav-tab{
     font-family: $text-family-rg;
+    color: $primary-grey;
+    &.nav-tab-active{
+        color: $primary-grey;
+    }
+}
+
+.dplr-tab-content{
+    padding: 43px 10px;
+}
+
+//Tables
+table{
+    &.widefat{
+        color: $primary-grey;
+        font-family: $text-family-rg;
+        thead{
+            th{
+                font-weight: bold;
+                color: $primary-grey;
+            }
+        }
+        tbody{
+            tr{
+                &:nth-child(odd) {
+                    background: #f9f9f9;
+                }
+                &:nth-child(even) {
+                    background: #ffffff;
+                }
+                td{
+                    font-size: $font-size-regular;
+                    .column-actions{
+                        a{
+                            font-size: $font-size-regular;
+                        }
+                    }
+                }
+            }
+        } 
+    }
 }
 
 @-webkit-keyframes spin{

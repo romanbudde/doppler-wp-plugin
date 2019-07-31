@@ -9,6 +9,9 @@
     background: $white;
     font-size: 13px;
     line-height: 2.1em;
+    &:first-child{
+      margin-top:0px;
+    }
     .panel-header {
         background: $regular_grey;
         padding:1px 10px;
