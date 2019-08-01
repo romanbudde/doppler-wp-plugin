@@ -96,15 +96,17 @@ $(document).ready(function(){
 		}
 
 		$.post( ajaxurl, data, function( response ) {	
-			if(response == '200'){				
+			var obj = JSON.parse(response);
+			if(obj.response.code == '200'){				
 				var fields = form.serialize();
-				$.post( 'options.php', fields, function(obj){
+				$.post( 'options.php', fields, function(){
 					window.location.reload(false); 					
 				});	
 			}else{
+				var body = JSON.parse(obj.body);
 				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
 					error+= '<div class="tooltip-container text-left">';
-					error+= '<span>'+ObjStr.ConnectionErr+'</span>'
+					error+= '<span>' + generateErrorMsg(body.status,body.errorCode) + '</span>';
 					error+= '</div>';
 					error+= '</div>';
 				form.after(error);
@@ -320,12 +322,13 @@ function generateErrorMsg(status,code){
 		400 : { 1: ObjStr.validationError,
 				2: ObjStr.duplicatedName,
 				3: ObjStr.maxListsReached},
-		429 : { 0: ObjStr.tooManyConn}
+		429 : { 0: ObjStr.tooManyConn},
+		401 : { 1: ObjStr.ConnectionErr}
 	}
 	if(typeof errors[status] === 'undefined')
-		 err = 'Unexpected error';
+		 err = ObjStr.APIConnectionErr;
 	else
-	   typeof errors[status][code] === 'undefined'? err='Unexpected error code' : err = errors[status][code];
+	   typeof errors[status][code] === 'undefined'? err=ObjStr.APIConnectionErr : err = errors[status][code];
 	 return err;
 }
 

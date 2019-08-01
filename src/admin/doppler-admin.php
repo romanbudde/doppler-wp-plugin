@@ -114,11 +114,12 @@ class Doppler_Admin {
 			'OneSingleLine' => __( 'Simple', 'doppler-form'),
 			'MultipleLines' => __( 'Multiple', 'doppler-form'),
 			'ConnectionErr' => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
-			'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-for-woocommerce'),
-			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-for-woocommerce'),
-			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-for-woocommerce'),	
-			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-for-woocommerce'),
-			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-for-woocommerce')					 				
+			'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-form'),
+			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
+			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
+			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
+			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
+			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),					 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
@@ -148,35 +149,33 @@ class Doppler_Admin {
 
 	public function add_submenu() {
 
-			$options = get_option('dplr_settings', [
-			'dplr_option_apikey' => '',
-			'dplr_option_useraccount' => ''
-			]);
+		$options = get_option('dplr_settings', [
+		'dplr_option_apikey' => '',
+		'dplr_option_useraccount' => ''
+		]);
 
-			add_submenu_page(
-				'doppler_forms_menu',
-				__('Connect with Doppler', 'doppler-form'),
-				__('Connect with Doppler', 'doppler-form'),
-				'manage_options',
-				'doppler_forms_menu',
-				array($this, 'display_connection_screen'));
+		add_submenu_page(
+			'doppler_forms_menu',
+			__('Connect with Doppler', 'doppler-form'),
+			__('Connect with Doppler', 'doppler-form'),
+			'manage_options',
+			'doppler_forms_menu',
+			array($this, 'display_connection_screen')
+		);
+		
 		if ( $options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) ){
-				add_submenu_page(
+			
+			add_submenu_page(
 				'doppler_forms_menu',
 				__('Doppler Forms', 'doppler-form'),
 				__('Doppler Forms', 'doppler-form'),
 				'manage_options',
 				'doppler_forms_main',
-				array($this, 'doppler_forms_screen'));
-				/*
-				add_submenu_page(
-					'doppler_forms_menu',
-					__('Create Form', 'doppler-form'),
-					__('Create Form', 'doppler-form'),
-					'manage_options',
-					'doppler_forms_submenu_create_forms',
-					array($this, 'show_form_edit'));
-				*/
+				array($this, 'doppler_forms_screen')
+			);
+
+			do_action('dplr_add_extension_submenu');
+		
 		}
 	
 	}
@@ -194,10 +193,10 @@ class Doppler_Admin {
 	  if ($options['dplr_option_apikey'] != '') {
 
 		try{
-				
+				//Credentials not saved. Set, check and allow or not.
 				if($this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])){
 					$connection_status = $this->doppler_service->connectionStatus();
-					if( is_array($connection_status) && $connection_status['response']['code'] === 200){
+					if( is_array($connection_status) && $connection_status['response']['code'] === 200 ){
 						$connected = true;
 					}
 				}
@@ -347,7 +346,7 @@ class Doppler_Admin {
 		$this->doppler_service->setCredentials(['api_key' => $_POST['key'], 'user_account' => $_POST['user']]);
 		$connection_status = $this->doppler_service->connectionStatus();
 		if( is_array($connection_status)){
-			echo json_encode($connection_status['response']['code']);
+			echo json_encode($connection_status);
 			exit();
 		}
 	}

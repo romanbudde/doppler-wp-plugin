@@ -158,7 +158,6 @@ class Doppler_Service
 
   public function unsetCredentials(){
     $this->config['credentials'] = array();
-    echo 'USER INVALID DELETING OPTIONS';
     update_option('dplr_settings', array('dplr_option_apikey'=>'','dplr_option_useraccount'=>''));
   }
 
