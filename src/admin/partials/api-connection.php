@@ -133,7 +133,7 @@
 
 						<input id="api-key" data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
 						
-						<div class="tooltip-container ml-1">
+						<div class="tooltip-container pl-1">
 							<span></span>
 						</div>
 					</div>
