@@ -42,6 +42,18 @@
           margin-bottom: 0px;
         }
     }
+
+    .dplr-row-section{
+      >div{
+        &:nth-child(2){
+          .tooltip-container{
+            &.pl-1{
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+    }
     
     .tooltip.tooltip-warning > .tooltip-container span {
       font-size: $font-size-regular;

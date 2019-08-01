@@ -105,7 +105,7 @@ $(document).ready(function(){
 			}else{
 				var body = JSON.parse(obj.body);
 				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
-					error+= '<div class="tooltip-container text-left">';
+					error+= '<div class="text-red text-left">';
 					error+= '<span>' + generateErrorMsg(body.status,body.errorCode) + '</span>';
 					error+= '</div>';
 					error+= '</div>';

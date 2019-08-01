@@ -31,6 +31,9 @@ p{
     font-weight: bold;
 }
 
+.text-red{
+    color: $light-red;
+}
 // Alignment styles
 .text-center{
     text-align: center;
@@ -39,6 +42,8 @@ p{
 .text-left{
     text-align: left;
 }
+
+
 
 // Box styles
 .d-block{

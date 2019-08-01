@@ -120,8 +120,8 @@
 					<div class="dplr-input-section input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo $options['dplr_option_apikey'] ? ' notempty' : ''; ?>">
 						
 						<label>API Key 
-							<div class="icon" style="display: none">
-								<span class="tooltip tooltip-info tooltip-top tooltip-hover">?
+							<div class="icon">
+								<span class="tooltip tooltip-info tooltip-top tooltip-hover">
 									<div class="tooltip-container">
 										<p>
 											<?php _e("How do you find your API Key? Press", "doppler-form"); ?> <a href="<?php _e('https://help.fromdoppler.com/en/where-do-i-find-my-api-key/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>"><?php _e("HELP", "doppler-form"); ?></a>.<br>
@@ -133,7 +133,7 @@
 
 						<input id="api-key" data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
 						
-						<div class="tooltip-container">
+						<div class="tooltip-container ml-1">
 							<span></span>
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 			<?php if($error): ?>
 
 				<div class="tooltip tooltip-warning tooltip--user_api_error">
-					<div class="tooltip-container text-left">
+					<div class="text-red text-left">
 							<span><?php echo $errorMessage  ?></span>
 					</div>
 				</div>
