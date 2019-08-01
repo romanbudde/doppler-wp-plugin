@@ -13,11 +13,11 @@ if($this->connectionStatus):
 
     <h2><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
 
-    <h2 class="nav-tab-wrapper">
-        <a href="?page=doppler_forms_main&tab=forms" class="nav-tab <?php echo $active_tab == 'forms' ? 'nav-tab-active' : ''; ?>"><?php _e('Forms', 'doppler-form')?></a>
-        <a href="?page=doppler_forms_main&tab=new" class="nav-tab <?php echo $active_tab == 'new' ? 'nav-tab-active' : ''; ?>"><?php _e('Create Form', 'doppler-form')?></a>
-        <a href="?page=doppler_forms_main&tab=lists" class="nav-tab <?php echo $active_tab == 'lists' ? 'nav-tab-active' : ''; ?>"><?php _e('Manage Lists', 'doppler-form')?></a>
-    </h2>
+    <?php
+    if( $active_tab == 'forms' || $active_tab == 'lists'){
+        include plugin_dir_path( __FILE__ ) . "../partials/tabs-nav.php";
+    }
+    ?>
 
 <?php
 
