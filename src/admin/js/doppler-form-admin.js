@@ -275,6 +275,19 @@ $(document).ready(function(){
 
 	$("#dplr-tbl-lists tbody").on("click","tr a",deleteList);
 
+	$(".dplr-extensions .dplr-boxes button").click(function(){
+		var button = $(this);
+		var extension = button.attr('data-extension');
+		button.addClass('button--loading').html(ObjStr.installing);
+		var data = {
+			action: 'install_extension',
+			extensionName: extension
+		}
+		$.post(ajaxurl,data,function(resp){
+			window.location.reload(false);
+		});
+	});
+
 	if($("#dplr-tbl-lists").length>0){
 		loadLists(1);
 	}

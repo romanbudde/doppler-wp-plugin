@@ -188,6 +188,7 @@ class DPLR_Doppler {
 		$this->loader->add_action( 'wp_ajax_dplr_get_lists',	$plugin_admin, 'ajax_get_lists' );
 		$this->loader->add_action( 'wp_ajax_dplr_save_list', 	$plugin_admin, 'ajax_save_list' );
 		$this->loader->add_action( 'wp_ajax_dplr_delete_list',  $plugin_admin, 'ajax_delete_list' );
+		$this->loader->add_action( 'wp_ajax_install_extension', $extension_manager, 'install_extension' );
 
 	}
 

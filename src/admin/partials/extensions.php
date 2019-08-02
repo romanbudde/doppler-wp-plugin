@@ -23,7 +23,11 @@
                     <p>
                         <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
                     </p>
-                    <button class="dp-button primary-green button-medium"><?php _e('Install', 'doppler-form') ?></button>
+                    <?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
+                        <button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
+                    <?php else: ?>
+                        <?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+                    <?php endif; ?>
                 </div>
             </div>
                 
@@ -36,7 +40,11 @@
                     <p>
                         <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
                     </p>
-                    <button class="dp-button primary-green button-medium"><?php _e('Install', 'doppler-form') ?></button>
+                    <?php if( !$this->extension_manager->is_installed('doppler-for-woocommerce')):  ?>
+                        <button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
+                    <?php else: ?>
+                        <?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+                    <?php endif; ?>
                 </div>
             </div>
             

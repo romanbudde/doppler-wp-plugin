@@ -39,10 +39,11 @@ class Doppler_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 		$this->doppler_service = $doppler_service;
-		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 		$this->success_message = false;
 		$this->error_message = false;
 		$this->connectionStatus = $this->check_connection_status();
+		$this->form_controller = new DPLR_Form_Controller($doppler_service);
+		$this->extension_manager = new Doppler_Extension_Manager();
 	}
 
 	public function get_version() {
@@ -119,7 +120,8 @@ class Doppler_Admin {
 			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
 			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
 			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
-			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),					 				
+			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
+			'installing' => __('Installing', 'doppler-form'),			 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
