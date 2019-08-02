@@ -1,0 +1,36 @@
+&.dplr-extensions{
+    .dplr-boxes{
+        display: flex;
+        >div{
+            width: 33%;
+            min-height: 100px;
+            margin: $gutterWidth;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+            text-align: left;
+            figure{
+                text-align: center;
+                padding-top: 40px;
+                padding-bottom: 40px;
+                margin: 0;
+                border-bottom: 1px solid #C8C7BF;
+                img{
+                    width: 100%;
+                    max-width: 100px;
+                }
+            }
+            &:first-child{
+                margin-left: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            >div{
+                padding: 0 40px 40px 40px;
+                h3{
+                    color: $primary-grey;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}

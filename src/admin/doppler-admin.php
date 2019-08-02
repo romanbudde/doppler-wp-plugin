@@ -174,6 +174,15 @@ class Doppler_Admin {
 				array($this, 'doppler_forms_screen')
 			);
 
+			add_submenu_page(
+				'doppler_forms_menu',
+				__('Extensions', 'doppler-form'),
+				__('Extensions', 'doppler-form'),
+				'manage_options',
+				'doppler_forms_extensions',
+				array($this, 'doppler_extensions_screen')
+			);
+
 			do_action('dplr_add_extension_submenu');
 		
 		}
@@ -279,6 +288,10 @@ class Doppler_Admin {
 
 		require_once('partials/doppler-forms-display.php');
 
+	}
+
+	public function doppler_extensions_screen() {
+		require_once('partials/extensions.php');
 	}
 
 	public function show_form_edit() {

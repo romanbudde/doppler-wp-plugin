@@ -140,8 +140,10 @@ class DPLR_Doppler {
 		require_once plugin_dir_path( dirname(__FILE__) ) . "includes/models/Field_Model.php";
 
 		require_once plugin_dir_path( dirname(__FILE__) ) . "admin/controllers/Form_Controller.php";
+		
+		require_once plugin_dir_path( dirname(__FILE__) ) . "includes/class-doppler-extension-manager.php";
 
-		$this->loader = new Plugin_Name_Loader();
+		$this->loader = new Doppler_Form_Loader();
 
 	}
 
@@ -172,6 +174,7 @@ class DPLR_Doppler {
 	private function define_admin_hooks() {
 		
 		$plugin_admin = new Doppler_Admin( $this->get_plugin_name(), $this->get_version(), $this->doppler_service);
+		$extension_manager = new Doppler_Extension_Manager();
 
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_scripts' );
