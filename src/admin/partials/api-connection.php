@@ -1,8 +1,24 @@
 <section class="dplr_settings">
 
 <div class="wrap dplr_connect text-center">
-		
+
 		<h2></h2>
+
+		<?php 
+		
+		if ($connected) { 
+			?>
+			<div class="disconnect-box">
+				<form method="POST" action="options.php" >
+					<?php settings_fields('dplr_plugin_options'); ?>
+					<input type="hidden" name="dplr_settings[action]" value="disconnect" />
+					<button class="dp-button button-small primary-grey"><?php _e("Disconnect", "doppler-form"); ?></button>
+				</form>
+			</div>
+			<?php
+		}
+
+		?>
 		
 		<a href="<?php _e('https://www.fromdoppler.com/en/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" target="_blank" id="dplr_logo" class="d-inline-block"><img src="<?= plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
 		
@@ -11,15 +27,6 @@
 		if ($connected) { 
 		
 			?>
-			
-			<div class="disconnect-box">
-				<form method="POST" action="options.php" >
-					<?php settings_fields('dplr_plugin_options'); ?>
-					<input type="hidden" name="dplr_settings[action]" value="disconnect" />
-					<button class="dp-button button-small primary-grey"><?php _e("Disconnect", "doppler-form"); ?></button>
-				</form>
-			</div>
-		
 			
 			<h1 class="size-huge margin-auto mb-1">
 				<?php _e("Successful connection!", "doppler-form" ); ?>

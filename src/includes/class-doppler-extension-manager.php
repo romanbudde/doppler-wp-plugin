@@ -2,10 +2,13 @@
 
 class Doppler_Extension_Manager {
 
-    public $extensions = array( 'doppler-for-woocommerce' => array( 'class_name' =>'Doppler_For_Woocommerce',
-                                                                     'zip_file'   =>'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip' ), 
-                                 'doppler-for-learnpress'  => array( 'class_name' =>'Doppler_For_Learnpress',
-                                                                     'zip_file'    =>'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip'));
+    public $extensions = array( 
+        'doppler-for-woocommerce' => array( 'class_name' => 'Doppler_For_Woocommerce',
+                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip',
+                                            'settings'   => '' ),
+        'doppler-for-learnpress'  => array( 'class_name' => 'Doppler_For_Learnpress',
+                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip', 
+                                            'settings'   => '' ));
 
     /**
      * Check if an extension is active.
@@ -18,24 +21,6 @@ class Doppler_Extension_Manager {
         }
         return false;
     }
-
-    /**
-     * Check if an extension is installed.
-     */
-    function is_plugin_installed( $slug ) {
-        if ( ! function_exists( 'get_plugins' ) ) {
-          require_once ABSPATH . 'wp-admin/includes/plugin.php';
-        }
-        
-        $extension = $slug.'/'.$slug.'.php';
-        $all_plugins = get_plugins();
-                
-        if ( !empty( $all_plugins[$extension] ) ) {
-          return true;
-        } else {
-          return false;
-        }
-      }
 
     /**
      * Install extensions.
@@ -59,5 +44,21 @@ class Doppler_Extension_Manager {
         exit();
     }
 
-
+    /**
+     * Check if an extension is installed.
+     */
+    private function is_plugin_installed( $slug ) {
+        if ( ! function_exists( 'get_plugins' ) ) {
+          require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+        
+        $extension = $slug.'/'.$slug.'.php';
+        $all_plugins = get_plugins();
+                
+        if ( !empty( $all_plugins[$extension] ) ) {
+          return true;
+        } else {
+          return false;
+        }
+    }
 }
