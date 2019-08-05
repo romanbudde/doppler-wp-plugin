@@ -357,11 +357,14 @@ function loadLists( page ){
 	$("#dplr-tbl-lists tbody tr").remove();
 
 	$.post( ajaxurl, data, function( response ) {
+		console.log(response);
 		if(response.length>0){
 			var obj = JSON.parse(response);
+			var items = obj.items;
+			console.log(items);
 			var html = '';
-			for (const key in obj) {
-				var value = obj[key];
+			for (const key in items) {
+				var value = items[key];
 				html += '<tr>';
 				html += '<td>'+value.listId+'</td>';
 				html += '<td><strong>'+value.name+'</strong></td>';

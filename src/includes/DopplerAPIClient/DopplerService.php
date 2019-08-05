@@ -62,7 +62,9 @@ class Doppler_Service
                 'page' => array(
                   'on_query_string' => true
                 ),
-                'per_page' => 200
+                'per_page' => array(
+                  'on_query_string'=>true
+                )
               )
             ),
             'new' => array(
@@ -170,7 +172,8 @@ class Doppler_Service
     //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
     $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
-    $query = "";
+  
+    $query = array();
     
     if( $args && count($args)>0 ){
       
@@ -181,21 +184,17 @@ class Doppler_Service
         isset($resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
         
         if( $parameter && $parameter[ 'on_query_string' ] ){
-          $query .= $name . "=" . $val ;
+          $query[] = $name . "=" . $val ;
         }else{
           $url = str_replace(":".$name, $val, $url);
         }
       
       }
 
-      if(isset($resourceArg["per_page"])){
-        $url.="?per_page=".$resourceArg["per_page"];
-      }
+    }
 
-      if(isset($resourceArg["page"])){
-        $url.='&'.$query;
-      }
-
+    if($query!=''){
+      $url.='?'.implode('&',$query);
     }
 
     $headers=array(
@@ -323,7 +322,6 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
      * Get all lists recursively
      */
     public function getAllLists( $listId = null, $lists = [], $page = 1  ) {
-      
       $method = $this->methods['list'];
       $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
       $lists[] = $z->items;
@@ -337,12 +335,9 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
       
     }
 
-    public function getListsByPage( $page = 1 ) {
-
+    public function getListsByPage( $page = 1, $per_page = 200 ) {
       $method = $this->methods['list'];
-      $z = json_decode($this->service->call($method, array("listId" => null, 'page' => $page))['body']);
-      return $z->items;
-
+      return json_decode($this->service->call($method, array("listId" => null, 'page' => $page, 'per_page' => $per_page))['body']);
     }
 
     public function saveList( $list_name ) {

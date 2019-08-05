@@ -376,7 +376,7 @@ class Doppler_Admin {
 	 * CRUD
 	 */
 	public function ajax_get_lists() {
-		echo json_encode($this->get_lists_by_page($_POST['page']));
+		echo json_encode($this->get_lists_by_page($_POST['page'],200));
 		exit();
 	}
 
@@ -400,9 +400,9 @@ class Doppler_Admin {
 		exit();
 	}
 
-	public function get_lists_by_page( $page = 1 ) {
+	public function get_lists_by_page( $page = 1, $per_page ) {
 		$list_resource = $this->doppler_service->getResource( 'lists' );
-		return $list_resource->getListsByPage( $page );
+		return $list_resource->getListsByPage( $page , $per_page );
 	}
 
 	public function checkExtensions(){
