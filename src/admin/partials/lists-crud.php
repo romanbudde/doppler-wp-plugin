@@ -32,6 +32,8 @@
         </tbody>
     </table>
 
+    <button id="crud-show-more" class="dp-button button-medium primary-grey hidden" data-next-page="2"><?php _e('Show more results', 'doppler-form'); ?></button>
+
 </div>
 
 <div id="dplr-dialog-confirm" title="<?php _e('Are you sure you want to delete the List? ', 'doppler-form'); ?>">

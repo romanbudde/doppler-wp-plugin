@@ -9,9 +9,21 @@ p{
     width: 100%;
 }
 
+.mw-8{
+    max-width: 800px
+}
+
+.mw-7{
+    max-width: 700px;
+}
+
 // Font styles
 .text-bold{
     font-weight: 700;
+}
+
+.semi-bold{
+    font-weight: 600;
 }
 
 .size-regular{
@@ -34,6 +46,15 @@ p{
 .text-red{
     color: $light-red;
 }
+
+.text-white{
+    color: $white;
+}
+
+.text-dark-green{
+    color: $dark-green;
+}
+
 // Alignment styles
 .text-center{
     text-align: center;
@@ -43,7 +64,13 @@ p{
     text-align: left;
 }
 
+a.green-link{
+    @include green-link;
+}
 
+.pointer{
+    cursor: pointer;
+}
 
 // Box styles
 .d-block{
@@ -55,6 +82,17 @@ p{
 .d-none{
     display: none;
 }
+.hidden{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+
+.opacity-0{
+    opacity: 0;
+}
+
 .margin-auto{
     margin-left: auto;
     margin-right: auto;
@@ -74,6 +112,10 @@ p{
 
 .mb-4{
     margin-bottom: $m4;
+}
+
+.ml-1{
+    margin-left: $m1/2;
 }
 
 .pl-1{

@@ -41,6 +41,8 @@ function hideUserApiError(){
 
 $(document).ready(function(){
 
+	var default_page_size = 20;
+
 	$("input[data-validation-fixed]").each(function() {
 		hideUserApiError();
 		triggerError($(this));
@@ -289,8 +291,13 @@ $(document).ready(function(){
 	});
 
 	if($("#dplr-tbl-lists").length>0){
-		loadLists(1);
+		loadLists(1,default_page_size);
 	}
+
+	$("#crud-show-more").click(function(){
+		var page = $(this).attr("data-next-page");
+		loadLists(page,default_page_size);
+	});
 
 });
 
@@ -345,23 +352,25 @@ function generateErrorMsg(status,code){
 	 return err;
 }
 
-function loadLists( page ){
+function loadLists( page, per_page ){
 
 	var data = {
 		action: 'dplr_get_lists',
-		page: page
+		page: page,
+		per_page : per_page
 	};
 	
-	listsLoading();
-
-	$("#dplr-tbl-lists tbody tr").remove();
+	if(page==1){
+		listsLoading();
+		$("#dplr-tbl-lists tbody tr").remove();
+	}else{
+		$("#crud-show-more").addClass('button--loading');
+	}
 
 	$.post( ajaxurl, data, function( response ) {
-		console.log(response);
 		if(response.length>0){
 			var obj = JSON.parse(response);
 			var items = obj.items;
-			console.log(items);
 			var html = '';
 			for (const key in items) {
 				var value = items[key];
@@ -373,8 +382,20 @@ function loadLists( page ){
 				html += '</tr>';
 			}
 			$("#dplr-tbl-lists tbody").prepend(html);
-			$("#dplr-tbl-lists").attr('data-page','1');
-			listsLoaded();
+			if(page==1){
+				listsLoaded();
+			}else{
+				$("#crud-show-more").removeClass('button--loading');
+			}
+			console.log(obj);
+			console.log(page);
+			console.log(obj.pagesCount);
+			if(page < parseInt(obj.pagesCount)){
+				$("#crud-show-more").css('visibility','visible').attr('data-next-page', parseInt(page)+1);
+			}else{
+				$("#crud-show-more").css('visibility','hidden');
+			}
+		
 		}
 	})
 }

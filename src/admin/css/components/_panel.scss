@@ -20,10 +20,23 @@
             font-size: 14px;
             line-height: 20px;
         }
+        th{
+          padding: 12px 0px;
+        }
     }
     .panel-body {
         color: #838370;
         padding: 10px;
+        th,td{
+            padding: 10px;
+        }
+        tr{
+          &:first-child{
+            th,td{
+              padding-top: 20px;
+            }
+          }
+        }
     }
     ul.accordion {
         list-style-type: none;
@@ -106,4 +119,11 @@
           }
         }
     }
+}
+
+table{
+  &.panel{
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
 }
