@@ -30,6 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define('DOPPLER_PLUGINS_PATH', plugin_dir_path(__DIR__));
+define('DOPPLER_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if( is_plugin_active('Plugin/doppler-form.php') ) {

@@ -23,28 +23,16 @@
                     <p>
                         <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
                     </p>
-                    <?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
-                        <button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
-                    <?php else: ?>
-                        <?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-                
-            <div>
-                <figure>
-                    <img src="<?= plugins_url( '/../img/woocommerce-logo.png', __FILE__ ); ?>" alt="step 1"/>
-                </figure>
-                <div>
-                    <h3>Doppler for WooCommerce</h3>
-                    <p>
-                        <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
-                    </p>
-                    <?php if( !$this->extension_manager->is_installed('doppler-for-woocommerce')):  ?>
-                        <button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
-                    <?php else: ?>
-                        <?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
-                    <?php endif; ?>
+					
+					<?php if(!$this->extension_manager->has_dependency('doppler-for-woocommerce')):?>
+						<p class="notice notice-error text-small"><?php _e('You should have <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce plugin</a> installed and active first.', 'doppler-form')?></p>
+					<?php else: ?>
+						<?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
+							<button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
+						<?php else: ?>
+							<?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+						<?php endif; ?>
+					<?php endif; ?>
                 </div>
             </div>
             
