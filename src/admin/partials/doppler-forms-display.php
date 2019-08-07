@@ -11,6 +11,10 @@ if($this->connectionStatus):
 
 <div class="wrap dplr_settings">
 
+	<a href="<?php _e('https://www.fromdoppler.com/en/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" target="_blank" class="dplr-logo-header">
+		<img id="" src="<?php echo DOPPLER_PLUGIN_URL?>admin/img/doppler.png" alt="Doppler logo"/>
+	</a>
+
     <h2><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
 
     <?php
