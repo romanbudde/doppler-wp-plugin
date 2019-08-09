@@ -5,12 +5,11 @@ class Doppler_Extension_Manager {
     public $extensions = array( 
         'doppler-for-woocommerce' => array( 'class_name' => 'Doppler_For_Woocommerce',
 											'dependency' => 'WooCommerce',
-                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip',
-                                            'settings'   => '' ),
+                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip' ),
         'doppler-for-learnpress'  => array( 'class_name' => 'Doppler_For_Learnpress',
-											'dependency' => '',
-                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip', 
-                                            'settings'   => '' ));
+											'dependency' => 'LearnPress',
+                                            'zip_file'   => 'http://localhost/wordpress-plugins-zips/doppler-for-woocommerce.zip' )
+	);
 
     /**
      * Check if an extension is active.

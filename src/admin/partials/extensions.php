@@ -16,10 +16,10 @@
                                     
             <div>
                 <figure>
-                    <img src="<?= plugins_url( '/../img/woocommerce-logo.png', __FILE__ ); ?>" alt="step 1"/>
+                    <img src="<?php echo plugins_url( '/../img/woocommerce-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for WooCommerce', 'doppler-form')?>"/>
                 </figure>
                 <div>
-                    <h3>Doppler for WooCommerce</h3>
+                    <h3><?php _e('Doppler for WooCommerce', 'doppler-form')?></h3>
                     <p>
                         <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
                     </p>
@@ -29,6 +29,28 @@
 					<?php else: ?>
 						<?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
+						<?php else: ?>
+							<?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+						<?php endif; ?>
+					<?php endif; ?>
+                </div>
+            </div>
+			
+			<div>
+                <figure>
+                    <img src="<?php echo plugins_url( '/../img/learnpress-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for LearnPress', 'doppler-form');?>"/>
+                </figure>
+                <div>
+                    <h3><?php _e('Doppler for LearnPress', 'doppler-form');?></h3>
+                    <p>
+                        <?php _e('This should be a brief description of the Doppler for LearnPress extension.', 'doppler-form') ?>
+                    </p>
+					
+					<?php if(!$this->extension_manager->has_dependency('doppler-for-learnpress')):?>
+						<p class="notice notice-error text-small"><?php _e('You should have <a href="https://wordpress.org/plugins/learnpress/">LearnPress plugin</a> installed and active first.', 'doppler-form')?></p>
+					<?php else: ?>
+						<?php if( !$this->extension_manager->is_active('doppler-for-learnpress')):  ?>
+							<button class="dp-button primary-green button-medium" data-extension="doppler-for-learnpress"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
 							<?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
 						<?php endif; ?>

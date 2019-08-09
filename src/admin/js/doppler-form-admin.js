@@ -286,8 +286,6 @@ $(document).ready(function(){
 			extensionName: extension
 		}
 		$.post(ajaxurl,data,function(resp){
-			console.log(resp);
-			return false;
 			window.location.reload(false);
 		});
 	});
