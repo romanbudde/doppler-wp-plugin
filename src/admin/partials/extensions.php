@@ -30,7 +30,7 @@
 						<?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
-							<?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+							<?php _e('Plugin is installed. Go to <a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-woocommerce']['settings']).'">settings page</a>.', 'doppler-form') ?>
 						<?php endif; ?>
 					<?php endif; ?>
                 </div>
@@ -52,7 +52,7 @@
 						<?php if( !$this->extension_manager->is_active('doppler-for-learnpress')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-learnpress"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
-							<?php _e('Plugin is installed. Go to <a href="#">settings page</a>.', 'doppler-form') ?>
+							<?php _e('Plugin is installed. Go to <a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-learnpress']['settings']).'">settings page</a>.', 'doppler-form') ?>
 						<?php endif; ?>
 					<?php endif; ?>
                 </div>
