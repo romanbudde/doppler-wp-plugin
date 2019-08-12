@@ -1,5 +1,19 @@
 /* Variables */
 
+h2.main-title{
+    font-size: 22px;
+    color: $primary-grey;
+}
+
+.dplr-logo-header{
+    max-width: 130px;
+    display: block;
+    margin-top: 50px;
+    img{
+        width: 100%;
+    }
+}
+
 p{
     color: $primary-grey;
 }

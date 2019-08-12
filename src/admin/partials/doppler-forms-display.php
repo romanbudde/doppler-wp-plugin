@@ -15,7 +15,7 @@ if($this->connectionStatus):
 		<img id="" src="<?php echo DOPPLER_PLUGIN_URL?>admin/img/doppler.png" alt="Doppler logo"/>
 	</a>
 
-    <h2><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
+    <h2 class="main-title"><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
 
     <?php
     if( $active_tab == 'forms' || $active_tab == 'lists'){
