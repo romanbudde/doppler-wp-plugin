@@ -248,6 +248,7 @@ $(document).ready(function(){
 
 	$("#dplr-save-list").click(function(e){
 		e.preventDefault();			
+		clearResponseMessages();
 		var listName = $(this).closest('form').find('input[type="text"]').val();
 		if(listName!==''){
 			var data = {
@@ -330,28 +331,6 @@ function listsLoaded(){
 	$('#dplr-tbl-lists').removeClass('d-none');
 }
 
-function displayErrors(status,code){
-	var errorMsg = '';
-	errorMsg = generateErrorMsg(status,code);
-	$('#showErrorResponse').html(errorMsg);
-}
-
-function generateErrorMsg(status,code){
-	var err = '';
-	var errors = {	
-		400 : { 1: ObjStr.validationError,
-				2: ObjStr.duplicatedName,
-				3: ObjStr.maxListsReached},
-		429 : { 0: ObjStr.tooManyConn},
-		401 : { 1: ObjStr.ConnectionErr}
-	}
-	if(typeof errors[status] === 'undefined')
-		 err = ObjStr.APIConnectionErr;
-	else
-	   typeof errors[status][code] === 'undefined'? err=ObjStr.APIConnectionErr : err = errors[status][code];
-	 return err;
-}
-
 function loadLists( page, per_page ){
 
 	var data = {
@@ -411,6 +390,8 @@ function deleteList(e){
 		action: 'dplr_delete_list',
 		listId : listId
 	};
+
+	clearResponseMessages();
 	
 	$("#dplr-dialog-confirm").dialog("option", "buttons", [{
 		text: 'Delete',
@@ -444,3 +425,29 @@ function deleteList(e){
 }
 
 })( jQuery );
+
+function displayErrors(status,code){
+	var errorMsg = '';
+	errorMsg = generateErrorMsg(status,code);
+	jQuery('#showErrorResponse').css('display','flex').html('<p>'+errorMsg+'</p>');
+}
+
+function clearResponseMessages(){
+	jQuery('#showSuccessResponse,#showErrorResponse').html('').css('display','none');
+}
+
+function generateErrorMsg(status,code){
+	var err = '';
+	var errors = {	
+		400 : { 1: ObjStr.validationError,
+				2: ObjStr.duplicatedName,
+				3: ObjStr.maxListsReached},
+		429 : { 0: ObjStr.tooManyConn},
+		401 : { 1: ObjStr.ConnectionErr}
+	}
+	if(typeof errors[status] === 'undefined')
+		 err = ObjStr.APIConnectionErr;
+	else
+	   typeof errors[status][code] === 'undefined'? err=ObjStr.APIConnectionErr : err = errors[status][code];
+	 return err;
+}

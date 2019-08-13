@@ -16,9 +16,6 @@
         </div>
     </div>
 
-    <div id="showErrorResponse"></div>
-    <div id="showSuccessResponse"></div>
-
     <table id="dplr-tbl-lists" class="grid widefat mt-30 d-none">
         <thead>
             <tr>
