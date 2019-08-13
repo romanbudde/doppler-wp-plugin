@@ -1,5 +1,9 @@
 <div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud pb-1">
 
+
+    <div id="showErrorResponse" class="messages-container blocker d-none"></div>
+    <div id="showSuccessResponse" class="messages-container info d-none"></div>
+
     <form id="dplr-form-list-crud" class="mb-1" action="" method="post">
 
         <label><?php _e('Create a Doppler List', 'doppler-form')?></label>
@@ -15,9 +19,6 @@
         <div class="loading-page">
         </div>
     </div>
-
-    <div id="showErrorResponse"></div>
-    <div id="showSuccessResponse"></div>
 
     <table id="dplr-tbl-lists" class="grid widefat mt-30 d-none">
         <thead>
