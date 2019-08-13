@@ -9,10 +9,14 @@
             text-align: left;
             figure{
                 text-align: center;
-                padding-top: 40px;
-                padding-bottom: 40px;
+                padding-top: 25px;
+                padding-bottom: 25px;
                 margin: 0;
                 border-bottom: 1px solid #C8C7BF;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 img{
                     width: 100%;
                     max-width: 100px;
@@ -29,6 +33,11 @@
                 h3{
                     color: $primary-grey;
                     font-size: 22px;
+                    font-weight: bold;
+                    font-family: $text-family-rg;
+                }
+                p{
+                    font-size: $font-size-mid;
                 }
             }
         }
