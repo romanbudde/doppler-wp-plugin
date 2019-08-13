@@ -12,9 +12,12 @@
 
 .messages-container {
     padding: 0 2%;
-    margin-bottom: 4px;
+    margin-bottom: $m1;
     font-family: Arial,sans-serif;
     display: flex;
+    &.d-none{
+        display: none;
+    }
 }
 
 .messages-container p {
