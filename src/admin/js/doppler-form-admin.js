@@ -262,13 +262,13 @@ $(document).ready(function(){
 					var html ='<tr>';
 					html+='<td>'+body.createdResourceId+'</td><td><strong>'+listName+'</strong></td>';
 					html+='<td>0</td>';
-					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">Delete</a></td>'
+					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">'+ObjStr.delete+'</a></td>'
 					html+='</tr>';
 					$("#dplr-tbl-lists tbody").prepend(html);
 				}else{
 					if(body.status >= 400){
-						//body.status
-						displayErrors(body.status,body.errorCode);
+						//body.status,body.errorCode
+						displayErrors(body);
 					}
 				}
 				listsLoaded();
@@ -357,7 +357,7 @@ function loadLists( page, per_page ){
 				html += '<td>'+value.listId+'</td>';
 				html += '<td><strong>'+value.name+'</strong></td>';
 				html += '<td>'+value.subscribersCount+'</td>';
-				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">Delete</a></td>'
+				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">'+ObjStr.delete+'</a></td>'
 				html += '</tr>';
 			}
 			$("#dplr-tbl-lists tbody").prepend(html);
@@ -366,9 +366,7 @@ function loadLists( page, per_page ){
 			}else{
 				$("#crud-show-more").removeClass('button--loading');
 			}
-			console.log(obj);
-			console.log(page);
-			console.log(obj.pagesCount);
+			
 			if(page < parseInt(obj.pagesCount)){
 				$("#crud-show-more").css('visibility','visible').attr('data-next-page', parseInt(page)+1);
 			}else{
@@ -394,7 +392,7 @@ function deleteList(e){
 	clearResponseMessages();
 	
 	$("#dplr-dialog-confirm").dialog("option", "buttons", [{
-		text: 'Delete',
+		text: ObjStr.delete,
 		click: function() {
 			$(this).dialog("close");
 			tr.addClass('deleting');
@@ -414,7 +412,7 @@ function deleteList(e){
 		}
 	  }, 
 	  {
-		text: 'Cancel',
+		text: ObjStr.cancel,
 		click: function() {
 		  $(this).dialog("close");
 		}
@@ -426,9 +424,9 @@ function deleteList(e){
 
 })( jQuery );
 
-function displayErrors(status,code){
+function displayErrors(body){
 	var errorMsg = '';
-	errorMsg = generateErrorMsg(status,code);
+	errorMsg = generateErrorMsg(body.status, body.errorCode, body.title, body.detail);
 	jQuery('#showErrorResponse').css('display','flex').html('<p>'+errorMsg+'</p>');
 }
 
@@ -436,18 +434,19 @@ function clearResponseMessages(){
 	jQuery('#showSuccessResponse,#showErrorResponse').html('').css('display','none');
 }
 
-function generateErrorMsg(status,code){
+function generateErrorMsg(status, code, title, detail){
 	var err = '';
 	var errors = {	
 		400 : { 1: ObjStr.validationError,
 				2: ObjStr.duplicatedName,
-				3: ObjStr.maxListsReached},
+				3: ObjStr.maxListsReached
+			},
 		429 : { 0: ObjStr.tooManyConn},
 		401 : { 1: ObjStr.ConnectionErr}
 	}
 	if(typeof errors[status] === 'undefined')
 		 err = ObjStr.APIConnectionErr;
 	else
-	   typeof errors[status][code] === 'undefined'? err=ObjStr.APIConnectionErr : err = errors[status][code];
+	   typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
 	 return err;
 }
