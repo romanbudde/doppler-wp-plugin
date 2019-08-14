@@ -106,7 +106,15 @@ class Doppler_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/doppler-form-admin.js', array( 'jquery', 'jquery-ui-sortable' ), $this->version, false );
 		wp_localize_script( $this->plugin_name, 'object_string', array( 
 			'Delete'   	=> __( 'Delete', 'doppler-form' ),
-			'Cancel'    => __( 'Cancel', 'doppler-form'),								 				
+			'Cancel'    => __( 'Cancel', 'doppler-form'),
+			'ConnectionErr' 	=> __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-form'),
+			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
+			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
+			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
+			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
+			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
+			'installing' 		=> __('Installing', 'doppler-form')								 				
 		) ); 
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_localize_script( 'field-module', 'ObjStr', array( 
@@ -118,16 +126,16 @@ class Doppler_Admin {
 			'TextType'    		=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' 	=> __( 'Simple', 'doppler-form'),
 			'MultipleLines' 	=> __( 'Multiple', 'doppler-form'),
-			'ConnectionErr' 	=> __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
-			'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-form'),
-			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
-			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
-			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
-			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
-			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
-			'installing' 		=> __('Installing', 'doppler-form'),
-			'delete'			=> __('Delete', 'doppler-form'),
-			'cancel'			=> __('Cancel', 'doppler-form'),	 				
+			//'ConnectionErr' 	=> __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			//'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-form'),
+			//'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
+			//'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
+			//'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
+			//'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
+			//'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
+			//'installing' 		=> __('Installing', 'doppler-form'),
+			//'delete'			=> __('Delete', 'doppler-form'),
+			//'cancel'			=> __('Cancel', 'doppler-form'),	 				
  				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);

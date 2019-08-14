@@ -262,7 +262,7 @@ $(document).ready(function(){
 					var html ='<tr>';
 					html+='<td>'+body.createdResourceId+'</td><td><strong>'+listName+'</strong></td>';
 					html+='<td>0</td>';
-					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">'+ObjStr.delete+'</a></td>'
+					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">'+object_string.Delete+'</a></td>'
 					html+='</tr>';
 					$("#dplr-tbl-lists tbody").prepend(html);
 				}else{
@@ -281,7 +281,7 @@ $(document).ready(function(){
 	$(".dplr-extensions .dplr-boxes button").click(function(){
 		var button = $(this);
 		var extension = button.attr('data-extension');
-		button.addClass('button--loading').html(ObjStr.installing);
+		button.addClass('button--loading').html(object_string.installing);
 		var data = {
 			action: 'install_extension',
 			extensionName: extension
@@ -357,7 +357,7 @@ function loadLists( page, per_page ){
 				html += '<td>'+value.listId+'</td>';
 				html += '<td><strong>'+value.name+'</strong></td>';
 				html += '<td>'+value.subscribersCount+'</td>';
-				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">'+ObjStr.delete+'</a></td>'
+				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">'+object_string.Delete+'</a></td>'
 				html += '</tr>';
 			}
 			$("#dplr-tbl-lists tbody").prepend(html);
@@ -392,7 +392,7 @@ function deleteList(e){
 	clearResponseMessages();
 	
 	$("#dplr-dialog-confirm").dialog("option", "buttons", [{
-		text: ObjStr.delete,
+		text: object_string.Delete,
 		click: function() {
 			$(this).dialog("close");
 			tr.addClass('deleting');
@@ -412,7 +412,7 @@ function deleteList(e){
 		}
 	  }, 
 	  {
-		text: ObjStr.cancel,
+		text: object_string.Cancel,
 		click: function() {
 		  $(this).dialog("close");
 		}
@@ -438,16 +438,16 @@ function clearResponseMessages(){
 function generateErrorMsg(status, code, title, detail){
 	var err = '';
 	var errors = {	
-		400 : { 1: ObjStr.validationError,
-				2: ObjStr.duplicatedName,
-				3: ObjStr.maxListsReached
+		400 : { 1: object_string.validationError,
+				2: object_string.duplicatedName,
+				3: object_string.maxListsReached
 			},
 		401 : {},
 		404 : {},
-		429 : { 0: ObjStr.tooManyConn},
+		429 : { 0: object_string.tooManyConn},
 	}
 	if(typeof errors[status] === 'undefined')
-		 err = ObjStr.APIConnectionErr;
+		 err = object_string.APIConnectionErr;
 	else
 	   typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
 	 return err;
