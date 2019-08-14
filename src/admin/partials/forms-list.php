@@ -1,10 +1,4 @@
 <div class="dplr dplr-tab-content dplr-tab-content--list">
-  
-  <?php if($_GET['created']=='1'){ ?>
-  
-  <div class="notice notice-success"><?php _e('Pst! Go to', 'doppler-form')?> <a href="<?= admin_url( 'widgets.php') ?>"> <?php _e('Appearance > Widgets', 'doppler-form')?></a> <?php _e('to choose the place on your Website where you want your Form to appear.','doppler-form')?></div>
-  
-  <?php } ?>
 
   <?php $this->display_success_message() ?>
 

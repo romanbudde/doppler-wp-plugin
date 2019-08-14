@@ -67,19 +67,23 @@ class Doppler_Admin {
 	}
 
 	public function display_error_message() {
+		if($this->get_error_message()!=''):
 		?>
-		<div id="displayErrorMessage">
-			<?php echo $this->get_error_message(); ?>
+		<div id="displayErrorMessage" class="messages-container block">
+			<p><?php echo $this->get_error_message(); ?></p>
 		</div>
 		<?php
+		endif;
 	}
 
 	public function display_success_message() {
+		if($this->get_success_message()!=''):
 		?>
-		<div id="displaySuccessMessage">
-			<?php echo $this->get_success_message(); ?>
+		<div id="displaySuccessMessage" class="messages-container info">
+			<p><?php echo $this->get_success_message(); ?></p>
 		</div>
 		<?php
+		endif;
 	}
 
 	/**

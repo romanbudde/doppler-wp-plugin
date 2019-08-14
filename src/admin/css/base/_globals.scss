@@ -142,6 +142,14 @@ a.green-link{
     padding-left: $m1/3;
 }
 
+.pt-1{
+    padding-top: $m1/3;
+}
+
+.pb-1{
+    padding-bottom: $m1/3;
+}
+
 .pb-3{
     padding-bottom: $m1;
 }
@@ -166,6 +174,8 @@ a.green-link{
 
 .dplr-tab-content{
     padding: 43px 10px;
+    font-family: $text-family-rg;
+    font-size: $font-size-regular;
 }
 
 //Tables

@@ -7,7 +7,7 @@
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
     background: $white;
-    font-size: 13px;
+    font-size: $font-size-regular;
     line-height: 2.1em;
     &:first-child{
       margin-top:0px;

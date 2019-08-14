@@ -432,6 +432,7 @@ function displayErrors(body){
 
 function clearResponseMessages(){
 	jQuery('#showSuccessResponse,#showErrorResponse').html('').css('display','none');
+	jQuery('#displaySuccessMessage,#displayErrorMessage').remove();
 }
 
 function generateErrorMsg(status, code, title, detail){
@@ -441,8 +442,9 @@ function generateErrorMsg(status, code, title, detail){
 				2: ObjStr.duplicatedName,
 				3: ObjStr.maxListsReached
 			},
+		401 : {},
+		404 : {},
 		429 : { 0: ObjStr.tooManyConn},
-		401 : { 1: ObjStr.ConnectionErr}
 	}
 	if(typeof errors[status] === 'undefined')
 		 err = ObjStr.APIConnectionErr;
