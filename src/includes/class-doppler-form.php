@@ -73,7 +73,7 @@ class DPLR_Doppler {
 
 		require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 		$this->plugin_name = 'Doppler';
-		$this->version = '2.0.2';
+		$this->version = '2.1.0';
 		$this->doppler_service = new Doppler_Service();
 
 		$options = get_option('dplr_settings', [
@@ -81,6 +81,7 @@ class DPLR_Doppler {
 			'dplr_option_useraccount' => ''
 			]);
 
+		 /* Not sure about this block. */
 		 try {
 		 	//$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
@@ -209,6 +210,12 @@ class DPLR_Doppler {
 
 	}
 
+	/**
+	 * If plugin is upgrading from version 1.0.0, updates database, 
+	 * imports current forms, and saves version in db.
+	 * 
+	 * @since 2.0.0 
+	 */
 	public function check_version_update(){
 
 		$settings = get_option('dplr_settings');

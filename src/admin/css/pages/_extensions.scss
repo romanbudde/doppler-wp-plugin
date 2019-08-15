@@ -1,6 +1,7 @@
 &.dplr-extensions{
     .dplr-boxes{
         display: flex;
+        justify-content: center;
         >div{
             width: 33%;
             min-height: 100px;
