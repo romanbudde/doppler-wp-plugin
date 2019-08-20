@@ -41,7 +41,7 @@ function hideUserApiError(){
 
 $(document).ready(function(){
 
-	var default_page_size = 20;
+	var default_page_size = 400;
 
 	$("input[data-validation-fixed]").each(function() {
 		hideUserApiError();
