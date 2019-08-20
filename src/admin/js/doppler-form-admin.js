@@ -216,6 +216,7 @@ $(document).ready(function(){
 	$(".dplr-tab-content--list .dplr-remove").click(function(e) {
 		
 		e.preventDefault();
+		clearResponseMessages();
 		var a = $(this);
 		var listId = a.attr('data-list-id');
 		var row = a.closest('tr');
