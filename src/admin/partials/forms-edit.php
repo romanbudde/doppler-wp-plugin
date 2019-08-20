@@ -1,10 +1,9 @@
-<?php echo "<script>console.log(".json_encode($form).");</script>"; ?>
-
 <div class="dplr dplr-tab-content dplr-tab-content--form-edit">
   
   <form method="post" action="<?php admin_url() ?>admin.php?page=doppler_forms_main">
     
-    <input type="hidden" name="create" value="true">
+    <input type="hidden" name="create" value="true" />
+    <input type="hidden" name="form_id" value="<?php echo $form->id?>" />
       
       <div class="grid">
         <div class="col-4-5 panel nopd">

@@ -266,7 +266,7 @@ class Doppler_Admin {
 				}
 			}
 			if(isset($_POST['form-edit'])){
-				if($this->form_controller->update($_GET['form_id'], $_POST) == 1){
+				if($this->form_controller->update($_POST['form_id'], $_POST) == 1){
 					$this->set_success_message(__('The Form has been edited correctly.','doppler-form'));
 				}else{
 					$this->set_error_message(__('An error has ocurred and the Form could not be edited.','doppler-form'));
@@ -312,7 +312,8 @@ class Doppler_Admin {
 	}
 
 	public function show_form_edit() {
-		$this->form_controller->create($_POST);
+		//Remove this if not necessary
+		//$this->form_controller->create($_POST);
 	}
 
 	public function show_admin_notices() {
