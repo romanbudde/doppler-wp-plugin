@@ -1,9 +1,15 @@
-.dplr-tab-content--form-create,.dplr-tab-content--form-update {
+.dplr-tab-content--form-create,.dplr-tab-content--form-edit {
 
     @import "colorpicker";
 
     #color-picker {
         display: none;
+        &.active{
+            display: block;
+            position: absolute;
+            left: 405px;
+            bottom: -7px;
+        }
     }
     
     .dplr_colorpicker_replace {
