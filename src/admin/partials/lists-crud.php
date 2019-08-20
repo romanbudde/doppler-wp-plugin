@@ -33,7 +33,7 @@
         </tbody>
     </table>
 
-    <button id="crud-show-more" class="dp-button button-medium primary-grey hidden" data-next-page="2"><?php _e('Show more results', 'doppler-form'); ?></button>
+    <!--<button id="crud-show-more" class="dp-button button-medium primary-grey hidden" data-next-page="2"><?php _e('Show more results', 'doppler-form'); ?></button>-->
 
 </div>
 
