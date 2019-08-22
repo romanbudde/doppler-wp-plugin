@@ -283,6 +283,7 @@ $(document).ready(function(){
 		var button = $(this);
 		var extension = button.attr('data-extension');
 		button.addClass('button--loading').html(object_string.installing);
+		button.closest('.dplr-extensions').find('button').css('pointer-events','none');
 		var data = {
 			action: 'install_extension',
 			extensionName: extension
