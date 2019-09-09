@@ -169,8 +169,8 @@ class Doppler_Service
   }
 
   function call( $method, $args=null, $body=null ) {
-    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
+    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    //$url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
   
     $query = array();
