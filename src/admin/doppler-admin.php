@@ -191,6 +191,7 @@ class Doppler_Admin {
 				array($this, 'doppler_forms_screen')
 			);
 
+			/*
 			add_submenu_page(
 				'doppler_forms_menu',
 				__('Extensions', 'doppler-form'),
@@ -199,6 +200,7 @@ class Doppler_Admin {
 				'doppler_forms_extensions',
 				array($this, 'doppler_extensions_screen')
 			);
+			*/
 
 			do_action('dplr_add_extension_submenu');
 		
