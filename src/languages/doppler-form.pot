@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-08-13 12:20-0300\n"
+"2019-09-11 16:28-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -49,53 +49,19 @@ msgstr ""
 "X-Poedit-"
 "SearchPath-0: .\n"
 
-#: admin/doppler-admin.php:104
-#: admin/doppler-admin.php:125
-#: admin/partials/forms-list.php:39
+#: admin/doppler-admin.php:108
+#: admin/partials/forms-list.php:33
 msgid "Delete"
 msgstr ""
 
-#: admin/doppler-admin.php:105
-#: admin/doppler-admin.php:126
+#: admin/doppler-admin.php:109
 #: admin/partials/forms-create.php:130
-#: admin/partials/forms-edit.php:142
+#: admin/partials/forms-edit.php:141
 msgid "Cancel"
 msgstr ""
 
-#: admin/doppler-admin.php:109
-msgid "Edit Field"
-msgstr ""
-
 #: admin/doppler-admin.php:110
-msgid "Required"
-msgstr ""
-
-#: admin/doppler-admin.php:111
-msgid "Label to be shown"
-msgstr ""
-
-#: admin/doppler-admin.php:112
-msgid "Placeholder"
-msgstr ""
-
-#: admin/doppler-admin.php:113
-msgid "Description"
-msgstr ""
-
-#: admin/doppler-admin.php:114
-msgid "Lines"
-msgstr ""
-
-#: admin/doppler-admin.php:115
-msgid "Simple"
-msgstr ""
-
-#: admin/doppler-admin.php:116
-msgid "Multiple"
-msgstr ""
-
-#: admin/doppler-admin.php:117
-#: admin/doppler-admin.php:221
+#: admin/doppler-admin.php:235
 msgid ""
 "Ouch! There's something "
 "wrong with your Username "
@@ -103,27 +69,27 @@ msgid ""
 "again."
 msgstr ""
 
-#: admin/doppler-admin.php:118
+#: admin/doppler-admin.php:111
 msgid ""
 "The List has been "
 "created correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:119
+#: admin/doppler-admin.php:112
 msgid ""
 "Ouch! You've reached the "
 "maximum number of Lists "
 "created."
 msgstr ""
 
-#: admin/doppler-admin.php:120
+#: admin/doppler-admin.php:113
 msgid ""
 "Ouch! You've already "
 "used this name for "
 "another List."
 msgstr ""
 
-#: admin/doppler-admin.php:121
+#: admin/doppler-admin.php:114
 msgid ""
 "Ouch! You've made "
 "several actions in a "
@@ -133,14 +99,14 @@ msgid ""
 "another one."
 msgstr ""
 
-#: admin/doppler-admin.php:122
+#: admin/doppler-admin.php:115
 msgid ""
 "Ouch! List name is "
 "invalid. Please choose "
 "another name."
 msgstr ""
 
-#: admin/doppler-admin.php:123
+#: admin/doppler-admin.php:116
 msgid ""
 "There was an error "
 "trying to communicate "
@@ -148,98 +114,122 @@ msgid ""
 "later."
 msgstr ""
 
-#: admin/doppler-admin.php:124
+#: admin/doppler-admin.php:117
 msgid "Installing"
 msgstr ""
 
-#: admin/doppler-admin.php:146
-#: admin/doppler-admin.php:147
+#: admin/doppler-admin.php:121
+msgid "Edit Field"
+msgstr ""
+
+#: admin/doppler-admin.php:122
+msgid "Required"
+msgstr ""
+
+#: admin/doppler-admin.php:123
+msgid "Label to be shown"
+msgstr ""
+
+#: admin/doppler-admin.php:124
+msgid "Placeholder"
+msgstr ""
+
+#: admin/doppler-admin.php:125
+msgid "Description"
+msgstr ""
+
+#: admin/doppler-admin.php:126
+msgid "Lines"
+msgstr ""
+
+#: admin/doppler-admin.php:127
+msgid "Simple"
+msgstr ""
+
+#: admin/doppler-admin.php:128
+msgid "Multiple"
+msgstr ""
+
+#: admin/doppler-admin.php:158
+#: admin/doppler-admin.php:159
 msgid "Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:164
-#: admin/doppler-admin.php:165
+#: admin/doppler-admin.php:176
+#: admin/doppler-admin.php:177
 msgid ""
 "Connect with Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:175
-#: admin/doppler-admin.php:176
+#: admin/doppler-admin.php:187
+#: admin/doppler-admin.php:188
 #: admin/partials/doppler-forms-display.php:18
 msgid "Doppler Forms"
 msgstr ""
 
-#: admin/doppler-admin.php:184
-#: admin/doppler-admin.php:185
-msgid "Extensions"
-msgstr ""
-
-#: admin/doppler-admin.php:229
+#: admin/doppler-admin.php:243
 #: admin/partials/api-connection.php:119
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:234
+#: admin/doppler-admin.php:248
 #: admin/partials/api-connection.php:141
 msgid ""
 "Ouch! The field is empty."
 msgstr ""
 
-#: admin/doppler-admin.php:251
-#: admin/partials/forms-list.php:5
+#: admin/doppler-admin.php:265
 msgid "Pst! Go to"
 msgstr ""
 
-#: admin/doppler-admin.php:251
-#: admin/partials/forms-list.php:5
+#: admin/doppler-admin.php:265
 msgid ""
 "Appearance > Widgets"
 msgstr ""
 
-#: admin/doppler-admin.php:251
-#: admin/partials/forms-list.php:5
+#: admin/doppler-admin.php:265
 msgid ""
 "to choose the place on "
 "your Website where you "
 "want your Form to appear."
 msgstr ""
 
-#: admin/doppler-admin.php:253
+#: admin/doppler-admin.php:267
 msgid ""
 "An error has ocurred and "
 "the Form could not be "
 "created."
 msgstr ""
 
-#: admin/doppler-admin.php:258
+#: admin/doppler-admin.php:272
 msgid ""
 "The Form has been edited "
 "correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:260
+#: admin/doppler-admin.php:274
 msgid ""
 "An error has ocurred and "
 "the Form could not be "
 "edited."
 msgstr ""
 
-#: admin/doppler-admin.php:267
+#: admin/doppler-admin.php:281
 msgid ""
 "The Form has been "
 "deleted correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:269
+#: admin/doppler-admin.php:283
 msgid ""
 "An error has ocurred and "
 "the Form could not be "
 "deleted."
 msgstr ""
 
-#: admin/doppler-admin.php:314
+#: admin/doppler-admin.php:329
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -248,11 +238,11 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:316
+#: admin/doppler-admin.php:331
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:317
+#: admin/doppler-admin.php:332
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
@@ -362,8 +352,8 @@ msgstr ""
 #: admin/partials/api-connection.php:170
 #: admin/partials/forms-create.php:39
 #: admin/partials/forms-create.php:100
-#: admin/partials/forms-edit.php:45
-#: admin/partials/forms-edit.php:110
+#: admin/partials/forms-edit.php:44
+#: admin/partials/forms-edit.php:109
 msgid "HELP"
 msgstr ""
 
@@ -464,19 +454,19 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:10
-#: admin/partials/forms-edit.php:12
+#: admin/partials/forms-edit.php:11
 msgid ""
 "Form basic information"
 msgstr ""
 
 #: admin/partials/forms-create.php:14
-#: admin/partials/forms-edit.php:16
+#: admin/partials/forms-edit.php:15
 #: admin/partials/lists-crud.php:27
 msgid "Name"
 msgstr ""
 
 #: admin/partials/forms-create.php:18
-#: admin/partials/forms-edit.php:20
+#: admin/partials/forms-edit.php:19
 msgid "Doppler List"
 msgstr ""
 
@@ -488,17 +478,17 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:35
-#: admin/partials/forms-edit.php:41
+#: admin/partials/forms-edit.php:40
 msgid "Form Fields"
 msgstr ""
 
 #: admin/partials/forms-create.php:39
-#: admin/partials/forms-edit.php:45
+#: admin/partials/forms-edit.php:44
 msgid "Fields to include"
 msgstr ""
 
 #: admin/partials/forms-create.php:39
-#: admin/partials/forms-edit.php:45
+#: admin/partials/forms-edit.php:44
 msgid ""
 "Learn how to create "
 "Custom Fields with "
@@ -506,7 +496,7 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:39
-#: admin/partials/forms-edit.php:45
+#: admin/partials/forms-edit.php:44
 msgid ""
 "https://help.fromdoppler."
 "com/en/how-to-create-a-"
@@ -515,14 +505,14 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:41
-#: admin/partials/forms-edit.php:47
+#: admin/partials/forms-edit.php:46
 msgid ""
 "Select the Fields that "
 "will appear on your Form"
 msgstr ""
 
 #: admin/partials/forms-create.php:45
-#: admin/partials/forms-edit.php:51
+#: admin/partials/forms-edit.php:50
 msgid ""
 "Drag and drop the Fields "
 "to give them the order "
@@ -530,79 +520,79 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:56
-#: admin/partials/forms-edit.php:63
+#: admin/partials/forms-edit.php:62
 msgid "Form settings"
 msgstr ""
 
 #: admin/partials/forms-create.php:60
-#: admin/partials/forms-edit.php:67
+#: admin/partials/forms-edit.php:66
 msgid "Title"
 msgstr ""
 
 #: admin/partials/forms-create.php:61
-#: admin/partials/forms-edit.php:68
+#: admin/partials/forms-edit.php:67
 msgid ""
 "Subscribe to our "
 "Newsletter!"
 msgstr ""
 
 #: admin/partials/forms-create.php:64
-#: admin/partials/forms-edit.php:71
+#: admin/partials/forms-edit.php:70
 msgid "Button text"
 msgstr ""
 
 #: admin/partials/forms-create.php:65
-#: admin/partials/forms-edit.php:72
+#: admin/partials/forms-edit.php:71
 #: includes/helpers/Form_Helper.php:53
 msgid "Submit"
 msgstr ""
 
 #: admin/partials/forms-create.php:68
-#: admin/partials/forms-edit.php:75
+#: admin/partials/forms-edit.php:74
 msgid "Button alignment"
 msgstr ""
 
 #: admin/partials/forms-create.php:70
-#: admin/partials/forms-edit.php:78
+#: admin/partials/forms-edit.php:77
 msgid "Left"
 msgstr ""
 
 #: admin/partials/forms-create.php:71
-#: admin/partials/forms-edit.php:79
+#: admin/partials/forms-edit.php:78
 msgid "Center"
 msgstr ""
 
 #: admin/partials/forms-create.php:72
-#: admin/partials/forms-edit.php:80
+#: admin/partials/forms-edit.php:79
 msgid "Right"
 msgstr ""
 
 #: admin/partials/forms-create.php:73
-#: admin/partials/forms-edit.php:81
+#: admin/partials/forms-edit.php:80
 msgid "Full width"
 msgstr ""
 
 #: admin/partials/forms-create.php:77
-#: admin/partials/forms-edit.php:85
+#: admin/partials/forms-edit.php:84
 msgid ""
 "Button background color"
 msgstr ""
 
 #: admin/partials/forms-create.php:79
-#: admin/partials/forms-edit.php:87
+#: admin/partials/forms-edit.php:86
 msgid ""
 "Use my theme's default "
 "color"
 msgstr ""
 
 #: admin/partials/forms-create.php:80
-#: admin/partials/forms-edit.php:89
+#: admin/partials/forms-edit.php:88
 msgid ""
 "Choose another color"
 msgstr ""
 
 #: admin/partials/forms-create.php:85
-#: admin/partials/forms-edit.php:95
+#: admin/partials/forms-edit.php:94
 msgid ""
 "What do you want to show "
 "to your users after "
@@ -610,52 +600,52 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:87
-#: admin/partials/forms-edit.php:97
+#: admin/partials/forms-edit.php:96
 msgid ""
 "Custom confirmation page"
 msgstr ""
 
 #: admin/partials/forms-create.php:88
 #: admin/partials/forms-create.php:92
-#: admin/partials/forms-edit.php:98
-#: admin/partials/forms-edit.php:102
+#: admin/partials/forms-edit.php:97
+#: admin/partials/forms-edit.php:101
 msgid ""
 "Confirmation message"
 msgstr ""
 
 #: admin/partials/forms-create.php:93
-#: admin/partials/forms-edit.php:103
+#: admin/partials/forms-edit.php:102
 msgid ""
 "Thanks for subscribing!"
 msgstr ""
 
 #: admin/partials/forms-create.php:96
-#: admin/partials/forms-edit.php:106
+#: admin/partials/forms-edit.php:105
 msgid ""
 "Custom confirmation page "
 "URL"
 msgstr ""
 
 #: admin/partials/forms-create.php:96
-#: admin/partials/forms-edit.php:106
+#: admin/partials/forms-edit.php:105
 msgid ""
 "Enter the URL of the "
 "page that you've created."
 msgstr ""
 
 #: admin/partials/forms-create.php:100
-#: admin/partials/forms-edit.php:110
+#: admin/partials/forms-edit.php:109
 msgid ""
 "Consent Field (GDPR)"
 msgstr ""
 
 #: admin/partials/forms-create.php:100
-#: admin/partials/forms-edit.php:110
+#: admin/partials/forms-edit.php:109
 msgid "What is it? Press"
 msgstr ""
 
 #: admin/partials/forms-create.php:100
-#: admin/partials/forms-edit.php:110
+#: admin/partials/forms-edit.php:109
 msgid ""
 "https://help.fromdoppler."
 "com/en/general-data-"
@@ -664,23 +654,23 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:102
-#: admin/partials/forms-edit.php:112
+#: admin/partials/forms-edit.php:111
 msgid "Yes"
 msgstr ""
 
 #: admin/partials/forms-create.php:103
-#: admin/partials/forms-edit.php:114
+#: admin/partials/forms-edit.php:113
 msgid "No"
 msgstr ""
 
 #: admin/partials/forms-create.php:113
-#: admin/partials/forms-edit.php:125
+#: admin/partials/forms-edit.php:124
 msgid ""
 "Consent Field settings"
 msgstr ""
 
 #: admin/partials/forms-create.php:117
-#: admin/partials/forms-edit.php:129
+#: admin/partials/forms-edit.php:128
 msgid "Checkbox label"
 msgstr ""
 
@@ -691,70 +681,70 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-create.php:122
-#: admin/partials/forms-edit.php:134
+#: admin/partials/forms-edit.php:133
 msgid ""
 "Enter the URL of your "
 "privacy policy"
 msgstr ""
 
 #: admin/partials/forms-create.php:130
-#: admin/partials/forms-edit.php:142
+#: admin/partials/forms-edit.php:141
 msgid "Save"
 msgstr ""
 
-#: admin/partials/forms-edit.php:22
+#: admin/partials/forms-edit.php:21
 msgid ""
 "Select the destination "
 "List where your your new "
 "Subscribers will be sent"
 msgstr ""
 
-#: admin/partials/forms-edit.php:130
+#: admin/partials/forms-edit.php:129
 #: includes/helpers/Form_Helper.php:30
 msgid ""
 "I've read and accept the "
 "privace policy"
 msgstr ""
 
-#: admin/partials/forms-list.php:16
+#: admin/partials/forms-list.php:10
 msgid ""
 "There are no forms! "
 "Press Create Form button "
 "to create one."
 msgstr ""
 
-#: admin/partials/forms-list.php:24
+#: admin/partials/forms-list.php:18
 msgid "Form ID"
 msgstr ""
 
-#: admin/partials/forms-list.php:25
+#: admin/partials/forms-list.php:19
 msgid "Form Name"
 msgstr ""
 
-#: admin/partials/forms-list.php:26
+#: admin/partials/forms-list.php:20
 msgid "List Name"
 msgstr ""
 
-#: admin/partials/forms-list.php:27
+#: admin/partials/forms-list.php:21
 #: admin/partials/lists-crud.php:26
 msgid "List ID"
 msgstr ""
 
-#: admin/partials/forms-list.php:38
+#: admin/partials/forms-list.php:32
 msgid "Edit"
 msgstr ""
 
-#: admin/partials/forms-list.php:53
+#: admin/partials/forms-list.php:47
 msgid "Create Form"
 msgstr ""
 
-#: admin/partials/forms-list.php:55
+#: admin/partials/forms-list.php:49
 msgid ""
 "Are you sure you want to "
 "delete the Form? "
 msgstr ""
 
-#: admin/partials/forms-list.php:56
+#: admin/partials/forms-list.php:50
 #: admin/partials/lists-crud.php:41
 msgid ""
 "It'll be deleted and "
@@ -833,4 +823,10 @@ msgstr ""
 #: includes/helpers/Form_Helper.php:56
 msgid ""
 "Thanks for subscribing"
+msgstr ""
+
+#: includes/helpers/Form_Helper.php:103
+msgid ""
+"Please enter a valid "
+"email address."
 msgstr ""
