@@ -100,7 +100,7 @@ class DPLR_Form_helper
         break;
       case 'email':
         ?>
-        <input <?=$required?> type="email" oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" name="<?php echo $input->name; ?>"  oninput="this.setCustomValidity('')" value="" maxlength="150" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+        <input <?=$required?> type="email" oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" name="<?php echo $input->name; ?>"  oninput="this.setCustomValidity('')" value="" maxlength="150" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
         break;
       case 'date':
         ?>
