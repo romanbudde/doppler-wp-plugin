@@ -92,7 +92,7 @@
             <label for="submit_text"><?php _e('Confirmation message', 'doppler-form')?></label>
             <input type="text" name="settings[message_success]" value="" placeholder="<?php _e('Thanks for subscribing!', 'doppler-form')?>" maxlength="150"/>
           </div>
-          <div class="dplr_input_section dplr_thankyou_url">
+          <div class="dplr_input_section dplr_thankyou_url d-none">
             <label for="submit_text"><?php _e('Custom confirmation page URL', 'doppler-form')?> <span class="hlp"><?php _e('Enter the URL of the page that you\'ve created.', 'doppler-form')?></span></label>
             <input type="url" name="settings[thankyou_page_url]" value="" pattern="https?://.+" placeholder="" maxlength="150"/>
           </div>

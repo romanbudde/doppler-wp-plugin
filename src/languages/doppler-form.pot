@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-09-11 16:28-0300\n"
+"2019-09-12 15:19-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -101,17 +101,17 @@ msgstr ""
 
 #: admin/doppler-admin.php:115
 msgid ""
-"Ouch! List name is "
+"Ouch! The List name is "
 "invalid. Please choose "
-"another name."
+"another."
 msgstr ""
 
 #: admin/doppler-admin.php:116
 msgid ""
-"There was an error "
-"trying to communicate "
-"with the API. Try again "
-"later."
+"Ouch! An error ocurred "
+"while trying to "
+"communicate with the "
+"API. Try again later."
 msgstr ""
 
 #: admin/doppler-admin.php:117
@@ -198,9 +198,9 @@ msgstr ""
 
 #: admin/doppler-admin.php:267
 msgid ""
-"An error has ocurred and "
-"the Form could not be "
-"created."
+"Ouch! An error ocurred "
+"and the Form couldn't be "
+"created. Try again later."
 msgstr ""
 
 #: admin/doppler-admin.php:272
@@ -211,9 +211,9 @@ msgstr ""
 
 #: admin/doppler-admin.php:274
 msgid ""
-"An error has ocurred and "
-"the Form could not be "
-"edited."
+"Ouch! An error ocurred "
+"and the Form couldn't be "
+"edited. Try again later."
 msgstr ""
 
 #: admin/doppler-admin.php:281
@@ -224,12 +224,12 @@ msgstr ""
 
 #: admin/doppler-admin.php:283
 msgid ""
-"An error has ocurred and "
-"the Form could not be "
-"deleted."
+"Ouch! An error ocurred "
+"and the Form couldn't be "
+"deleted. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:329
+#: admin/doppler-admin.php:324
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -238,11 +238,11 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:331
+#: admin/doppler-admin.php:326
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:332
+#: admin/doppler-admin.php:327
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
@@ -707,10 +707,9 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-list.php:10
+#: includes/class-doppler-form-widget.php:94
 msgid ""
-"There are no forms! "
-"Press Create Form button "
-"to create one."
+"You don't have Forms yet!"
 msgstr ""
 
 #: admin/partials/forms-list.php:18
@@ -745,7 +744,6 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-list.php:50
-#: admin/partials/lists-crud.php:41
 msgid ""
 "It'll be deleted and "
 "can't be recovered."
@@ -768,14 +766,17 @@ msgstr ""
 msgid "Subscribers"
 msgstr ""
 
-#: admin/partials/lists-crud.php:36
-msgid "Show more results"
-msgstr ""
-
-#: admin/partials/lists-crud.php:40
+#: admin/partials/lists-crud.php:38
 msgid ""
 "Are you sure you want to "
 "delete the List? "
+msgstr ""
+
+#: admin/partials/lists-crud.php:39
+msgid ""
+"If you proceed, the List "
+"will also be deleted in "
+"Doppler."
 msgstr ""
 
 #: admin/partials/tabs-nav.php:2
@@ -808,12 +809,6 @@ msgstr ""
 msgid ""
 "Select the Form that you "
 "want to publish"
-msgstr ""
-
-#: includes/class-doppler-form-widget.php:94
-msgid ""
-"You haven't created any "
-"form"
 msgstr ""
 
 #: includes/helpers/Form_Helper.php:34

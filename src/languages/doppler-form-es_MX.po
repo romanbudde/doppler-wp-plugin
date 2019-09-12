@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-09-11 16:29-0300\n"
+"POT-Creation-Date: 2019-09-12 15:21-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -60,14 +60,17 @@ msgstr ""
 "favor, espera unos minutos antes de realizar otra."
 
 #: admin/doppler-admin.php:115
-msgid "Ouch! List name is invalid. Please choose another name."
-msgstr "¡Ouch! El nombre de la lista no es válido. Por favor elige otro."
+msgid "Ouch! The List name is invalid. Please choose another."
+msgstr ""
+"¡Ouch! Ocurrió un error al validar los datos . Por favor intenta nuevamente."
 
 #: admin/doppler-admin.php:116
-msgid "There was an error trying to communicate with the API. Try again later."
+msgid ""
+"Ouch! An error ocurred while trying to communicate with the API. Try again "
+"later."
 msgstr ""
-"Ocurrió un error al intentar comunicarse con la API. Intentalo de nuevo más "
-"tarde."
+"¡Ouch! Ocurrió un error al intentar comunicarse con la API. Intenta "
+"nuevamente."
 
 #: admin/doppler-admin.php:117
 msgid "Installing"
@@ -143,26 +146,32 @@ msgstr ""
 "Formulario."
 
 #: admin/doppler-admin.php:267
-msgid "An error has ocurred and the Form could not be created."
+msgid ""
+"Ouch! An error ocurred and the Form couldn't be created. Try again later."
 msgstr ""
+"¡Ouch! Ocurrió un error y el Formulario no fue creado. Intenta nuevamente."
 
 #: admin/doppler-admin.php:272
 msgid "The Form has been edited correctly."
-msgstr ""
+msgstr "El Formulario ha sido editado correctamente."
 
 #: admin/doppler-admin.php:274
-msgid "An error has ocurred and the Form could not be edited."
+msgid ""
+"Ouch! An error ocurred and the Form couldn't be edited. Try again later."
 msgstr ""
+"¡Ouch! Ocurrió un error y el Formulario no fue editado. Intenta nuevamente."
 
 #: admin/doppler-admin.php:281
 msgid "The Form has been deleted correctly."
-msgstr ""
+msgstr "El Formulario ha sido eliminado correctamente."
 
 #: admin/doppler-admin.php:283
-msgid "An error has ocurred and the Form could not be deleted."
+msgid ""
+"Ouch! An error ocurred and the Form couldn't be deleted. Try again later."
 msgstr ""
+"¡Ouch! Ocurrió un error y el Formulario no fue eliminado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:329
+#: admin/doppler-admin.php:324
 msgid ""
 "You've updated the <strong>Doppler Forms</strong> plugin into the "
 "<strong>2.0.0</strong> version. Please,"
@@ -170,11 +179,11 @@ msgstr ""
 "Has actualizado el plugin <strong>Formularios Doppler</strong> a la versión "
 "<strong>2.0.0</strong>. Para continuar utilizándolo,"
 
-#: admin/doppler-admin.php:331
+#: admin/doppler-admin.php:326
 msgid "enter your Username"
 msgstr "ingresa tu Email de Usuario"
 
-#: admin/doppler-admin.php:332
+#: admin/doppler-admin.php:327
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
 
@@ -512,9 +521,9 @@ msgstr "Selecciona la Lista a la que quieres enviar tus nuevos Suscriptores"
 msgid "I've read and accept the privace policy"
 msgstr "He leído y acepto la política de privacidad"
 
-#: admin/partials/forms-list.php:10
-msgid "There are no forms! Press Create Form button to create one."
-msgstr ""
+#: admin/partials/forms-list.php:10 includes/class-doppler-form-widget.php:94
+msgid "You don't have Forms yet!"
+msgstr "Aún no tienes Formularios."
 
 #: admin/partials/forms-list.php:18
 msgid "Form ID"
@@ -544,7 +553,7 @@ msgstr "Crear Formulario"
 msgid "Are you sure you want to delete the Form? "
 msgstr "¿Estás seguro de que deseas eliminar el Formulario?"
 
-#: admin/partials/forms-list.php:50 admin/partials/lists-crud.php:41
+#: admin/partials/forms-list.php:50
 msgid "It'll be deleted and can't be recovered."
 msgstr "Será eliminado y ya no podrás recuperarlo."
 
@@ -564,13 +573,13 @@ msgstr "Crear Lista"
 msgid "Subscribers"
 msgstr "Suscrptores"
 
-#: admin/partials/lists-crud.php:36
-msgid "Show more results"
-msgstr "Mostrar mas resultados"
-
-#: admin/partials/lists-crud.php:40
+#: admin/partials/lists-crud.php:38
 msgid "Are you sure you want to delete the List? "
 msgstr "¿Estás seguro de que deseas eliminar la Lista?"
+
+#: admin/partials/lists-crud.php:39
+msgid "If you proceed, the List will also be deleted in Doppler."
+msgstr "Si lo haces, la Lista también será eliminada en Doppler."
 
 #: admin/partials/tabs-nav.php:2
 msgid "Forms"
@@ -600,10 +609,6 @@ msgstr "Formulario de Doppler"
 msgid "Select the Form that you want to publish"
 msgstr "Selecciona el Formulario que deseas publicar"
 
-#: includes/class-doppler-form-widget.php:94
-msgid "You haven't created any form"
-msgstr "No ha creado ningún Formulario"
-
 #: includes/helpers/Form_Helper.php:34
 msgid "Read more"
 msgstr "Leer más"
@@ -615,6 +620,12 @@ msgstr "Gracias por suscribirte"
 #: includes/helpers/Form_Helper.php:103
 msgid "Please enter a valid email address."
 msgstr "Ingrese un Email válido."
+
+#~ msgid "Show more results"
+#~ msgstr "Mostrar mas resultados"
+
+#~ msgid "You haven't created any form"
+#~ msgstr "No ha creado ningún Formulario"
 
 #~ msgid "Extensions"
 #~ msgstr "Extensiones"

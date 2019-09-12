@@ -7,7 +7,7 @@
   <?php 
   
   if(count($forms) == 0){
-    ?><h2><?php _e('There are no forms! Press Create Form button to create one.','doppler-form'); ?></h2><?php
+    ?><h2><?php _e('You don\'t have Forms yet!','doppler-form'); ?></h2><?php
   }else{
     ?>
 

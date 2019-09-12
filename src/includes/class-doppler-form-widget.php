@@ -91,7 +91,7 @@ class Dplr_Subscription_Widget extends WP_Widget {
 		</p>
 	 	<?php
 	} else {?>
-		<p><?php _e('You haven\'t created any form', 'doppler-form')?></p>
+		<p><?php _e('You don\'t have Forms yet!', 'doppler-form')?></p>
 	<?php }
 	}
 }

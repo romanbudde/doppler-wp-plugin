@@ -112,8 +112,8 @@ class Doppler_Admin {
 			'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
 			'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
 			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
-			'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
-			'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
+			'validationError'	=> __( 'Ouch! The List name is invalid. Please choose another.', 'doppler-form'),
+			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
 			'installing' 		=> __('Installing', 'doppler-form')								 				
 		) ); 
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
@@ -264,14 +264,14 @@ class Doppler_Admin {
 				if($this->form_controller->create($_POST) == 1){
 					$this->set_success_message(__('Pst! Go to', 'doppler-form') . ' <a href="' .  admin_url( 'widgets.php') . '">'. __('Appearance > Widgets', 'doppler-form') . '</a> '  . __('to choose the place on your Website where you want your Form to appear.','doppler-form'));
 				}else{
-					$this->set_error_message(__('An error has ocurred and the Form could not be created.','doppler-form'));
+					$this->set_error_message(__('Ouch! An error ocurred and the Form couldn\'t be created. Try again later.','doppler-form'));
 				}
 			}
 			if(isset($_POST['form-edit'])){
 				if($this->form_controller->update($_POST['form_id'], $_POST) == 1){
 					$this->set_success_message(__('The Form has been edited correctly.','doppler-form'));
 				}else{
-					$this->set_error_message(__('An error has ocurred and the Form could not be edited.','doppler-form'));
+					$this->set_error_message(__('Ouch! An error ocurred and the Form couldn\'t be edited. Try again later.','doppler-form'));
 				}
 			}
 		}
@@ -280,7 +280,7 @@ class Doppler_Admin {
 			if( !empty($_GET['form_id']) && $this->form_controller->delete($_GET['form_id']) == 1 ){
 				$this->set_success_message(__('The Form has been deleted correctly.','doppler-form'));
 			}else{
-				$this->set_error_message(__('An error has ocurred and the Form could not be deleted.','doppler-form'));
+				$this->set_error_message(__('Ouch! An error ocurred and the Form couldn\'t be deleted. Try again later.','doppler-form'));
 			}
 		}
 
@@ -311,11 +311,6 @@ class Doppler_Admin {
 
 	public function doppler_extensions_screen() {
 		require_once('partials/extensions.php');
-	}
-
-	public function show_form_edit() {
-		//Remove this if not necessary
-		//$this->form_controller->create($_POST);
 	}
 
 	public function show_admin_notices() {

@@ -33,10 +33,8 @@
         </tbody>
     </table>
 
-    <!--<button id="crud-show-more" class="dp-button button-medium primary-grey hidden" data-next-page="2"><?php _e('Show more results', 'doppler-form'); ?></button>-->
-
 </div>
 
 <div id="dplr-dialog-confirm" title="<?php _e('Are you sure you want to delete the List? ', 'doppler-form'); ?>">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('It\'ll be deleted and can\'t be recovered.', 'doppler-form')?></p>
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('If you proceed, the List will also be deleted in Doppler.', 'doppler-form')?></p>
 </div>
