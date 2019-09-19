@@ -337,6 +337,10 @@ class Doppler_Admin {
 	 */
 	public function check_connection_status() {
 
+		if ( ! is_admin() ) {
+			return;
+		}
+	
 		$options = get_option('dplr_settings');
 		
 		if( empty($options) ){
