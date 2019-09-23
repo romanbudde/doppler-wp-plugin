@@ -5,7 +5,7 @@
     <form id="dplr-form-list-crud" class="mb-1" action="" method="post">
 
         <label><?php _e('Create a Doppler List', 'doppler-form')?></label>
-        <input type="text" value=""  disabled="disabled" maxlength="100" placeholder="<?php _e('Write the List name', 'doppler-for-woocommerce')?>"/>
+        <input type="text" value=""  disabled="disabled" maxlength="100" placeholder="<?php _e('Write the List name', 'doppler-form')?>"/>
 
         <button id="dplr-save-list" class="dp-button button-medium primary-green" disabled="disabled">
             <?php _e('Create List', 'doppler-form') ?>
