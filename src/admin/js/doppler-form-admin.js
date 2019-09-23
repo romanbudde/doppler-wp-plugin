@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 	$("#dplr-connect-form").submit(function(event) {
 
-		event.preventDefault();
+		//event.preventDefault();
 		hideUserApiError();
 
 		var form = $(this);
@@ -90,7 +90,7 @@ $(document).ready(function(){
 		}
 
 		button.attr('disabled','disabled').addClass("button--loading");
-
+		/*
 		var data = {
 			action: 'dplr_ajax_connect',
 			user: userfield.val(),
@@ -114,7 +114,7 @@ $(document).ready(function(){
 				form.after(error);
 				button.removeAttr('disabled').removeClass('button--loading');
 			}
-		})
+		})*/
 
 	});
 
@@ -297,11 +297,6 @@ $(document).ready(function(){
 		loadLists(1,default_page_size);
 	}
 
-	$("#crud-show-more").click(function(){
-		var page = $(this).attr("data-next-page");
-		loadLists(page,default_page_size);
-	});
-
 });
 
 /*
@@ -430,6 +425,11 @@ function displayErrors(body){
 	var errorMsg = '';
 	errorMsg = generateErrorMsg(body.status, body.errorCode, body.title, body.detail);
 	jQuery('#showErrorResponse').css('display','flex').html('<p>'+errorMsg+'</p>');
+}
+
+function displaySuccess(successMsg){
+	if(successMsg == '') return false;
+	jQuery('#showSuccessResponse').css('display','flex').html('<p>'+successMsg+'</p>');
 }
 
 function clearResponseMessages(){
