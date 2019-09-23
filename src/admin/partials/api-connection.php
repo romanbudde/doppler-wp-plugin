@@ -1,3 +1,4 @@
+
 <section class="dplr_settings">
 
 <div class="wrap dplr_connect text-center">
@@ -112,11 +113,11 @@
 
 				<div class="dplr-row-section d-flex">
 				
-					<div class="dplr-input-section input-text tooltip tooltip-warning <?= (isset($errorMessages['user_account']) || $error)  ? 'tooltip-initial input-error' : 'tooltip-hide'; echo $options['dplr_option_useraccount'] ? ' notempty' : ''; ?>">
+					<div class="dplr-input-section input-text tooltip tooltip-warning <?= (isset($errorMessages['user_account']) || $error)  ? 'tooltip-initial input-error' : 'tooltip-hide'; echo !empty($options['dplr_option_useraccount']) ? ' notempty' : ''; ?>">
 						
 						<label><?php _e('Username', 'doppler-form');?></label>	
 						
-						<input class="validation"  id="user-account" data-validation-email="<?php _e("Ouch! Enter a valid Email.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?> type="text" placeholder="" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?= $options['dplr_option_useraccount'];?>" />
+						<input class="validation"  id="user-account" data-validation-email="<?php _e("Ouch! Enter a valid Email.", "doppler-form"); ?>" <?= isset($errorMessages['user_account']) ? "data-validation-fixed='".$errorMessages['user_account']."'" : "";?> type="text" placeholder="" name="dplr_settings[dplr_option_useraccount];"  autocomplete="off" value="<?php echo isset($options['dplr_option_useraccount'])? $options['dplr_option_useraccount']:'';?>" />
 						
 						<div class="tooltip-container">
 							<span></span>
@@ -124,10 +125,10 @@
 					
 					</div>
 					
-					<div class="dplr-input-section input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo $options['dplr_option_apikey'] ? ' notempty' : ''; ?>">
+					<div class="dplr-input-section input-text input-icon tooltip tooltip-warning <?= isset($errorMessages['api_key']) ? 'input-error' : 'tooltip-hide'; echo !empty($options['dplr_option_apikey']) ? ' notempty' : ''; ?>">
 						
 						<label>API Key 
-							<div class="icon">
+							<div class="icon ml-1">
 								<span class="tooltip tooltip-info tooltip-top tooltip-hover">
 									<div class="tooltip-container">
 										<p>
@@ -138,7 +139,7 @@
 							</div>
 						</label>
 
-						<input id="api-key" data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?= $options['dplr_option_apikey']; ?>" />
+						<input id="api-key" data-validation-required="<?php _e("Ouch! The field is empty.", "doppler-form"); ?>" <?= isset($errorMessages['api_key']) ? "data-validation-fixed='".$errorMessages['api_key']."'" : "";?>  data-validation="noempty" type="text" placeholder="" name="dplr_settings[dplr_option_apikey];"  autocomplete="off" value="<?php echo (isset($options['dplr_option_apikey']))? $options['dplr_option_apikey']:'' ?>" />
 						
 						<div class="tooltip-container pl-1">
 							<span></span>

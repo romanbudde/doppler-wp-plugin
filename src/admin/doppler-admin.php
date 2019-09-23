@@ -28,8 +28,6 @@ class Doppler_Admin {
 
 	private $error_message;
 
-	private $connectionStatus;
-
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -41,13 +39,21 @@ class Doppler_Admin {
 		$this->doppler_service = $doppler_service;
 		$this->success_message = false;
 		$this->error_message = false;
-		$this->connectionStatus = $this->check_connection_status();
 		$this->form_controller = new DPLR_Form_Controller($doppler_service);
 		$this->extension_manager = new Doppler_Extension_Manager();
+		$this->connection_status = false;
 	}
 
 	public function get_version() {
 		return $this->version;
+	}
+
+	public function set_connection_status($status){
+		$this->connection_status = $status;
+	}
+
+	public function get_connection_status(){
+		return $this->connection_status;
 	}
 
 	public function set_error_message($message) {
@@ -69,7 +75,7 @@ class Doppler_Admin {
 	public function display_error_message() {
 		if($this->get_error_message()!=''):
 		?>
-		<div id="displayErrorMessage" class="messages-container block">
+		<div id="displayErrorMessage" class="messages-container blocker">
 			<p><?php echo $this->get_error_message(); ?></p>
 		</div>
 		<?php
@@ -126,17 +132,6 @@ class Doppler_Admin {
 			'TextType'    		=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' 	=> __( 'Simple', 'doppler-form'),
 			'MultipleLines' 	=> __( 'Multiple', 'doppler-form'),
-			//'ConnectionErr' 	=> __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
-			//'listSavedOk'   	=> __( 'The List has been created correctly.', 'doppler-form'),
-			//'maxListsReached' 	=> __( 'Ouch! You\'ve reached the maximum number of Lists created.', 'doppler-form'),
-			//'duplicatedName'	=> __( 'Ouch! You\'ve already used this name for another List.', 'doppler-form'),	
-			//'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
-			//'validationError'	=> __( 'Ouch! List name is invalid. Please choose another name.', 'doppler-form'),
-			//'APIConnectionErr'  => __( 'There was an error trying to communicate with the API. Try again later.' , 'doppler-form'),
-			//'installing' 		=> __('Installing', 'doppler-form'),
-			//'delete'			=> __('Delete', 'doppler-form'),
-			//'cancel'			=> __('Cancel', 'doppler-form'),	 				
- 				
 		) );
 		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
@@ -164,6 +159,19 @@ class Doppler_Admin {
 		);
 	}
 
+	/**
+	 * Checks if credentials are saved, 
+	 * doesnt check against API anymore to reduce requests.
+	 */
+	public function is_api_connected(){
+
+		if( $this->check_connection_status() && current_user_can('manage_options') ){
+			$this->set_connection_status(true);
+			return true;
+		}
+		return false;
+	}
+
 	public function add_submenu() {
 
 		$options = get_option('dplr_settings', [
@@ -179,8 +187,8 @@ class Doppler_Admin {
 			'doppler_forms_menu',
 			array($this, 'display_connection_screen')
 		);
-		
-		if ( $options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) ){
+
+		if ( $this->is_api_connected() && $options['dplr_option_apikey'] != '' &&  !empty($options['dplr_option_useraccount']) ){
 			
 			add_submenu_page(
 				'doppler_forms_menu',
@@ -217,13 +225,16 @@ class Doppler_Admin {
 
 		$connected = false;
 		$errors = false;
+		$error = '';
 
-	  if ($options['dplr_option_apikey'] != '') {
+	  if (!empty($options['dplr_option_apikey'])) {
 
 		try{
 				//Credentials not saved. Set, check and allow or not.
 				if($this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])){
+					//neccesary check against api here?
 					$connection_status = $this->doppler_service->connectionStatus();
+
 					if( is_array($connection_status) && $connection_status['response']['code'] === 200 ){
 						$connected = true;
 					}
@@ -250,9 +261,8 @@ class Doppler_Admin {
 			}
 		
 		}
-
+		
 		include "partials/api-connection.php";
-
 	}
 
 	public function doppler_forms_screen() {
@@ -291,7 +301,6 @@ class Doppler_Admin {
 			$edit_form_url = admin_url( 'admin.php?page=doppler_forms_main&tab=edit&form_id=[FORM_ID]' );
 			$delete_form_url = admin_url( 'admin.php?page=doppler_forms_main&action=delete&form_id=[FORM_ID]' );
 			$list_resource = $this->doppler_service->getResource('lists');
-			//This is just for the list name... TODO: find another way (transients? db name save?).
 			$dplr_lists = $list_resource->getAllLists();
 			if(is_array($dplr_lists)){
 				foreach($dplr_lists as $k=>$v){
@@ -333,34 +342,32 @@ class Doppler_Admin {
 	}
 
 	/**
-	 * Check connection status.
+	 * Check connection status. Doesnt check against 
+	 * API anymore to reduce requests.
 	 */
 	public function check_connection_status() {
 
-		if ( ! is_admin() ) {
-			return;
-		}
-	
 		$options = get_option('dplr_settings');
-		
-		if( empty($options) ){
+
+		if ( ! is_admin() ||  empty($options) ) {
 			return false;
 		}
 
-		$user = $options['dplr_option_useraccount'];
-		$key = $options['dplr_option_apikey'];
+		isset($options['dplr_option_useraccount'])? $user = $options['dplr_option_useraccount'] : '';
+		isset($options['dplr_option_apikey'])? 		$key = $options['dplr_option_apikey'] : '';
 
 		if( !empty($user) && !empty($key) ){
 			if(empty($this->doppler_service->config['crendentials'])){
 				$this->doppler_service->setCredentials(array('api_key' => $key, 'user_account' => $user));
 			}
+			/*
 			if( is_admin() ){ //... if we are at the backend.
 				$response =  $this->doppler_service->connectionStatus();
 				if( is_array($response) && $response['response']['code']>=400 ){
 					 $this->admin_notice = array('error', '<strong>Doppler API Connection error.</strong> ' . $response['response']['message']);
 					 return false;
 				}
-			}
+			}*/
 			return true;
 		}
 
@@ -372,7 +379,9 @@ class Doppler_Admin {
 	 * Called upon user pressing the connect button.
 	 * Check if user is valid, then it continues 
 	 * the form submission and save the settings.
+	 * TODO: deprecate this.
 	 */
+	/*
 	public function ajax_connect() {
 		if( empty($_POST['key']) || empty($_POST['user']) ) return false;
 		$this->doppler_service->setCredentials(['api_key' => $_POST['key'], 'user_account' => $_POST['user']]);
@@ -381,45 +390,67 @@ class Doppler_Admin {
 			echo json_encode($connection_status);
 			exit();
 		}
+	}*/
+
+	/**
+	 * Set the credentials to doppler service
+	 * before running ajax calls.
+	 */
+	private function set_credentials(){
+
+		$options = get_option('dplr_settings');
+
+		if ( ! is_admin() ||  empty($options) ) {
+			return;
+		}
+
+		$this->doppler_service->setCredentials(array(	
+			'api_key' => $options['dplr_option_apikey'], 
+			'user_account' => $options['dplr_option_useraccount'])
+		);
+	
 	}
 
 	public function ajax_delete_form() {
 		if(empty($_POST['listId'])) return false;
+		$this->set_credentials();
 		echo $this->form_controller->delete($_POST['listId']);
-		exit();
+		wp_die();
 	}
 
 	/**
 	 * CRUD
 	 */
 	public function ajax_get_lists() {
+		$this->set_credentials();
 		echo json_encode($this->get_lists_by_page($_POST['page'], $_POST['per_page']));
-		exit();
+		wp_die();
 	}
 
 	public function ajax_save_list() {
-		if(!empty($_POST['listName'])){
-			echo $this->create_list($_POST['listName']);
-		}
-		exit();
-	}
-
-	private function create_list($list_name) {
-		$subscriber_resource = $this->doppler_service->getResource('lists');
-		return $subscriber_resource->saveList( $list_name )['body'];
+		if(empty($_POST['listName'])) return false;
+		$this->set_credentials();
+		echo $this->create_list($_POST['listName']);
+		wp_die();
 	}
 
 	public function ajax_delete_list() {
 		if(empty($_POST['listId'])) return false;
+		$this->set_credentials();
 		$subscribers_lists = get_option('dplr_subscribers_list');
 		$subscriber_resource = $this->doppler_service->getResource('lists');
 		echo json_encode($subscriber_resource->deleteList( $_POST['listId'] ));
-		exit();
+		wp_die();
 	}
 
 	public function get_lists_by_page( $page = 1, $per_page ) {
 		$list_resource = $this->doppler_service->getResource( 'lists' );
 		return $list_resource->getListsByPage( $page , $per_page );
+	}
+
+	private function create_list($list_name) {
+		$subscriber_resource = $this->doppler_service->getResource('lists');
+		return $subscriber_resource->saveList( $list_name )['body'];
 	}
 
 }

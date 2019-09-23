@@ -1,6 +1,4 @@
 <div id="dplr-crud" class="dplr-tab-content dplr-tab-content--crud pb-1">
-
-
     <div id="showErrorResponse" class="messages-container blocker d-none"></div>
     <div id="showSuccessResponse" class="messages-container info d-none"></div>
 
@@ -19,7 +17,7 @@
         <div class="loading-page">
         </div>
     </div>
-
+	
     <table id="dplr-tbl-lists" class="grid widefat mt-30 d-none">
         <thead>
             <tr>
@@ -32,9 +30,9 @@
         <tbody>
         </tbody>
     </table>
-
+	
 </div>
-
+	
 <div id="dplr-dialog-confirm" title="<?php _e('Are you sure you want to delete the List? ', 'doppler-form'); ?>">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('If you proceed, the List will also be deleted in Doppler.', 'doppler-form')?></p>
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> <?php _e('If you proceed, the List will also be deleted in Doppler.', 'doppler-form')?></p>
 </div>

@@ -4,9 +4,9 @@ if ( ! current_user_can( 'manage_options' ) ) {
     return;
 }
 
+//Makes call to API.
+$response =  $this->doppler_service->connectionStatus();
 
-if($this->connectionStatus):
-    
 ?>
 
 <div class="wrap dplr_settings">
@@ -22,6 +22,21 @@ if($this->connectionStatus):
         include plugin_dir_path( __FILE__ ) . "../partials/tabs-nav.php";
     }
     ?>
+<?php
+
+if( is_array($response) && $response['response']['code']>=400 && true ){
+    ?>
+    <div class="mt-1">
+        <?php
+        $this->set_error_message(__('Ouch! An error ocurred while trying to communicate with the API. Try again later.','doppler-form'));
+        $this->display_error_message();
+        return false;
+        ?>
+    </div>
+    <?php
+}
+
+?>
 
 <?php
 
@@ -41,11 +56,3 @@ switch($active_tab){
     default:
         break;
 }
-
-else:
-
-    ?>
-    <div class="notice notice-error"><?php echo $this->admin_notice[1]?></div>
-    <?php
-
-endif;
