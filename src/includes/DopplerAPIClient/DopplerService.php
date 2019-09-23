@@ -140,22 +140,6 @@ class Doppler_Service
   public function setCredentials( $credentials = array() ) {
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
     return true;
-    /*
-    $connectionStatus = $this->connectionStatus();
-    switch($connectionStatus['response']['code']) {
-      case 200:
-        return true;
-        break;
-      case 401:
-        //TODO: Return formated error 
-        return false;
-        break;
-      case 403:
-        //TODO: Return formated error
-        return false;
-        break;
-    }
-    */
   }
 
   public function unsetCredentials(){
@@ -241,6 +225,7 @@ class Doppler_Service
       $this->throwConnectionErr($e->getMessage());
       return;
     }
+
     return $response;		  
 
   }
