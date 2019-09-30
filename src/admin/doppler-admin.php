@@ -120,7 +120,8 @@ class Doppler_Admin {
 			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
 			'validationError'	=> __( 'Ouch! The List name is invalid. Please choose another.', 'doppler-form'),
 			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
-			'installing' 		=> __('Installing', 'doppler-form')								 				
+			'installing' 		=> __( 'Installing', 'doppler-form'),
+			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form')								 				
 		) ); 
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_localize_script( 'field-module', 'ObjStr', array( 
@@ -199,7 +200,7 @@ class Doppler_Admin {
 				array($this, 'doppler_forms_screen')
 			);
 
-			/*
+			
 			add_submenu_page(
 				'doppler_forms_menu',
 				__('Extensions', 'doppler-form'),
@@ -208,7 +209,6 @@ class Doppler_Admin {
 				'doppler_forms_extensions',
 				array($this, 'doppler_extensions_screen')
 			);
-			*/
 
 			do_action('dplr_add_extension_submenu');
 		
@@ -216,6 +216,12 @@ class Doppler_Admin {
 	
 	}
 
+	/**
+	 * Displays connection form and handles connection with API 
+	 * Check credentials with API, then save credentials.
+	 * On failing, credentials wont be saved and plugin will
+	 * check for filled credentials, to avoid api calls.
+	 */
 	public function display_connection_screen() {
 
 		$options = get_option('dplr_settings', [
@@ -230,7 +236,7 @@ class Doppler_Admin {
 	  if (!empty($options['dplr_option_apikey'])) {
 
 		try{
-				//Credentials not saved. Set, check and allow or not.
+				//Credentials are saved. Check against API only in connection screen.
 				if($this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']])){
 					//neccesary check against api here?
 					$connection_status = $this->doppler_service->connectionStatus();
@@ -239,7 +245,7 @@ class Doppler_Admin {
 						$connected = true;
 					}
 				}
-				
+				//If saved credentials don't pass API test, unset them, disconnect and show error.
 				if ($connected !== true) {
 					$this->doppler_service->unsetCredentials();
 					$error = true;
@@ -286,7 +292,7 @@ class Doppler_Admin {
 			}
 		}
 
-		if($_GET['action'] == 'delete'){
+		if( !empty($_GET['action']) && $_GET['action'] === 'delete' ){
 			if( !empty($_GET['form_id']) && $this->form_controller->delete($_GET['form_id']) == 1 ){
 				$this->set_success_message(__('The Form has been deleted correctly.','doppler-form'));
 			}else{
@@ -360,14 +366,6 @@ class Doppler_Admin {
 			if(empty($this->doppler_service->config['crendentials'])){
 				$this->doppler_service->setCredentials(array('api_key' => $key, 'user_account' => $user));
 			}
-			/*
-			if( is_admin() ){ //... if we are at the backend.
-				$response =  $this->doppler_service->connectionStatus();
-				if( is_array($response) && $response['response']['code']>=400 ){
-					 $this->admin_notice = array('error', '<strong>Doppler API Connection error.</strong> ' . $response['response']['message']);
-					 return false;
-				}
-			}*/
 			return true;
 		}
 
@@ -377,11 +375,9 @@ class Doppler_Admin {
 
 	/**
 	 * Called upon user pressing the connect button.
-	 * Check if user is valid, then it continues 
+	 * Check if user is valid, then it continues
 	 * the form submission and save the settings.
-	 * TODO: deprecate this.
 	 */
-	/*
 	public function ajax_connect() {
 		if( empty($_POST['key']) || empty($_POST['user']) ) return false;
 		$this->doppler_service->setCredentials(['api_key' => $_POST['key'], 'user_account' => $_POST['user']]);
@@ -390,7 +386,7 @@ class Doppler_Admin {
 			echo json_encode($connection_status);
 			exit();
 		}
-	}*/
+	}
 
 	/**
 	 * Set the credentials to doppler service

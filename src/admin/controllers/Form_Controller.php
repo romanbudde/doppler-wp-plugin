@@ -93,12 +93,10 @@ class DPLR_Form_Controller
   public function showCreateEditForm($form_id = NULL) {
     
     $options = get_option('dplr_settings');
-    //$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
     $list_resource = $this->doppler_service->getResource('lists');
     $fields_resource = $this->doppler_service->getResource('fields');
 
     $dplr_lists = $list_resource->getAllLists();
-  
     foreach($dplr_lists as $k=>$v){
       foreach($v as $i=>$j){
         $dplr_lists_aux[] = $j;

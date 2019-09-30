@@ -17,11 +17,15 @@ class Doppler_Service
 
   private $errors;
 
+  private $origin;
+
   function __construct($credentials = null) {
     
     $this->config = ['credentials' => []];
 
     $this->error = 0;
+
+    $this->origin = 'Wordpress';
 
     $usr_account = '';
 
@@ -133,6 +137,14 @@ class Doppler_Service
     ];
   }
 
+  public function set_origin( $origin ) {
+    $this->origin = $origin;
+  }
+
+  public function get_origin() {
+    return $this->origin;
+  }
+
   /**
    * Set credentials
    * It wont check API connection anymore.
@@ -177,14 +189,15 @@ class Doppler_Service
 
     }
 
-    if($query!=''){
+
+    if(!empty($query)){
       $url.='?'.implode('&',$query);
     }
 
     $headers=array(
             "Accept" => "application/json",
             "Content-Type" => "application/json",
-            "X-Doppler-Subscriber-Origin" => "Wordpress",
+            "X-Doppler-Subscriber-Origin" => $this->get_origin(),
             "Authorization" => "token ". $this->config["credentials"]["api_key"]
              );
              
@@ -226,6 +239,11 @@ class Doppler_Service
       return;
     }
 
+    if( is_wp_error( $response ) ) {
+      $this->throwConnectionErr($response->get_error_message().$url);
+      return;
+    }
+
     return $response;		  
 
   }
@@ -236,7 +254,7 @@ class Doppler_Service
 
   function throwConnectionErr($msg) {
     //Does this ever shows?
-    if($this->error == 0):
+    if( $this->error == 0 && is_admin() ):
       ?>
       <div class="notice notice-error">
 				<p>
@@ -306,12 +324,12 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
     /**
      * Get all lists recursively
      */
-    public function getAllLists( $listId = null, $lists = [], $page = 1  ) {
+    public function getAllLists( $listId = null, $lists = [], $page = 1, $per_page = 200 ) {
       $method = $this->methods['list'];
-      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
+      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page, 'per_page' => $per_page))['body']);
       $lists[] = $z->items;
 
-      if($z->currentPage < $z->pagesCount && $page<4){
+      if($z->currentPage < $z->pagesCount && $page<1){
         $page = $page+1;
         return $this->getAllLists(null, $lists, $page);
       }else{

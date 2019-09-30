@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-09-12 15:19-0300\n"
+"2019-09-30 15:49-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -49,19 +49,20 @@ msgstr ""
 "X-Poedit-"
 "SearchPath-0: .\n"
 
-#: admin/doppler-admin.php:108
+#: admin/doppler-admin.php:114
 #: admin/partials/forms-list.php:33
 msgid "Delete"
 msgstr ""
 
-#: admin/doppler-admin.php:109
+#: admin/doppler-admin.php:115
 #: admin/partials/forms-create.php:130
 #: admin/partials/forms-edit.php:141
 msgid "Cancel"
 msgstr ""
 
-#: admin/doppler-admin.php:110
-#: admin/doppler-admin.php:235
+#: admin/doppler-admin.php:116
+#: admin/doppler-admin.php:124
+#: admin/doppler-admin.php:252
 msgid ""
 "Ouch! There's something "
 "wrong with your Username "
@@ -69,27 +70,27 @@ msgid ""
 "again."
 msgstr ""
 
-#: admin/doppler-admin.php:111
+#: admin/doppler-admin.php:117
 msgid ""
 "The List has been "
 "created correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:112
+#: admin/doppler-admin.php:118
 msgid ""
 "Ouch! You've reached the "
 "maximum number of Lists "
 "created."
 msgstr ""
 
-#: admin/doppler-admin.php:113
+#: admin/doppler-admin.php:119
 msgid ""
 "Ouch! You've already "
 "used this name for "
 "another List."
 msgstr ""
 
-#: admin/doppler-admin.php:114
+#: admin/doppler-admin.php:120
 msgid ""
 "Ouch! You've made "
 "several actions in a "
@@ -99,14 +100,15 @@ msgid ""
 "another one."
 msgstr ""
 
-#: admin/doppler-admin.php:115
+#: admin/doppler-admin.php:121
 msgid ""
 "Ouch! The List name is "
 "invalid. Please choose "
 "another."
 msgstr ""
 
-#: admin/doppler-admin.php:116
+#: admin/doppler-admin.php:122
+#: admin/partials/doppler-forms-display.php:31
 msgid ""
 "Ouch! An error ocurred "
 "while trying to "
@@ -114,122 +116,127 @@ msgid ""
 "API. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:117
+#: admin/doppler-admin.php:123
 msgid "Installing"
 msgstr ""
 
-#: admin/doppler-admin.php:121
+#: admin/doppler-admin.php:128
 msgid "Edit Field"
 msgstr ""
 
-#: admin/doppler-admin.php:122
+#: admin/doppler-admin.php:129
 msgid "Required"
 msgstr ""
 
-#: admin/doppler-admin.php:123
+#: admin/doppler-admin.php:130
 msgid "Label to be shown"
 msgstr ""
 
-#: admin/doppler-admin.php:124
+#: admin/doppler-admin.php:131
 msgid "Placeholder"
 msgstr ""
 
-#: admin/doppler-admin.php:125
+#: admin/doppler-admin.php:132
 msgid "Description"
 msgstr ""
 
-#: admin/doppler-admin.php:126
+#: admin/doppler-admin.php:133
 msgid "Lines"
 msgstr ""
 
-#: admin/doppler-admin.php:127
+#: admin/doppler-admin.php:134
 msgid "Simple"
 msgstr ""
 
-#: admin/doppler-admin.php:128
+#: admin/doppler-admin.php:135
 msgid "Multiple"
 msgstr ""
 
-#: admin/doppler-admin.php:158
-#: admin/doppler-admin.php:159
+#: admin/doppler-admin.php:154
+#: admin/doppler-admin.php:155
 msgid "Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:176
-#: admin/doppler-admin.php:177
+#: admin/doppler-admin.php:185
+#: admin/doppler-admin.php:186
 msgid ""
 "Connect with Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:187
-#: admin/doppler-admin.php:188
+#: admin/doppler-admin.php:196
+#: admin/doppler-admin.php:197
 #: admin/partials/doppler-forms-display.php:18
 msgid "Doppler Forms"
 msgstr ""
 
-#: admin/doppler-admin.php:243
-#: admin/partials/api-connection.php:119
+#: admin/doppler-admin.php:206
+#: admin/doppler-admin.php:207
+msgid "Extensions"
+msgstr ""
+
+#: admin/doppler-admin.php:260
+#: admin/partials/api-connection.php:120
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:248
-#: admin/partials/api-connection.php:141
+#: admin/doppler-admin.php:265
+#: admin/partials/api-connection.php:142
 msgid ""
 "Ouch! The field is empty."
 msgstr ""
 
-#: admin/doppler-admin.php:265
+#: admin/doppler-admin.php:281
 msgid "Pst! Go to"
 msgstr ""
 
-#: admin/doppler-admin.php:265
+#: admin/doppler-admin.php:281
 msgid ""
 "Appearance > Widgets"
 msgstr ""
 
-#: admin/doppler-admin.php:265
+#: admin/doppler-admin.php:281
 msgid ""
 "to choose the place on "
 "your Website where you "
 "want your Form to appear."
 msgstr ""
 
-#: admin/doppler-admin.php:267
+#: admin/doppler-admin.php:283
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "created. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:272
+#: admin/doppler-admin.php:288
 msgid ""
 "The Form has been edited "
 "correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:274
+#: admin/doppler-admin.php:290
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "edited. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:297
 msgid ""
 "The Form has been "
 "deleted correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:283
+#: admin/doppler-admin.php:299
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "deleted. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:324
+#: admin/doppler-admin.php:339
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -238,22 +245,22 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:326
+#: admin/doppler-admin.php:341
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:327
+#: admin/doppler-admin.php:342
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
 "Doppler account."
 msgstr ""
 
-#: admin/partials/api-connection.php:15
+#: admin/partials/api-connection.php:16
 msgid "Disconnect"
 msgstr ""
 
-#: admin/partials/api-connection.php:23
+#: admin/partials/api-connection.php:24
 #: admin/partials/doppler-forms-display.php:14
 #: admin/partials/extensions.php:7
 msgid ""
@@ -262,38 +269,38 @@ msgid ""
 "utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
-#: admin/partials/api-connection.php:32
+#: admin/partials/api-connection.php:33
 msgid ""
 "Successful connection!"
 msgstr ""
 
-#: admin/partials/api-connection.php:35
+#: admin/partials/api-connection.php:36
 msgid ""
 "Your account is now "
 "officially connected"
 msgstr ""
 
-#: admin/partials/api-connection.php:43
+#: admin/partials/api-connection.php:44
 msgid ""
 "You are almost done! "
 "Follow this steps"
 msgstr ""
 
-#: admin/partials/api-connection.php:49
+#: admin/partials/api-connection.php:50
 msgid "screenshot-1.png"
 msgstr ""
 
-#: admin/partials/api-connection.php:56
+#: admin/partials/api-connection.php:57
 msgid ""
 "Go to Doppler Forms > "
 "Create Form."
 msgstr ""
 
-#: admin/partials/api-connection.php:63
+#: admin/partials/api-connection.php:64
 msgid "screenshot-2.png"
 msgstr ""
 
-#: admin/partials/api-connection.php:70
+#: admin/partials/api-connection.php:71
 msgid ""
 "Go to Appearance > "
 "Widgets > Doppler Form "
@@ -302,24 +309,24 @@ msgid ""
 "displayed."
 msgstr ""
 
-#: admin/partials/api-connection.php:77
+#: admin/partials/api-connection.php:78
 msgid "screenshot-3.png"
 msgstr ""
 
-#: admin/partials/api-connection.php:84
+#: admin/partials/api-connection.php:85
 msgid ""
 "Done! You should now see "
 "your Form published on "
 "your Website."
 msgstr ""
 
-#: admin/partials/api-connection.php:101
+#: admin/partials/api-connection.php:102
 msgid ""
 "Connect your WordPress "
 "Forms with Doppler"
 msgstr ""
 
-#: admin/partials/api-connection.php:104
+#: admin/partials/api-connection.php:105
 msgid ""
 "Create Subscription "
 "Forms that respect your "
@@ -330,17 +337,17 @@ msgid ""
 "Lists."
 msgstr ""
 
-#: admin/partials/api-connection.php:117
+#: admin/partials/api-connection.php:118
 msgid "Username"
 msgstr ""
 
-#: admin/partials/api-connection.php:134
+#: admin/partials/api-connection.php:135
 msgid ""
 "How do you find your API "
 "Key? Press"
 msgstr ""
 
-#: admin/partials/api-connection.php:134
+#: admin/partials/api-connection.php:135
 msgid ""
 "https://help.fromdoppler."
 "com/en/where-do-i-find-"
@@ -348,8 +355,8 @@ msgid ""
 "utm_source=landing&utm_medium=integracion&utm_campaign=wordpress"
 msgstr ""
 
-#: admin/partials/api-connection.php:134
-#: admin/partials/api-connection.php:170
+#: admin/partials/api-connection.php:135
+#: admin/partials/api-connection.php:171
 #: admin/partials/forms-create.php:39
 #: admin/partials/forms-create.php:100
 #: admin/partials/forms-edit.php:44
@@ -357,11 +364,11 @@ msgstr ""
 msgid "HELP"
 msgstr ""
 
-#: admin/partials/api-connection.php:149
+#: admin/partials/api-connection.php:150
 msgid "Connect"
 msgstr ""
 
-#: admin/partials/api-connection.php:169
+#: admin/partials/api-connection.php:170
 msgid ""
 "Do you have any doubts "
 "about how to connect "
@@ -369,7 +376,7 @@ msgid ""
 "Press"
 msgstr ""
 
-#: admin/partials/api-connection.php:170
+#: admin/partials/api-connection.php:171
 msgid ""
 "https://help.fromdoppler."
 "com/en/how-to-integrate-"
@@ -461,7 +468,7 @@ msgstr ""
 
 #: admin/partials/forms-create.php:14
 #: admin/partials/forms-edit.php:15
-#: admin/partials/lists-crud.php:27
+#: admin/partials/lists-crud.php:25
 msgid "Name"
 msgstr ""
 
@@ -707,7 +714,7 @@ msgid ""
 msgstr ""
 
 #: admin/partials/forms-list.php:10
-#: includes/class-doppler-form-widget.php:94
+#: includes/class-doppler-form-widget.php:69
 msgid ""
 "You don't have Forms yet!"
 msgstr ""
@@ -725,7 +732,7 @@ msgid "List Name"
 msgstr ""
 
 #: admin/partials/forms-list.php:21
-#: admin/partials/lists-crud.php:26
+#: admin/partials/lists-crud.php:24
 msgid "List ID"
 msgstr ""
 
@@ -749,30 +756,30 @@ msgid ""
 "can't be recovered."
 msgstr ""
 
-#: admin/partials/lists-crud.php:9
+#: admin/partials/lists-crud.php:7
 msgid ""
 "Create a Doppler List"
 msgstr ""
 
-#: admin/partials/lists-crud.php:10
+#: admin/partials/lists-crud.php:8
 msgid "Write the List name"
 msgstr ""
 
-#: admin/partials/lists-crud.php:13
+#: admin/partials/lists-crud.php:11
 msgid "Create List"
 msgstr ""
 
-#: admin/partials/lists-crud.php:28
+#: admin/partials/lists-crud.php:26
 msgid "Subscribers"
 msgstr ""
 
-#: admin/partials/lists-crud.php:38
+#: admin/partials/lists-crud.php:36
 msgid ""
 "Are you sure you want to "
 "delete the List? "
 msgstr ""
 
-#: admin/partials/lists-crud.php:39
+#: admin/partials/lists-crud.php:37
 msgid ""
 "If you proceed, the List "
 "will also be deleted in "
@@ -805,7 +812,7 @@ msgstr ""
 msgid "Doppler Form"
 msgstr ""
 
-#: includes/class-doppler-form-widget.php:84
+#: includes/class-doppler-form-widget.php:59
 msgid ""
 "Select the Form that you "
 "want to publish"

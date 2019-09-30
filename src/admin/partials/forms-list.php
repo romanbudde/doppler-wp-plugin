@@ -33,7 +33,7 @@
                   <a href="<?php echo str_replace('[FORM_ID]', $form->id , $delete_form_url); ?>" data-list-id="<?php echo $form->id ?>" class="dplr-remove"><?php _e('Delete', 'doppler-form')?></a>
                 </div>
               </td>
-              <td><?php echo $dplr_lists_arr[$form->list_id] ?></td>
+              <td><?php echo isset($dplr_lists_arr[$form->list_id])? $dplr_lists_arr[$form->list_id] : '' ?></td>
               <td><?php echo isset($dplr_lists_arr[$form->list_id])? $form->list_id : '' ?></td>
             </tr>
             <?php } ?>

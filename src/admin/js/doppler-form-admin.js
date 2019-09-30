@@ -70,9 +70,14 @@ $(document).ready(function(){
 		}
 	});
 
+	/**
+	 * Check against api first, 
+	 * then save credentials.
+	 */
+	
 	$("#dplr-connect-form").submit(function(event) {
 
-		//event.preventDefault();
+		event.preventDefault();
 		hideUserApiError();
 
 		var form = $(this);
@@ -90,7 +95,7 @@ $(document).ready(function(){
 		}
 
 		button.attr('disabled','disabled').addClass("button--loading");
-		/*
+		
 		var data = {
 			action: 'dplr_ajax_connect',
 			user: userfield.val(),
@@ -106,15 +111,21 @@ $(document).ready(function(){
 				});	
 			}else{
 				var body = JSON.parse(obj.body);
+				var msg = '';
+				if(body.status!='401'){
+					msg = generateErrorMsg(body.status,body.errorCode);
+				}else{
+					msg = object_string.wrongCredentials;
+				}
 				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
 					error+= '<div class="text-red text-left">';
-					error+= '<span>' + generateErrorMsg(body.status,body.errorCode) + '</span>';
+					error+= '<span>' + msg + '</span>';
 					error+= '</div>';
 					error+= '</div>';
 				form.after(error);
 				button.removeAttr('disabled').removeClass('button--loading');
 			}
-		})*/
+		})
 
 	});
 
