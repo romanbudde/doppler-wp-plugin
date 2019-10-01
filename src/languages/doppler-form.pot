@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-09-30 15:49-0300\n"
+"2019-10-01 16:51-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -392,12 +392,13 @@ msgstr ""
 
 #: admin/partials/extensions.php:13
 msgid ""
-"Lorem ipsum dolor sit "
-"amet, consectetur "
-"adipiscing elit, sed do "
-"eiusmod tempor "
-"incididunt ut labore et "
-"dolore magna aliqua."
+"Improve your business by "
+"integrating these "
+"features with you "
+"Doppler account."
+"<br>¡Boost your Email & "
+"Automation Marketing "
+"strategy!"
 msgstr ""
 
 #: admin/partials/extensions.php:19
@@ -408,10 +409,8 @@ msgstr ""
 
 #: admin/partials/extensions.php:24
 msgid ""
-"This should be a brief "
-"description of the "
-"Doppler for WooCommerce "
-"extension."
+"Import customers to your "
+"Doppler Lists."
 msgstr ""
 
 #: admin/partials/extensions.php:28
@@ -431,9 +430,11 @@ msgstr ""
 
 #: admin/partials/extensions.php:33
 #: admin/partials/extensions.php:55
+#, php-format
 msgid ""
-"Plugin is installed. Go "
-"to <a href=\""
+"This extension is "
+"installed. Go to %s "
+"settings page</a>."
 msgstr ""
 
 #: admin/partials/extensions.php:41
@@ -444,10 +445,8 @@ msgstr ""
 
 #: admin/partials/extensions.php:46
 msgid ""
-"This should be a brief "
-"description of the "
-"Doppler for LearnPress "
-"extension."
+"Import students to your "
+"Doppler Lists."
 msgstr ""
 
 #: admin/partials/extensions.php:50

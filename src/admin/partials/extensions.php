@@ -10,7 +10,7 @@
         <?php _e("Enjoy our extensions", "doppler-form" ); ?>
     </h1>
     
-    <p class="subtitle margin-auto mb-1"><?php _e("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","doppler-form") ;?> :)</p>
+    <p class="subtitle margin-auto mb-1"><?php _e("Improve your business by integrating these features with you Doppler account.<br>¡Boost your Email & Automation Marketing strategy!","doppler-form") ;?> :)</p>
                                  
         <div class="dplr-boxes">
                                     
@@ -21,7 +21,7 @@
                 <div>
                     <h3><?php _e('Doppler for WooCommerce', 'doppler-form')?></h3>
                     <p>
-                        <?php _e('This should be a brief description of the Doppler for WooCommerce extension.', 'doppler-form') ?>
+                        <?php _e('Import customers to your Doppler Lists.', 'doppler-form') ?>
                     </p>
 					
 					<?php if(!$this->extension_manager->has_dependency('doppler-for-woocommerce')):?>
@@ -30,7 +30,7 @@
 						<?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
-							<?php _e('Plugin is installed. Go to <a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-woocommerce']['settings']).'">settings page</a>.', 'doppler-form') ?>
+							<?php echo sprintf(__('This extension is installed. Go to %s settings page</a>.','doppler-form'),'<a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-woocommerce']['settings']).'">');?>
 						<?php endif; ?>
 					<?php endif; ?>
                 </div>
@@ -43,7 +43,7 @@
                 <div>
                     <h3><?php _e('Doppler for LearnPress', 'doppler-form');?></h3>
                     <p>
-                        <?php _e('This should be a brief description of the Doppler for LearnPress extension.', 'doppler-form') ?>
+                        <?php _e('Import students to your Doppler Lists.', 'doppler-form') ?>
                     </p>
 					
 					<?php if(!$this->extension_manager->has_dependency('doppler-for-learnpress')):?>
@@ -52,7 +52,7 @@
 						<?php if( !$this->extension_manager->is_active('doppler-for-learnpress')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-learnpress"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
-							<?php _e('Plugin is installed. Go to <a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-learnpress']['settings']).'">settings page</a>.', 'doppler-form') ?>
+							<?php echo sprintf(__('This extension is installed. Go to %s settings page</a>.','doppler-form'), '<a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-learnpress']['settings']).'">'); ?>
 						<?php endif; ?>
 					<?php endif; ?>
                 </div>
