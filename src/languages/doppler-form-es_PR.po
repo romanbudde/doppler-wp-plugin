@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-09-30 15:50-0300\n"
+"POT-Creation-Date: 2019-10-01 16:51-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -300,51 +300,58 @@ msgstr ""
 
 #: admin/partials/extensions.php:10
 msgid "Enjoy our extensions"
-msgstr ""
+msgstr "Disfruta nuestras extensiones"
 
 #: admin/partials/extensions.php:13
 msgid ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
-"tempor incididunt ut labore et dolore magna aliqua."
+"Improve your business by integrating these features with you Doppler account."
+"<br>¡Boost your Email & Automation Marketing strategy!"
 msgstr ""
+"Haz que tu negocio funcione mejor integrando estas funcionalidades con tu "
+"cuenta de Doppler.<br> ¡Potencia tu estrategia de Email y Automation "
+"Marketing!"
 
 #: admin/partials/extensions.php:19 admin/partials/extensions.php:22
 msgid "Doppler for WooCommerce"
 msgstr "Doppler para WooCommerce"
 
 #: admin/partials/extensions.php:24
-msgid ""
-"This should be a brief description of the Doppler for WooCommerce extension."
-msgstr ""
+msgid "Import customers to your Doppler Lists."
+msgstr "Podrás importar tus clientes y compradores a tus Listas de Doppler."
 
 #: admin/partials/extensions.php:28
 msgid ""
 "You should have <a href=\"https://wordpress.org/plugins/woocommerce/"
 "\">WooCommerce plugin</a> installed and active first."
 msgstr ""
+"Deberías tener <a href=\"https://wordpress.org/plugins/woocommerce/\">el "
+"plugin WooCommerce</a> instalado y activo primero."
 
 #: admin/partials/extensions.php:31 admin/partials/extensions.php:53
 msgid "Install"
 msgstr "Instalar"
 
 #: admin/partials/extensions.php:33 admin/partials/extensions.php:55
-msgid "Plugin is installed. Go to <a href=\""
+#, php-format
+msgid "This extension is installed. Go to %s settings page</a>."
 msgstr ""
+"La extensión ya está instalada. Dirígete a la %s página de configuración</a>."
 
 #: admin/partials/extensions.php:41 admin/partials/extensions.php:44
 msgid "Doppler for LearnPress"
 msgstr "Doppler para LearnPress"
 
 #: admin/partials/extensions.php:46
-msgid ""
-"This should be a brief description of the Doppler for LearnPress extension."
-msgstr ""
+msgid "Import students to your Doppler Lists."
+msgstr "Podrás importar tus Estudiantes a tus Listas de Doppler."
 
 #: admin/partials/extensions.php:50
 msgid ""
 "You should have <a href=\"https://wordpress.org/plugins/learnpress/"
 "\">LearnPress plugin</a> installed and active first."
 msgstr ""
+"Deberías tener <a href=\"https://wordpress.org/plugins/learnpress/\">el "
+"plugin LearnPress</a> instalado y activo primero."
 
 #: admin/partials/forms-create.php:10 admin/partials/forms-edit.php:11
 msgid "Form basic information"
