@@ -409,11 +409,7 @@ function deleteList(e){
 				if(obj.response.code == 200){
 					tr.remove();
 				}else{
-					if(obj.response.code == 0){
-						//alert('No se puede eliminar lista.')
-					}else{
-						//alert('Error');
-					}
+					displayErrors(JSON.parse(obj.body));
 					tr.removeClass('deleting');
 				}
 			});
@@ -433,9 +429,7 @@ function deleteList(e){
 })( jQuery );
 
 function displayErrors(body){
-	var errorMsg = '';
-	errorMsg = generateErrorMsg(body.status, body.errorCode, body.title, body.detail);
-	jQuery('#showErrorResponse').css('display','flex').html('<p>'+errorMsg+'</p>');
+	jQuery('#showErrorResponse').css('display','flex').html('<p>'+generateErrorMsg(body)+'</p>');
 }
 
 function displaySuccess(successMsg){
@@ -448,12 +442,17 @@ function clearResponseMessages(){
 	jQuery('#displaySuccessMessage,#displayErrorMessage').remove();
 }
 
-function generateErrorMsg(status, code, title, detail){
+function generateErrorMsg(body){
+	var status = body.status,
+		code = body.errorCode, 
+		title = body.title, 
+		detail = body.detail;
 	var err = '';
 	var errors = {	
 		400 : { 1: object_string.validationError,
 				2: object_string.duplicatedName,
-				3: object_string.maxListsReached
+				3: object_string.maxListsReached,
+				8: (typeof body.blockingReasonCode !== 'undefined')? object_string[body.blockingReasonCode] : ''
 			},
 		401 : {},
 		404 : {},
@@ -461,7 +460,7 @@ function generateErrorMsg(status, code, title, detail){
 	}
 	if(typeof errors[status] === 'undefined')
 		 err = object_string.APIConnectionErr;
-	else
-	   typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
-	 return err;
+	else 
+		typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
+	return err;
 }

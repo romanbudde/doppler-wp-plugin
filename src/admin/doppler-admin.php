@@ -121,7 +121,17 @@ class Doppler_Admin {
 			'validationError'	=> __( 'Ouch! The List name is invalid. Please choose another.', 'doppler-form'),
 			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
 			'installing' 		=> __( 'Installing', 'doppler-form'),
-			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form')								 				
+			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			'CannotDeleteSubscribersListWithAnAssociatedForm' => __('Ouch! The List is associated with a Form. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
+			'CannotDeleteSubscribersListWithAnScheduledCampaign' => __('Ouch! The List is associated to a Campaign in sending process.', 'doppler-form'),
+			'CannotDeleteSubscribersListWithAnAssociatedSegment' => __('Ouch! The List has associated Segments. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
+			'CannotDeleteSubscribersListWithAnAssociatedEvent' => __('Ouch! The List is associated with an active Automation. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
+			'CannotDeleteSubscribersListWithAnAssociatedIntegration' => __('Ouch! The List is associated with an active integration. To delete it, go to Doppler and disconnect the integration.', 'doppler-form'),
+			'CannotDeleteSubscribersListInMergingProcess' => __('Ouch! The List is in the process of union with another one.', 'doppler-form'),
+			'CannotDeleteSubscribersListInSegmentGenerationProcess'	=> __('Ouch! The List is still in the process of being created.', 'doppler-form'),
+			'CannotDeleteSubscribersListInImportSubscribersProcess' => __('Ouch! The List is in the process of loading.', 'doppler-form'),
+			'CannotDeleteSubscribersListInExportSubscribersProcess' => __('Ouch! the list is in process of being exported.', 'doppler-form'),
+			'CannotDeleteSubscribersListInDeletingProcess' => __('Ouch! The List is in the process of being deleted.', 'doppler-form'),
 		) ); 
 		wp_enqueue_script('field-module', plugin_dir_url( __FILE__ ) . 'js/field-module.js', array($this->plugin_name), $this->version, false);
 		wp_localize_script( 'field-module', 'ObjStr', array( 

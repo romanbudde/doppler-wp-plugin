@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-10-01 16:51-0300\n"
+"2019-10-02 13:21-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: admin/doppler-admin.php:116
 #: admin/doppler-admin.php:124
-#: admin/doppler-admin.php:252
+#: admin/doppler-admin.php:262
 msgid ""
 "Ouch! There's something "
 "wrong with your Username "
@@ -120,123 +120,199 @@ msgstr ""
 msgid "Installing"
 msgstr ""
 
+#: admin/doppler-admin.php:125
+msgid ""
+"Ouch! The List is "
+"associated with a Form. "
+"To delete it, go to "
+"Doppler and disassociate "
+"them."
+msgstr ""
+
+#: admin/doppler-admin.php:126
+msgid ""
+"Ouch! The List is "
+"associated to a Campaign "
+"in sending process."
+msgstr ""
+
+#: admin/doppler-admin.php:127
+msgid ""
+"Ouch! The List has "
+"associated Segments. To "
+"delete it, go to Doppler "
+"and disassociate them."
+msgstr ""
+
 #: admin/doppler-admin.php:128
-msgid "Edit Field"
+msgid ""
+"Ouch! The List is "
+"associated with an "
+"active Automation. To "
+"delete it, go to Doppler "
+"and disassociate them."
 msgstr ""
 
 #: admin/doppler-admin.php:129
-msgid "Required"
+msgid ""
+"Ouch! The List is "
+"associated with an "
+"active integration. To "
+"delete it, go to Doppler "
+"and disconnect the "
+"integration."
 msgstr ""
 
 #: admin/doppler-admin.php:130
-msgid "Label to be shown"
+msgid ""
+"Ouch! The List is in the "
+"process of union with "
+"another one."
 msgstr ""
 
 #: admin/doppler-admin.php:131
-msgid "Placeholder"
+msgid ""
+"Ouch! The List is still "
+"in the process of being "
+"created."
 msgstr ""
 
 #: admin/doppler-admin.php:132
-msgid "Description"
+msgid ""
+"Ouch! The List is in the "
+"process of loading."
 msgstr ""
 
 #: admin/doppler-admin.php:133
-msgid "Lines"
+msgid ""
+"Ouch! the list is in "
+"process of being "
+"exported."
 msgstr ""
 
 #: admin/doppler-admin.php:134
+msgid ""
+"Ouch! The List is in the "
+"process of being deleted."
+msgstr ""
+
+#: admin/doppler-admin.php:138
+msgid "Edit Field"
+msgstr ""
+
+#: admin/doppler-admin.php:139
+msgid "Required"
+msgstr ""
+
+#: admin/doppler-admin.php:140
+msgid "Label to be shown"
+msgstr ""
+
+#: admin/doppler-admin.php:141
+msgid "Placeholder"
+msgstr ""
+
+#: admin/doppler-admin.php:142
+msgid "Description"
+msgstr ""
+
+#: admin/doppler-admin.php:143
+msgid "Lines"
+msgstr ""
+
+#: admin/doppler-admin.php:144
 msgid "Simple"
 msgstr ""
 
-#: admin/doppler-admin.php:135
+#: admin/doppler-admin.php:145
 msgid "Multiple"
 msgstr ""
 
-#: admin/doppler-admin.php:154
-#: admin/doppler-admin.php:155
+#: admin/doppler-admin.php:164
+#: admin/doppler-admin.php:165
 msgid "Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:185
-#: admin/doppler-admin.php:186
+#: admin/doppler-admin.php:195
+#: admin/doppler-admin.php:196
 msgid ""
 "Connect with Doppler"
 msgstr ""
 
-#: admin/doppler-admin.php:196
-#: admin/doppler-admin.php:197
+#: admin/doppler-admin.php:206
+#: admin/doppler-admin.php:207
 #: admin/partials/doppler-forms-display.php:18
 msgid "Doppler Forms"
 msgstr ""
 
-#: admin/doppler-admin.php:206
-#: admin/doppler-admin.php:207
+#: admin/doppler-admin.php:216
+#: admin/doppler-admin.php:217
 msgid "Extensions"
 msgstr ""
 
-#: admin/doppler-admin.php:260
+#: admin/doppler-admin.php:270
 #: admin/partials/api-connection.php:120
 msgid ""
 "Ouch! Enter a valid "
 "Email."
 msgstr ""
 
-#: admin/doppler-admin.php:265
+#: admin/doppler-admin.php:275
 #: admin/partials/api-connection.php:142
 msgid ""
 "Ouch! The field is empty."
 msgstr ""
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid "Pst! Go to"
 msgstr ""
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid ""
 "Appearance > Widgets"
 msgstr ""
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid ""
 "to choose the place on "
 "your Website where you "
 "want your Form to appear."
 msgstr ""
 
-#: admin/doppler-admin.php:283
+#: admin/doppler-admin.php:293
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "created. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:288
+#: admin/doppler-admin.php:298
 msgid ""
 "The Form has been edited "
 "correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:290
+#: admin/doppler-admin.php:300
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "edited. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:297
+#: admin/doppler-admin.php:307
 msgid ""
 "The Form has been "
 "deleted correctly."
 msgstr ""
 
-#: admin/doppler-admin.php:299
+#: admin/doppler-admin.php:309
 msgid ""
 "Ouch! An error ocurred "
 "and the Form couldn't be "
 "deleted. Try again later."
 msgstr ""
 
-#: admin/doppler-admin.php:339
+#: admin/doppler-admin.php:349
 msgid ""
 "You've updated the "
 "<strong>Doppler Forms</"
@@ -245,11 +321,11 @@ msgid ""
 "version. Please,"
 msgstr ""
 
-#: admin/doppler-admin.php:341
+#: admin/doppler-admin.php:351
 msgid "enter your Username"
 msgstr ""
 
-#: admin/doppler-admin.php:342
+#: admin/doppler-admin.php:352
 msgid ""
 "in addition to the API "
 "Key and re-connect your "
