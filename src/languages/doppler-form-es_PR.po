@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-10-01 16:51-0300\n"
+"POT-Creation-Date: 2019-10-02 13:21-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -34,7 +34,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: admin/doppler-admin.php:116 admin/doppler-admin.php:124
-#: admin/doppler-admin.php:252
+#: admin/doppler-admin.php:262
 msgid ""
 "Ouch! There's something wrong with your Username or API Key. Please, try "
 "again."
@@ -77,106 +77,162 @@ msgstr ""
 msgid "Installing"
 msgstr "Instalando"
 
+#: admin/doppler-admin.php:125
+msgid ""
+"Ouch! The List is associated with a Form. To delete it, go to Doppler and "
+"disassociate them."
+msgstr ""
+"¡Ouch! La Lista está asociada a un Formulario. Para poder eliminarla, debes "
+"ir a Doppler y desasociarla."
+
+#: admin/doppler-admin.php:126
+msgid "Ouch! The List is associated to a Campaign in sending process."
+msgstr "¡Ouch! La Lista está asociada a una Campaña en proceso de envío."
+
+#: admin/doppler-admin.php:127
+msgid ""
+"Ouch! The List has associated Segments. To delete it, go to Doppler and "
+"disassociate them."
+msgstr ""
+"¡Ouch! La Lista tiene Segmentos asociados. Para poder eliminarla, debes ir a "
+"Doppler y desasociarla."
+
 #: admin/doppler-admin.php:128
+msgid ""
+"Ouch! The List is associated with an active Automation. To delete it, go to "
+"Doppler and disassociate them."
+msgstr ""
+"¡Ouch! La Lista está asociada a un Automation activo. Para poder eliminarla, "
+"debes ir a Doppler y desasociarla."
+
+#: admin/doppler-admin.php:129
+msgid ""
+"Ouch! The List is associated with an active integration. To delete it, go to "
+"Doppler and disconnect the integration."
+msgstr ""
+"¡Ouch! La Lista está asociada a una integración activa. Para poder "
+"eliminarla, debes ir a Doppler y desconectar la integración."
+
+#: admin/doppler-admin.php:130
+msgid "Ouch! The List is in the process of union with another one."
+msgstr "¡Ouch! La Lista está en proceso de unión con otra."
+
+#: admin/doppler-admin.php:131
+msgid "Ouch! The List is still in the process of being created."
+msgstr "¡¡Ouch! La Lista aún está en proceso de creación."
+
+#: admin/doppler-admin.php:132
+msgid "Ouch! The List is in the process of loading."
+msgstr "¡Ouch! La Lista está en proceso de carga."
+
+#: admin/doppler-admin.php:133
+msgid "Ouch! the list is in process of being exported."
+msgstr "¡Ouch! La Lista está en proceso de exportación."
+
+#: admin/doppler-admin.php:134
+msgid "Ouch! The List is in the process of being deleted."
+msgstr "¡Ouch! La Lista está en proceso de eliminación."
+
+#: admin/doppler-admin.php:138
 msgid "Edit Field"
 msgstr "Editar Campo"
 
-#: admin/doppler-admin.php:129
+#: admin/doppler-admin.php:139
 msgid "Required"
 msgstr "Requerido"
 
-#: admin/doppler-admin.php:130
+#: admin/doppler-admin.php:140
 msgid "Label to be shown"
 msgstr "Nombre a mostrar"
 
-#: admin/doppler-admin.php:131
+#: admin/doppler-admin.php:141
 msgid "Placeholder"
 msgstr "Texto de ejemplo"
 
-#: admin/doppler-admin.php:132
+#: admin/doppler-admin.php:142
 msgid "Description"
 msgstr "Descripción"
 
-#: admin/doppler-admin.php:133
+#: admin/doppler-admin.php:143
 msgid "Lines"
 msgstr "Líneas"
 
-#: admin/doppler-admin.php:134
+#: admin/doppler-admin.php:144
 msgid "Simple"
 msgstr "Simple"
 
-#: admin/doppler-admin.php:135
+#: admin/doppler-admin.php:145
 msgid "Multiple"
 msgstr "Múltiple"
 
-#: admin/doppler-admin.php:154 admin/doppler-admin.php:155
+#: admin/doppler-admin.php:164 admin/doppler-admin.php:165
 #, fuzzy
 #| msgid "Doppler List"
 msgid "Doppler"
 msgstr "Lista de Doppler"
 
-#: admin/doppler-admin.php:185 admin/doppler-admin.php:186
+#: admin/doppler-admin.php:195 admin/doppler-admin.php:196
 msgid "Connect with Doppler"
 msgstr "Conectar con Doppler"
 
-#: admin/doppler-admin.php:196 admin/doppler-admin.php:197
+#: admin/doppler-admin.php:206 admin/doppler-admin.php:207
 #: admin/partials/doppler-forms-display.php:18
 msgid "Doppler Forms"
 msgstr "Formularios Doppler"
 
-#: admin/doppler-admin.php:206 admin/doppler-admin.php:207
+#: admin/doppler-admin.php:216 admin/doppler-admin.php:217
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: admin/doppler-admin.php:260 admin/partials/api-connection.php:120
+#: admin/doppler-admin.php:270 admin/partials/api-connection.php:120
 msgid "Ouch! Enter a valid Email."
 msgstr "¡Ouch! Escribe un Email válido."
 
-#: admin/doppler-admin.php:265 admin/partials/api-connection.php:142
+#: admin/doppler-admin.php:275 admin/partials/api-connection.php:142
 msgid "Ouch! The field is empty."
 msgstr "¡Ouch! El campo está vacío."
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid "Pst! Go to"
 msgstr "¡Psst! Dirígete a"
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid "Appearance > Widgets"
 msgstr "Apariencia > Widgets"
 
-#: admin/doppler-admin.php:281
+#: admin/doppler-admin.php:291
 msgid "to choose the place on your Website where you want your Form to appear."
 msgstr ""
 "para elegir el lugar de tu Sitio Web donde quieres que aparezca tu "
 "Formulario."
 
-#: admin/doppler-admin.php:283
+#: admin/doppler-admin.php:293
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be created. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue creado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:288
+#: admin/doppler-admin.php:298
 msgid "The Form has been edited correctly."
 msgstr "El Formulario ha sido editado correctamente."
 
-#: admin/doppler-admin.php:290
+#: admin/doppler-admin.php:300
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be edited. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue editado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:297
+#: admin/doppler-admin.php:307
 msgid "The Form has been deleted correctly."
 msgstr "El Formulario ha sido eliminado correctamente."
 
-#: admin/doppler-admin.php:299
+#: admin/doppler-admin.php:309
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be deleted. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue eliminado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:339
+#: admin/doppler-admin.php:349
 msgid ""
 "You've updated the <strong>Doppler Forms</strong> plugin into the "
 "<strong>2.0.0</strong> version. Please,"
@@ -184,11 +240,11 @@ msgstr ""
 "Has actualizado el plugin <strong>Formularios Doppler</strong> a la versión "
 "<strong>2.0.0</strong>. Para continuar utilizándolo,"
 
-#: admin/doppler-admin.php:341
+#: admin/doppler-admin.php:351
 msgid "enter your Username"
 msgstr "ingresa tu Email de Usuario"
 
-#: admin/doppler-admin.php:342
+#: admin/doppler-admin.php:352
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
 
