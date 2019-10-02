@@ -327,8 +327,8 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
     public function getAllLists( $listId = null, $lists = [], $page = 1, $per_page = 200 ) {
       $method = $this->methods['list'];
       $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page, 'per_page' => $per_page))['body']);
+      if(!isset($z->items)) return $lists; 
       $lists[] = $z->items;
-
       if($z->currentPage < $z->pagesCount && $page<1){
         $page = $page+1;
         return $this->getAllLists(null, $lists, $page);
