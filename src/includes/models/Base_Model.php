@@ -21,7 +21,6 @@ abstract class DPLR_Base_Model {
   private static function _fetch_sql( $value ) {
     global $wpdb;
     $sql = sprintf( 'SELECT *, NULL AS settings FROM %s WHERE %s = %s', self::_table(), static::$primary_key, $value );
-
     return $wpdb->prepare( $sql, $value );
   }
 
@@ -47,7 +46,7 @@ abstract class DPLR_Base_Model {
 
   static function get( $value, $with_settings = false ) {
     global $wpdb;
-
+    if(empty($value)) return false;
     $result = $wpdb->get_row( self::_fetch_sql( $value ));
 
     if($with_settings) {

@@ -13,7 +13,7 @@
     <p class="subtitle margin-auto mb-1"><?php _e("Improve your business by integrating these features with you Doppler account.<br>¡Boost your Email & Automation Marketing strategy!","doppler-form") ;?> :)</p>
                                  
         <div class="dplr-boxes">
-                                    
+            <!--                        
             <div>
                 <figure>
                     <img src="<?php echo plugins_url( '/../img/woocommerce-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for WooCommerce', 'doppler-form')?>"/>
@@ -35,7 +35,7 @@
 					<?php endif; ?>
                 </div>
             </div>
-			
+			-->
 			<div>
                 <figure>
                     <img src="<?php echo plugins_url( '/../img/learnpress-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for LearnPress', 'doppler-form');?>"/>

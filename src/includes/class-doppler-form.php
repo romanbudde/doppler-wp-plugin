@@ -73,7 +73,7 @@ class DPLR_Doppler {
 
 		require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 		$this->plugin_name = 'Doppler';
-		$this->version = '2.1.3';
+		$this->version = '2.1.4';
 		$this->doppler_service = new Doppler_Service();
 
 		$options = get_option('dplr_settings', [
