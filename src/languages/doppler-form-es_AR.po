@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-10-02 13:21-0300\n"
+"POT-Creation-Date: 2019-10-18 14:37-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -247,6 +247,14 @@ msgstr "ingresa tu Email de Usuario"
 #: admin/doppler-admin.php:352
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
+
+#: admin/doppler-admin.php:462
+msgid ""
+"Ouch! The List is being used in a form or an extension, so it cannot be "
+"deleted."
+msgstr ""
+"¡Ouch! La Lista está siendo utilizada en un Formulario o en una extensión de "
+"Doppler y no puede ser eliminada."
 
 #: admin/partials/api-connection.php:16
 msgid "Disconnect"

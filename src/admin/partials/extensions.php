@@ -13,7 +13,7 @@
     <p class="subtitle margin-auto mb-1"><?php _e("Improve your business by integrating these features with you Doppler account.<br>¡Boost your Email & Automation Marketing strategy!","doppler-form") ;?> :)</p>
                                  
         <div class="dplr-boxes">
-            <!--                        
+                          
             <div>
                 <figure>
                     <img src="<?php echo plugins_url( '/../img/woocommerce-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for WooCommerce', 'doppler-form')?>"/>
@@ -27,7 +27,7 @@
 					<?php if(!$this->extension_manager->has_dependency('doppler-for-woocommerce')):?>
 						<p class="notice notice-error text-small"><?php _e('You should have <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce plugin</a> installed and active first.', 'doppler-form')?></p>
 					<?php else: ?>
-						<?php if( !$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
+						<?php if(!$this->extension_manager->is_active('doppler-for-woocommerce')):  ?>
 							<button class="dp-button primary-green button-medium" data-extension="doppler-for-woocommerce"><?php _e('Install', 'doppler-form') ?></button>
 						<?php else: ?>
 							<?php echo sprintf(__('This extension is installed. Go to %s settings page</a>.','doppler-form'),'<a href="'.admin_url('admin.php?page='.$this->extension_manager->extensions['doppler-for-woocommerce']['settings']).'">');?>
@@ -35,7 +35,7 @@
 					<?php endif; ?>
                 </div>
             </div>
-			-->
+		
 			<div>
                 <figure>
                     <img src="<?php echo plugins_url( '/../img/learnpress-logo.png', __FILE__ ); ?>" alt="<?php _e('Doppler for LearnPress', 'doppler-form');?>"/>

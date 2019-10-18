@@ -48,11 +48,11 @@ class Doppler_Admin {
 		return $this->version;
 	}
 
-	public function set_connection_status($status){
+	public function set_connection_status($status) {
 		$this->connection_status = $status;
 	}
 
-	public function get_connection_status(){
+	public function get_connection_status() {
 		return $this->connection_status;
 	}
 
@@ -417,6 +417,9 @@ class Doppler_Admin {
 	
 	}
 
+	/**
+	 * Deletes a Form.
+	 */
 	public function ajax_delete_form() {
 		if(empty($_POST['listId'])) return false;
 		$this->set_credentials();
@@ -427,12 +430,19 @@ class Doppler_Admin {
 	/**
 	 * CRUD
 	 */
+
+	 /**
+	  * Get Lists.
+	  */
 	public function ajax_get_lists() {
 		$this->set_credentials();
 		echo json_encode($this->get_lists_by_page($_POST['page'], $_POST['per_page']));
 		wp_die();
 	}
 
+	/**
+	 * Validates before creating list through ajax call.
+	 */
 	public function ajax_save_list() {
 		if(empty($_POST['listName'])) return false;
 		$this->set_credentials();
@@ -440,8 +450,22 @@ class Doppler_Admin {
 		wp_die();
 	}
 
+	/**
+	 * Check if a List is available for deletion
+	 * and then delete.
+	 */
 	public function ajax_delete_list() {
 		if(empty($_POST['listId'])) return false;
+		if(!$this->allow_delete_list($_POST['listId'])){
+			echo json_encode(array('response'=>array(
+										'code'=>0,
+										'message'=>__('Ouch! The List is being used in a form or an extension, so it cannot be deleted.','doppler-form')
+									)
+								)
+							);
+			wp_die();
+		}
+		
 		$this->set_credentials();
 		$subscribers_lists = get_option('dplr_subscribers_list');
 		$subscriber_resource = $this->doppler_service->getResource('lists');
@@ -449,11 +473,44 @@ class Doppler_Admin {
 		wp_die();
 	}
 
+	/**
+	 * Returns true if List can be deleted.
+	 */
+	private function allow_delete_list( $list_id ) {
+		
+		global $wpdb;
+		if(empty($list_id)) return false;
+		$woocommerce_lists = get_option('dplr_subscribers_list');
+		$learnpress_lists = get_option('dplr_learnpress_subscribers_list');
+		
+		$list_count = $wpdb->get_var("SELECT count(*) FROM ".$wpdb->prefix."dplr_form
+		WHERE list_id = '".$list_id."'");
+
+		if($list_count>0) return false;
+
+		if(!empty($woocommerce_lists)){
+			if(in_array($list_id, array_values($woocommerce_lists))) return false;
+		}
+
+		if(!empty($learnpress_lists)){
+			if(in_array($list_id, array_values($learnpress_lists))) return false;
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * Get Lists by Page number. 1st page by default.
+	 */
 	public function get_lists_by_page( $page = 1, $per_page ) {
 		$list_resource = $this->doppler_service->getResource( 'lists' );
 		return $list_resource->getListsByPage( $page , $per_page );
 	}
 
+	/**
+	 * Creates a new Doppler List.
+	 */
 	private function create_list($list_name) {
 		$subscriber_resource = $this->doppler_service->getResource('lists');
 		return $subscriber_resource->saveList( $list_name )['body'];

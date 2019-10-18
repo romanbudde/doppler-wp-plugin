@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: "
 "Doppler form Pot v1.0.0\n"
 "POT-Creation-Date: "
-"2019-10-02 13:21-0300\n"
+"2019-10-18 14:37-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your "
 "Name <you@example.com>\n"
@@ -330,6 +330,14 @@ msgid ""
 "in addition to the API "
 "Key and re-connect your "
 "Doppler account."
+msgstr ""
+
+#: admin/doppler-admin.php:462
+msgid ""
+"Ouch! The List is being "
+"used in a form or an "
+"extension, so it cannot "
+"be deleted."
 msgstr ""
 
 #: admin/partials/api-connection.php:16
