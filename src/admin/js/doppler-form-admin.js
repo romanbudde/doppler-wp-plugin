@@ -408,10 +408,12 @@ function deleteList(e){
 				var obj = JSON.parse(response);
 				if(obj.response.code == 200){
 					tr.remove();
-				}else{
-					displayErrors(JSON.parse(obj.body));
-					tr.removeClass('deleting');
+					return;
 				}
+				(obj.response.code == 0)?
+					$('#showErrorResponse').css('display','flex').html('<p>'+obj.response.message+'</p>') : 
+					displayErrors(JSON.parse(obj.body))
+				tr.removeClass('deleting');
 			});
 		}
 	  }, 
