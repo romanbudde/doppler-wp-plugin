@@ -1,24 +1,52 @@
 form{
-    font-family: $text-family-rg;
     label{
-        font-size: $font-size-regular;
-        font-family: $text-family-rg;
+        font-size: 13px;
         font-weight: bold;
         text-align: left;
         display: block;
         cursor: default;
     }
     input[type="text"], input[type="email"], input[type="date"], input[type="tel"],
-    textarea{
+    input[type="url"],select,textarea{
         font-size: $font-size-regular;
-        font-family: $text-family-rg;
         height: 40px;
         border: 1px solid $lighter-grey;
         border-radius: 3px;
         width: 100%;
     }
+    .dplr_input_section{
+        width: 100%;
+        margin-top: 10px;
+        position: relative;
+        margin-bottom: 25px;
+        label{
+            color: #333;
+            padding-left: 10px;
+            span.req, span.hlp{
+                color: $light-grey;
+                font-weight: 400;
+            }
+        }
+        .radio_section {
+            padding-left: 10px;
+            color: #333;
+            input[type="radio"]{
+                margin-left: 3px;
+            }
+        }
+        &.horizontal{
+            label{
+                float: left;
+                text-align: left;
+                width: 10%;
+            }
+        }
+    }
     textarea{
         height: initial;
+    }
+    select{
+        cursor: pointer;
     }
     &.form-horizontal{
         .dplr-row-section{

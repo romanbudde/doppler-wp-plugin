@@ -3,56 +3,56 @@
 if ( ! current_user_can( 'manage_options' ) ) {
     return;
 }
-   
-if( isset($_GET['tab']) ) {
-    $active_tab = $_GET['tab'];
- }else{
-    $active_tab = 'forms';
-} 
+
+//Makes call to API.
+$response =  $this->doppler_service->connectionStatus();
 
 ?>
 
 <div class="wrap dplr_settings">
 
-    <h2><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
+	<a href="<?php _e('https://www.fromdoppler.com/en/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" target="_blank" class="dplr-logo-header">
+		<img id="" src="<?php echo DOPPLER_PLUGIN_URL?>admin/img/logo-doppler.svg" alt="Doppler logo"/>
+	</a>
 
-    <h2 class="nav-tab-wrapper">
-        <a href="?page=doppler_forms_main&tab=forms" class="nav-tab <?php echo $active_tab == 'forms' ? 'nav-tab-active' : ''; ?>"><?php _e('Forms', 'doppler-form')?></a>
-        <a href="?page=doppler_forms_main&tab=new" class="nav-tab <?php echo $active_tab == 'new' ? 'nav-tab-active' : ''; ?>"><?php _e('Create Form', 'doppler-form')?></a>
-        <a href="?page=doppler_forms_main&tab=lists" class="nav-tab <?php echo $active_tab == 'lists' ? 'nav-tab-active' : ''; ?>"><?php _e('Manage Lists', 'doppler-form')?></a>
-    </h2>
+    <h2 class="main-title"><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
+
+    <?php
+    if( $active_tab == 'forms' || $active_tab == 'lists'){
+        include plugin_dir_path( __FILE__ ) . "../partials/tabs-nav.php";
+    }
+    ?>
+<?php
+
+if( is_array($response) && $response['response']['code']>=400 && true ){
+    ?>
+    <div class="mt-1">
+        <?php
+        $this->set_error_message(__('Ouch! An error ocurred while trying to communicate with the API. Try again later.','doppler-form'));
+        $this->display_error_message();
+        return false;
+        ?>
+    </div>
+    <?php
+}
+
+?>
 
 <?php
 
 switch($active_tab){
     case 'forms':
-        $this->form_controller->getAll();
+        include plugin_dir_path( __FILE__ ) . "../partials/forms-list.php";
         break;
     case 'new':
-        $this->form_controller->create($_POST);
+        $this->form_controller->showCreateEditForm();
+        break;
+    case 'edit':
+        $this->form_controller->showCreateEditForm($_GET['form_id']);
         break;
     case 'lists':
+        include plugin_dir_path( __FILE__ ) . "../partials/lists-crud.php";
         break;
     default:
         break;
 }
-
-/*
-$action = isset($_GET['action']) ? $_GET['action'] : 'list';
-
-switch ($action) {
-    case 'list':
-        $this->form_controller->getAll();
-        break;
-    case 'create':
-        $this->form_controller->create($_POST);
-        break;
-    case 'edit':
-        $this->form_controller->update($_GET['form_id'], $_POST);
-        break;
-    case 'delete':
-        $this->form_controller->delete($_GET['form_id']);
-        break;
-}
-*/
-

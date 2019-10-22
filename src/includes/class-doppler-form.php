@@ -73,7 +73,7 @@ class DPLR_Doppler {
 
 		require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 		$this->plugin_name = 'Doppler';
-		$this->version = '2.0.2';
+		$this->version = '2.1.4';
 		$this->doppler_service = new Doppler_Service();
 
 		$options = get_option('dplr_settings', [
@@ -81,6 +81,7 @@ class DPLR_Doppler {
 			'dplr_option_useraccount' => ''
 			]);
 
+		 /* Not sure about this block. */
 		 try {
 		 	//$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
@@ -140,8 +141,10 @@ class DPLR_Doppler {
 		require_once plugin_dir_path( dirname(__FILE__) ) . "includes/models/Field_Model.php";
 
 		require_once plugin_dir_path( dirname(__FILE__) ) . "admin/controllers/Form_Controller.php";
+		
+		require_once plugin_dir_path( dirname(__FILE__) ) . "includes/class-doppler-extension-manager.php";
 
-		$this->loader = new Plugin_Name_Loader();
+		$this->loader = new Doppler_Form_Loader();
 
 	}
 
@@ -172,15 +175,21 @@ class DPLR_Doppler {
 	private function define_admin_hooks() {
 		
 		$plugin_admin = new Doppler_Admin( $this->get_plugin_name(), $this->get_version(), $this->doppler_service);
+		$extension_manager = new Doppler_Extension_Manager();
 
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', 	$plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_init', 				$plugin_admin, 'init_settings');
+		$this->loader->add_action( 'admin_init', 				$plugin_admin, 'init_settings' );
 		$this->loader->add_action( 'admin_menu', 				$plugin_admin, 'init_menu' );
 		$this->loader->add_action( 'admin_menu', 				$plugin_admin, 'add_submenu' );
 		$this->loader->add_action( 'widgets_init', 				$plugin_admin, 'init_widget' );
 		$this->loader->add_action( 'admin_notices', 			$plugin_admin, 'show_admin_notices' );
 		$this->loader->add_action( 'wp_ajax_dplr_ajax_connect', $plugin_admin, 'ajax_connect' );
+		$this->loader->add_action( 'wp_ajax_dplr_delete_form',  $plugin_admin, 'ajax_delete_form' );
+		$this->loader->add_action( 'wp_ajax_dplr_get_lists',	$plugin_admin, 'ajax_get_lists' );
+		$this->loader->add_action( 'wp_ajax_dplr_save_list', 	$plugin_admin, 'ajax_save_list' );
+		$this->loader->add_action( 'wp_ajax_dplr_delete_list',  $plugin_admin, 'ajax_delete_list' );
+		$this->loader->add_action( 'wp_ajax_install_extension', $extension_manager, 'install_extension' );
 
 	}
 
@@ -194,15 +203,19 @@ class DPLR_Doppler {
 	private function define_public_hooks() {
 
 		$plugin_public = new DPLR_Doppler_Form_Public( $this->get_plugin_name(), $this->get_version(), $this->doppler_service );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-		// AJAX
+		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'wp_ajax_submit_form', 		 $plugin_public, 'submit_form' );
 		$this->loader->add_action( 'wp_ajax_nopriv_submit_form', $plugin_public, 'submit_form' );
 
 	}
 
+	/**
+	 * If plugin is upgrading from version 1.0.0, updates database, 
+	 * imports current forms, and saves version in db.
+	 * 
+	 * @since 2.0.0 
+	 */
 	public function check_version_update(){
 
 		$settings = get_option('dplr_settings');

@@ -1,8 +1,10 @@
-<?php echo "<script>console.log(".json_encode($form).");</script>"; ?>
-
-<div class="dplr">
-  <form class="" method="post">
-    <input type="hidden" name="create" value="true">
+<div class="dplr dplr-tab-content dplr-tab-content--form-edit">
+  
+  <form method="post" action="<?php admin_url() ?>admin.php?page=doppler_forms_main">
+    
+    <input type="hidden" name="create" value="true" />
+    <input type="hidden" name="form_id" value="<?php echo $form->id?>" />
+      
       <div class="grid">
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -31,6 +33,7 @@
           </div>
         </div>
       </div>
+      
       <div class="grid">
           <div class="col-4-5 panel nopd">
             <div class="panel-header">
@@ -38,7 +41,7 @@
             </div>
             <div class="panel-body grid">
               <div class="col-1-2 dplr_input_section">
-                <label for="list_id"><?php _e('Fields to include', 'doppler-form')?> <span class="hlp"><?php _e('Learn how to create Custom Fields with Doppler. Press', 'doppler-form')?> <a href="<?php _e('https://help.fromdoppler.com/en/how-to-create-a-customized-field/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" target="_blank"><?php _e('HELP', 'doppler-form')?></a>.</span></label>
+                <label for="list_id"><?php _e('Fields to include', 'doppler-form')?> <span class="hlp"><?php _e('Learn how to create Custom Fields with Doppler. Press', 'doppler-form')?> <a href="<?php _e('https://help.fromdoppler.com/en/how-to-create-a-customized-field/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" class="green-link" target="_blank"><?php _e('HELP', 'doppler-form')?></a>.</span></label>
                 <select id="fieldList" class="" name="">
                   <option value="" ><?php _e('Select the Fields that will appear on your Form', 'doppler-form')?></option>
                 </select>
@@ -52,6 +55,7 @@
             </div>
           </div>
       </div>
+      
       <div class="grid">
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -113,6 +117,7 @@
           </div>
         </div>
       </div>
+      
       <div class="grid" id="dplr_consent_section" <?= ($form->settings['use_consent_field']==='yes')? 'style="display:block"' : 'style="display:none"'; ?>>
         <div class="col-4-5 panel nopd">
           <div class="panel-header">
@@ -132,9 +137,13 @@
           </div>
         </div>
       </div>
-    <input type="submit" value="<?php _e('Save', 'doppler-form')?>" class="button button-primary button--save"> <a href="<?php echo admin_url('admin.php?page=doppler_forms_submenu_forms')?>"  class="button button-primary button--cancel"><?php _e('Cancel', 'doppler-form')?></a>
+    
+      <input type="submit" name="form-edit" value="<?php _e('Save', 'doppler-form')?>" class="dp-button primary-green button-medium"/> <a href="<?php echo admin_url('admin.php?page=doppler_forms_main')?>"  class="dp-button primary-grey button-medium"><?php _e('Cancel', 'doppler-form')?></a>
+  
   </form>
+
 </div>
+
 <script type="text/javascript">
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)

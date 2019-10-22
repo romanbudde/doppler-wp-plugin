@@ -17,11 +17,15 @@ class Doppler_Service
 
   private $errors;
 
+  private $origin;
+
   function __construct($credentials = null) {
     
     $this->config = ['credentials' => []];
 
     $this->error = 0;
+
+    $this->origin = 'Wordpress';
 
     $usr_account = '';
 
@@ -62,7 +66,9 @@ class Doppler_Service
                 'page' => array(
                   'on_query_string' => true
                 ),
-                'per_page' => 200
+                'per_page' => array(
+                  'on_query_string'=>true
+                )
               )
             ),
             'new' => array(
@@ -131,6 +137,14 @@ class Doppler_Service
     ];
   }
 
+  public function set_origin( $origin ) {
+    $this->origin = $origin;
+  }
+
+  public function get_origin() {
+    return $this->origin;
+  }
+
   /**
    * Set credentials
    * It wont check API connection anymore.
@@ -138,27 +152,10 @@ class Doppler_Service
   public function setCredentials( $credentials = array() ) {
     $this->config['credentials'] = array_merge($credentials, $this->config['credentials'] );
     return true;
-    /*
-    $connectionStatus = $this->connectionStatus();
-    switch($connectionStatus['response']['code']) {
-      case 200:
-        return true;
-        break;
-      case 401:
-        //TODO: Return formated error 
-        return false;
-        break;
-      case 403:
-        //TODO: Return formated error
-        return false;
-        break;
-    }
-    */
   }
 
   public function unsetCredentials(){
     $this->config['credentials'] = array();
-    echo 'USER INVALID DELETING OPTIONS';
     update_option('dplr_settings', array('dplr_option_apikey'=>'','dplr_option_useraccount'=>''));
   }
 
@@ -168,10 +165,11 @@ class Doppler_Service
   }
 
   function call( $method, $args=null, $body=null ) {
-    //$url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    $url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
+    $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
+    //$url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
     $url .= $method[ 'route' ];
-    $query = "";
+  
+    $query = array();
     
     if( $args && count($args)>0 ){
       
@@ -182,29 +180,27 @@ class Doppler_Service
         isset($resourceArg[ $name ])? $parameter = $resourceArg[ $name ] : $parameter = ''; 
         
         if( $parameter && $parameter[ 'on_query_string' ] ){
-          $query .= $name . "=" . $val ;
+          $query[] = $name . "=" . $val ;
         }else{
           $url = str_replace(":".$name, $val, $url);
         }
       
       }
 
-      if(isset($resourceArg["per_page"])){
-        $url.="?per_page=".$resourceArg["per_page"];
-      }
+    }
 
-      if(isset($resourceArg["page"])){
-        $url.='&'.$query;
-      }
 
+    if(!empty($query)){
+      $url.='?'.implode('&',$query);
     }
 
     $headers=array(
             "Accept" => "application/json",
             "Content-Type" => "application/json",
-            "X-Doppler-Subscriber-Origin" => "Wordpress",
+            "X-Doppler-Subscriber-Origin" => $this->get_origin(),
             "Authorization" => "token ". $this->config["credentials"]["api_key"]
              );
+             
     $response = "";
 
     try{
@@ -242,6 +238,12 @@ class Doppler_Service
       $this->throwConnectionErr($e->getMessage());
       return;
     }
+
+    if( is_wp_error( $response ) ) {
+      $this->throwConnectionErr($response->get_error_message().$url);
+      return;
+    }
+
     return $response;		  
 
   }
@@ -252,7 +254,7 @@ class Doppler_Service
 
   function throwConnectionErr($msg) {
     //Does this ever shows?
-    if($this->error == 0):
+    if( $this->error == 0 && is_admin() ):
       ?>
       <div class="notice notice-error">
 				<p>
@@ -322,13 +324,12 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
     /**
      * Get all lists recursively
      */
-    public function getAllLists( $listId = null, $lists = [], $page = 1  ) {
-      
+    public function getAllLists( $listId = null, $lists = [], $page = 1, $per_page = 200 ) {
       $method = $this->methods['list'];
-      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page))['body']);
+      $z = json_decode($this->service->call($method, array("listId" => $listId, 'page' => $page, 'per_page' => $per_page))['body']);
+      if(!isset($z->items)) return $lists; 
       $lists[] = $z->items;
-
-      if($z->currentPage < $z->pagesCount && $page<4){
+      if($z->currentPage < $z->pagesCount && $page<1){
         $page = $page+1;
         return $this->getAllLists(null, $lists, $page);
       }else{
@@ -337,12 +338,9 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
       
     }
 
-    public function getListsByPage( $page = 1 ) {
-
+    public function getListsByPage( $page = 1, $per_page = 200 ) {
       $method = $this->methods['list'];
-      $z = json_decode($this->service->call($method, array("listId" => null, 'page' => $page))['body']);
-      return $z->items;
-
+      return json_decode($this->service->call($method, array("listId" => null, 'page' => $page, 'per_page' => $per_page))['body']);
     }
 
     public function saveList( $list_name ) {

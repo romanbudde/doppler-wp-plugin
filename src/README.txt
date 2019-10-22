@@ -3,9 +3,9 @@ Contributors: fromdoppler
 Donate link: --
 Tags: Doppler, Email marketing, integration, subscription, form, automation
 Requires at least: 4.9
-Tested up to: 5.0.4
-Requires PHP: 5.2.4
-Stable tag: 2.0.2
+Tested up to: 5.2.3
+Requires PHP: 5.6.4
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Este plugin te permite crear Formularios de Suscripción totalmente personalizad
 Lo único que tienes que hacer es ingresar un título, elegir los Campos que deseas mostrar, 
 la Lista a la que quieres enviar tus nuevos Suscriptores y el lugar donde aparecerá tu Formulario. ¡Eso es todo!
 
-¿Aún no tienes cuenta en Doppler? [CREA UNA GRATIS](https://app2.fromdoppler.com/Registration/Register/StartRegistration/?id=en&origin=wordpress) y prueba el poder del Email & Automation Marketing. No necesitas contratos ni tarjetas de crédito.
+¿Aún no tienes cuenta en Doppler? [CREA UNA GRATIS](https://app.fromdoppler.com/#/signup?lang=es&id=es&origin=wordpress) y prueba el poder del Email & Automation Marketing. No necesitas contratos ni tarjetas de crédito.
 
 == Funcionalidades ==
 
@@ -88,6 +88,20 @@ En [este artículo](https://help.fromdoppler.com/es/api-interfaz-de-programacion
 8. Formulario de Suscripción.
 
 == Changelog ==
+
+= 2.1.4 =
+* Publish extensions section
+
+= 2.1.3 =
+* Optimized requests to api
+
+= 2.1.1 =  
+* Fix fatal error with new extension class
+
+= 2.1.0 =
+* Added Manage Lists section.
+* Added capacity for future extensions.
+* New visuals, new menu.
 
 = 2.0.2 =
 * Form can be configured to redirect user to a page after subscription.

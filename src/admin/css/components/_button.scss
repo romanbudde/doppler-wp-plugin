@@ -1,33 +1,3 @@
-@-webkit-keyframes spin{
-    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
-}
-
-@keyframes spin{
-    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(359deg);transform:rotate(359deg)}
-}
-
-@-webkit-keyframes counterspin{
-    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(-359deg);transform:rotate(-359deg)}
-}
-
-@keyframes counterspin{
-    0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(-359deg);transform:rotate(-359deg)}
-}
-
-@-webkit-keyframes dp-preloader-spin{
-    to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
-}
-
-@-webkit-keyframes flash{
-    0%,50%,to{opacity:1}25%,75%{opacity:0}
-}
-
-@keyframes dp-preloader-spin{
-    to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
-}
-
-@keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}
-
 .dp-button{
     display:inline-block;
     text-align:center;
@@ -65,17 +35,16 @@
     padding:10px 15px
 }
 
+.dp-button.dp-button--inline{
+    &.button--loading{
+        display: inline-flex;
+    }
+}
+
 .dp-button.button--loading{
     padding-left:3em;
     position:relative;
-    display:-webkit-box;
-    display:-moz-box;
-    display:-ms-flexbox;
-    -js-display:flex;
-    display:flex;
-    -webkit-box-align:center;
-    -moz-box-align:center;
-    -ms-flex-align:center;
+    display: flex;
     align-items:center
 }
 

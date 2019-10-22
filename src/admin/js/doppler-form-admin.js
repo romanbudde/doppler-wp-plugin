@@ -41,6 +41,8 @@ function hideUserApiError(){
 
 $(document).ready(function(){
 
+	var default_page_size = '200';
+
 	$("input[data-validation-fixed]").each(function() {
 		hideUserApiError();
 		triggerError($(this));
@@ -68,6 +70,11 @@ $(document).ready(function(){
 		}
 	});
 
+	/**
+	 * Check against api first, 
+	 * then save credentials.
+	 */
+	
 	$("#dplr-connect-form").submit(function(event) {
 
 		event.preventDefault();
@@ -88,7 +95,7 @@ $(document).ready(function(){
 		}
 
 		button.attr('disabled','disabled').addClass("button--loading");
-
+		
 		var data = {
 			action: 'dplr_ajax_connect',
 			user: userfield.val(),
@@ -96,15 +103,23 @@ $(document).ready(function(){
 		}
 
 		$.post( ajaxurl, data, function( response ) {	
-			if(response == '200'){				
+			var obj = JSON.parse(response);
+			if(obj.response.code == '200'){				
 				var fields = form.serialize();
-				$.post( 'options.php', fields, function(obj){
+				$.post( 'options.php', fields, function(){
 					window.location.reload(false); 					
 				});	
 			}else{
+				var body = JSON.parse(obj.body);
+				var msg = '';
+				if(body.status!='401'){
+					msg = generateErrorMsg(body.status,body.errorCode);
+				}else{
+					msg = object_string.wrongCredentials;
+				}
 				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
-					error+= '<div class="tooltip-container text-left">';
-					error+= '<span>'+ObjStr.ConnectionErr+'</span>'
+					error+= '<div class="text-red text-left">';
+					error+= '<span>' + msg + '</span>';
 					error+= '</div>';
 					error+= '</div>';
 				form.after(error);
@@ -209,15 +224,26 @@ $(document).ready(function(){
 		});
 	}
 
-	$(".dplr-remove").click(function(e) {
+	$(".dplr-tab-content--list .dplr-remove").click(function(e) {
 		
 		e.preventDefault();
-		var l = $(this).attr("href");
+		clearResponseMessages();
+		var a = $(this);
+		var listId = a.attr('data-list-id');
+		var row = a.closest('tr');
+		if(!listId>0) return false;
 
 		$("#dplr-dialog-confirm").dialog("option", "buttons", [{
 		  text: object_string.Delete,
 		  click: function() {
-			window.location.href = l;
+			var data = {action: 'dplr_delete_form', listId : listId}
+			$(this).dialog("close");
+			row.addClass('deleting');
+			$.post(ajaxurl,data,function(resp){
+				if(resp == '1'){
+					row.remove();
+				}
+			});
 		  }
 		}, {
 		  text: object_string.Cancel,
@@ -227,11 +253,64 @@ $(document).ready(function(){
 		}]);
 
 		$("#dplr-dialog-confirm").dialog("open");
-	  
+		
 	});
+
+	/* CRUD */
+
+	$("#dplr-save-list").click(function(e){
+		e.preventDefault();			
+		clearResponseMessages();
+		var listName = $(this).closest('form').find('input[type="text"]').val();
+		if(listName!==''){
+			var data = {
+				action: 'dplr_save_list',
+				listName: listName
+			};
+			listsLoading();
+			$.post( ajaxurl, data, function( response ) {
+				var body = 	JSON.parse(response);
+				if(body.createdResourceId){		
+					var html ='<tr>';
+					html+='<td>'+body.createdResourceId+'</td><td><strong>'+listName+'</strong></td>';
+					html+='<td>0</td>';
+					html+='<td><a href="#" class="text-dark-red" data-list-id="'+body.createdResourceId+'">'+object_string.Delete+'</a></td>'
+					html+='</tr>';
+					$("#dplr-tbl-lists tbody").prepend(html);
+				}else{
+					if(body.status >= 400){
+						//body.status,body.errorCode
+						displayErrors(body);
+					}
+				}
+				listsLoaded();
+			});
+		}
+	});
+
+	$("#dplr-tbl-lists tbody").on("click","tr a",deleteList);
+
+	$(".dplr-extensions .dplr-boxes button").click(function(){
+		var button = $(this);
+		var extension = button.attr('data-extension');
+		button.addClass('button--loading').html(object_string.installing);
+		button.closest('.dplr-extensions').find('button').css('pointer-events','none');
+		var data = {
+			action: 'install_extension',
+			extensionName: extension
+		}
+		$.post(ajaxurl,data,function(resp){
+			window.location.reload(false);
+		});
+	});
+
+	if($("#dplr-tbl-lists").length>0){
+		loadLists(1,default_page_size);
+	}
 
 });
 
+/*
 $(document).on('widget-updated',  function(e, elem){
 	select = elem.find("form select.multiple-selec");
 	select.chosen({
@@ -246,5 +325,144 @@ $(document).on('widget-added', function(e, elem){
 		width: "100%",
 	});
 });
+*/
+
+function listsLoading(){
+	$('form input, form button').prop('disabled', true);
+	$('#dplr-crud').addClass('loading');
+}
+
+function listsLoaded(){
+	$('form input, form button').prop('disabled', false);
+	$('form input').val('');
+	$('#dplr-crud').removeClass('loading');
+	$('#dplr-tbl-lists').removeClass('d-none');
+}
+
+function loadLists( page, per_page ){
+
+	var data = {
+		action: 'dplr_get_lists',
+		page: page,
+		per_page : per_page
+	};
+	
+	if(page==1){
+		listsLoading();
+		$("#dplr-tbl-lists tbody tr").remove();
+	}else{
+		$("#crud-show-more").addClass('button--loading');
+	}
+
+	$.post( ajaxurl, data, function( response ) {
+		if(response.length>0){
+			var obj = JSON.parse(response);
+			var items = obj.items;
+			var html = '';
+			for (const key in items) {
+				var value = items[key];
+				html += '<tr>';
+				html += '<td>'+value.listId+'</td>';
+				html += '<td><strong>'+value.name+'</strong></td>';
+				html += '<td>'+value.subscribersCount+'</td>';
+				html += '<td><a href="#" class="text-dark-red" data-list-id="'+value.listId+'">'+object_string.Delete+'</a></td>'
+				html += '</tr>';
+			}
+			$("#dplr-tbl-lists tbody").prepend(html);
+			if(page==1){
+				listsLoaded();
+			}else{
+				$("#crud-show-more").removeClass('button--loading');
+			}
+			
+			if(page < parseInt(obj.pagesCount)){
+				$("#crud-show-more").css('visibility','visible').attr('data-next-page', parseInt(page)+1);
+			}else{
+				$("#crud-show-more").css('visibility','hidden');
+			}
+		
+		}
+	})
+}
+
+function deleteList(e){
+
+	e.preventDefault();
+
+	var a = $(this);
+	var tr = a.closest('tr');
+	var listId = a.attr('data-list-id');
+	var data = {
+		action: 'dplr_delete_list',
+		listId : listId
+	};
+
+	clearResponseMessages();
+	
+	$("#dplr-dialog-confirm").dialog("option", "buttons", [{
+		text: object_string.Delete,
+		click: function() {
+			$(this).dialog("close");
+			tr.addClass('deleting');
+			$.post( ajaxurl, data, function( response ) {
+				var obj = JSON.parse(response);
+				if(obj.response.code == 200){
+					tr.remove();
+					return;
+				}
+				(obj.response.code == 0)?
+					$('#showErrorResponse').css('display','flex').html('<p>'+obj.response.message+'</p>') : 
+					displayErrors(JSON.parse(obj.body))
+				tr.removeClass('deleting');
+			});
+		}
+	  }, 
+	  {
+		text: object_string.Cancel,
+		click: function() {
+		  $(this).dialog("close");
+		}
+	  }]);
+
+	  $("#dplr-dialog-confirm").dialog("open");
+
+}
 
 })( jQuery );
+
+function displayErrors(body){
+	jQuery('#showErrorResponse').css('display','flex').html('<p>'+generateErrorMsg(body)+'</p>');
+}
+
+function displaySuccess(successMsg){
+	if(successMsg == '') return false;
+	jQuery('#showSuccessResponse').css('display','flex').html('<p>'+successMsg+'</p>');
+}
+
+function clearResponseMessages(){
+	jQuery('#showSuccessResponse,#showErrorResponse').html('').css('display','none');
+	jQuery('#displaySuccessMessage,#displayErrorMessage').remove();
+}
+
+function generateErrorMsg(body){
+	var status = body.status,
+		code = body.errorCode, 
+		title = body.title, 
+		detail = body.detail;
+	var err = '';
+	var errors = {	
+		400 : { 1: object_string.validationError,
+				2: object_string.duplicatedName,
+				3: object_string.maxListsReached,
+				8: (typeof body.blockingReasonCode !== 'undefined')? object_string[body.blockingReasonCode] : ''
+			},
+		401 : {},
+		404 : {},
+		429 : { 0: object_string.tooManyConn},
+	}
+	if(typeof errors[status] === 'undefined')
+		 err = object_string.APIConnectionErr;
+	else 
+		typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
+	return err;
+}
