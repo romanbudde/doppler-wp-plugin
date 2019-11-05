@@ -122,6 +122,7 @@ class Doppler_Admin {
 			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
 			'installing' 		=> __( 'Installing', 'doppler-form'),
 			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			'hexValidationError' => __('Please enter a valid color code, i.e: #000000.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnAssociatedForm' => __('Ouch! The List is associated with a Form. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnScheduledCampaign' => __('Ouch! The List is associated to a Campaign in sending process.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnAssociatedSegment' => __('Ouch! The List has associated Segments. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
@@ -144,9 +145,9 @@ class Doppler_Admin {
 			'OneSingleLine' 	=> __( 'Simple', 'doppler-form'),
 			'MultipleLines' 	=> __( 'Multiple', 'doppler-form'),
 		) );
-		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('jquery-ui-dialog');
+		wp_enqueue_script('iris');
 		
 	}
 
@@ -286,6 +287,7 @@ class Doppler_Admin {
 		(!isset($_GET['tab']))? $active_tab = 'forms' : $active_tab = $_GET['tab'];
 
 		if(!empty($_POST)){
+			if($_POST['settings']['change_button_bg'] === 'no') $_POST['settings']['button_color'] = '';
 			if(isset($_POST['form-create'])){
 				if($this->form_controller->create($_POST) == 1){
 					$this->set_success_message(__('Pst! Go to', 'doppler-form') . ' <a href="' .  admin_url( 'widgets.php') . '">'. __('Appearance > Widgets', 'doppler-form') . '</a> '  . __('to choose the place on your Website where you want your Form to appear.','doppler-form'));
