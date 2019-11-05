@@ -1,0 +1,26 @@
+{
+  "name": "doppler-form",
+  "version": "1.0.0",
+  "description": "node package for doppler-form plugin",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MakingSense/doppler-wp-plugin.git"
+  },
+  "author": "Hernán Galván",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MakingSense/doppler-wp-plugin/issues"
+  },
+  "homepage": "https://github.com/MakingSense/doppler-wp-plugin#readme"
+}
