@@ -41,6 +41,7 @@ function hideUserApiError(){
 
 $(document).ready(function(){
 
+	var colorSelector = $('.color-selector');
 	var default_page_size = '200';
 
 	$("input[data-validation-fixed]").each(function() {
@@ -141,7 +142,6 @@ $(document).ready(function(){
 		if(elemID != 'widget-dplr_subscription_widget-__i__-selected_lists'){
 			elem.chosen({
 				width: "100%",
-
 			});
 			elem.addClass('selecAdded');
 		}
@@ -196,22 +196,20 @@ $(document).ready(function(){
 		}else{
 			$('#dplr_consent_section').fadeOut();
 		}
-	});
+	});	
 
-	if($('.dplr-toggle-selector').length>0){
-		if($('.dplr-toggle-selector:checked').val() === 'yes'){
-			$('.dplr_colorpicker_replace').css('visibility', 'visible');
-		}
+	if($('.dplr-toggle-selector').length>0){	
+		colorSelector.iris({
+			change: function (event,ui){
+				$('.color-selector')[0].setCustomValidity('');
+			}
+		});
+		showColorSelector();
 	}
 
 	$(".dplr-toggle-selector").change(function(){
-		var o = $('.dplr-toggle-selector:checked').val();
-		if(o === 'yes'){
-			$('.dplr_colorpicker_replace').css('visibility', 'visible');
-		}else{
-			$('.dplr_colorpicker_replace').css('visibility', 'hidden');
-			$('#color-picker').removeClass('active');
-		}
+		if(!colorSelector.val().match('^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$')) colorSelector.val('');
+		showColorSelector();
 	});
 
 	if($('#dplr-dialog-confirm').length>0){
@@ -308,24 +306,14 @@ $(document).ready(function(){
 		loadLists(1,default_page_size);
 	}
 
-});
+	function showColorSelector(){
+		colorSelector.val() == '' ? btnColor = '#000000' : btnColor = colorSelector.val();
+		$('.dplr-toggle-selector:checked').val() === 'yes' ?
+		colorSelector.css('display', 'block').iris('color',btnColor).iris('show') : 
+		colorSelector.css('display', 'none').iris('hide');
+	}
 
-/*
-$(document).on('widget-updated',  function(e, elem){
-	select = elem.find("form select.multiple-selec");
-	select.chosen({
-		width: "100%"
-
-	});
 });
-
-$(document).on('widget-added', function(e, elem){
-	select = elem.find("form select.multiple-selec");
-	select.chosen({
-		width: "100%",
-	});
-});
-*/
 
 function listsLoading(){
 	$('form input, form button').prop('disabled', true);
