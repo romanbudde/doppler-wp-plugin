@@ -121,6 +121,7 @@ class Doppler_Admin {
 			'validationError'	=> __( 'Ouch! The List name is invalid. Please choose another.', 'doppler-form'),
 			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
 			'installing' 		=> __( 'Installing', 'doppler-form'),
+			'uninstalling' 		=> __( 'Uninstalling', 'doppler-form'),
 			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
 			'hexValidationError' => __('Please enter a valid color code, i.e: #000000.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnAssociatedForm' => __('Ouch! The List is associated with a Form. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
@@ -144,6 +145,7 @@ class Doppler_Admin {
 			'TextType'    		=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' 	=> __( 'Simple', 'doppler-form'),
 			'MultipleLines' 	=> __( 'Multiple', 'doppler-form'),
+			'admin_url'			=> DOPPLER_PLUGIN_URL
 		) );
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('jquery-ui-dialog');

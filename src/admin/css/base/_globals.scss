@@ -38,6 +38,10 @@ p{
     font-weight: 700;
 }
 
+.text-italic{
+    font-style: italic;
+}
+
 .semi-bold{
     font-weight: 600;
 }
@@ -70,6 +74,10 @@ p{
 
 .text-white{
     color: $white;
+}
+
+.text-regular-grey{
+    color: $regular-grey;
 }
 
 .text-dark-green{
