@@ -288,7 +288,7 @@ $(document).ready(function(){
 
 	$("#dplr-tbl-lists tbody").on("click","tr a",deleteList);
 
-	$(".dplr-extensions .dplr-boxes button").click(function(){
+	$(".dplr-extensions .dplr-boxes button.dp-install").click(function(){
 		var button = $(this);
 		var extension = button.attr('data-extension');
 		button.addClass('button--loading').html(object_string.installing);
@@ -300,6 +300,15 @@ $(document).ready(function(){
 		$.post(ajaxurl,data,function(resp){
 			window.location.reload(false);
 		});
+	});
+	
+	$(".dplr-extensions .dplr-boxes button.dp-uninstall").click(function(){
+		var button = $(this);
+		var extension = button.attr('data-extension');
+		button.addClass('button--loading').html(object_string.uninstalling);
+		button.closest('.dplr-extensions').find('button').css('pointer-events','none');
+		console.log('uninstall');
+		//
 	});
 
 	if($("#dplr-tbl-lists").length>0){
