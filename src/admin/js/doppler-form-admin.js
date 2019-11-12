@@ -302,14 +302,15 @@ $(document).ready(function(){
 		});
 	});
 	
+	/*
 	$(".dplr-extensions .dplr-boxes button.dp-uninstall").click(function(){
 		var button = $(this);
 		var extension = button.attr('data-extension');
 		button.addClass('button--loading').html(object_string.uninstalling);
 		button.closest('.dplr-extensions').find('button').css('pointer-events','none');
 		console.log('uninstall');
-		//
 	});
+	*/
 
 	if($("#dplr-tbl-lists").length>0){
 		loadLists(1,default_page_size);
