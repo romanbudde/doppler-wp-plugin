@@ -143,5 +143,4 @@ var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = [];
 var view = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
-//jQuery(".color-selector").colorpicker();
 </script>
