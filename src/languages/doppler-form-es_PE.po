@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Doppler form Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-11-05 12:04-0300\n"
+"POT-Creation-Date: 2019-11-12 10:10-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Hernán Galván\n"
@@ -33,8 +33,8 @@ msgstr "Eliminar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: admin/doppler-admin.php:116 admin/doppler-admin.php:124
-#: admin/doppler-admin.php:263
+#: admin/doppler-admin.php:116 admin/doppler-admin.php:125
+#: admin/doppler-admin.php:265
 msgid ""
 "Ouch! There's something wrong with your Username or API Key. Please, try "
 "again."
@@ -77,11 +77,15 @@ msgstr ""
 msgid "Installing"
 msgstr "Instalando"
 
-#: admin/doppler-admin.php:125
+#: admin/doppler-admin.php:124
+msgid "Uninstalling"
+msgstr "Desinstalando"
+
+#: admin/doppler-admin.php:126
 msgid "Please enter a valid color code, i.e: #000000."
 msgstr "Por favor, ingresa un código de color válido. "
 
-#: admin/doppler-admin.php:126
+#: admin/doppler-admin.php:127
 msgid ""
 "Ouch! The List is associated with a Form. To delete it, go to Doppler and "
 "disassociate them."
@@ -89,11 +93,11 @@ msgstr ""
 "¡Ouch! La Lista está asociada a un Formulario. Para poder eliminarla, debes "
 "ir a Doppler y desasociarla."
 
-#: admin/doppler-admin.php:127
+#: admin/doppler-admin.php:128
 msgid "Ouch! The List is associated to a Campaign in sending process."
 msgstr "¡Ouch! La Lista está asociada a una Campaña en proceso de envío."
 
-#: admin/doppler-admin.php:128
+#: admin/doppler-admin.php:129
 msgid ""
 "Ouch! The List has associated Segments. To delete it, go to Doppler and "
 "disassociate them."
@@ -101,7 +105,7 @@ msgstr ""
 "¡Ouch! La Lista tiene Segmentos asociados. Para poder eliminarla, debes ir a "
 "Doppler y desasociarla."
 
-#: admin/doppler-admin.php:129
+#: admin/doppler-admin.php:130
 msgid ""
 "Ouch! The List is associated with an active Automation. To delete it, go to "
 "Doppler and disassociate them."
@@ -109,7 +113,7 @@ msgstr ""
 "¡Ouch! La Lista está asociada a un Automation activo. Para poder eliminarla, "
 "debes ir a Doppler y desasociarla."
 
-#: admin/doppler-admin.php:130
+#: admin/doppler-admin.php:131
 msgid ""
 "Ouch! The List is associated with an active integration. To delete it, go to "
 "Doppler and disconnect the integration."
@@ -117,126 +121,126 @@ msgstr ""
 "¡Ouch! La Lista está asociada a una integración activa. Para poder "
 "eliminarla, debes ir a Doppler y desconectar la integración."
 
-#: admin/doppler-admin.php:131
+#: admin/doppler-admin.php:132
 msgid "Ouch! The List is in the process of union with another one."
 msgstr "¡Ouch! La Lista está en proceso de unión con otra."
 
-#: admin/doppler-admin.php:132
+#: admin/doppler-admin.php:133
 msgid "Ouch! The List is still in the process of being created."
 msgstr "¡¡Ouch! La Lista aún está en proceso de creación."
 
-#: admin/doppler-admin.php:133
+#: admin/doppler-admin.php:134
 msgid "Ouch! The List is in the process of loading."
 msgstr "¡Ouch! La Lista está en proceso de carga."
 
-#: admin/doppler-admin.php:134
+#: admin/doppler-admin.php:135
 msgid "Ouch! the list is in process of being exported."
 msgstr "¡Ouch! La Lista está en proceso de exportación."
 
-#: admin/doppler-admin.php:135
+#: admin/doppler-admin.php:136
 msgid "Ouch! The List is in the process of being deleted."
 msgstr "¡Ouch! La Lista está en proceso de eliminación."
 
-#: admin/doppler-admin.php:139
+#: admin/doppler-admin.php:140
 msgid "Edit Field"
 msgstr "Editar Campo"
 
-#: admin/doppler-admin.php:140
+#: admin/doppler-admin.php:141
 msgid "Required"
 msgstr "Requerido"
 
-#: admin/doppler-admin.php:141
+#: admin/doppler-admin.php:142
 msgid "Label to be shown"
 msgstr "Nombre a mostrar"
 
-#: admin/doppler-admin.php:142
+#: admin/doppler-admin.php:143
 msgid "Placeholder"
 msgstr "Texto de ejemplo"
 
-#: admin/doppler-admin.php:143
+#: admin/doppler-admin.php:144
 msgid "Description"
 msgstr "Descripción"
 
-#: admin/doppler-admin.php:144
+#: admin/doppler-admin.php:145
 msgid "Lines"
 msgstr "Líneas"
 
-#: admin/doppler-admin.php:145
+#: admin/doppler-admin.php:146
 msgid "Simple"
 msgstr "Simple"
 
-#: admin/doppler-admin.php:146
+#: admin/doppler-admin.php:147
 msgid "Multiple"
 msgstr "Múltiple"
 
-#: admin/doppler-admin.php:165 admin/doppler-admin.php:166
+#: admin/doppler-admin.php:167 admin/doppler-admin.php:168
 #, fuzzy
 #| msgid "Doppler List"
 msgid "Doppler"
 msgstr "Lista de Doppler"
 
-#: admin/doppler-admin.php:196 admin/doppler-admin.php:197
+#: admin/doppler-admin.php:198 admin/doppler-admin.php:199
 msgid "Connect with Doppler"
 msgstr "Conectar con Doppler"
 
-#: admin/doppler-admin.php:207 admin/doppler-admin.php:208
+#: admin/doppler-admin.php:209 admin/doppler-admin.php:210
 #: admin/partials/doppler-forms-display.php:18
 msgid "Doppler Forms"
 msgstr "Formularios Doppler"
 
-#: admin/doppler-admin.php:217 admin/doppler-admin.php:218
+#: admin/doppler-admin.php:219 admin/doppler-admin.php:220
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: admin/doppler-admin.php:271 admin/partials/api-connection.php:120
+#: admin/doppler-admin.php:273 admin/partials/api-connection.php:120
 msgid "Ouch! Enter a valid Email."
 msgstr "¡Ouch! Escribe un Email válido."
 
-#: admin/doppler-admin.php:276 admin/partials/api-connection.php:142
+#: admin/doppler-admin.php:278 admin/partials/api-connection.php:142
 msgid "Ouch! The field is empty."
 msgstr "¡Ouch! El campo está vacío."
 
-#: admin/doppler-admin.php:293
+#: admin/doppler-admin.php:295
 msgid "Pst! Go to"
 msgstr "¡Psst! Dirígete a"
 
-#: admin/doppler-admin.php:293
+#: admin/doppler-admin.php:295
 msgid "Appearance > Widgets"
 msgstr "Apariencia > Widgets"
 
-#: admin/doppler-admin.php:293
+#: admin/doppler-admin.php:295
 msgid "to choose the place on your Website where you want your Form to appear."
 msgstr ""
 "para elegir el lugar de tu Sitio Web donde quieres que aparezca tu "
 "Formulario."
 
-#: admin/doppler-admin.php:295
+#: admin/doppler-admin.php:297
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be created. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue creado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:300
+#: admin/doppler-admin.php:302
 msgid "The Form has been edited correctly."
 msgstr "El Formulario ha sido editado correctamente."
 
-#: admin/doppler-admin.php:302
+#: admin/doppler-admin.php:304
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be edited. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue editado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:309
+#: admin/doppler-admin.php:311
 msgid "The Form has been deleted correctly."
 msgstr "El Formulario ha sido eliminado correctamente."
 
-#: admin/doppler-admin.php:311
+#: admin/doppler-admin.php:313
 msgid ""
 "Ouch! An error ocurred and the Form couldn't be deleted. Try again later."
 msgstr ""
 "¡Ouch! Ocurrió un error y el Formulario no fue eliminado. Intenta nuevamente."
 
-#: admin/doppler-admin.php:351
+#: admin/doppler-admin.php:353
 msgid ""
 "You've updated the <strong>Doppler Forms</strong> plugin into the "
 "<strong>2.0.0</strong> version. Please,"
@@ -244,15 +248,15 @@ msgstr ""
 "Has actualizado el plugin <strong>Formularios Doppler</strong> a la versión "
 "<strong>2.0.0</strong>. Para continuar utilizándolo,"
 
-#: admin/doppler-admin.php:353
+#: admin/doppler-admin.php:355
 msgid "enter your Username"
 msgstr "ingresa tu Email de Usuario"
 
-#: admin/doppler-admin.php:354
+#: admin/doppler-admin.php:356
 msgid "in addition to the API Key and re-connect your Doppler account."
 msgstr "además del API Key y vuelve a conectar tu cuenta de Doppler."
 
-#: admin/doppler-admin.php:464
+#: admin/doppler-admin.php:466
 msgid ""
 "Ouch! The List is being used in a form or an extension, so it cannot be "
 "deleted."
@@ -379,15 +383,19 @@ msgstr ""
 "cuenta de Doppler.<br> ¡Potencia tu estrategia de Email y Automation "
 "Marketing!"
 
-#: admin/partials/extensions.php:19 admin/partials/extensions.php:22
+#: admin/partials/extensions.php:20 admin/partials/extensions.php:23
 msgid "Doppler for WooCommerce"
 msgstr "Doppler para WooCommerce"
 
-#: admin/partials/extensions.php:24
+#: admin/partials/extensions.php:26
 msgid "Import customers to your Doppler Lists."
 msgstr "Podrás importar tus clientes y compradores a tus Listas de Doppler."
 
-#: admin/partials/extensions.php:28
+#: admin/partials/extensions.php:33 admin/partials/extensions.php:63
+msgid "Install"
+msgstr "Instalar"
+
+#: admin/partials/extensions.php:36
 msgid ""
 "You should have <a href=\"https://wordpress.org/plugins/woocommerce/"
 "\">WooCommerce plugin</a> installed and active first."
@@ -395,31 +403,37 @@ msgstr ""
 "Deberías tener <a href=\"https://wordpress.org/plugins/woocommerce/\">el "
 "plugin WooCommerce</a> instalado y activo primero."
 
-#: admin/partials/extensions.php:31 admin/partials/extensions.php:53
-msgid "Install"
-msgstr "Instalar"
+#: admin/partials/extensions.php:39 admin/partials/extensions.php:69
+msgid "Successfully Instaled"
+msgstr "Instalada correctamente"
 
-#: admin/partials/extensions.php:33 admin/partials/extensions.php:55
-#, php-format
-msgid "This extension is installed. Go to %s settings page</a>."
-msgstr ""
-"La extensión ya está instalada. Dirígete a la %s página de configuración</a>."
+#: admin/partials/extensions.php:44 admin/partials/extensions.php:74
+msgid "Configure extension"
+msgstr "Configure la extensión"
 
-#: admin/partials/extensions.php:41 admin/partials/extensions.php:44
+#: admin/partials/extensions.php:51 admin/partials/extensions.php:54
 msgid "Doppler for LearnPress"
 msgstr "Doppler para LearnPress"
 
-#: admin/partials/extensions.php:46
+#: admin/partials/extensions.php:56
 msgid "Import students to your Doppler Lists."
 msgstr "Podrás importar tus Estudiantes a tus Listas de Doppler."
 
-#: admin/partials/extensions.php:50
+#: admin/partials/extensions.php:66
 msgid ""
 "You should have <a href=\"https://wordpress.org/plugins/learnpress/"
 "\">LearnPress plugin</a> installed and active first."
 msgstr ""
 "Deberías tener <a href=\"https://wordpress.org/plugins/learnpress/\">el "
 "plugin LearnPress</a> instalado y activo primero."
+
+#: admin/partials/extensions.php:84
+msgid "Are you sure you want to uninstall the extension? "
+msgstr "¿Estás seguro de que deseas quitar la extensión?"
+
+#: admin/partials/extensions.php:85
+msgid "This will deactivate and uninstall the plugin."
+msgstr "Esto desactivará y desinstalará la extensión."
 
 #: admin/partials/forms-create.php:10 admin/partials/forms-edit.php:11
 msgid "Form basic information"
@@ -700,6 +714,11 @@ msgstr "Gracias por suscribirte"
 #: includes/helpers/Form_Helper.php:103
 msgid "Please enter a valid email address."
 msgstr "Ingrese un Email válido."
+
+#~ msgid "This extension is installed. Go to %s settings page</a>."
+#~ msgstr ""
+#~ "La extensión ya está instalada. Dirígete a la %s página de configuración</"
+#~ "a>."
 
 #~ msgid "Show more results"
 #~ msgstr "Mostrar mas resultados"
