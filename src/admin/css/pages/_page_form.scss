@@ -20,5 +20,14 @@
         display: none;
     }
 
+    .icon-close{
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+        img{
+            height: 10px;
+        }
+    }
+
 }
 
