@@ -4,22 +4,6 @@
 <div class="wrap dplr_connect text-center">
 
 		<h2></h2>
-
-		<?php 
-		
-		if ($connected) { 
-			?>
-			<div class="disconnect-box">
-				<form method="POST" action="options.php" >
-					<?php settings_fields('dplr_plugin_options'); ?>
-					<input type="hidden" name="dplr_settings[action]" value="disconnect" />
-					<button class="dp-button button-small primary-grey"><?php _e("Disconnect", "doppler-form"); ?></button>
-				</form>
-			</div>
-			<?php
-		}
-
-		?>
 		
 		<a href="<?php _e('https://www.fromdoppler.com/en/?utm_source=landing&utm_medium=integracion&utm_campaign=wordpress', 'doppler-form')?>" target="_blank" id="dplr_logo" class="d-inline-block"><img src="<?= plugins_url( '/../img/logo-doppler.svg', __FILE__ ); ?>" alt="Doppler"></a>
 		
@@ -37,11 +21,23 @@
 			
 			<div class="updated-message">
 				
-				<img class="ok-message mb-3" src="<?= plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
-								
+				<img class="ok-message mb-2" src="<?= plugins_url( '/../img/ok-message.svg', __FILE__ ); ?>" alt="">
+		
+				<div class="disconnect-box">
+					<form method="POST" action="options.php" >
+						<span><?php echo __('Username', 'doppler-form')?>: <strong><?php echo $options['dplr_option_useraccount']?></strong></span>
+						<span>Api Key: <strong><?php echo $options['dplr_option_apikey']?></strong></span>
+						<?php settings_fields('dplr_plugin_options'); ?>
+						<input type="hidden" name="dplr_settings[action]" value="disconnect" />
+						<button class="dp-button button-medium primary-green"><?php _e("Disconnect", "doppler-form"); ?></button>
+					</form>
+				</div>
+					
+				<hr class="mb-1 mt-1">
+
 				<div class="dplr-pasos">
 					
-					<h2><?php _e('You are almost done! Follow this steps', 'doppler-form')?></h2>
+					<!--<h2><?php _e('You are almost done! Follow this steps', 'doppler-form')?></h2>-->
 					
 					<div><!-- 3 boxes -->
 						
