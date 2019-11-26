@@ -665,7 +665,7 @@ msgstr "Crear Lista"
 
 #: admin/partials/lists-crud.php:26
 msgid "Subscribers"
-msgstr "Suscrptores"
+msgstr "Suscriptores"
 
 #: admin/partials/lists-crud.php:36
 msgid "Are you sure you want to delete the List? "
