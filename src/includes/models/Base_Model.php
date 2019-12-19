@@ -1,6 +1,6 @@
 <?php
 
-abstract class DPLR_Base_Model {
+class DPLR_Base_Model {
 
   static $primary_key = 'id';
 
@@ -148,6 +148,5 @@ abstract class DPLR_Base_Model {
     }
   }
 
-  abstract static function init();
 }
 ?>
