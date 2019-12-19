@@ -57,7 +57,7 @@
 				subscriber.fields.push(field);
 			});
 			
-			$.post(ajax_object.ajax_url,
+			$.post(dplr_obj_vars.ajax_url,
 				{"action": 'submit_form', "subscriber": subscriber, "list_id": list_id},
 				function(res) {
 					if(thankyou.length !== 0){
