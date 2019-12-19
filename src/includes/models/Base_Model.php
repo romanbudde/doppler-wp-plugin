@@ -20,8 +20,9 @@ class DPLR_Base_Model {
 
   private static function _fetch_sql( $value ) {
     global $wpdb;
-    $sql = sprintf( 'SELECT *, NULL AS settings FROM %s WHERE %s = %s', self::_table(), static::$primary_key, $value );
-    return $wpdb->prepare( $sql, $value );
+    return $wpdb->prepare( 
+            "SELECT *, NULL AS settings FROM ".self::_table()." WHERE ".static::$primary_key." = %s",
+            $value );
   }
 
   public static function getBy($conditions , $order_by = null, $with_settings = false) {
@@ -36,8 +37,8 @@ class DPLR_Base_Model {
     $order_by = $order_by == null ? '' : ' ORDER BY ' . implode(", ", $order_by) . ' ASC';
 
     $sql = sprintf( 'SELECT *, NULL AS settings FROM %s %s %s', self::_table(), $where, $order_by );
-
-    $result = $wpdb->get_results( $wpdb->prepare($sql, '') );
+    
+    $result = $wpdb->get_results($sql);
 
     if ($with_settings) self::groupSettings($result);
 
@@ -48,7 +49,6 @@ class DPLR_Base_Model {
     global $wpdb;
     if(empty($value)) return false;
     $result = $wpdb->get_row( self::_fetch_sql( $value ));
-
     if($with_settings) {
       self::groupSettings($result);
     }
@@ -61,14 +61,18 @@ class DPLR_Base_Model {
     $wpdb->insert( self::_table(), $data );
     return $wpdb->insert_id;
   }
+  
   static function update( $id, $data ) {
     global $wpdb;
     $wpdb->update( self::_table(), $data, [self::$primary_key => $id] );
   }
+  
   static function delete( $value ) {
     global $wpdb;
-    $sql = sprintf( 'DELETE FROM %s WHERE %s = %%d', self::_table(), self::$primary_key );
-    return $wpdb->query( $wpdb->prepare( $sql, $value ) );
+    return $wpdb->query( 
+      $wpdb->prepare( "DELETE FROM " . self::_table() . " WHERE " . self::$primary_key . " = %d", 
+        array( $value ) ) 
+    );
   }
 
   static function deleteWhere( $condition ) {
@@ -116,9 +120,11 @@ class DPLR_Base_Model {
     is_object($rows)? $elements = [$rows] : $elements = $rows;
     
     foreach ($elements as $to_attach) {
-        $sql = sprintf("SELECT setting_key, value FROM %s WHERE parent_id = %d", self::_settings_table(), $to_attach->id);
-
-        $settings_result = $wpdb->get_results( $wpdb->prepare($sql, ''), 'ARRAY_N');
+        
+        //$sql = sprintf("SELECT setting_key, value FROM %s WHERE parent_id = %d", self::_settings_table(), $to_attach->id);
+        $table = self::_settings_table();
+        $sql = "SELECT setting_key, value FROM {$table} WHERE parent_id = %d";
+        $settings_result = $wpdb->get_results( $wpdb->prepare($sql, array($to_attach->id)), 'ARRAY_N');
 
         foreach ($settings_result as $setting_result) {
           $to_attach->settings[$setting_result[0]] = $setting_result[1];
