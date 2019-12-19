@@ -9,7 +9,7 @@ class DPLR_Form_helper
     $form_class = isset($context['classes']) ? implode(" ", $context['classes']) : "";
 
     ?>
-    <form class="dplr_form <?php echo $form_class; ?>" action="<?php echo $form_action; ?>" method="<?php echo $form_method; ?>">
+    <form class="dplr_form <?php echo $form_class; ?>">
       <input type="hidden" name="list_id" value="<?php echo $form->list_id; ?>">
 		<?php 
 		foreach ($fields as $field) {
