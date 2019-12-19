@@ -284,16 +284,11 @@ if( ! class_exists( 'Doppler_Service_Home_Resource' ) ) :
 
     private $methods;
 
-	function __construct( $service, $args )
-    {
+    function __construct( $service, $args ){
       $this->service = $service;
       $this->methods = isset($args['methods']) ? $args['methods'] : null;
     }
 
-	public function getUserAccount(){
-      $method = $methods['get'];
-      return $this->service->call($method, array());
-	  }
   }
 
 endif;
@@ -308,13 +303,12 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
 
     private $methods;
 
-    function __construct( $service, $args )
-    {
+    function __construct( $service, $args ) {
       $this->service = $service;
       $this->methods = isset($args['methods']) ? $args['methods'] : null;
     }
 
-    public function getList( $listId ){
+    public function getList( $listId ) {
   
       $method = $this->methods['get'];
       return json_decode($this->service->call($method, array("listId" => $listId))['body']);
