@@ -5,7 +5,7 @@ Tags: Doppler, Email marketing, integration, subscription, form, automation
 Requires at least: 4.9
 Tested up to: 5.2.3
 Requires PHP: 5.6.4
-Stable tag: 2.1.7
+Stable tag: 2.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,14 @@ En [este artículo](https://help.fromdoppler.com/es/api-interfaz-de-programacion
 8. Formulario de Suscripción.
 
 == Changelog ==
+
+= 2.1.9 =
+* Fix warnings 
+* Added phone custom field support.
+
+= 2.1.8 =
+* Change Ajax js var for a less generic name to avoid conflicts.
+
 = 2.1.7 =
 * Fix typo in lists crud
 * Visual changes to extensions page
