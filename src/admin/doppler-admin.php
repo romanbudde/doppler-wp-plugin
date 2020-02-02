@@ -334,6 +334,20 @@ class Doppler_Admin {
 			}
 		}
 
+		if($active_tab == 'data-hub'):
+			if(isset($_POST['dplr_hub_script'])):
+				if( current_user_can('manage_options') && check_admin_referer('use-hub') ){
+					if( $_POST['dplr_hub_script'] === '' || $this->validate_tracking_code($_POST['dplr_hub_script'])):
+						update_option( 'dplr_hub_script', $this->sanitize_tracking_code($_POST['dplr_hub_script']));
+						$this->set_success_message(__('On Site Tracking code saved successfully', 'doppler-form'));
+					else:
+						$this->set_error_message(__('Tracking code is invalid', 'doppler-form'));
+					endif;
+				}
+			endif;
+			$dplr_hub_script = get_option('dplr_hub_script');
+		endif;
+
 		require_once('partials/doppler-forms-display.php');
 
 	}
@@ -518,6 +532,22 @@ class Doppler_Admin {
 	private function create_list($list_name) {
 		$subscriber_resource = $this->doppler_service->getResource('lists');
 		return $subscriber_resource->saveList( $list_name )['body'];
+	}
+
+	/**
+	 * Validates on site tracking code.
+	 */
+	public function validate_tracking_code($code) {
+		return preg_match("/(<|%3C)script[\s\S]*?(>|%3E)[\s\S]*?(<|%3C)(\/|%2F)script[\s\S]*?(>|%3E)/", $code);
+	}
+	
+	/**
+	 * Sanitize on site tracking pasted code.
+	 */
+	public function sanitize_tracking_code($code) {
+		//Is valid to save empty value in this case.
+		if($code === '') return $code;
+		return sanitize_text_field(htmlentities(trim($code)));
 	}
 
 }
