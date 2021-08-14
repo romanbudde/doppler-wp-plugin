@@ -120,8 +120,11 @@ class Doppler_Admin {
 			'tooManyConn'		=> __( 'Ouch! You\'ve made several actions in a short period of time. Please wait a few minutes before making another one.', 'doppler-form'),
 			'validationError'	=> __( 'Ouch! The List name is invalid. Please choose another.', 'doppler-form'),
 			'APIConnectionErr'  => __( 'Ouch! An error ocurred while trying to communicate with the API. Try again later.' , 'doppler-form'),
+			'cURL28Error'  		=> __( 'Ouch! There has been an error: cURL error 28, timeout error.' , 'doppler-form'),
 			'installing' 		=> __( 'Installing', 'doppler-form'),
+			'uninstalling' 		=> __( 'Uninstalling', 'doppler-form'),
 			'wrongCredentials'  => __( 'Ouch! There\'s something wrong with your Username or API Key. Please, try again.', 'doppler-form'),
+			'hexValidationError' => __('Please enter a valid color code, i.e: #000000.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnAssociatedForm' => __('Ouch! The List is associated with a Form. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnScheduledCampaign' => __('Ouch! The List is associated to a Campaign in sending process.', 'doppler-form'),
 			'CannotDeleteSubscribersListWithAnAssociatedSegment' => __('Ouch! The List has associated Segments. To delete it, go to Doppler and disassociate them.', 'doppler-form'),
@@ -143,10 +146,11 @@ class Doppler_Admin {
 			'TextType'    		=> __( 'Lines', 'doppler-form'),
 			'OneSingleLine' 	=> __( 'Simple', 'doppler-form'),
 			'MultipleLines' 	=> __( 'Multiple', 'doppler-form'),
+			'admin_url'			=> DOPPLER_PLUGIN_URL
 		) );
-		wp_enqueue_script('jquery-colorpicker', plugin_dir_url( __FILE__ ) . 'js/colorpicker.js', array($this->plugin_name), $this->version, false);
 		wp_enqueue_script('jquery-ui-sortable');
 		wp_enqueue_script('jquery-ui-dialog');
+		wp_enqueue_script('iris');
 		
 	}
 
@@ -286,6 +290,7 @@ class Doppler_Admin {
 		(!isset($_GET['tab']))? $active_tab = 'forms' : $active_tab = $_GET['tab'];
 
 		if(!empty($_POST)){
+			if( isset($_POST['settings']) && $_POST['settings']['change_button_bg'] === 'no') $_POST['settings']['button_color'] = '';
 			if(isset($_POST['form-create'])){
 				if($this->form_controller->create($_POST) == 1){
 					$this->set_success_message(__('Pst! Go to', 'doppler-form') . ' <a href="' .  admin_url( 'widgets.php') . '">'. __('Appearance > Widgets', 'doppler-form') . '</a> '  . __('to choose the place on your Website where you want your Form to appear.','doppler-form'));
@@ -329,6 +334,20 @@ class Doppler_Admin {
 				$dplr_lists_arr = $dplr_lists_aux;
 			}
 		}
+
+		if($active_tab == 'data-hub'):
+			if(isset($_POST['dplr_hub_script'])):
+				if( current_user_can('manage_options') && check_admin_referer('use-hub') ){
+					if( $_POST['dplr_hub_script'] === '' || $this->validate_tracking_code($_POST['dplr_hub_script'])):
+						update_option( 'dplr_hub_script', $this->sanitize_tracking_code($_POST['dplr_hub_script']));
+						$this->set_success_message(__('On Site Tracking code saved successfully', 'doppler-form'));
+					else:
+						$this->set_error_message(__('Tracking code is invalid', 'doppler-form'));
+					endif;
+				}
+			endif;
+			$dplr_hub_script = get_option('dplr_hub_script');
+		endif;
 
 		require_once('partials/doppler-forms-display.php');
 
@@ -381,6 +400,53 @@ class Doppler_Admin {
 
 		return false;
 
+	}
+
+	/**
+	 * Called upon user pressing the disconnect button.
+	 */
+	public function ajax_disconnect() {
+
+		if(is_admin()){
+			$options = get_option('dplr_settings');
+			if( empty($options['dplr_option_apikey']) || empty($options['dplr_option_useraccount']) )  return;
+			
+			//If status is empty, api is not connected.
+			$status = get_option('dplrwoo_api_connected');
+
+			if( !empty($status) || !empty($options) ) {
+				$dplr_app_connect = new Doppler_For_WooCommerce_App_Connect(
+					$options['dplr_option_useraccount'],
+					$options['dplr_option_apikey'],
+					DOPPLER_WOO_API_URL,
+					DOPPLER_FOR_WOOCOMMERCE_ORIGIN
+				);
+
+				// Disconnect from doppler
+				$dplr_app_connect->disconnect();
+
+				// Delete dplrwoo_api_connected
+				$option_name = 'dplrwoo_api_connected';
+				delete_option($option_name);
+
+				// Delete dplr_subscribers_list
+				$option_name = 'dplr_subscribers_list';
+				delete_option($option_name);
+
+				//Delete user@email and api key
+				$option_name = 'dplr_settings';
+				delete_option($option_name);
+
+				$data = [
+						"response" =>[
+								"code" => 200,
+								"body" => []
+							]
+						];
+				echo json_encode($data);
+				exit();
+			}
+		}
 	}
 
 	/**
@@ -514,6 +580,22 @@ class Doppler_Admin {
 	private function create_list($list_name) {
 		$subscriber_resource = $this->doppler_service->getResource('lists');
 		return $subscriber_resource->saveList( $list_name )['body'];
+	}
+
+	/**
+	 * Validates on site tracking code.
+	 */
+	public function validate_tracking_code($code) {
+		return preg_match("/(<|%3C)script[\s\S]*?(>|%3E)[\s\S]*?(<|%3C)(\/|%2F)script[\s\S]*?(>|%3E)/", $code);
+	}
+	
+	/**
+	 * Sanitize on site tracking pasted code.
+	 */
+	public function sanitize_tracking_code($code) {
+		//Is valid to save empty value in this case.
+		if($code === '') return $code;
+		return sanitize_text_field(htmlentities(trim($code)));
 	}
 
 }

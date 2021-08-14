@@ -98,7 +98,7 @@ class DPLR_Doppler_Form_Public {
 		 */
 		wp_enqueue_script( 'jquery-ui-datepicker' );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/doppler-form-public.js', array( 'jquery' ), $this->version, false );
-		wp_localize_script( $this->plugin_name, 'ajax_object',
+		wp_localize_script( $this->plugin_name, 'dplr_obj_vars',
             array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
 	}
@@ -117,6 +117,16 @@ class DPLR_Doppler_Form_Public {
 			$result = $subscriber_resource->addSubscriber($_POST['list_id'], $subscriber);
 		}
 
+	}
+
+	/**
+	 * Add tracking script to site's header.
+	 */
+	public function add_tracking_script() {
+		$script = get_option('dplr_hub_script');
+		if(!empty($script)){
+			echo stripslashes(html_entity_decode($script));
+		}
 	}
 
 }

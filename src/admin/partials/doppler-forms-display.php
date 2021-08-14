@@ -18,7 +18,7 @@ $response =  $this->doppler_service->connectionStatus();
     <h2 class="main-title"><?php _e('Doppler Forms', 'doppler-form')?> <?php echo $this->get_version()?></h2> 
 
     <?php
-    if( $active_tab == 'forms' || $active_tab == 'lists'){
+    if( in_array($active_tab, array('forms','lists','data-hub')) ){
         include plugin_dir_path( __FILE__ ) . "../partials/tabs-nav.php";
     }
     ?>
@@ -52,6 +52,9 @@ switch($active_tab){
         break;
     case 'lists':
         include plugin_dir_path( __FILE__ ) . "../partials/lists-crud.php";
+        break;
+    case 'data-hub':
+        include plugin_dir_path( __FILE__ ) . "../partials/data-hub.php";
         break;
     default:
         break;

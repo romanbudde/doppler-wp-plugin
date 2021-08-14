@@ -41,6 +41,7 @@ function hideUserApiError(){
 
 $(document).ready(function(){
 
+	var colorSelector = $('.color-selector');
 	var default_page_size = '200';
 
 	$("input[data-validation-fixed]").each(function() {
@@ -70,13 +71,48 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#dplr-disconnect-form").submit(function(event) {
+
+		event.preventDefault();
+		hideUserApiError();
+
+		var form = $(this);
+		var button = $(this).find('button');
+		button.attr('disabled','disabled').addClass("button--loading");
+		
+		var data = {
+			action: 'dplr_ajax_disconnect'
+		}
+
+		$.post( ajaxurl, data, function( response ) {	
+			var obj = JSON.parse(response);
+			if(obj.response.code == '200'){
+				window.location.reload();
+			}else{
+				var body = JSON.parse(obj.body);
+				var msg = '';
+				if(body.status!='401'){
+					msg = generateErrorMsg(body);
+				}else{
+					msg = object_string.wrongCredentials;
+				}
+				var error = '<div class="tooltip tooltip-warning tooltip--user_api_error">';
+					error+= '<div class="text-red text-left">';
+					error+= '<span>' + msg + '</span>';
+					error+= '</div>';
+					error+= '</div>';
+				form.after(error);
+				button.removeAttr('disabled').removeClass('button--loading');
+			}
+		})
+
+	});
+
 	/**
 	 * Check against api first, 
 	 * then save credentials.
 	 */
-	
 	$("#dplr-connect-form").submit(function(event) {
-
 		event.preventDefault();
 		hideUserApiError();
 
@@ -113,7 +149,7 @@ $(document).ready(function(){
 				var body = JSON.parse(obj.body);
 				var msg = '';
 				if(body.status!='401'){
-					msg = generateErrorMsg(body.status,body.errorCode);
+					msg = generateErrorMsg(body);
 				}else{
 					msg = object_string.wrongCredentials;
 				}
@@ -141,7 +177,6 @@ $(document).ready(function(){
 		if(elemID != 'widget-dplr_subscription_widget-__i__-selected_lists'){
 			elem.chosen({
 				width: "100%",
-
 			});
 			elem.addClass('selecAdded');
 		}
@@ -196,22 +231,20 @@ $(document).ready(function(){
 		}else{
 			$('#dplr_consent_section').fadeOut();
 		}
-	});
+	});	
 
-	if($('.dplr-toggle-selector').length>0){
-		if($('.dplr-toggle-selector:checked').val() === 'yes'){
-			$('.dplr_colorpicker_replace').css('visibility', 'visible');
-		}
+	if($('.dplr-toggle-selector').length>0){	
+		colorSelector.iris({
+			change: function (event,ui){
+				$('.color-selector')[0].setCustomValidity('');
+			}
+		});
+		showColorSelector();
 	}
 
 	$(".dplr-toggle-selector").change(function(){
-		var o = $('.dplr-toggle-selector:checked').val();
-		if(o === 'yes'){
-			$('.dplr_colorpicker_replace').css('visibility', 'visible');
-		}else{
-			$('.dplr_colorpicker_replace').css('visibility', 'hidden');
-			$('#color-picker').removeClass('active');
-		}
+		if(!colorSelector.val().match('^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$')) colorSelector.val('');
+		showColorSelector();
 	});
 
 	if($('#dplr-dialog-confirm').length>0){
@@ -290,7 +323,7 @@ $(document).ready(function(){
 
 	$("#dplr-tbl-lists tbody").on("click","tr a",deleteList);
 
-	$(".dplr-extensions .dplr-boxes button").click(function(){
+	$(".dplr-extensions .dplr-boxes button.dp-install").click(function(){
 		var button = $(this);
 		var extension = button.attr('data-extension');
 		button.addClass('button--loading').html(object_string.installing);
@@ -303,29 +336,29 @@ $(document).ready(function(){
 			window.location.reload(false);
 		});
 	});
+	
+	/*
+	$(".dplr-extensions .dplr-boxes button.dp-uninstall").click(function(){
+		var button = $(this);
+		var extension = button.attr('data-extension');
+		button.addClass('button--loading').html(object_string.uninstalling);
+		button.closest('.dplr-extensions').find('button').css('pointer-events','none');
+		console.log('uninstall');
+	});
+	*/
 
 	if($("#dplr-tbl-lists").length>0){
 		loadLists(1,default_page_size);
 	}
 
-});
+	function showColorSelector(){
+		colorSelector.val() == '' ? btnColor = '#000000' : btnColor = colorSelector.val();
+		$('.dplr-toggle-selector:checked').val() === 'yes' ?
+		colorSelector.css('display', 'block').iris('color',btnColor).iris('show') : 
+		colorSelector.css('display', 'none').iris('hide');
+	}
 
-/*
-$(document).on('widget-updated',  function(e, elem){
-	select = elem.find("form select.multiple-selec");
-	select.chosen({
-		width: "100%"
-
-	});
 });
-
-$(document).on('widget-added', function(e, elem){
-	select = elem.find("form select.multiple-selec");
-	select.chosen({
-		width: "100%",
-	});
-});
-*/
 
 function listsLoading(){
 	$('form input, form button').prop('disabled', true);
@@ -445,12 +478,12 @@ function clearResponseMessages(){
 }
 
 function generateErrorMsg(body){
-	var status = body.status,
+	let status = body.status,
 		code = body.errorCode, 
 		title = body.title, 
 		detail = body.detail;
-	var err = '';
-	var errors = {	
+	let err = '';
+	let errors = {	
 		400 : { 1: object_string.validationError,
 				2: object_string.duplicatedName,
 				3: object_string.maxListsReached,
@@ -459,9 +492,13 @@ function generateErrorMsg(body){
 		401 : {},
 		404 : {},
 		429 : { 0: object_string.tooManyConn},
+	}	
+	if(status === 528){
+		err = object_string.cURL28Error;
+		return err;
 	}
 	if(typeof errors[status] === 'undefined')
-		 err = object_string.APIConnectionErr;
+		err = object_string.APIConnectionErr;
 	else 
 		typeof errors[status][code] === 'undefined'? err= '<strong>'+title+'</strong> '+detail : err = errors[status][code];
 	return err;

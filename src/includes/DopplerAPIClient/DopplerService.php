@@ -166,7 +166,7 @@ class Doppler_Service
 
   function call( $method, $args=null, $body=null ) {
     $url = 'https://restapi.fromdoppler.com/accounts/'. $this->config['credentials']['user_account'] . '/';
-    //$url = 'http://newapiqa.fromdoppler.net/accounts/' . $this->config['credentials']['user_account'] . '/';
+
     $url .= $method[ 'route' ];
   
     $query = array();
@@ -209,13 +209,13 @@ class Doppler_Service
         case 'get':
             $response = wp_remote_get($url, array(
               'headers'=>$headers,
-              'timeout' => 12
+              'timeout' => 40
             ));
             break;
         case 'post':  
             $response = wp_remote_post($url, array(
               'headers'=>$headers,
-              'timeout' => 12,
+              'timeout' => 40,
               'body'=> json_encode($body)
             ));
             break;
@@ -223,10 +223,27 @@ class Doppler_Service
             $response = wp_remote_request($url, array(
               'method' => 'DELETE',
               'headers'=>$headers,
-              'timeout' => 12,
+              'timeout' => 40,
               'body'=> json_encode($body)
             ));
             break;
+      }
+
+      if(WP_DEBUG_LOG_DOPPLER_PLUGINS){
+
+        $msg1 = serialize($method);
+        $msg2 = serialize($args);
+        $msg3 = serialize($body);
+        error_log(
+          "\n restapi call-> method: " . $msg1 . "\n args: " . $msg2 . "\n body: " . $msg3, 
+          3, 
+          wp_upload_dir()['basedir'] . "/doppler-plugins.log"
+        );
+        error_log(
+          "\n restapi -> response: " . print_r($response,true), 
+          3, 
+          wp_upload_dir()['basedir'] . "/doppler-plugins.log"
+        );
       }
 
       if(empty($response)){
@@ -235,13 +252,11 @@ class Doppler_Service
 
     }
     catch(\Exception $e){
-      $this->throwConnectionErr($e->getMessage());
-      return;
+      return $this->throwConnectionErr($e->getMessage());
     }
 
     if( is_wp_error( $response ) ) {
-      $this->throwConnectionErr($response->get_error_message().$url);
-      return;
+      return $this->throwConnectionErr($response->get_error_message());
     }
 
     return $response;		  
@@ -253,18 +268,23 @@ class Doppler_Service
   }
 
   function throwConnectionErr($msg) {
-    //Does this ever shows?
-    if( $this->error == 0 && is_admin() ):
-      ?>
-      <div class="notice notice-error">
-				<p>
-					<b>Doppler Forms:</b> Connection error. <?php echo $msg ?>. Please contact support.
-				</p>
-			</div>
-      <?php
-    endif;
+    if( $this->error == 0 && is_admin() ){
+      $error = [
+        "headers"=>'',
+        "body"=>json_encode([
+          "title"=>'cURL 28',
+          "detail"=> $msg ,
+          "errorCode"=> 1,
+          "status"=> 528
+        ]),
+        "response"=>[
+          "code"=>528
+        ]
+      ];
+      return $error;
+    }
     $this->error = 1;
- }
+  }
 
 }
 
@@ -284,16 +304,11 @@ if( ! class_exists( 'Doppler_Service_Home_Resource' ) ) :
 
     private $methods;
 
-	function __construct( $service, $args )
-    {
+    function __construct( $service, $args ){
       $this->service = $service;
       $this->methods = isset($args['methods']) ? $args['methods'] : null;
     }
 
-	public function getUserAccount(){
-      $method = $methods['get'];
-      return $this->service->call($method, array());
-	  }
   }
 
 endif;
@@ -308,13 +323,12 @@ if( ! class_exists( 'Doppler_Service_Lists_Resource' ) ) :
 
     private $methods;
 
-    function __construct( $service, $args )
-    {
+    function __construct( $service, $args ) {
       $this->service = $service;
       $this->methods = isset($args['methods']) ? $args['methods'] : null;
     }
 
-    public function getList( $listId ){
+    public function getList( $listId ) {
   
       $method = $this->methods['get'];
       return json_decode($this->service->call($method, array("listId" => $listId))['body']);

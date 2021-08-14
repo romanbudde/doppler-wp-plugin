@@ -78,7 +78,7 @@ var FieldModel;
 			};
 
 			var html = "<li data-field-name='"+ field.name +"'>";
-			html += !field.readonly ? "<div class='icon-close'></div>" : "";
+			html += !field.readonly ? "<div class='icon-close'><img src='"+ObjStr.admin_url+"/admin/img/close.svg'/></div>" : "";
 			html += field.name + "<span class='type'> ("+field.type+")</span> <a class='alt-toggle'>"+ObjStr.editField+" <i></i></a> ";
 			html += ' <input type="hidden" name="fields['+field.name+'][type]" value="'+field.type+'">'
 			html += ' <div class="accordion-content field-settings">';

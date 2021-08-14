@@ -1,32 +1,7 @@
 .dplr-tab-content--form-create,.dplr-tab-content--form-edit {
 
-    @import "colorpicker";
-
-    #color-picker {
-        display: none;
-        &.active{
-            display: block;
-            position: absolute;
-            left: 405px;
-            bottom: -7px;
-        }
-    }
-    
-    .dplr_colorpicker_replace {
-        visibility: hidden;
-        margin: 0;
-        overflow: hidden;
-        cursor: pointer;
-        padding: 4px;
-        display: inline-block;
-        border: solid 1px #91765d;
-        background: #eee;
-        color: #333;
-        vertical-align: middle;
-    }
-    
-    .dplr .dplr_input_section .dplr_colorpicker_replace {
-        visibility: hidden;
+    .color-selector{
+        width: 201px;
     }
     
     span.noti {
@@ -43,6 +18,15 @@
 
     .dplr-thankyou-url {
         display: none;
+    }
+
+    .icon-close{
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+        img{
+            height: 10px;
+        }
     }
 
 }

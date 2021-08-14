@@ -73,7 +73,7 @@ class DPLR_Doppler {
 
 		require_once(dirname( __FILE__ ) . '/DopplerAPIClient/DopplerService.php');
 		$this->plugin_name = 'Doppler';
-		$this->version = '2.1.4';
+		$this->version = DOPPLER_FORM_VERSION ;
 		$this->doppler_service = new Doppler_Service();
 
 		$options = get_option('dplr_settings', [
@@ -185,6 +185,7 @@ class DPLR_Doppler {
 		$this->loader->add_action( 'widgets_init', 				$plugin_admin, 'init_widget' );
 		$this->loader->add_action( 'admin_notices', 			$plugin_admin, 'show_admin_notices' );
 		$this->loader->add_action( 'wp_ajax_dplr_ajax_connect', $plugin_admin, 'ajax_connect' );
+		$this->loader->add_action( 'wp_ajax_dplr_ajax_disconnect', $plugin_admin, 'ajax_disconnect' );
 		$this->loader->add_action( 'wp_ajax_dplr_delete_form',  $plugin_admin, 'ajax_delete_form' );
 		$this->loader->add_action( 'wp_ajax_dplr_get_lists',	$plugin_admin, 'ajax_get_lists' );
 		$this->loader->add_action( 'wp_ajax_dplr_save_list', 	$plugin_admin, 'ajax_save_list' );
@@ -203,6 +204,7 @@ class DPLR_Doppler {
 	private function define_public_hooks() {
 
 		$plugin_public = new DPLR_Doppler_Form_Public( $this->get_plugin_name(), $this->get_version(), $this->doppler_service );
+		$this->loader->add_action( 'wp_head', $plugin_public, 'add_tracking_script' );
 		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', 		 $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'wp_ajax_submit_form', 		 $plugin_public, 'submit_form' );

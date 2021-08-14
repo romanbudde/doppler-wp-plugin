@@ -78,7 +78,13 @@
             <div class="radio_section">
               <?php _e('Use my theme\'s default color', 'doppler-form')?><input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="no" checked>&nbsp; 
               <?php _e('Choose another color', 'doppler-form')?><input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="yes"> 
-              <input class="color-selector" type="hidden" name="settings[button_color]" value=""/>
+              <input  class="color-selector d-none" 
+                      type="text" 
+                      pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" 
+                      name="settings[button_color]"
+                      oninvalid="setCustomValidity(object_string.hexValidationError)"
+                      oninput="setCustomValidity('')" 
+                      value=""/>
             </div>   
           </div>
           <div class="dplr_input_section">
@@ -137,5 +143,4 @@ var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = [];
 var view = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
-jQuery(".color-selector").colorpicker();
 </script>
