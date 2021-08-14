@@ -21,7 +21,7 @@
     
     #dplr_logo {
         margin: 90px 0 60px 0;
-        display: block;
+        display: inline-block;
         img {
             width: 210px;
         }
@@ -33,7 +33,11 @@
     }
 
     .disconnect-box{
-      float: right;
+      font-size: 18px;
+      font-family: $text-family-rg;
+      span{
+        margin-right: 30px;
+      }
     }
 
     form#dplr-connect-form{

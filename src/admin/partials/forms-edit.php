@@ -87,7 +87,13 @@
                   <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="no" <?php if(!isset($form->settings['change_button_bg']) || $form->settings['change_button_bg']==='no') echo 'checked'?>>&nbsp; 
                   <?php _e('Choose another color', 'doppler-form')?>
                   <input type="radio" name="settings[change_button_bg]" class="dplr-toggle-selector" value="yes" <?php if($form->settings['change_button_bg']==='yes') echo 'checked'?>> 
-                  <input class="color-selector" type="hidden" name="settings[button_color]" value="<?php echo $form->settings["button_color"]; ?>">   
+                  <input  class="color-selector" 
+                          type="text" 
+                          name="settings[button_color]" 
+                          pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" 
+                          oninvalid="setCustomValidity(object_string.hexValidationError)"
+                          oninput="setCustomValidity('')"
+                          value="<?php echo $form->settings["button_color"]; ?>">   
                 </div>
             </div>
             <div class="dplr_input_section">
@@ -149,5 +155,4 @@ var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = <?php echo json_encode($fields); ?>;
 var fieldsView = new FormFieldsView(all_fields, form_fields, jQuery("#fieldList"), jQuery("#formFields"));
-jQuery(".color-selector").colorpicker({color: "<?php echo (isset($form->settings["button_color"]) && $form->settings["button_color"]!='')? $form->settings["button_color"]: '#ffffff' ?>"});
 </script>
