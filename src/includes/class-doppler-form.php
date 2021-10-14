@@ -86,13 +86,18 @@ class DPLR_Doppler {
 		 	//$this->doppler_service->setCredentials(['api_key' => $options['dplr_option_apikey'], 'user_account' => $options['dplr_option_useraccount']]);
 		 } catch (Exception $e) {;}
 
-	
+		// inicializar el shortcode aca:
+		$this->load_shortcodes();
 		$this->load_dependencies();
 		$this->set_locale(); 
 		$this->define_admin_hooks();
 		$this->define_public_hooks(); 
 		$this->check_version_update();
+	}
 
+	private function load_shortcodes(){
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-doppler-form-generator.php';
+		$this->shortcode = new DPLR_Form_Shortcode();
 	}
 
 	/**
