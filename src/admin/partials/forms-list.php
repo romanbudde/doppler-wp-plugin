@@ -19,6 +19,7 @@
               <th class="col-title"><?php _e('Form Name', 'doppler-form')?></th>
               <th class="col-listname"><?php _e('List Name', 'doppler-form')?></th>
               <th class="col-listid"><?php _e('List ID', 'doppler-form')?></th>
+              <th class="col-shortcode"><?php _e('Shortcode', 'doppler-form')?></th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,7 @@
               </td>
               <td><?php echo isset($dplr_lists_arr[$form->list_id])? $dplr_lists_arr[$form->list_id] : '' ?></td>
               <td><?php echo isset($dplr_lists_arr[$form->list_id])? $form->list_id : '' ?></td>
+              <td>[doppler-form id='<?= $form->id ?>']</td>
             </tr>
             <?php } ?>
           </tbody>
