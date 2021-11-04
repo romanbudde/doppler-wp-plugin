@@ -120,6 +120,17 @@
                   <input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no" <?php if($form->settings['use_consent_field']!=='yes') echo 'checked'?>> 
                 </div>
             </div>
+            <div class="dplr_input_section">
+              <label for="settings[form_orientation]"><?php _e('Orientacion del formulario', 'doppler-form')?> <span class="req">(Obligatorio)</span></label>
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="settings[form_orientation]" value="vertical" <?php if($form->settings['form_orientation']==='vertical') echo 'checked'?> />
+                <label for="vertical">Vertical</label>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="settings[form_orientation]" value="horizontal" <?php if($form->settings['form_orientation']==='horizontal') echo 'checked'?> />
+                <label for="horizontal">Horizontal</label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,6 +162,7 @@
 </div>
 
 <script type="text/javascript">
+// debugger;
 var all_fields = <?php echo json_encode($dplr_fields); ?>;
 all_fields = jQuery.grep(all_fields, function(el, idx) {return el.type == "consent"}, true)
 var form_fields = <?php echo json_encode($fields); ?>;

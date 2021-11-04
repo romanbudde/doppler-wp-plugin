@@ -49,7 +49,7 @@ class DPLR_Form_Controller
 
     if (isset($form_to_update) && count($form_to_update) > 0) {
 
-      DPLR_Form_Model::update($form_id, ['name'=>$form_to_update['name'], 'title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id']]);
+      DPLR_Form_Model::update($form_id, ['name'=>$form_to_update['name'], 'title' => $form_to_update['title'], 'list_id' => $form_to_update['list_id'], 'form_orientation' => $form_to_update['form_orientation'] ]);
 
       DPLR_Form_Model::setSettings($form_id, $form_to_update["settings"]);
 

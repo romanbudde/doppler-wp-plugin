@@ -10,23 +10,139 @@ class DPLR_Form_helper
 
     ?>
     <form class="dplr_form <?php echo $form_class; ?>">
-      <input type="hidden" name="list_id" value="<?php echo $form->list_id; ?>">
-		<?php 
-		foreach ($fields as $field) {
+		<?php
+		if($form->settings["form_orientation"] === 'horizontal'):
+		?>
+			<div style="display:flex; gap: 10px;">
+		<?php
+		else:		
+		?>
+			<div>
+		<?php
+		endif;
+		?>
+		<input type="hidden" name="list_id" value="<?php echo $form->list_id; ?>">
+			<?php 
+			foreach ($fields as $field) {
 				$label = isset($field->settings['label']) ? $field->settings['label'] : $field->name;
+
+				if($form->settings["form_orientation"] === 'horizontal' &&
+				$field->type !== "permission"):
 				?>
-				<div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>">
+					<div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>"
+					style="display: flex; align-items: center;">
+				<?php
+				else:
+				?>
+					<div class="input-field <?php echo isset($field->settings['required']) ? 'required' : ''; ?>">
+				<?php
+				endif;
+				?>
 					<?php if($label!==''): ?>
-						<label for="<?php echo $field->name; ?>" ><?php echo $label; ?></label>
-					<?php endif; ?>
-					<?php echo self::printInput($field);?>
+						<?php
+						if($form->settings["form_orientation"] === 'horizontal'):
+							// if($field->type === 'permission'):
+							// ?>
+								<!-- <label for="<?php //echo $field->name; ?>" >
+							// 		<?php //echo $label; ?>
+							// 	</label> -->
+								<?php 
+							// endif;
+						?>
+							<!-- <label for="<?php // echo $field->name; ?>" style="white-space: nowrap; margin-right: 10px;" >
+								<?php // echo $label; ?>
+							</label> -->
+						<?php
+						else:
+							if($field->type !== 'permission'):
+						?>
+							<label for="<?php echo $field->name; ?>" >
+								<?php echo $label; ?>
+							</label>
+						<?php 
+							endif;
+						endif; 
+					endif;
+					if( ($form->settings["form_orientation"] === 'horizontal' && 
+					$field->type !== 'permission') ||
+					($form->settings["form_orientation"] === 'vertical') ):
+						echo self::printInput($field, $form, $label);
+					endif;
+					?>
 				</div>
-				<?php 
-		}
-		if($form->settings['use_consent_field']==='yes'){
+			<?php 
+			}
+			if($form->settings["form_orientation"] === 'vertical'):
+				if($form->settings['use_consent_field']==='yes'){
+				?>
+				<div class="input-field" style="order:999;" required>
+					<input type="checkbox" name="fields-CONSENT" value="true"
+					required/>
+					<?= isset($form->settings['consent_field_text']) && !empty($form->settings['consent_field_text']) ? $form->settings['consent_field_text'] : _e("I've read and accept the privace policy", "doppler-form") ?>
+					<?php 
+						if( isset($form->settings['consent_field_url']) && !empty($form->settings['consent_field_url']) ){
+								?>
+								<a href="<?= $form->settings['consent_field_url'] ?>"><?php _e('Read more', 'doppler-form')?></a>
+								<?php
+						} 
+					?>
+				</div>
+				<?php
+				}
+				if($form->settings['use_thankyou_page']==='yes'){
+				?>
+					<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
+					<?php
+				}	
+			endif;
+
 			?>
-			<div class="input-field" required>
-				<input type="checkbox" name="fields-CONSENT" required value="true"/> 
+			<input type="text" name="secondary-dplrEmail" value="" class="dplr-secondary-email"/>
+			<?php
+			
+			$button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "left";
+			$submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "";
+			$message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "";
+			if(empty($submit_text)){
+				$submit_text =  __('Submit', 'doppler-form');
+			}
+			if(empty($message_success)){
+				$message_success = __('Thanks for subscribing', 'doppler-form');
+			}
+
+			$buttom_color = '';
+
+			if($form->settings['change_button_bg']==='yes'){
+				$buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
+			}
+			
+		?>
+			<div class="input-buttom" >
+				<button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>">
+					<img src="<?php echo plugin_dir_url(__FILE__)?>../../public/img/spinner.svg"/>
+					<span><?=$submit_text?></span>
+				</button>
+			</div>
+			<label class="msg-data-sending"><?=$message_success?></label>
+		</div>
+		<?php
+
+		if($form->settings["form_orientation"] === 'horizontal'):
+			foreach ($fields as $field) {
+				if($field->type === "permission"):
+					?>
+					<!-- <label for="<?php // echo $field->name; ?>" >
+						<?php // echo $field->settings["label"]; ?>
+					</label> -->
+					<?php
+					echo self::printInput($field, $form, $label);
+				endif;
+			}
+			if($form->settings['use_consent_field']==='yes'){
+			?>
+			<div class="input-field" style="order:999;" required>
+				<input type="checkbox" name="fields-CONSENT" value="true"
+				required/>
 				<?= isset($form->settings['consent_field_text']) && !empty($form->settings['consent_field_text']) ? $form->settings['consent_field_text'] : _e("I've read and accept the privace policy", "doppler-form") ?>
 				<?php 
 					if( isset($form->settings['consent_field_url']) && !empty($form->settings['consent_field_url']) ){
@@ -37,66 +153,80 @@ class DPLR_Form_helper
 				?>
 			</div>
 			<?php
-		}
-		if($form->settings['use_thankyou_page']==='yes'){
+			}
+			if($form->settings['use_thankyou_page']==='yes'){
 			?>
-			<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
-			<?php
-		}
-		?>
-		<input type="text" name="secondary-dplrEmail" value="" class="dplr-secondary-email"/>
-		<?php
-		
-		$button_position = isset($form->settings["button_position"]) ? $form->settings["button_position"] : "left";
-		$submit_text = isset($form->settings["button_text"]) ? $form->settings["button_text"] : "";
-		$message_success = isset($form->settings["message_success"]) ? $form->settings["message_success"] : "";
-		if(empty($submit_text)){
-			$submit_text =  __('Submit', 'doppler-form');
-		}
-		if(empty($message_success)){
-			$message_success = __('Thanks for subscribing', 'doppler-form');
-		}
-
-		$buttom_color = '';
-
-		if($form->settings['change_button_bg']==='yes'){
-			$buttom_color = isset($form->settings["button_color"]) && !empty(trim($form->settings["button_color"])) ? "background: ". $form->settings["button_color"] .";" : "";
-		}
-		
-    ?>
-      	<div class="input-buttom">
-			<button type="submit"  name="submit" style="<?php echo $buttom_color; ?>" class="<?php echo $button_position; ?>">
-				<img src="<?php echo plugin_dir_url(__FILE__)?>../../public/img/spinner.svg"/>
-				<span><?=$submit_text?></span>
-			</button>
-		</div>
-		<label class="msg-data-sending"><?=$message_success?></label>
+				<input type="hidden" value="<?php echo $form->settings['thankyou_page_url']?>" name="thankyou"/>
+				<?php
+			}	
+		endif;
+	?>
     </form>
     <?php
   }
 
-  private static function printInput($input) {
+  private static function printInput($input, $form, $label) {
 
 		$required = isset($input->settings["required"]) ? "required" : "";
     	switch ($input->type) {
 		case 'string':
-			if ($input->settings['text_lines'] == 'single') {?>
-				<input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
-			<?php } else {?>
+			if ($input->settings['text_lines'] == 'single') {
+				if($form->settings["form_orientation"] === 'horizontal'):
+				?>
+					<input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->name) ? $input->name : ''; ?>" maxlength="150"/>
+				<?php
+				else: 
+				?>
+					<input <?=$required?> type="text" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
+				<?php
+				endif;
+			} 
+			else 
+			{?>
 				<textarea <?=$required?> name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" rows="3" cols="80" maxlength="150"></textarea>
 			<?php }
 			break;
 		case 'number':?>
+			<?php
+			if($form->settings["form_orientation"] === 'horizontal'):
+			?>
 				<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="27"/>
 				<?php
+			else:
+			?>
+				<input <?=$required?> type="number" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo $label ?>" maxlength="27"/>
+			<?php
+			endif;
 			break;
 		case 'phone':?>
-				<input <?=$required?> type="tel" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
+			<?php
+			if($form->settings["form_orientation"] === 'horizontal'):
+			?>
+				<input <?=$required?> type="tel" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo $label?>" maxlength="150"/>
 				<?php
-				break;
+			else:
+				?>
+				<input <?=$required?> type="tel" name="fields-<?php echo $input->name; ?>" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>" maxlength="150"/>
+			<?php
+			endif;
+			break;
 		case 'consent':?>
 			<input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
 			<?php
+			break;
+			//Agregado case 'permission'
+		case 'permission':?>
+			<div 
+			class="permission-field" 
+			style="display:flex; justify-content: flex-start; align-items: center;"
+			>
+				<input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
+				<label for="fields-<?php echo $input->name; ?>"><?php echo $input->name; ?></label>
+				<?
+					// echo $input->permissionHTML; 
+				?>
+			</div>
+			<?
 			break;
 		case 'boolean':
 			?>
@@ -105,12 +235,43 @@ class DPLR_Form_helper
 			break;
 		case 'email':
 			?>
-			<input <?=$required?> type="email" oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" name="<?php echo $input->name; ?>"  oninput="this.setCustomValidity('')" value="" maxlength="150" placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>"><?php
+			<?php
+			if($form->settings["form_orientation"] === 'horizontal'):
+			?>
+				<input <?=$required?> type="email" 
+				oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" 
+				pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" 
+				name="<?php echo $input->name; ?>"  oninput="this.setCustomValidity('')" 
+				value="" 
+				maxlength="150" 
+				placeholder="<?php echo $label ?>">
+			<?php
+			else:
+			?>
+				<input <?=$required?> type="email" 
+				oninvalid="this.setCustomValidity('<?php _e('Please enter a valid email address.', 'doppler-form') ?>')" 
+				pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" 
+				name="<?php echo $input->name; ?>"  oninput="this.setCustomValidity('')" 
+				value="" 
+				maxlength="150" 
+				placeholder="<?php echo isset($input->settings['placeholder']) ? $input->settings['placeholder'] : ''; ?>">
+			<?php
+			endif;
 			break;
 		case 'date':
 			?>
-			<input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date" maxlength="150">
-			<input type="hidden" name="fields-<?php echo $input->name; ?>" value=""><?php
+			<?php
+			if($form->settings["form_orientation"] === 'horizontal'):
+			?>
+				<input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date" maxlength="150" placeholder="<?php echo $label ?>">
+				<input type="hidden" name="fields-<?php echo $input->name; ?>" value="">
+			<?php
+			else:
+			?>
+				<input <?=$required?> type="text" name="<?php echo $input->name; ?>" value="" class="date" maxlength="150">
+				<input type="hidden" name="fields-<?php echo $input->name; ?>" value="">
+			<?php
+			endif;
 			break;
 		case 'gender':
 		?>

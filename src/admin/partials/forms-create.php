@@ -109,6 +109,17 @@
               <?php _e('No', 'doppler-form')?><input type="radio" name="settings[use_consent_field]" class="dplr-toggle-consent" value="no"> 
             </div>
           </div>
+          <div class="dplr_input_section">
+              <label for="settings[form_orientation]"><?php _e('Orientacion del formulario', 'doppler-form')?> <span class="req">(Obligatorio)</span></label>
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="settings[form_orientation]" value="vertical" checked/>
+                <label for="vertical">Vertical</label>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <input type="radio" name="settings[form_orientation]" value="horizontal"/>
+                <label for="horizontal">Horizontal</label>
+              </div>
+            </div>
         </div>
       </div>
     </div>
