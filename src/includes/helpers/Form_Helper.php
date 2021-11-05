@@ -140,7 +140,7 @@ class DPLR_Form_helper
 			}
 			if($form->settings['use_consent_field']==='yes'){
 			?>
-			<div class="input-field" style="order:999;" required>
+			<div class="input-field" style="order:999; text-align: left;" required>
 				<input type="checkbox" name="fields-CONSENT" value="true"
 				required/>
 				<?= isset($form->settings['consent_field_text']) && !empty($form->settings['consent_field_text']) ? $form->settings['consent_field_text'] : _e("I've read and accept the privace policy", "doppler-form") ?>
@@ -221,17 +221,16 @@ class DPLR_Form_helper
 			style="display:flex; justify-content: flex-start; align-items: center;"
 			>
 				<input <?=$required?> type="checkbox" name="fields-<?php echo $input->name; ?>" value = "true"/>
-				<label for="fields-<?php echo $input->name; ?>"><?php echo $input->name; ?></label>
-				<?
-					// echo $input->permissionHTML; 
-				?>
+				<label for="fields-<?php echo $input->name; ?>"><?php echo $input->name; ?>
+				</label>
 			</div>
-			<?
+			<?php
 			break;
 		case 'boolean':
 			?>
 			<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="true">Si
-			<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/><?php
+			<input <?=$required?> type="radio" name="fields-<?php echo $input->name; ?>" value="false">No<br/>
+			<?php
 			break;
 		case 'email':
 			?>
