@@ -131,7 +131,7 @@ En [este artículo](https://help.fromdoppler.com/es/api-interfaz-de-programacion
 * Optimized requests to api
 
 = 2.1.1 =  
-* Fix fatal error with new extension class
+* Fixed fatal error with new extension class
 
 = 2.1.0 =
 * Added Manage Lists section.
